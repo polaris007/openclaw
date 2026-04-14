@@ -1,6 +1,6 @@
 # OpenClaw 企业级监控面板架构设计 (Go + SpringBoot版)
 
-**文档版本**: 8.0  
+**文档版本**: 9.0  
 **创建日期**: 2026-04-13  
 **作者**: AI Assistant  
 **状态**: 待审批  
@@ -66,7 +66,7 @@
   - 内存占用最低(~50MB vs Node.js ~300MB)
   - 启动速度快(<1秒),适合容器化
 
-#### 决策2: Center Services 使用 SpringBoot
+#### 决策2: Center Service 使用 SpringBoot
 - **备选方案**: 全部用Go,混合架构
 - **选择理由**:
   - 团队已有Java/Spring经验,学习成本低
@@ -150,7 +150,7 @@
 
 **JSONL 格式示例:**
 ```jsonl
-{"type":"message","timestamp":"2026-04-13T10:30:00Z","message":{"role":"assistant","provider":"openai","model":"gpt-4","content":[{"type":"tool_use","id":"toolu_abc","name":"code-assistant","input":{"prompt":"..."}}],"usage":{"input":100,"output":200,"totalTokens":300,"cost":{"total":0.003}},"durationMs":1250}}
+{"type":"message","timestamp":"2026-04-13T10:30:00Z","message":{"role":"assistant","provider":"openai","model":"gpt-4","content":[{"type":"tool_use","id":"toolu_abc","name":"code-assistant","input":{"prompt":"..."}}],"usage":{"input":100,"output":200,"cacheRead":50,"cacheWrite":25,"totalTokens":300,"cost":{"input":0.001,"output":0.002,"total":0.003}},"durationMs":1250}}
 {"type":"message","timestamp":"2026-04-13T10:30:01Z","message":{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_abc","content":"...","is_error":false}]}}
 ```
 
@@ -571,6 +571,24 @@ CREATE TABLE instance_collector_mapping (
     FOREIGN KEY (instance_id) REFERENCES openclaw_instances(instance_id) ON DELETE CASCADE COMMENT '外键:实例删除时级联删除映射',
     FOREIGN KEY (collector_id) REFERENCES collectors(collector_id) ON DELETE CASCADE COMMENT '外键:Collector删除时级联删除映射'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='实例与Collector分配关系表';
+
+-- Rebalance历史记录表
+-- 用途: 记录Rebalance操作的历史,便于审计和故障排查
+CREATE TABLE rebalance_history (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
+    trigger_type ENUM('collector_register', 'collector_unregister', 'scheduled', 'manual') NOT NULL COMMENT '触发类型',
+    trigger_collector_id VARCHAR(50) COMMENT '触发本次Rebalance的Collector ID',
+    total_instances INT NOT NULL DEFAULT 0 COMMENT '涉及的总实例数',
+    reassigned_count INT NOT NULL DEFAULT 0 COMMENT '实际重新分配的实例数',
+    started_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始时间',
+    completed_at TIMESTAMP NULL COMMENT '完成时间',
+    status ENUM('running', 'completed', 'failed') DEFAULT 'running' COMMENT '执行状态',
+    error_message TEXT COMMENT '如果失败,记录错误信息',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    INDEX idx_trigger_type (trigger_type) COMMENT '按触发类型查询',
+    INDEX idx_started_at (started_at) COMMENT '按开始时间查询',
+    INDEX idx_status (status) COMMENT '按状态查询'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Rebalance操作历史记录表';
 ```
 
 #### 5.4.3 核心Service
@@ -931,9 +949,32 @@ CREATE TABLE metrics_user_activity (
     INDEX idx_user_id (user_id) COMMENT '按用户ID查询索引'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户活跃度表';
 
+-- Skill使用小时级聚合表
+-- 用途: 按小时统计各实例/Skill的性能指标，用于快速查询和趋势分析
+-- 由定时任务每小时计算一次 (见 11.3 数据聚合策略)
+CREATE TABLE metrics_skill_hourly_stats (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
+    bucket_time TIMESTAMP NOT NULL COMMENT '统计时间窗口起点',
+    instance_id VARCHAR(50) COMMENT '实例ID',
+    skill_name VARCHAR(100) COMMENT 'Skill名称',
+    total_calls INT DEFAULT 0 COMMENT '总调用次数',
+    success_count INT DEFAULT 0 COMMENT '成功次数',
+    error_count INT DEFAULT 0 COMMENT '失败次数',
+    avg_duration_ms DECIMAL(10,2) DEFAULT 0 COMMENT '平均耗时(ms)',
+    p95_duration_ms DECIMAL(10,2) DEFAULT 0 COMMENT 'P95耗时(ms)',
+    p99_duration_ms DECIMAL(10,2) DEFAULT 0 COMMENT 'P99耗时(ms)',
+    avg_cost DECIMAL(10,6) DEFAULT 0 COMMENT '平均成本(USD)',
+    total_cost DECIMAL(12,6) DEFAULT 0 COMMENT '总成本(USD)',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    UNIQUE KEY uk_bucket_instance_skill (bucket_time, instance_id, skill_name) COMMENT '唯一约束',
+    INDEX idx_bucket_time (bucket_time) COMMENT '按时间窗口查询',
+    INDEX idx_instance_id (instance_id) COMMENT '按实例查询',
+    INDEX idx_skill_name (skill_name) COMMENT '按Skill查询'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Skill使用小时级聚合表';
+
 -- ==================== Redis实时状态存储 ====================
 -- 说明: 实例健康、渠道状态、配额状态等实时数据存储在Redis中，不持久化到数据库
--- Redis Key设计见下方 "5.3.4 Redis数据结构设计" 章节
+-- Redis Key设计见下方 "5.5.3 Redis数据结构设计" 章节
 
 -- ==================== 告警事件表(Phase 3) ====================
 CREATE TABLE alert_events (
@@ -1418,7 +1459,7 @@ public class UserService {
 }
 ```
 
-#### 5.5.3 REST API端点
+#### 5.5.5 REST API端点
 
 ```
 POST /api/metrics/batch
@@ -1735,7 +1776,7 @@ public class SkillStats {
 
 ## 八、智能洞察与告警系统
 
-### 7.1 告警规则配置
+### 8.1 告警规则配置
 
 | 规则名称 | 触发条件 | 严重级别 | 通知渠道 |
 |---------|---------|---------|----------|
@@ -1749,7 +1790,7 @@ public class SkillStats {
 | 错误率告警 | errors/total > 5% | Warning | Slack |
 | 成本超预算 | 月度成本 > 预算阈值 | Warning | Email |
 
-### 7.2 告警生命周期管理
+### 8.2 告警生命周期管理
 
 ```
 触发条件满足 → 创建告警事件(status=active)
@@ -1792,7 +1833,7 @@ INSERT INTO alert_rules (rule_name, description, metric_name, operator, threshol
 ('high_error_rate', '错误率过高', 'error_rate', '>', 5, 'warning', '["slack"]');
 ```
 
-### 7.3 告警抑制与去重引擎
+### 8.3 告警抑制与去重引擎
 
 **AlertSuppressionEngine.java**
 
@@ -1862,7 +1903,7 @@ public class AlertSuppressionEngine {
 
 ## 九、动态扩展与故障转移
 
-### 8.1 新增Collector流程
+### 9.1 新增Collector流程
 
 ```
 1. 部署新的Collector容器
@@ -1894,7 +1935,7 @@ public class AlertSuppressionEngine {
   Collector-3: [inst-067, ..., inst-100]
 ```
 
-### 8.2 Collector故障转移流程
+### 9.2 Collector故障转移流程
 
 ```
 1. Registry定时任务检测到Collector心跳超时(>2分钟)
@@ -1914,7 +1955,7 @@ public class AlertSuppressionEngine {
 
 ## 十、前端UI设计规范
 
-### 9.1 技术栈
+### 10.1 技术栈
 
 | 组件 | 技术选型 | 理由 |
 |------|---------|------|
@@ -1928,7 +1969,7 @@ public class AlertSuppressionEngine {
 | **样式方案** | SCSS + CSS Modules | Element Plus内置主题定制,企业后台最佳实践 |
 | **国际化** | vue-i18n 9.x | Vue官方i18n方案,支持响应式语言切换 |
 
-### 9.2 页面结构
+### 10.2 页面结构
 
 ```
 监控面板
@@ -1971,9 +2012,9 @@ public class AlertSuppressionEngine {
     └── 健康检查日志
 ```
 
-### 9.3 关键页面详细设计
+### 10.3 关键页面详细设计
 
-#### 9.3.1 领导视图 - 总览仪表板
+#### 10.3.1 领导视图 - 总览仪表板
 
 **顶部统计卡片 (4个):**
 
@@ -2018,7 +2059,7 @@ public class AlertSuppressionEngine {
    - 显示: 工具名称 / 调用次数 / 成功率
    - 点击可查看该工具的详细统计
 
-#### 9.3.2 运维视图 - 实时监控
+#### 10.3.2 运维视图 - 实时监控
 
 **工具栏:**
 - 搜索框: 按实例ID/名称/IP搜索
@@ -2052,7 +2093,7 @@ public class AlertSuppressionEngine {
 - WebSocket推送实时告警(Phase 3)
 - 数据变更时高亮显示(绿色闪烁)
 
-#### 9.3.3 用户视图 - 个人统计
+#### 10.3.3 用户视图 - 个人统计
 
 **个人统计卡片 (4个):**
 
@@ -2092,7 +2133,7 @@ public class AlertSuppressionEngine {
 - 点击可展开完整对话内容
 - 支持搜索和过滤
 
-### 9.4 响应式设计
+### 10.4 响应式设计
 
 **断点设置:**
 - Desktop: ≥1200px (完整布局,多列显示)
@@ -2105,7 +2146,7 @@ public class AlertSuppressionEngine {
 - 表格改为卡片式列表
 - 底部导航栏替代侧边栏
 
-### 9.5 主题与国际化
+### 10.5 主题与国际化
 
 **主题支持:**
 - 浅色主题 (默认)
@@ -2122,7 +2163,7 @@ public class AlertSuppressionEngine {
 
 ## 十一、性能优化
 
-### 10.1 Edge Collector优化
+### 11.1 Edge Collector优化
 
 **Concurrency Control:**
 ```go
@@ -2157,14 +2198,15 @@ defer conn.Close()
 // Send request and receive response
 ```
 
-### 10.2 数据库查询优化
+### 11.2 数据库查询优化
 
 **索引优化:**
 ```sql
 -- 高频查询字段建立索引
 CREATE INDEX idx_instance_user ON session_log_metadata(instance_id, user_id);
 CREATE INDEX idx_stat_date ON metrics_token_daily(stat_date);
-CREATE INDEX idx_snapshot_time ON metrics_instance_health(snapshot_time);
+-- 注意: metrics_instance_health/channel_status/quota_status 表已在 v6.0 中删除
+-- 实时状态改用 Redis 存储，无需相关索引
 ```
 
 **批量插入:**
@@ -2190,7 +2232,7 @@ redisTemplate.opsForValue().set(cacheKey, JSON.toJSONString(data), 5, TimeUnit.M
 return data;
 ```
 
-### 10.3 数据聚合策略 (OceanBase替代方案)
+### 11.3 数据聚合策略 (OceanBase替代方案)
 
 由于OceanBase不支持TimescaleDB的连续聚合(Continuous Aggregates)特性,我们采用以下替代方案:
 
@@ -2255,6 +2297,9 @@ END;
 -- 备选方案: 使用 PERCENT_RANK() 窗口函数 (MySQL 8.0+)
 -- 如果数据库支持，推荐使用此方案
 /*
+-- ⚠️ 注意: 使用 GROUP_CONCAT 计算 P95 时，需要确保 group_concat_max_len 足够大
+-- 建议在会话级别设置: SET SESSION group_concat_max_len = 102400; (100KB)
+-- 或在 MySQL 配置文件中设置: group_concat_max_len = 102400
 INSERT INTO metrics_skill_hourly_stats (
     bucket_time, instance_id, skill_name, total_calls,
     avg_duration_ms, p95_duration_ms, success_rate, error_count
@@ -2434,7 +2479,7 @@ ALTER TABLE metrics_token_daily PARTITION BY RANGE (TO_DAYS(stat_date)) (
 );
 ```
 
-### 10.4 数据保留策略
+### 11.4 数据保留策略
 
 **数据分层存储策略:**
 
@@ -2510,22 +2555,14 @@ public class DataRetentionManager {
         }
     }
     
+    /**
+     * 注意: 高频快照表 (metrics_instance_health, metrics_channel_status, metrics_quota_status)
+     * 已在 v6.0 中删除，实时状态改用 Redis 存储，无需定期清理
+     */
     private void cleanupSnapshots() {
-        LocalDateTime cutoffTime = LocalDateTime.now().minusDays(snapshotRetentionDays);
-        
-        String[] tables = {
-            "metrics_instance_health",
-            "metrics_channel_status",
-            "metrics_quota_status"
-        };
-        
-        for (String table : tables) {
-            int deleted = jdbcTemplate.update(
-                "DELETE FROM " + table + " WHERE snapshot_time < ?",
-                cutoffTime
-            );
-            log.info("Cleaned {} records from {}", deleted, table);
-        }
+        // 实时状态已迁移至 Redis (monitor:instance:{instanceId}, monitor:channel:{instanceId}:{channel})
+        // 无需数据库清理逻辑
+        log.info("高频快照表已迁移至Redis，数据库清理跳过");
     }
     
     private void cleanupOldAlerts() {
@@ -2541,7 +2578,7 @@ public class DataRetentionManager {
 }
 ```
 
-### 10.5 Redis缓存结构设计
+### 11.5 Redis缓存结构设计
 
 **缓存Key设计规范:**
 
@@ -2597,7 +2634,7 @@ public class CacheManagementService {
      * @return 健康数据,如果缓存不存在返回null
      */
     public HealthData getHealthCache(String instanceId) {
-        String cacheKey = "current_health:" + instanceId;
+        String cacheKey = "monitor:instance:" + instanceId;
         Map<Object, Object> entries = redisTemplate.opsForHash().entries(cacheKey);
         
         if (entries.isEmpty()) {
@@ -2681,22 +2718,26 @@ public class CacheMetricsMonitor {
 
 ## 十二、安全设计
 
-### 11.1 认证授权
+### 12.1 认证授权
 
 **Phase 1 - JWT Token:**
 ```java
-// Spring Security配置
+// Spring Security 6.0 配置 (SpringBoot 3.x)
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-            .antMatchers("/api/registry/**").hasRole("ADMIN")
-            .antMatchers("/api/metrics/**").authenticated()
-            .and()
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/registry/**").hasRole("ADMIN")
+                .requestMatchers("/api/metrics/**").authenticated()
+                .anyRequest().permitAll()
+            )
             .addFilterBefore(jwtAuthenticationFilter(), 
                 UsernamePasswordAuthenticationFilter.class);
+        return http.build();
     }
 }
 ```
@@ -2706,14 +2747,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 - RBAC权限控制
 - API速率限制
 
-### 11.2 数据安全
+### 12.2 数据安全
 
 - HTTPS/TLS 1.3加密传输
 - 敏感数据脱敏(userId哈希处理)
 - SSH Key管理(ed25519,禁用密码登录)
 - NFS挂载安全选项(ro,noexec,nosuid,nodev)
 
-### 11.3 审计日志系统
+### 12.3 审计日志系统
 
 **功能职责:**
 - 记录所有用户操作(登录、API调用、配置变更)
@@ -2982,7 +3023,7 @@ spring.flyway.validate-on-migrate=true
 
 > **注意**: 每次数据库变更需要新增 migration 文件 (如 `V5__add_xxx.sql`)，由 CI/CD 自动执行。
 
-### 13.2 Docker Compose示例
+### 13.3 Docker Compose示例
 
 **Edge Collector:**
 ```yaml
@@ -3259,6 +3300,18 @@ networks:
 - [Vue Router 文档](https://router.vuejs.org/zh/)
 - [vue-i18n 文档](https://vue-i18n.intlify.dev/)
 
+### E. 术语表
+
+| 术语 | 英文 | 说明 |
+|------|------|------|
+| Edge Collector | Edge Collector | 部署在每个区域的轻量级采集器，负责轮询 OpenClaw 实例并上报数据 |
+| Center Service | Center Service | SpringBoot 服务，聚合多区域采集数据，提供 API 和 Web UI |
+| Registry Service | Registry Service | SpringBoot 服务，管理 Edge Collector 注册和实例分配 |
+| Rebalance | Rebalance | 实例在 Collector 之间的动态重分配机制 |
+| Session Log | Session Log | OpenClaw 生成的 JSONL 格式会话日志文件 |
+| P95/P99 | Percentile | 延迟分布的百分位数 |
+| TTL | Time To Live | 缓存过期时间 |
+
 ### F. 变更记录
 
 | 版本 | 日期 | 作者 | 变更说明 |
@@ -3271,6 +3324,7 @@ networks:
 | **6.0** | **2026-04-13** | **AI Assistant** | **架构优化: 删除高频快照表(metrics_instance_health/channel_status/quota_status)，实时状态改用Redis存储，新增Redis数据结构设计章节** |
 | **7.0** | **2026-04-13** | **AI Assistant** | **数据量估算修正: 基于一对一业务模型重新估算所有表数据量，新增10.3.5节容量规划，确认无需数据库分区** |
 | **8.0** | **2026-04-13** | **AI Assistant** | **章节编号全面修正: 删除重复的第六章标题，修正第五、七、八章子章节编号混乱问题** |
+| **9.0** | **2026-04-14** | **AI Assistant** | **章节编号全面修正: 修正第八至十三章子章节编号混乱问题；删除cleanupSnapshots()中对已删除表的引用；补充附录E术语表；修正Spring Security配置为6.0风格；补充缺失的rebalance_history和metrics_skill_hourly_stats表定义** |
 
 ---
 
