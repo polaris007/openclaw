@@ -1,6 +1,6 @@
 # OpenClaw 企业级监控面板架构设计 (Go + SpringBoot版)
 
-**文档版本**: 10.0  
+**文档版本**: 13.0  
 **创建日期**: 2026-04-13  
 **作者**: AI Assistant  
 **状态**: 待审批  
@@ -23,7 +23,7 @@
 
 | 角色 | 关注重点 | 关键指标 |
 |------|---------|---------|
-| **公司领导** | 业务价值、成本ROI、使用趋势 | 活跃实例数、总会话量、成本统计、部门对比 |
+| **公司领导** | 业务价值、使用趋势 | 活跃实例数、总会话量、Token消耗趋势、部门对比 |
 | **开发运维** | 系统健康、故障诊断、性能监控 | 实例状态、渠道连接、错误率、Skill性能 |
 | **普通用户** | 个人使用统计、效率提升 | 个人会话、Token消耗、常用Skill、成就系统 |
 
@@ -37,8 +37,8 @@
 - 原始 Session Log 可追溯(文件丢失可从数据库元数据恢复归档位置)
 
 ⚠️ **可选功能:**
-- 简单告警展示 (界面内,无需外部通知) - Phase 1
-- 完整告警系统 (Slack/Email/Webhook) - Phase 3
+- 简单告警展示 (界面内,无需外部通知) - Phase 2
+- 完整告警系统 (云助理/Email) - Phase 3 (低优先级)
 - SSO 集成 - Phase 3
 
 ---
@@ -93,7 +93,7 @@
 - **理由**:
   - 平衡存储成本和追溯能力
   - 元数据(文件名、路径、时间范围)存入OceanBase
-  - 原始JSONL文件压缩归档到S3/OSS/NAS
+  - 原始JSONL文件压缩归档到NAS
   - 文件丢失时可通过元数据定位归档位置
 
 #### 决策7: 用户映射关系
@@ -114,8 +114,9 @@
   
   2. **利用Gateway内置缓存**:
      - Health API已有内存缓存(`HEALTH_REFRESH_INTERVAL_MS`)
-     - Usage API有30秒缓存(`COST_USAGE_CACHE_TTL_MS`)
+     - Usage API有30秒缓存(`COST_USAGE_CACHE_TTL_MS = 30s`)
      - 调用时设置`probe:false`,大部分请求命中缓存,开销极低
+     - 即使不使用成本统计,缓存机制仍对Token等指标生效
   
   3. **实现简单可靠**:
      - 无需处理断线重连、心跳超时、连接池管理
@@ -146,7 +147,6 @@
 | **渠道连接状态** | Gateway API `channels.status` | Edge Collector → Redis缓存 | 30秒 | 各渠道是否链接、配置状态、探测延迟 |
 | **LLM配额状态** | Gateway API `usage.status` | Edge Collector → Redis缓存 | 5分钟 | Provider套餐、使用百分比、重置时间 |
 | **Token消耗** | Session Logs JSONL | 文件扫描器异步处理 | 5分钟 | 输入/输出Token、缓存读写Token |
-| **成本明细** | Session Logs JSONL | 文件扫描器异步处理 | 5分钟 | 总成本、输入成本、输出成本(USD) |
 | **消息统计** | Session Logs JSONL | 文件扫描器异步处理 | 5分钟 | 会话数、用户消息、助手回复、工具调用、错误数 |
 | **工具调用** | Session Logs JSONL | 文件扫描器异步处理 | 5分钟 | 工具名称、调用次数、成功/失败次数 |
 | **延迟数据** | Session Logs JSONL | 文件扫描器异步处理 | 5分钟 | 平均延迟、P95延迟、最小/最大延迟 |
@@ -154,10 +154,10 @@
 | **用户活跃度** | Session Logs JSONL | 文件扫描器异步处理 | 5分钟 | 用户ID、会话ID、活动时间、消息数 |
 
 **重要发现:**
-- ✅ Session Logs 包含 **90%** 的监控数据(Token、成本、消息、工具、延迟等)
+- ✅ Session Logs 包含 **90%** 的监控数据(Token、消息、工具、延迟等)
 - ⚠️ Provider 配额状态必须通过 `usage.status` API 获取,不在 Session Logs 中
 - ⚠️ 实时健康状态必须通过 `health` API 获取,反映当前时刻的系统状态
-- ⚠️ 某些高级成本分析可能需要直接调用 Provider API (可选,Phase 3)
+- ℹ️ **成本统计已移除**: 由于使用内部部署大模型,无需统计USD成本,仅关注Token消耗量
 
 ### 3.2 Gateway API 方法清单
 
@@ -168,7 +168,6 @@
 | `health` | 完整健康快照 | `{ok: true, durationMs: 45, channelCount: 3, agentCount: 2}` | read |
 | `status` | 系统状态摘要 | `{version: "1.0", uptime: 86400}` | read |
 | `usage.status` | LLM提供商配额状态 | `{providers: {openai: {plan: "pro", usedPercent: 65.5, resetAt: "2026-05-01T00:00:00Z"}}}` | read |
-| `usage.cost` | Token和成本统计 | `{totalCost: 12.34, totalTokens: 100000}` | read |
 | `channels.status` | 渠道状态 | `{channels: [{id: "telegram", linked: true, configured: true, probeOk: true, probeMs: 120}]}` | read |
 | `sessions.usage` | Session使用统计 | `{activeSessions: 15, totalSessions: 1234}` | read |
 | `sessions.usage.timeseries` | 时间序列数据 | `{dataPoints: [{timestamp: "...", tokens: 1000}]}` | read |
@@ -179,7 +178,7 @@
 
 **JSONL 格式示例:**
 ```jsonl
-{"type":"message","timestamp":"2026-04-13T10:30:00Z","message":{"role":"assistant","provider":"openai","model":"gpt-4","content":[{"type":"tool_use","id":"toolu_abc","name":"code-assistant","input":{"prompt":"..."}}],"usage":{"input":100,"output":200,"cacheRead":50,"cacheWrite":25,"totalTokens":300,"cost":{"input":0.001,"output":0.002,"total":0.003}},"durationMs":1250}}
+{"type":"message","timestamp":"2026-04-13T10:30:00Z","message":{"role":"assistant","provider":"openai","model":"gpt-4","content":[{"type":"tool_use","id":"toolu_abc","name":"code-assistant","input":{"prompt":"..."}}],"usage":{"input":100,"output":200,"cacheRead":50,"cacheWrite":25,"totalTokens":300},"durationMs":1250}}
 {"type":"message","timestamp":"2026-04-13T10:30:01Z","message":{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_abc","content":"...","is_error":false}]}}
 ```
 
@@ -193,9 +192,6 @@
 - `usage.cacheRead`: 缓存读取 Token
 - `usage.cacheWrite`: 缓存写入 Token
 - `usage.totalTokens`: 总 Token 数
-- `cost.input`: 输入成本 (USD)
-- `cost.output`: 输出成本 (USD)
-- `cost.total`: 总成本 (USD)
 - `durationMs`: 响应延迟 (毫秒)
 - `content[].type`: tool_use/tool_result
 - `content[].name`: 工具名称
@@ -212,8 +208,8 @@ OpenClaw Instance
     └─ Session Logs (文件系统JSONL)
         └─ Edge Collector扫描 → 提取元数据 → Center Service
             ├─ 元数据入库 → session_log_metadata表
-            ├─ 解析聚合 → metrics_token_daily/cost_daily/message_daily等表
-            └─ 原始文件归档 → S3/OSS/NAS (路径存入archived_location字段)
+            ├─ 解析聚合 → metrics_token_daily/message_daily等表
+            └─ 原始文件归档 → NAS (路径存入archived_location字段)
 ```
 
 ---
@@ -230,8 +226,7 @@ OpenClaw Instance
 | 新增会话趋势 | Session Logs | 每日新增会话 |
 | 消息总量 | Session Logs | 累计消息数 |
 | Token消耗总量 | Session Logs | 累计Token |
-| 成本汇总 | Session Logs | 累计/月度成本 |
-| 成本趋势 | Session Logs | 每日成本曲线 |
+| Token消耗趋势 | Session Logs | 每日Token消耗曲线 |
 | 渠道分布 | Session Logs | 各渠道使用占比 |
 | Agent分布 | Session Logs | 各Agent使用占比 |
 | 模型分布 | Session Logs | 各模型Token占比 |
@@ -260,7 +255,6 @@ OpenClaw Instance
 | 个人会话数 | Session Logs | 用户会话数 |
 | 个人消息量 | Session Logs | 用户发送消息数 |
 | 个人Token消耗 | Session Logs | 用户累计Token |
-| 个人成本 | Session Logs | 用户累计成本 |
 | 常用工具排行 | Session Logs | 用户常用工具 |
 | 会话时长分布 | Session Logs | 会话持续时间 |
 | 最近会话列表 | Session Logs | 最近活跃会话 |
@@ -353,10 +347,10 @@ OpenClaw Instance
 
 5. Center Service → OceanBase
    - 写入Session Log元数据
-   - 写入聚合指标(Token/Cost/Message/Latency等)
+   - 写入聚合指标(Token/Message/Latency等)
    - 更新归档状态
 
-6. Center Service → Archive Storage (S3/OSS/NAS)
+6. Center Service → Archive Storage (NAS)
    - 压缩并归档原始JSONL文件
    - 返回归档路径存入元数据表
 ```
@@ -471,7 +465,6 @@ type ProviderQuota struct {
 type SessionMetrics struct {
     Sessions      []SessionSummary `json:"sessions"`       // 会话摘要列表
     TotalTokens   int64            `json:"total_tokens"`    // 总Token数
-    TotalCost     float64          `json:"total_cost"`      // 总成本(USD)
     MessageCount  int              `json:"message_count"`   // 消息总数
 }
 
@@ -480,7 +473,6 @@ type SessionSummary struct {
     StartTime    time.Time `json:"start_time"`     // 开始时间
     EndTime      time.Time `json:"end_time"`       // 结束时间
     TokenCount   int       `json:"token_count"`    // Token数
-    Cost         float64   `json:"cost"`           // 成本
     MessageCount int       `json:"message_count"`  // 消息数
 }
 
@@ -850,7 +842,7 @@ GET /api/registry/collectors
 - 解析并入库Session Log元数据
 - 调用外部用户服务API获取用户映射
 - 聚合指标写入OceanBase
-- 归档原始JSONL文件到S3/OSS/NAS
+- 归档原始JSONL文件到NAS
 - 提供REST API供前端查询
 - Redis缓存实时状态
 
@@ -871,7 +863,7 @@ CREATE TABLE session_log_metadata (
     line_count INT COMMENT 'JSONL行数',
     first_timestamp TIMESTAMP NULL COMMENT '第一条日志的时间戳',
     last_timestamp TIMESTAMP NULL COMMENT '最后一条日志的时间戳',
-    archived_location VARCHAR(200) COMMENT '归档位置(S3/OSS/NAS路径)',
+    archived_location VARCHAR(200) COMMENT '归档位置(NAS路径)',
     archived_at TIMESTAMP NULL COMMENT '归档时间',
     ingested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '入库时间',
     status ENUM('pending', 'processed', 'archived', 'failed') DEFAULT 'pending' COMMENT '处理状态: pending=待处理, processed=已处理, archived=已归档, failed=失败',
@@ -903,25 +895,6 @@ CREATE TABLE metrics_token_daily (
     INDEX idx_stat_date (stat_date) COMMENT '按日期查询索引',
     INDEX idx_instance_id (instance_id) COMMENT '按实例查询索引'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Token消耗日报表';
-
--- 成本日报表
--- 用途: 按天统计各实例的成本
-CREATE TABLE metrics_cost_daily (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
-    stat_date DATE NOT NULL COMMENT '统计日期',
-    instance_id VARCHAR(50) COMMENT '实例ID',
-    agent_id VARCHAR(50) COMMENT 'Agent ID',
-    channel VARCHAR(50) COMMENT '渠道类型',
-    provider VARCHAR(50) COMMENT 'LLM Provider名称',
-    model VARCHAR(100) COMMENT '模型名称',
-    total_cost DECIMAL(10,6) DEFAULT 0 COMMENT '总成本(USD)',
-    input_cost DECIMAL(10,6) DEFAULT 0 COMMENT '输入成本(USD)',
-    output_cost DECIMAL(10,6) DEFAULT 0 COMMENT '输出成本(USD)',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    UNIQUE KEY uk_date_instance_provider (stat_date, instance_id, provider, model) COMMENT '唯一约束',
-    INDEX idx_stat_date (stat_date) COMMENT '按日期查询索引',
-    INDEX idx_instance_id (instance_id) COMMENT '按实例查询索引'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='成本日报表';
 
 -- 消息统计日报表
 -- 用途: 按天统计各实例的消息数量
@@ -1007,8 +980,6 @@ CREATE TABLE metrics_skill_hourly_stats (
     avg_duration_ms DECIMAL(10,2) DEFAULT 0 COMMENT '平均耗时(ms)',
     p95_duration_ms DECIMAL(10,2) DEFAULT 0 COMMENT 'P95耗时(ms)',
     p99_duration_ms DECIMAL(10,2) DEFAULT 0 COMMENT 'P99耗时(ms)',
-    avg_cost DECIMAL(10,6) DEFAULT 0 COMMENT '平均成本(USD)',
-    total_cost DECIMAL(12,6) DEFAULT 0 COMMENT '总成本(USD)',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     UNIQUE KEY uk_bucket_instance_skill (bucket_time, instance_id, skill_name) COMMENT '唯一约束',
     INDEX idx_bucket_time (bucket_time) COMMENT '按时间窗口查询',
@@ -1201,9 +1172,6 @@ public class SessionLogIngestionService {
     private MetricsTokenDailyRepository tokenRepo;
     
     @Autowired
-    private MetricsCostDailyRepository costRepo;
-    
-    @Autowired
     private MetricsMessageDailyRepository messageRepo;
     
     @Autowired
@@ -1311,7 +1279,7 @@ public class SessionLogIngestionService {
                     ParsedSession session = sessionMap.computeIfAbsent(sessionId, 
                         k -> new ParsedSession());
                     
-                    // 解析token、cost、tool等信息
+                    // 解析token、tool等信息
                     updateSession(session, message);
                     
                 } catch (Exception e) {
@@ -1345,8 +1313,7 @@ public class SessionLogIngestionService {
                     .accumulate(tool);
             }
             
-            // 累加成本和消息数
-            metrics.addCost(session.getCost());
+            // 累加消息数
             metrics.addMessageCount(session.getMessageCount());
         }
         
@@ -1385,13 +1352,6 @@ public class SessionLogIngestionService {
             }
         }
         
-        // 保存成本统计
-        MetricsCostDaily costRecord = new MetricsCostDaily();
-        costRecord.setStatDate(today);
-        costRecord.setInstanceId(instanceId);
-        costRecord.setTotalCost(metrics.getTotalCost());
-        costRepo.save(costRecord);
-        
         // 保存消息统计
         MetricsMessageDaily messageRecord = new MetricsMessageDaily();
         messageRecord.setStatDate(today);
@@ -1415,7 +1375,7 @@ public class SessionLogIngestionService {
     }
     
     /**
-     * 归档文件到S3/OSS/NAS
+     * 归档文件到NAS
      * @param sourceFile 源文件路径
      * @param metadata 元数据
      * @return 归档位置
@@ -1516,9 +1476,6 @@ GET /api/overview
 GET /api/metrics/tokens?instanceId=&startDate=&endDate=
   Desc: Token消耗趋势
 
-GET /api/metrics/cost?instanceId=&startDate=&endDate=
-  Desc: 成本趋势
-
 GET /api/status/health?instanceId=
   Desc: 实时健康状态(从Redis读取)
 
@@ -1536,7 +1493,7 @@ GET /api/collectors
 #### 5.6.1 功能职责
 
 - 融合多数据源指标(Session Logs + Gateway API + Quota API)
-- 生成智能洞察(高成本低效率Skill、离线但有活动的实例、配额预警等)
+- 生成智能洞察(Token消耗异常Skill、离线但有活动的实例、配额预警等)
 - 评估告警规则并触发告警事件
 - 提供统一的数据查询接口供前端使用
 
@@ -1575,7 +1532,7 @@ public class MetricFusionEngine {
      * @return 融合后的完整指标
      */
     public FusedMetrics fuseMetrics(String instanceId, TimeRange timeRange) {
-        // 1. 从Session Logs获取会话和成本数据
+        // 1. 从Session Logs获取会话和Token数据
         LogMetrics logMetrics = sessionRepo.getAggregatedMetrics(instanceId, timeRange);
         
         // 2. 从Health API获取实时健康状态
@@ -1592,7 +1549,7 @@ public class MetricFusionEngine {
         // 来自Session Logs的数据
         fused.setSessions(logMetrics.getSessions());
         fused.setSkillPerformance(logMetrics.getSkillStats());
-        fused.setCostAnalysis(logMetrics.getTotals());
+        fused.setTokenAnalysis(logMetrics.getTotals());
         
         // 来自Gateway API的数据
         fused.setSystemHealth(healthMetrics);
@@ -1621,16 +1578,16 @@ public class MetricFusionEngine {
     private List<Insight> generateInsights(LogMetrics logs, HealthMetrics health, QuotaMetrics quota) {
         List<Insight> insights = new ArrayList<>();
         
-        // 检测高成本低效率的Skill
+        // 检测Token消耗异常且成功率低的Skill
         for (Map.Entry<String, SkillStats> entry : logs.getSkillStats().entrySet()) {
             String skillName = entry.getKey();
             SkillStats stats = entry.getValue();
             
-            if (stats.getAvgCost() > 1.0 && stats.getSuccessRate() < 0.8) {
+            if (stats.getAvgTokens() > 1000 && stats.getSuccessRate() < 0.8) {
                 insights.add(new Insight(
                     InsightType.WARNING,
                     Severity.MEDIUM,
-                    String.format("%s 成本高但成功率低", skillName),
+                    String.format("%s Token消耗高但成功率低", skillName),
                     "检查配置或考虑替换",
                     LocalDateTime.now()
                 ));
@@ -1768,7 +1725,7 @@ public class FusedMetrics {
     // 来自Session Logs
     private List<SessionSummary> sessions;           // 会话摘要
     private Map<String, SkillStats> skillPerformance; // Skill性能统计
-    private CostAnalysis costAnalysis;               // 成本分析
+    private TokenAnalysis tokenAnalysis;               // Token分析
     
     // 来自Gateway API
     private HealthMetrics systemHealth;              // 系统健康状态
@@ -1810,7 +1767,7 @@ public class SkillStats {
     private String skillName;          // Skill名称
     private int callCount;             // 调用次数
     private double successRate;        // 成功率 (0-1)
-    private double avgCost;            // 平均成本 (USD)
+    private double avgTokens;          // 平均Token数
     private double avgDurationMs;      // 平均耗时 (ms)
     private int errorCount;            // 错误次数
 }
@@ -1824,22 +1781,21 @@ public class SkillStats {
 
 | 规则名称 | 触发条件 | 严重级别 | 通知渠道 |
 |---------|---------|---------|----------|
-| 实例健康告警 | health.ok = false | Critical | Slack + Email |
-| 实例高负载 | 会话数 > 阈值(可配置) | Warning | Slack |
-| 渠道断连告警 | channel.linked = false | Critical | Slack + Email |
-| 渠道延迟告警 | probe.elapsedMs > 5000ms | Warning | Slack |
+| 实例健康告警 | health.ok = false | Critical | 云助理 + Email |
+| 实例高负载 | 会话数 > 阈值(可配置) | Warning | 云助理 |
+| 渠道断连告警 | channel.linked = false | Critical | 云助理 + Email |
+| 渠道延迟告警 | probe.elapsedMs > 5000ms | Warning | 云助理 |
 | LLM配额告警 | usedPercent > 70% | Warning | Email |
-| LLM配额临界 | usedPercent > 90% | Critical | Slack + Email |
-| 响应延迟告警 | avgMs > 5000ms | Warning | Slack |
-| 错误率告警 | errors/total > 5% | Warning | Slack |
-| 成本超预算 | 月度成本 > 预算阈值 | Warning | Email |
+| LLM配额临界 | usedPercent > 90% | Critical | 云助理 + Email |
+| 响应延迟告警 | avgMs > 5000ms | Warning | 云助理 |
+| 错误率告警 | errors/total > 5% | Warning | 云助理 |
 
 ### 8.2 告警生命周期管理
 
 ```
 触发条件满足 → 创建告警事件(status=active)
     ↓
-发送通知 (Slack/Email/Webhook - Phase 3)
+发送通知 (云助理/Email - Phase 3,低优先级)
     ↓
 界面展示告警
     ↓
@@ -1861,7 +1817,7 @@ CREATE TABLE alert_rules (
     threshold DECIMAL(10,2) NOT NULL COMMENT '阈值',
     severity VARCHAR(20) NOT NULL COMMENT '严重级别: info/warning/critical',
     enabled BOOLEAN DEFAULT TRUE COMMENT '是否启用',
-    notification_channels JSON COMMENT '通知渠道配置: ["slack", "email"]',
+    notification_channels JSON COMMENT '通知渠道配置: ["yunzhuli", "email"]',
     suppression_window_minutes INT DEFAULT 30 COMMENT '抑制窗口期(分钟)',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
@@ -1870,11 +1826,11 @@ CREATE TABLE alert_rules (
 
 -- 插入默认告警规则
 INSERT INTO alert_rules (rule_name, description, metric_name, operator, threshold, severity, notification_channels) VALUES
-('instance_health_down', '实例健康状态异常', 'health_ok', '=', 0, 'critical', '["slack", "email"]'),
-('channel_disconnected', '渠道连接断开', 'channel_linked', '=', 0, 'critical', '["slack", "email"]'),
+('instance_health_down', '实例健康状态异常', 'health_ok', '=', 0, 'critical', '["yunzhuli", "email"]'),
+('channel_disconnected', '渠道连接断开', 'channel_linked', '=', 0, 'critical', '["yunzhuli", "email"]'),
 ('llm_quota_high', 'LLM配额使用率高', 'quota_used_percent', '>', 70, 'warning', '["email"]'),
-('llm_quota_critical', 'LLM配额即将耗尽', 'quota_used_percent', '>', 90, 'critical', '["slack", "email"]'),
-('high_error_rate', '错误率过高', 'error_rate', '>', 5, 'warning', '["slack"]');
+('llm_quota_critical', 'LLM配额即将耗尽', 'quota_used_percent', '>', 90, 'critical', '["yunzhuli", "email"]'),
+('high_error_rate', '错误率过高', 'error_rate', '>', 5, 'warning', '["yunzhuli"]');
 ```
 
 ### 8.3 告警抑制与去重引擎
@@ -1942,6 +1898,37 @@ public class AlertSuppressionEngine {
     }
 }
 ```
+
+### 8.4 通知渠道集成 (Phase 3,低优先级)
+
+**支持的通知渠道:**
+
+| 渠道 | 优先级 | 集成方式 | 说明 |
+|------|--------|---------|------|
+| **云助理** | 高 | 内部IM API | 公司内部使用的IM工具,首选通知渠道 |
+| **Email** | 中 | SMTP | 配置较复杂,作为备选渠道 |
+
+**云助理集成要点:**
+
+1. **API对接**:
+   - 需要获取云助理的消息推送API端点
+   - 通常需要企业内部认证Token
+   - 支持Markdown格式消息
+
+2. **消息模板示例**:
+   ```json
+   {
+     "to": "user_id_or_group",
+     "title": "【监控告警】实例健康状态异常",
+     "content": "实例 inst-prod-001 健康检查失败\n时间: 2026-04-14 10:30:00\n严重级别: Critical",
+     "type": "alert"
+   }
+   ```
+
+3. **实施建议**:
+   - Phase 3优先实现云助理集成
+   - Email作为备选(配置复杂度高)
+   - 不支持Slack/Webhook等外部渠道
 
 ---
 
@@ -2020,13 +2007,13 @@ public class AlertSuppressionEngine {
 ├── 领导视图 (/executive)
 │   ├── 总览仪表板
 │   │   ├── 实例健康状态 (饼图)
-│   │   ├── 成本趋势 (折线图)
+│   │   ├── Token消耗趋势 (折线图)
 │   │   ├── 使用量趋势 (柱状图)
 │   │   └── 部门对比 (表格)
-│   └── 成本分析
-│       ├── 成本分布 (饼图)
-│       ├── 成本趋势 (折线图)
-│       └── 成本预测 (预测曲线)
+│   └── Token分析
+│       ├── Token分布 (饼图)
+│       ├── Token趋势 (折线图)
+│       └── 使用预测 (预测曲线)
 │
 ├── 运维视图 (/devops)
 │   ├── 实时监控
@@ -2042,7 +2029,7 @@ public class AlertSuppressionEngine {
 ├── 用户视图 (/user)
 │   ├── 个人统计
 │   │   ├── 使用量 (卡片)
-│   │   ├── 成本 (卡片)
+│   │   ├── Token消耗 (卡片)
 │   │   ├── 常用工具 (列表)
 │   │   └── 对话历史 (时间线)
 │   └── 技能发现
@@ -2066,9 +2053,9 @@ public class AlertSuppressionEngine {
    - 显示: `987 / 1000` (绿色进度条)
    - 环比变化: `↑ 2.3%`
    
-2. **今日成本 / 本月成本**
-   - 显示: `$123.45 / $3,456.78`
-   - 预算使用率: `65%` (黄色警告如果>80%)
+2. **今日Token / 本月Token**
+   - 显示: `1.2M / 35.6M`
+   - 环比变化: `↑ 5.7%`
    
 3. **今日消息数 / 总会话数**
    - 显示: `12,345 / 98,765`
@@ -2084,14 +2071,14 @@ public class AlertSuppressionEngine {
    - 分类: 🟢 健康 (85%) / 🔴 离线 (10%) / 🟡 异常 (5%)
    - 点击扇区可下钻查看具体实例列表
    
-2. **成本趋势 (折线图)**
+2. **Token消耗趋势 (折线图)**
    - X轴: 最近7天日期
-   - Y轴: 每日成本 (USD)
+   - Y轴: 每日Token数 (百万)
    - 多条线: 按部门/Provider分组
    - 支持缩放和筛选
    
 3. **部门使用对比 (表格)**
-   - 列: 部门名称 / 实例数 / 今日成本 / 本月成本 / Token消耗 / 活跃度
+   - 列: 部门名称 / 实例数 / 今日Token / 本月Token / Token消耗 / 活跃度
    - 支持排序和导出Excel
    
 4. **模型使用分布 (堆叠柱状图)**
@@ -2145,9 +2132,9 @@ public class AlertSuppressionEngine {
    - 显示: `456条`
    - 环比: `↑ 12% vs 上月`
    
-2. **本月成本**
-   - 显示: `$23.45`
-   - 预算剩余: `$76.55` (如果设置了个人预算)
+2. **本月Token消耗**
+   - 显示: `1.2M tokens`
+   - 环比: `↑ 8% vs 上月`
    
 3. **本月Token使用**
    - 显示: `123,456 tokens`
@@ -2159,8 +2146,8 @@ public class AlertSuppressionEngine {
 
 **使用趋势 (折线图):**
 - X轴: 最近30天日期
-- Y轴: 左侧=消息数,右侧=成本
-- 双Y轴图表,同时展示消息量和成本趋势
+- Y轴: 左侧=消息数,右侧=Token数
+- 双Y轴图表,同时展示消息量和Token消耗趋势
 - 支持切换时间范围(7天/30天/90天)
 
 **常用工具排行 (列表):**
@@ -2385,7 +2372,6 @@ DO
 BEGIN
     -- 保留90天的原始数据
     DELETE FROM metrics_token_daily WHERE stat_date < CURDATE() - INTERVAL 90 DAY;
-    DELETE FROM metrics_cost_daily WHERE stat_date < CURDATE() - INTERVAL 90 DAY;
     DELETE FROM metrics_message_daily WHERE stat_date < CURDATE() - INTERVAL 90 DAY;
     DELETE FROM metrics_latency_daily WHERE stat_date < CURDATE() - INTERVAL 90 DAY;
     DELETE FROM metrics_tool_usage WHERE stat_date < CURDATE() - INTERVAL 90 DAY;
@@ -2480,7 +2466,6 @@ public class DataAggregationScheduler {
 |------|--------|---------|--------|---------|------------|
 | `metrics_user_activity` | 10,000条 | 90万条 | 365万条 | ✅ 低 | ❌ 否 |
 | `metrics_token_daily` | 60,000条 | 540万条 | 2190万条 | ⚠️ 中 | ❌ 建议按月分区 |
-| `metrics_cost_daily` | 60,000条 | 540万条 | 2190万条 | ⚠️ 中 | ❌ 建议按月分区 |
 | `metrics_message_daily` | 1,000条 | 9万条 | 36.5万条 | ✅ 低 | ❌ 否 |
 | `metrics_latency_daily` | 3,000条 | 27万条 | 109.5万条 | ✅ 低 | ❌ 否 |
 | `metrics_tool_usage` | 100,000条 | 900万条 | 3650万条 | ⚠️ 中 | ❌ 建议按月分区 |
@@ -2503,13 +2488,13 @@ public class DataAggregationScheduler {
 - **当前规模暂不需要分区**
 
 ⚠️ **需要关注的表**
-- `metrics_token_daily` / `metrics_cost_daily` / `metrics_tool_usage` 建议按月分区
+- `metrics_token_daily` / `metrics_tool_usage` 建议按月分区
 - `session_log_metadata` 建议添加归档策略（保留1年后标记为`archived`）
 
 📊 **存储容量估算**
 - 假设平均每行500字节（JSON字段较多）
 - 90天常驻数据: ~700万行 × 500B = **~3.5GB**
-- 加上海量Session Log文件归档到S3/OSS
+- 加上海量Session Log文件归档到NAS
 - **OceanBase存储压力可控，建议监控增长趋势**
 
 **分区建议:**
@@ -2529,7 +2514,7 @@ ALTER TABLE metrics_token_daily PARTITION BY RANGE (TO_DAYS(stat_date)) (
 
 | 数据类型 | 保留期限 | 存储位置 | 清理策略 |
 |---------|---------|---------|----------|
-| Session Log原始文件 | 永久 | S3/OSS/NAS归档 | 手动清理或生命周期规则 |
+| Session Log原始文件 | 永久 | NAS归档 | 手动清理或生命周期规则 |
 | Session Log元数据 | 永久 | OceanBase | 不清理,仅归档状态标记 |
 | 原始指标数据(日报表) | 90天 | OceanBase | 自动删除90天前数据 |
 | 聚合数据(小时/天) | 1年 | OceanBase | 保留1年,之后归档到冷存储 |
@@ -3182,7 +3167,7 @@ networks:
 
 **任务:**
 - [ ] 领导视图完善
-  - [ ] 成本分析页面
+  - [ ] Token分析页面
   - [ ] 部门对比表格
   - [ ] 模型使用分布图表
 - [ ] 运维视图完善
@@ -3221,13 +3206,14 @@ networks:
 
 ---
 
-### Phase 3 - 企业级 (可选,3-4周)
+### Phase 3 - 企业级 (可选,低优先级,3-4周)
 
-**目标:** 增强功能和安全性
+**目标:** 增强功能和安全性(告警为低优先级)
 
 **任务:**
-- [ ] 完整告警系统
-  - [ ] Slack/Email/Webhook通知集成
+- [ ] 完整告警系统 (低优先级)
+  - [ ] 云助理通知集成 (公司内部IM)
+  - [ ] Email通知集成 (可选,配置复杂)
   - [ ] 告警抑制与去重优化
   - [ ] 告警生命周期管理界面
   - [ ] 告警规则配置UI
@@ -3238,7 +3224,7 @@ networks:
 - [ ] 监控系统自监控
 
 **交付物:**
-- 完整告警系统(含外部通知)
+- 完整告警系统(云助理+Email,低优先级)
 - 企业级安全特性
 - **审计日志分析界面**
 - 备份恢复手册
@@ -3289,7 +3275,6 @@ networks:
 | `health` | 完整健康快照 | read |
 | `status` | 系统状态摘要 | read |
 | `usage.status` | LLM提供商配额状态 | read |
-| `usage.cost` | Token和成本统计 | read |
 | `channels.status` | 渠道状态 | read |
 
 ### B. Session Logs JSONL 字段
@@ -3301,7 +3286,6 @@ networks:
 - `message.model`: 模型名称
 - `usage.input`: 输入 Token 数
 - `usage.output`: 输出 Token 数
-- `cost.total`: 总成本 (USD)
 - `durationMs`: 响应延迟 (毫秒)
 - `content[].type`: tool_use/tool_result
 - `content[].name`: 工具名称
@@ -3370,6 +3354,9 @@ networks:
 | **8.0** | **2026-04-13** | **AI Assistant** | **章节编号全面修正: 删除重复的第六章标题，修正第五、七、八章子章节编号混乱问题** |
 | **9.0** | **2026-04-14** | **AI Assistant** | **章节编号全面修正: 修正第八至十三章子章节编号混乱问题；删除cleanupSnapshots()中对已删除表的引用；补充附录E术语表；修正Spring Security配置为6.0风格；补充缺失的rebalance_history和metrics_skill_hourly_stats表定义** |
 | **10.0** | **2026-04-14** | **AI Assistant** | **WebSocket连接策略优化: 明确采用短连接轮询而非长连接,调整Health轮询频率从30秒到60秒,补充Gateway缓存利用机制,新增决策8说明短连接设计理由,性能估算Gateway负载增加<1%** |
+| **11.0** | **2026-04-14** | **AI Assistant** | **业务需求调整: 移除成本相关统计(内部部署大模型无需USD成本),降低告警功能优先级至Phase 3,调整通知渠道为云助理+Email(去掉Slack/Webhook),删除metrics_cost_daily表及相关代码逻辑** |
+| **12.0** | **2026-04-14** | **AI Assistant** | **彻底清理成本相关内容: 删除JSONL示例中的cost字段、SessionSummary结构体中的Cost字段、API接口中的/cost端点、Gateway API清单中的usage.cost方法、Session Log字段说明中的cost.total；保留COST_USAGE_CACHE_TTL_MS常量说明但补充缓存机制对Token等指标仍然有效** |
+| **13.0** | **2026-04-14** | **AI Assistant** | **深度清理成本残留: 删除SessionMetrics.TotalCost字段、metrics_skill_hourly_stats表的avg_cost/total_cost列、FusedMetrics.costAnalysis改为tokenAnalysis、SkillStats.avgCost改为avgTokens、智能洞察逻辑从"高成本低效率"改为"Token消耗异常且成功率低"、UI设计中的所有成本相关页面和图表改为Token分析** |
 
 ---
 
