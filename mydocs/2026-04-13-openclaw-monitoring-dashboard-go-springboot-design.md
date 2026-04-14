@@ -1,7 +1,8 @@
 # OpenClaw 企业级监控面板架构设计 (Go + SpringBoot版)
 
-**文档版本**: 13.0  
+**文档版本**: 14.0  
 **创建日期**: 2026-04-13  
+**最后更新**: 2026-04-14  
 **作者**: AI Assistant  
 **状态**: 待审批  
 **参考文档**: 
@@ -110,7 +111,7 @@
   1. **对Gateway影响最小化**: 
      - 短连接不占用持久连接资源,每次请求后立即释放
      - Gateway无需维护大量空闲连接的内存和状态
-     - 符合"监控不应影响业务"的核心原则
+     - 符合“监控不应影响业务”的核心原则
   
   2. **利用Gateway内置缓存**:
      - Health API已有内存缓存(`HEALTH_REFRESH_INTERVAL_MS`)
@@ -127,6 +128,46 @@
      - 1000实例/60秒 ≈ 17 connections/sec
      - 每个连接生命周期~100ms,峰值并发~2
      - Gateway负载增加 < 1% CPU (实测估算)
+
+#### 决策9: Session Log处理职责划分
+- **方案**: Edge Collector负责解析JSONL内容并计算聚合指标
+- **备选方案**: Center Service统一解析所有JSONL文件
+- **选择理由**:
+  1. **分布式计算优势**:
+     - 1000个实例的解析工作分散到20个Collector上(每个50个实例)
+     - 避免Center Service成为CPU瓶颈
+     - 线性扩展:增加Collector即可提升处理能力
+  
+  2. **网络效率**:
+     - Collector推送已聚合的数据,减少传输量
+     - 原始JSONL文件只在归档时传输一次
+  
+  3. **架构清晰**:
+     - Collector:数据采集 + 预处理 + 分布式计算
+     - Center Service:数据存储 + 索引 + 查询
+     - 职责分离,易于维护和调试
+
+#### 决策10: Session Log备份策略
+- **方案**: 基于Session ID的追踪 + 对象存储(S3/OSS/MinIO)
+- **备选方案**: 第二NAS / 混合方案 / OceanBase BLOB
+- **选择理由**:
+  1. **成本最优**:
+     - 对象存储($0.023/GB/月)比NAS便宜60%以上
+     - 3.65TB数据年成本仅$940(OSS) vs $2500(NAS)
+  
+  2. **可靠性最高**:
+     - 99.999999999%持久性
+     - 支持跨区域复制和版本控制
+  
+  3. **功能完整**:
+     - 生命周期管理(自动转冷存储/删除)
+     - 服务端加密和压缩
+     - 完善的SDK和工具链
+  
+  4. **运维简单**:
+     - 无需管理硬件
+     - 按需付费,无限容量
+     - 成熟的监控和告警体系
   
   5. **批量控制优化**:
      - 每批最多10个实例并行,批次间隔100ms
@@ -206,11 +247,17 @@ OpenClaw Instance
     │   └─ usage.status → Edge Collector → Redis缓存(实时状态, TTL 5min)
     │
     └─ Session Logs (文件系统JSONL)
-        └─ Edge Collector扫描 → 提取元数据 → Center Service
+        └─ Edge Collector扫描并解析 → 提取元数据 + 计算聚合指标 → Center Service
             ├─ 元数据入库 → session_log_metadata表
-            ├─ 解析聚合 → metrics_token_daily/message_daily等表
+            ├─ 聚合指标入库 → metrics_token_daily/message_daily等表
             └─ 原始文件归档 → NAS (路径存入archived_location字段)
 ```
+
+**重要说明:**
+- ✅ **只有Edge Collector读取Session Log文件内容**,Center Service不直接读取JSONL文件
+- ✅ Edge Collector负责逐行解析JSONL,计算Token消耗、消息统计、工具调用等聚合指标
+- ✅ Center Service只接收已聚合的数据,负责存储和查询,不做繁重的解析工作
+- ✅ 这种设计将计算负载分散到多个Collector,避免Center Service成为性能瓶颈
 
 ---
 
@@ -336,24 +383,30 @@ OpenClaw Instance
 2. Edge Collector → OpenClaw Instances
    - Health检查: WebSocket short-lived connection, method="health"
    - Usage检查: WebSocket short-lived connection, method="usage.status"
-   - Session Logs: 文件系统读取 JSONL 文件
+   - Session Logs: 扫描共享NAS目录,读取并解析JSONL文件内容
 
 3. Edge Collector → Center Service
-   - 批量推送指标: POST /api/metrics/batch (Gzip压缩)
+   - 批量推送元数据和聚合指标: POST /api/metrics/batch (Gzip压缩)
+   - 包含: 文件元数据 + Token统计 + 消息统计 + 工具调用统计 + 延迟统计
 
 4. Center Service → External User Service
    - 查询用户映射: GET /api/instances/{instanceId}/user
    - 缓存到Redis (TTL 1h)
 
 5. Center Service → OceanBase
-   - 写入Session Log元数据
-   - 写入聚合指标(Token/Message/Latency等)
+   - 写入Session Log元数据(session_log_metadata表)
+   - 写入聚合指标(metrics_token_daily/message_daily等表)
    - 更新归档状态
 
-6. Center Service → Archive Storage (NAS)
-   - 压缩并归档原始JSONL文件
-   - 返回归档路径存入元数据表
+6. Center Service → Archive Storage (NAS/S3)
+   - 移动或复制原始JSONL文件到归档存储
+   - 可选: Gzip压缩以节省空间
+   - 返回归档路径存入session_log_metadata.archived_location字段
 ```
+
+**关键职责划分:**
+- **Edge Collector**: 唯一读取和解析JSONL文件内容的组件,负责分布式计算
+- **Center Service**: 只接收已处理的数据,负责存储、索引和查询,不解析原始文件
 
 ---
 
@@ -518,10 +571,18 @@ pollLoop():
   │       └─ 缓存到 metricsCache
   │
   └─ sessionTicker (5m)
-      └─ scanSessionLogs()
-          ├─ 扫描实例的Session Log目录
-          ├─ 解析JSONL文件(流式读取)
-          ├─ 提取元数据(文件名、大小、时间范围)
+      └─ scanAndParseSessionLogs() ← 核心:扫描并解析JSONL文件
+          ├─ 扫描共享NAS上的Session Log目录
+          ├─ 识别新增或修改的文件(基于文件名和修改时间)
+          ├─ 逐行解析JSONL内容:
+          │   ├─ 提取Session ID(从文件名)
+          │   ├─ 统计Token消耗(input/output/cache_read/cache_write)
+          │   ├─ 统计消息数(user/assistant/tool_use/tool_result)
+          │   ├─ 统计工具调用(工具名称、成功率)
+          │   ├─ 计算延迟指标(avg/p95/min/max)
+          │   └─ 记录模型分布(provider/model)
+          ├─ 提取文件元数据(路径、大小、行数、时间范围)
+          ├─ 检测文件重命名/归档(.deleted/.reset后缀)
           └─ 缓存到 metricsCache
 ```
 
@@ -548,6 +609,760 @@ pushLoop() (每5分钟):
 GET /health              - Collector自身健康状态
 GET /instances           - 当前管理的实例列表
 GET /metrics/summary     - 本地缓存的指标摘要(调试用)
+```
+
+#### 5.3.5 Session Log处理详解
+
+**职责边界:**
+- ✅ **Edge Collector是唯一读取和解析JSONL文件内容的组件**
+- ❌ Center Service不直接读取Session Log文件,只接收已聚合的数据
+- ✅ 这种设计将计算负载分散到多个Collector,避免Center Service成为性能瓶颈
+
+**处理流程:**
+
+```go
+// 伪代码: Edge Collector扫描并解析Session Log
+func scanAndParseSessionLogs() {
+    // 1. 获取分配给当前Collector的所有实例
+    instances := getAssignedInstances()
+    
+    for _, instance := range instances {
+        sessionDir := fmt.Sprintf("%s/sessions", instance.SessionLogPath)
+        
+        // 2. 扫描目录,获取所有.jsonl文件
+        files := scanDirectory(sessionDir)
+        
+        // 3. 加载上次扫描的快照(用于检测变化)
+        lastSnapshot := loadLastSnapshot(instance.InstanceID)
+        
+        // 4. 处理每个文件
+        for _, file := range files {
+            if !isSessionLogFile(file.Name()) {
+                continue
+            }
+            
+            // 5. 从文件名提取Session ID
+            sessionID := parseSessionIDFromFileName(file.Name())
+            if sessionID == "" {
+                continue
+            }
+            
+            // 6. 检查文件是否已处理(基于Session ID + 修改时间)
+            if isAlreadyProcessed(sessionID, file.ModTime()) {
+                continue
+            }
+            
+            // 7. 逐行解析JSONL内容
+            metrics := parseJSONLFile(file.Path)
+            
+            // 8. 检测文件重命名/归档
+            if lastRecord := findLastRecord(sessionID); lastRecord != nil {
+                if lastRecord.FileName != file.Name() {
+                    log.Info("File renamed/archived",
+                        "old:", lastRecord.FileName,
+                        "new:", file.Name(),
+                        "reason:", detectArchiveReason(file.Name()))
+                }
+            }
+            
+            // 9. 构建元数据
+            metadata := SessionLogMetadata{
+                InstanceID:     instance.InstanceID,
+                SessionID:      sessionID,
+                FileName:       file.Name(),
+                FilePath:       file.Path,
+                FileSize:       file.Size(),
+                LineCount:      metrics.LineCount,
+                FirstTimestamp: metrics.FirstTimestamp,
+                LastTimestamp:  metrics.LastTimestamp,
+            }
+            
+            // 10. 添加到推送队列
+            addToPushQueue(metadata, metrics.AggregatedData)
+        }
+        
+        // 11. 保存当前快照
+        saveSnapshot(instance.InstanceID, files)
+    }
+}
+
+// 解析JSONL文件,计算聚合指标
+func parseJSONLFile(filePath string) ParsedMetrics {
+    file, _ := os.Open(filePath)
+    defer file.Close()
+    
+    var metrics ParsedMetrics
+    scanner := bufio.NewScanner(file)
+    
+    for scanner.Scan() {
+        line := scanner.Text()
+        var entry SessionLogEntry
+        json.Unmarshal([]byte(line), &entry)
+        
+        // 统计Token
+        if entry.Message.Usage != nil {
+            metrics.TotalInputTokens += entry.Message.Usage.Input
+            metrics.TotalOutputTokens += entry.Message.Usage.Output
+            metrics.CacheReadTokens += entry.Message.Usage.CacheRead
+            metrics.CacheWriteTokens += entry.Message.Usage.CacheWrite
+        }
+        
+        // 统计消息类型
+        switch entry.Message.Role {
+        case "user":
+            metrics.UserMessageCount++
+        case "assistant":
+            metrics.AssistantMessageCount++
+        }
+        
+        // 统计工具调用
+        for _, content := range entry.Message.Content {
+            if content.Type == "tool_use" {
+                metrics.ToolCalls[content.Name]++
+                if content.IsError {
+                    metrics.ToolErrors[content.Name]++
+                }
+            }
+        }
+        
+        // 统计延迟
+        if entry.Message.DurationMs > 0 {
+            metrics.Latencies = append(metrics.Latencies, entry.Message.DurationMs)
+        }
+        
+        // 记录模型分布
+        modelKey := fmt.Sprintf("%s/%s", entry.Message.Provider, entry.Message.Model)
+        metrics.ModelDistribution[modelKey] += entry.Message.Usage.TotalTokens
+        
+        metrics.LineCount++
+        
+        // 记录时间范围
+        ts := parseTimestamp(entry.Timestamp)
+        if metrics.FirstTimestamp == nil || ts.Before(*metrics.FirstTimestamp) {
+            metrics.FirstTimestamp = &ts
+        }
+        if metrics.LastTimestamp == nil || ts.After(*metrics.LastTimestamp) {
+            metrics.LastTimestamp = &ts
+        }
+    }
+    
+    // 计算延迟统计
+    if len(metrics.Latencies) > 0 {
+        sort.Slice(metrics.Latencies, func(i, j int) bool {
+            return metrics.Latencies[i] < metrics.Latencies[j]
+        })
+        metrics.AvgLatency = average(metrics.Latencies)
+        metrics.P95Latency = percentile(metrics.Latencies, 95)
+        metrics.MinLatency = metrics.Latencies[0]
+        metrics.MaxLatency = metrics.Latencies[len(metrics.Latencies)-1]
+    }
+    
+    return metrics
+}
+
+// 从文件名提取Session ID
+func parseSessionIDFromFileName(fileName string) string {
+    // 主文件: {sessionId}.jsonl
+    if strings.HasSuffix(fileName, ".jsonl") {
+        return strings.TrimSuffix(fileName, ".jsonl")
+    }
+    
+    // 归档文件: {sessionId}.jsonl.{reason}.{timestamp}
+    for _, reason := range []string{"deleted", "reset"} {
+        marker := fmt.Sprintf(".jsonl.%s.", reason)
+        if idx := strings.Index(fileName, marker); idx > 0 {
+            return fileName[:idx]
+        }
+    }
+    
+    return ""
+}
+
+// 检测归档原因
+func detectArchiveReason(fileName string) string {
+    if strings.Contains(fileName, ".deleted.") {
+        return "deleted"
+    }
+    if strings.Contains(fileName, ".reset.") {
+        return "reset"
+    }
+    return ""
+}
+```
+
+**性能优化:**
+
+1. **增量扫描**: 只处理新增或修改的文件,跳过已处理的文件
+2. **流式解析**: 使用`bufio.Scanner`逐行读取,避免一次性加载大文件到内存
+3. **并发控制**: 每个Collector最多同时解析10个文件,避免CPU过载
+4. **批量推送**: 累积5分钟的指标后一次性推送,减少网络开销
+5. **错误容忍**: 单个文件解析失败不影响其他文件,记录错误后继续处理
+
+**资源消耗估算:**
+
+假设每个Collector管理50个实例:
+- 每个实例平均每天产生10MB Session Log (约10万行JSONL)
+- 每5分钟扫描一次,平均每次扫描10个新/修改文件
+- 每个文件平均100KB (1000行)
+- 解析速度: 1000行/秒 (Go语言JSON解析性能)
+- 单文件解析耗时: ~1秒
+- 并发10个文件: 总耗时~1秒
+- CPU占用: ~5% (现代CPU)
+- 内存占用: ~50MB (缓冲区+数据结构)
+
+**备份与防误删:**
+
+由于OpenClaw会自动清理30天前的归档文件,Collector需要实现备份机制:
+
+```yaml
+# Collector配置示例
+backup:
+  enabled: true
+  storage_type: "s3"  # s3, oss, minio
+  s3_endpoint: "http://minio.internal:9000"
+  s3_bucket: "openclaw-backups"
+  s3_prefix: "session-logs"
+  retention_days: 365
+  compression: "gzip"  # 启用压缩节省空间
+  encryption: "aes256" # 服务端加密
+```
+
+备份策略详见第5.X节。
+
+---
+
+### 5.X Session Log 备份与防误删机制
+
+#### 5.X.1 背景与挑战
+
+**OpenClaw内置清理机制:**
+- 会话删除时,JSONL文件被重命名为 `{sessionId}.jsonl.deleted.{timestamp}`
+- 会话重置时,JSONL文件被重命名为 `{sessionId}.jsonl.reset.{timestamp}`
+- 默认30天后(可配置),归档文件被自动删除
+- 简单的文件同步无法捕获重命名操作,导致备份不完整
+
+**设计目标:**
+- 防止用户误删除Session Log文件
+- 准确追踪文件重命名(包括归档操作)
+- 避免重复备份相同内容(去重)
+- 支持按需恢复任意历史版本
+
+#### 5.X.2 备份架构
+
+```
+┌─────────────────────────────────────────────┐
+│         OpenClaw Instance (共享NAS)          │
+│  /sessions/                                  │
+│    ├─ session-abc.jsonl                     │
+│    ├─ session-abc.jsonl.deleted.T1  ← 重命名 │
+│    └─ session-xyz.jsonl                      │
+└──────────────┬──────────────────────────────┘
+               │ Edge Collector 扫描(5min)
+               ↓
+┌─────────────────────────────────────────────┐
+│         Edge Collector (Go)                  │
+│  1. 扫描文件列表                             │
+│  2. 提取Session ID(从文件名)                 │
+│  3. 查询数据库:Session ID是否已备份?         │
+│     ├─ 存在 → 更新文件名映射(检测到重命名)   │
+│     └─ 不存在 → 上传备份                     │
+│  4. 记录备份状态到OceanBase                  │
+└──────────────┬──────────────────────────────┘
+               │ HTTP POST /api/backups/sync
+               ↓
+┌─────────────────────────────────────────────┐
+│      Center Service (SpringBoot)             │
+│  1. 接收备份状态                             │
+│  2. 写入session_log_backups表                │
+│  3. 定期验证备份完整性                       │
+│  4. 告警:文件存在但未备份                    │
+└──────────────┬──────────────────────────────┘
+               │
+               ↓
+┌─────────────────────────────────────────────┐
+│      Backup Storage (S3/OSS/MinIO)           │
+│  /backups/                                   │
+│    ├─ inst-001/2026/04/14/session-abc.jsonl.gz │
+│    └─ inst-001/2026/04/14/session-xyz.jsonl.gz │
+└─────────────────────────────────────────────┘
+```
+
+#### 5.X.3 OpenClaw Session Log文件生命周期
+
+**重要:同一个Session ID可能有多个文件!**
+
+根据OpenClaw源码分析,存在以下场景:
+
+**场景A:会话重置/删除(归档)**
+```
+原始文件: session-abc.jsonl
+         ↓ 用户执行 /reset 或 /delete
+归档文件: session-abc.jsonl.reset.2026-04-14T10-30-00.000Z
+新文件:   session-abc.jsonl (重新开始,相同Session ID)
+```
+
+**场景B:会话压缩(Checkpoint)**
+```
+原始文件: session-abc.jsonl
+         ↓ 触发自动压缩(超过token阈值)
+Checkpoint: session-abc.checkpoint.{uuid}.jsonl (临时备份)
+压缩后:   session-abc.jsonl (内容被精简,保留摘要)
+         ↓ Checkpoint清理(压缩完成后立即删除)
+最终:     session-abc.jsonl (只有压缩后的版本)
+```
+
+**关键代码证据:**
+- `archiveFileOnDisk()`: 重命名文件为 `{filePath}.{reason}.{timestamp}`
+- `captureCompactionCheckpointSnapshot()`: 复制文件为 `{name}.checkpoint.{uuid}{ext}`
+- `cleanupCompactionCheckpointSnapshot()`: 压缩完成后删除checkpoint文件
+
+**对监控和备份的影响:**
+
+1. **session_log_metadata表只记录当前活跃文件**
+   - `file_path` 字段指向当前正在使用的文件
+   - 归档文件(.reset/.deleted)不会被更新到该表
+   - Checkpoint文件是临时的,不会被记录
+
+2. **备份策略需要处理多版本文件**
+   - 不能简单地用Session ID作为唯一键
+   - 需要区分"同一会话的不同版本"
+   - Checkpoint文件不需要备份(临时文件)
+
+3. **Collector扫描逻辑调整**
+   - 检测到 `.reset.` 或 `.deleted.` 文件时,标记为归档
+   - 检测到 `.checkpoint.` 文件时,跳过不备份
+   - 同一Session ID的新文件出现时,创建新的备份记录
+
+#### 5.X.4 数据库设计(修正版)
+
+**session_log_backups 表:**
+```sql
+CREATE TABLE session_log_backups (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    instance_id VARCHAR(50) NOT NULL COMMENT '实例ID',
+    session_id VARCHAR(200) NOT NULL COMMENT '会话ID(从文件名提取)',
+    file_name VARCHAR(200) NOT NULL COMMENT '当前文件名',
+    file_path VARCHAR(500) COMMENT '当前文件路径',
+    file_size BIGINT COMMENT '文件大小(字节)',
+    mod_time TIMESTAMP COMMENT '文件修改时间',
+    backup_location VARCHAR(500) NOT NULL COMMENT '备份存储路径(S3 key或NAS路径)',
+    backed_up_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '首次备份时间',
+    last_seen_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '最后检测到时间',
+    status ENUM('active', 'archived', 'deleted') DEFAULT 'active' COMMENT '状态',
+    archive_reason VARCHAR(20) COMMENT '归档原因: reset/deleted',
+    version INT DEFAULT 1 COMMENT '版本号(同一Session ID的多次重置会递增)',
+    
+    -- 修改:允许同一Session ID有多条记录(不同版本)
+    INDEX idx_instance_session_version (instance_id, session_id, version),
+    INDEX idx_last_seen (last_seen_at),
+    INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Session Log备份索引';
+```
+
+**关键变更说明:**
+- ❌ 移除 `UNIQUE KEY uk_instance_session` (不再强制唯一)
+- ✅ 新增 `version` 字段,区分同一Session ID的不同版本
+- ✅ 使用 `(instance_id, session_id, version)` 组合作为业务唯一键
+
+**示例数据:**
+```sql
+-- 第一次会话
+INSERT INTO session_log_backups VALUES 
+(1, 'inst-001', 'session-abc', 'session-abc.jsonl', '/path/session-abc.jsonl', 
+ 102400, '2026-04-10 10:00:00', 's3://.../session-abc.jsonl.gz', 
+ '2026-04-10 10:00:00', '2026-04-12 15:00:00', 'archived', 'reset', 1);
+
+-- 用户重置后会话(相同Session ID,新版本)
+INSERT INTO session_log_backups VALUES 
+(2, 'inst-001', 'session-abc', 'session-abc.jsonl', '/path/session-abc.jsonl', 
+ 51200, '2026-04-12 15:30:00', 's3://.../session-abc-v2.jsonl.gz', 
+ '2026-04-12 15:30:00', '2026-04-14 10:00:00', 'active', NULL, 2);
+```
+
+**session_log_name_history 表(可选,用于完整审计):****
+```sql
+CREATE TABLE session_log_name_history (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    backup_id BIGINT NOT NULL COMMENT '关联backup记录',
+    file_name VARCHAR(200) NOT NULL COMMENT '文件名',
+    file_path VARCHAR(500) COMMENT '文件路径',
+    detected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '检测时间',
+    event_type ENUM('created', 'renamed', 'archived', 'deleted') COMMENT '事件类型',
+    
+    INDEX idx_backup (backup_id),
+    INDEX idx_detected (detected_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='文件名变更历史';
+```
+
+#### 5.X.5 Collector扫描逻辑(修正版)
+
+```go
+func scanAndBackupSessionLogs(instanceID string) {
+    // 1. 扫描目录,获取所有.jsonl文件
+    files := scanDirectory(sessionDir)
+    
+    // 2. 加载上次的备份记录
+    lastBackups := loadBackupsFromDB(instanceID)
+    
+    // 3. 处理每个文件
+    for _, file := range files {
+        if !isSessionLogFile(file.Name()) {
+            continue
+        }
+        
+        // 4. 跳过Checkpoint临时文件
+        if strings.Contains(file.Name(), ".checkpoint.") {
+            log.Debug("Skip checkpoint file", "file:", file.Name())
+            continue
+        }
+        
+        // 5. 提取Session ID
+        sessionID := parseSessionIDFromFileName(file.Name())
+        if sessionID == "" {
+            continue
+        }
+        
+        // 6. 检测归档文件
+        isArchived := false
+        archiveReason := ""
+        if strings.Contains(file.Name(), ".deleted.") {
+            isArchived = true
+            archiveReason = "deleted"
+        } else if strings.Contains(file.Name(), ".reset.") {
+            isArchived = true
+            archiveReason = "reset"
+        }
+        
+        // 7. 查询数据库:查找该Session ID的最新版本
+        latestBackup := findLatestBackupBySessionID(instanceID, sessionID)
+        
+        if latestBackup == nil {
+            // 8a. 新会话,创建备份记录(version=1)
+            backupKey := uploadToS3(file.Path)
+            saveBackupRecord(SessionLogBackup{
+                InstanceID:     instanceID,
+                SessionID:      sessionID,
+                FileName:       file.Name(),
+                FilePath:       file.Path,
+                FileSize:       file.Size(),
+                ModTime:        file.ModTime(),
+                BackupLocation: backupKey,
+                BackedUpAt:     time.Now(),
+                LastSeenAt:     time.Now(),
+                Status:         getInitialStatus(isArchived),
+                ArchiveReason:  archiveReason,
+                Version:        1,
+            })
+            
+        } else if latestBackup.FileName == file.Name() {
+            // 8b. 文件名相同,检查是否有变化
+            if file.ModTime().After(latestBackup.LastSeenAt) {
+                // 文件被修改(追加了新日志)
+                backupKey := uploadToS3(file.Path)
+                updateBackupRecord(latestBackup.ID, backupKey, file.ModTime())
+            } else {
+                // 文件未变,只更新时间戳
+                updateLastSeenAt(latestBackup.ID)
+            }
+            
+        } else {
+            // 8c. 文件名不同 → 检测到新版本
+            // 判断是归档还是重置后重新开始
+            
+            if isArchived {
+                // 情况A:原文件被归档(.reset或.deleted)
+                // 更新现有记录的status和archive_reason
+                updateBackupStatus(latestBackup.ID, "archived", archiveReason)
+                
+                // 不创建新记录,因为这是同一个版本的归档
+                log.Info("Session archived",
+                    "sessionID:", sessionID,
+                    "old:", latestBackup.FileName,
+                    "new:", file.Name())
+                    
+            } else {
+                // 情况B:用户重置会话,创建了新的活跃文件
+                // 旧文件已被重命名为.reset,新文件是相同的Session ID
+                // 需要创建新版本记录
+                
+                // 首先标记旧版本为archived
+                updateBackupStatus(latestBackup.ID, "archived", "reset")
+                
+                // 创建新版本记录(version+1)
+                newVersion := latestBackup.Version + 1
+                backupKey := uploadToS3(file.Path)
+                saveBackupRecord(SessionLogBackup{
+                    InstanceID:     instanceID,
+                    SessionID:      sessionID,
+                    FileName:       file.Name(),
+                    FilePath:       file.Path,
+                    FileSize:       file.Size(),
+                    ModTime:        file.ModTime(),
+                    BackupLocation: backupKey,
+                    BackedUpAt:     time.Now(),
+                    LastSeenAt:     time.Now(),
+                    Status:         "active",
+                    ArchiveReason:  "",
+                    Version:        newVersion,
+                })
+                
+                log.Info("Session reset detected, new version created",
+                    "sessionID:", sessionID,
+                    "old_version:", latestBackup.Version,
+                    "new_version:", newVersion)
+            }
+        }
+    }
+    
+    // 9. 检测已删除的文件(数据库中有条目但扫描未发现)
+    for _, backup := range lastBackups {
+        if backup.Status == "active" && !fileExistsInScan(backup.FileName) {
+            log.Warn("File disappeared from scan", 
+                "sessionID:", backup.SessionID,
+                "fileName:", backup.FileName)
+            // 可选:标记为deleted,但不删除备份
+            // markAsDeleted(backup.ID)
+        }
+    }
+}
+
+// 辅助函数
+func getInitialStatus(isArchived bool) string {
+    if isArchived {
+        return "archived"
+    }
+    return "active"
+}
+
+func findLatestBackupBySessionID(instanceID, sessionID string) *SessionLogBackup {
+    // 查询最新版本
+    query := `SELECT * FROM session_log_backups 
+              WHERE instance_id = ? AND session_id = ? 
+              ORDER BY version DESC LIMIT 1`
+    return db.QueryOne(query, instanceID, sessionID)
+}
+```
+
+**关键逻辑说明:**
+
+1. **Checkpoint文件跳过**: `.checkpoint.` 文件是临时的,压缩完成后会被删除,不需要备份
+2. **归档检测**: `.reset.` 和 `.deleted.` 文件是原文件的归档,更新status但不创建新版本
+3. **版本管理**: 当检测到同一Session ID的新活跃文件时,创建version+1的新记录
+4. **状态流转**:
+   - `active` → `archived`: 文件被重命名为归档文件
+   - `archived` → (保持): 归档文件不再变化
+   - 新文件出现 → 创建新版本(`version+1`, status=`active`)
+
+**示例:**
+
+```
+扫描周期1:
+  文件: session-abc.jsonl
+  数据库: session_id="session-abc", file_name="session-abc.jsonl", status="active", version=1
+
+扫描周期2(用户删除会话后):
+  文件: session-abc.jsonl.deleted.2026-04-14T10-30-00.000Z
+  检测: session_id="session-abc" 已存在,文件名变了且包含".deleted."
+  操作: 
+    - 更新 status = "archived"
+    - 更新 archive_reason = "deleted"
+    - 不创建新记录(这是同一版本的归档)
+
+扫描周期3(用户重置会话后):
+  文件: session-abc.jsonl (新的活跃文件)
+  检测: session_id="session-abc" 已存在,但这是一个新的活跃文件
+  操作:
+    - 标记旧版本(version=1)为 archived, archive_reason="reset"
+    - 创建新版本: version=2, status="active"
+    - 上传到S3: s3://.../session-abc-v2.jsonl.gz
+```
+
+#### 5.X.5 存储方案选择
+
+**推荐方案:对象存储(S3/OSS/MinIO)**
+
+| 方案 | 成本(年) | 可靠性 | 扩展性 | 运维复杂度 | 推荐度 |
+|------|---------|--------|--------|-----------|--------|
+| **第二NAS** | $2500 | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| **MinIO自建** | $3500 | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| **阿里云OSS** | $940 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐⭐ |
+| **AWS S3** | $1000 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐⭐ |
+| **混合方案** | $4600 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **OceanBase** | $10000+ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ❌ |
+
+**理由:**
+1. ✅ **成本最低**:比NAS便宜60%以上
+2. ✅ **可靠性最高**:99.999999999%持久性
+3. ✅ **运维最简单**:无需管理硬件
+4. ✅ **扩展性最好**:无限容量
+5. ✅ **功能最全**:版本控制、生命周期、跨区域复制
+
+#### 5.X.6 配置要求
+
+**OpenClaw配置调整(延长清理周期):**
+```json
+{
+  "session": {
+    "maintenance": {
+      "mode": "warn",
+      "pruneAfter": "90d",
+      "maxEntries": 10000,
+      "resetArchiveRetention": "90d"
+    }
+  }
+}
+```
+
+**Collector配置:**
+```yaml
+# config.yaml
+backup:
+  enabled: true
+  storage_type: "s3"  # s3, oss, minio
+  s3_endpoint: "http://minio.internal:9000"
+  s3_bucket: "openclaw-backups"
+  s3_access_key: "${MINIO_ACCESS_KEY}"
+  s3_secret_key: "${MINIO_SECRET_KEY}"
+  s3_prefix: "session-logs"
+  retention_days: 365  # 备份保留365天
+  scan_interval: 5m    # 扫描频率
+  max_file_size_mb: 500  # 单文件最大500MB
+  compression: "gzip"    # 启用Gzip压缩
+  encryption: "aes256"   # 服务端加密
+```
+
+**S3/OSS生命周期规则(在控制台配置):**
+```json
+{
+  "rules": [
+    {
+      "id": "session-log-lifecycle",
+      "status": "Enabled",
+      "filter": {"prefix": "session-logs/"},
+      "transitions": [
+        {
+          "days": 30,
+          "storageClass": "IA"  // 低频访问
+        },
+        {
+          "days": 90,
+          "storageClass": "Archive"  // 归档存储
+        }
+      ],
+      "expiration": {
+        "days": 365  // 365天后自动删除
+      }
+    }
+  ]
+}
+```
+
+#### 5.X.7 恢复流程
+
+**场景1:恢复被删除的会话(最新版本)**
+```bash
+#!/bin/bash
+# restore-session.sh
+
+INSTANCE_ID=$1
+SESSION_ID=$2
+
+# 1. 从数据库查询最新版本的备份位置
+BACKUP_LOCATION=$(mysql -N -e "
+  SELECT backup_location FROM session_log_backups 
+  WHERE instance_id='$INSTANCE_ID' AND session_id='$SESSION_ID'
+  ORDER BY version DESC LIMIT 1;
+")
+
+if [ -z "$BACKUP_LOCATION" ]; then
+  echo "No backup found for session $SESSION_ID"
+  exit 1
+fi
+
+# 2. 从S3下载
+aws s3 cp "s3://openclaw-backups/$BACKUP_LOCATION" ./recovered.jsonl.gz
+
+# 3. 解压
+gunzip recovered.jsonl.gz
+
+# 4. 恢复到NAS
+cp recovered.jsonl "/nas/sessions/${SESSION_ID}.jsonl"
+
+echo "Session restored successfully (latest version)"
+```
+
+**场景2:恢复指定版本的会话**
+```bash
+#!/bin/bash
+# restore-session-version.sh
+
+INSTANCE_ID=$1
+SESSION_ID=$2
+VERSION=$3  # 指定版本号
+
+# 1. 从数据库查询指定版本的备份位置
+BACKUP_LOCATION=$(mysql -N -e "
+  SELECT backup_location FROM session_log_backups 
+  WHERE instance_id='$INSTANCE_ID' 
+    AND session_id='$SESSION_ID'
+    AND version=$VERSION
+  LIMIT 1;
+")
+
+if [ -z "$BACKUP_LOCATION" ]; then
+  echo "No backup found for session $SESSION_ID version $VERSION"
+  exit 1
+fi
+
+# 2. 从S3下载
+aws s3 cp "s3://openclaw-backups/$BACKUP_LOCATION" ./recovered-v${VERSION}.jsonl.gz
+
+# 3. 解压
+gunzip recovered-v${VERSION}.jsonl.gz
+
+# 4. 恢复到NAS(使用不同的文件名避免覆盖)
+cp recovered-v${VERSION}.jsonl "/nas/sessions/${SESSION_ID}-v${VERSION}.jsonl"
+
+echo "Session restored successfully (version $VERSION)"
+```
+
+**场景3:查看会话的所有版本历史**
+```sql
+SELECT 
+    version,
+    file_name,
+    status,
+    archive_reason,
+    file_size,
+    backed_up_at,
+    last_seen_at,
+    backup_location
+FROM session_log_backups 
+WHERE instance_id = 'inst-001' 
+  AND session_id = 'session-abc'
+ORDER BY version ASC;
+
+-- 输出示例:
+-- +---------+-------------------------------------------+----------+----------------+------------+---------------------+---------------------+------------------------------------+
+-- | version | file_name                                 | status   | archive_reason | file_size  | backed_up_at        | last_seen_at        | backup_location                    |
+-- +---------+-------------------------------------------+----------+----------------+------------+---------------------+---------------------+------------------------------------+
+-- |       1 | session-abc.jsonl.deleted.2026-04-12T...  | archived | deleted        |     102400 | 2026-04-10 10:00:00 | 2026-04-12 15:00:00 | s3://.../session-abc-v1.jsonl.gz   |
+-- |       2 | session-abc.jsonl                         | active   | NULL           |      51200 | 2026-04-12 15:30:00 | 2026-04-14 10:00:00 | s3://.../session-abc-v2.jsonl.gz   |
+-- +---------+-------------------------------------------+----------+----------------+------------+---------------------+---------------------+------------------------------------+
+```
+
+**场景4:查看文件重命名历史(可选,需要session_log_name_history表)**
+```sql
+SELECT h.file_name, h.event_type, h.detected_at
+FROM session_log_name_history h
+JOIN session_log_backups b ON h.backup_id = b.id
+WHERE b.session_id = 'session-abc'
+ORDER BY h.detected_at;
+
+-- 输出示例:
+-- session-abc.jsonl              | created  | 2026-04-10 10:00:00
+-- session-abc.jsonl.deleted.T1   | renamed  | 2026-04-12 15:30:00
+-- session-abc.jsonl              | created  | 2026-04-12 15:30:00  (新版本)
 ```
 
 ---
@@ -3322,6 +4137,66 @@ networks:
 - [OpenClaw GitHub 仓库](https://github.com/openclaw/openclaw)
 - [OceanBase 文档](https://www.oceanbase.com/docs)
 - [Vue 3 官方文档](https://cn.vuejs.org/)
+
+---
+
+## 附录E: 版本变更记录
+
+### v14.0 (2026-04-14)
+
+**主要变更:**
+1. **明确Session Log处理职责划分**:
+   - 新增第5.3.5节 "Session Log处理详解"
+   - 明确Edge Collector是唯一读取和解析JSONL文件内容的组件
+   - Center Service只接收已聚合的数据,不直接读取原始文件
+   - 添加详细的Go伪代码示例,展示解析流程
+
+2. **新增Session Log备份策略章节(第5.X节)**:
+   - 背景与挑战: OpenClaw内置清理机制分析
+   - 备份架构设计: Edge Collector → Center Service → 对象存储
+   - **OpenClaw Session Log文件生命周期**: 详细说明同一Session ID可能有多个文件的场景
+     - 场景A: 会话重置/删除(归档) - `.reset.` / `.deleted.` 文件
+     - 场景B: 会话压缩(Checkpoint) - `.checkpoint.{uuid}.` 临时文件
+   - 数据库表设计(修正版): session_log_backups + session_log_name_history
+     - 移除 `UNIQUE KEY uk_instance_session`
+     - 新增 `version` 字段,区分同一Session ID的不同版本
+   - Collector扫描逻辑(修正版): 完整的Go代码实现
+     - 跳过Checkpoint临时文件
+     - 检测归档文件(.reset/.deleted)
+     - 版本管理:同一Session ID的新活跃文件创建version+1记录
+   - 存储方案对比: NAS vs MinIO vs OSS vs S3 vs 混合方案
+   - 配置要求: OpenClaw配置调整 + Collector配置示例
+   - 恢复流程: 支持多版本恢复的完整步骤
+     - 场景1: 恢复最新版本
+     - 场景2: 恢复指定版本
+     - 场景3: 查看所有版本历史
+     - 场景4: 查看文件重命名历史
+
+3. **更新数据流向图**:
+   - 第3.4节: 明确Collector扫描并解析JSONL文件
+   - 第5.2节: 详细说明各组件职责边界
+   - 添加重要说明: 只有Collector读取文件内容
+
+4. **新增架构决策**:
+   - 决策9: Session Log处理职责划分(Collector负责解析)
+   - 决策10: Session Log备份策略(基于Session ID + 对象存储)
+
+5. **性能优化建议**:
+   - 增量扫描: 只处理新增或修改的文件
+   - 流式解析: 使用bufio.Scanner逐行读取
+   - 并发控制: 每个Collector最多同时解析10个文件
+   - 资源消耗估算: CPU ~5%, 内存 ~50MB
+
+**影响范围:**
+- Edge Collector实现需要增加JSONL解析逻辑
+- Center Service需要新增session_log_backups表(带version字段)
+- 需要配置对象存储(S3/OSS/MinIO)用于备份
+- OpenClaw配置需要调整清理周期(建议90天)
+
+**向后兼容性:**
+- ✅ 完全兼容v13.0的所有功能
+- ✅ 备份功能是可选的,不影响核心监控流程
+- ⚠️ 如果启用备份,需要额外的存储空间和配置
 - [Element Plus 文档](https://element-plus.org/zh-CN/)
 - [ECharts 文档](https://echarts.apache.org/)
 - [Pinia 官方文档](https://pinia.vuejs.org/zh/)
