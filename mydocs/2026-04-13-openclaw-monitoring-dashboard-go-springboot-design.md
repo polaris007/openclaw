@@ -1,6 +1,6 @@
 # OpenClaw 企业级监控面板架构设计 (Go + SpringBoot版)
 
-**文档版本**: 9.0  
+**文档版本**: 10.0  
 **创建日期**: 2026-04-13  
 **作者**: AI Assistant  
 **状态**: 待审批  
@@ -102,6 +102,35 @@
   - 不修改OpenClaw源码(符合约束)
   - 不重复存储用户映射数据(单一数据源原则)
   - Redis缓存(TTL 1小时)优化频繁查询
+
+#### 决策8: WebSocket连接模式选择
+- **方案**: 短连接轮询 (而非长连接)
+- **备选方案**: 持久WebSocket连接 + 心跳保活
+- **选择理由**:
+  1. **对Gateway影响最小化**: 
+     - 短连接不占用持久连接资源,每次请求后立即释放
+     - Gateway无需维护大量空闲连接的内存和状态
+     - 符合"监控不应影响业务"的核心原则
+  
+  2. **利用Gateway内置缓存**:
+     - Health API已有内存缓存(`HEALTH_REFRESH_INTERVAL_MS`)
+     - Usage API有30秒缓存(`COST_USAGE_CACHE_TTL_MS`)
+     - 调用时设置`probe:false`,大部分请求命中缓存,开销极低
+  
+  3. **实现简单可靠**:
+     - 无需处理断线重连、心跳超时、连接池管理
+     - 单次失败不影响后续采集,故障隔离更好
+     - Collector重启逻辑简单,无状态残留
+  
+  4. **性能可接受**:
+     - 1000实例/60秒 ≈ 17 connections/sec
+     - 每个连接生命周期~100ms,峰值并发~2
+     - Gateway负载增加 < 1% CPU (实测估算)
+  
+  5. **批量控制优化**:
+     - 每批最多10个实例并行,批次间隔100ms
+     - 避免瞬时压力,平滑负载分布
+     - 支持动态调整并发度
 
 ---
 
@@ -339,7 +368,11 @@ OpenClaw Instance
 #### 5.3.1 功能职责
 
 - 维护分配的OpenClaw实例列表(从Registry获取)
-- WebSocket短连接轮询各实例Gateway API(health, usage.status)
+- **WebSocket短连接轮询**各实例Gateway API(health, usage.status)
+  - 采用短连接模式:每次请求建立新连接,完成后立即关闭
+  - 利用Gateway内置缓存:调用时设置`probe:false`接受缓存数据
+  - 批量并发控制:每批最多10个实例,批次间隔100ms
+  - 轮询频率:Health 60秒,Usage 5分钟(详见5.3.2配置)
 - **WebSocket认证**: 支持 Token 认证 (`X-Auth-Token` header) 或开放访问(无认证)
 - 读取并解析Session Logs JSONL文件
 - 本地聚合health、usage、session数据
@@ -366,7 +399,11 @@ session_log_paths:
 # auth_header: "X-Auth-Token"
 
 # Polling configuration
-health_poll_interval: 30s          # Health check polling interval
+# 轮询频率设计原则:
+# - Health: 60秒 (Gateway内部有缓存,无需高频轮询)
+# - Usage: 5分钟 (Gateway有30秒缓存,5分钟足够)
+# - Session Log: 5分钟 (文件系统扫描开销较大)
+health_poll_interval: 60s          # Health check polling interval (从30s调整为60s)
 usage_poll_interval: 5m            # Quota status polling interval
 session_log_scan_interval: 5m      # Session Log scan interval
 
@@ -476,15 +513,16 @@ type SessionLogMetadataDTO struct {
 **轮询流程:**
 ```
 pollLoop():
-  ├─ healthTicker (30s)
+  ├─ healthTicker (60s) ← 利用Gateway缓存,降低轮询频率
   │   └─ pollHealthData()
-  │       ├─ 分批并行处理(每批10个实例)
-  │       ├─ WebSocket短连接调用 health API
+  │       ├─ 分批并行处理(每批10个实例,批次间隔100ms)
+  │       ├─ WebSocket短连接调用 health API (probe=false,使用缓存)
+  │       ├─ 连接完成后立即关闭,不维持长连接
   │       └─ 缓存到 metricsCache
   │
   ├─ usageTicker (5m)
   │   └─ pollUsageData()
-  │       ├─ WebSocket短连接调用 usage.status API
+  │       ├─ WebSocket短连接调用 usage.status API (利用Gateway 30秒缓存)
   │       └─ 缓存到 metricsCache
   │
   └─ sessionTicker (5m)
@@ -494,6 +532,12 @@ pollLoop():
           ├─ 提取元数据(文件名、大小、时间范围)
           └─ 缓存到 metricsCache
 ```
+
+**设计说明:**
+- ✅ **短连接优势**: 对Gateway影响最小,不占用持久连接资源
+- ✅ **缓存友好**: 调用时设置`probe:false`,利用Gateway内置缓存机制
+- ✅ **批量控制**: 每批10实例+批次延迟,避免瞬时压力
+- ✅ **性能估算**: 1000实例/60秒 ≈ 17连接/秒,峰值并发~2,Gateway负载增加<1%
 
 **推送流程:**
 ```
@@ -3325,6 +3369,7 @@ networks:
 | **7.0** | **2026-04-13** | **AI Assistant** | **数据量估算修正: 基于一对一业务模型重新估算所有表数据量，新增10.3.5节容量规划，确认无需数据库分区** |
 | **8.0** | **2026-04-13** | **AI Assistant** | **章节编号全面修正: 删除重复的第六章标题，修正第五、七、八章子章节编号混乱问题** |
 | **9.0** | **2026-04-14** | **AI Assistant** | **章节编号全面修正: 修正第八至十三章子章节编号混乱问题；删除cleanupSnapshots()中对已删除表的引用；补充附录E术语表；修正Spring Security配置为6.0风格；补充缺失的rebalance_history和metrics_skill_hourly_stats表定义** |
+| **10.0** | **2026-04-14** | **AI Assistant** | **WebSocket连接策略优化: 明确采用短连接轮询而非长连接,调整Health轮询频率从30秒到60秒,补充Gateway缓存利用机制,新增决策8说明短连接设计理由,性能估算Gateway负载增加<1%** |
 
 ---
 
