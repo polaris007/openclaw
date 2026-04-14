@@ -163,9 +163,10 @@
 - `usage.output`: 输出 Token 数
 - `usage.cacheRead`: 缓存读取 Token
 - `usage.cacheWrite`: 缓存写入 Token
+- `usage.totalTokens`: 总 Token 数
+- `cost.input`: 输入成本 (USD)
+- `cost.output`: 输出成本 (USD)
 - `cost.total`: 总成本 (USD)
-- `cost.input`: 输入成本
-- `cost.output`: 输出成本
 - `durationMs`: 响应延迟 (毫秒)
 - `content[].type`: tool_use/tool_result
 - `content[].name`: 工具名称
@@ -339,11 +340,13 @@ OpenClaw Instance
 
 - 维护分配的OpenClaw实例列表(从Registry获取)
 - WebSocket短连接轮询各实例Gateway API(health, usage.status)
+- **WebSocket认证**: 支持 Token 认证 (`X-Auth-Token` header) 或开放访问(无认证)
 - 读取并解析Session Logs JSONL文件
 - 本地聚合health、usage、session数据
 - 批量推送到Center Service(Gzip压缩)
 - 定期上报心跳到Registry(30秒)
 - 监听配置变化,动态更新实例列表(60秒)
+- **本地缓存保护**: 网络分区时缓存数据,恢复后补推
 
 #### 5.3.2 配置参数
 
@@ -353,23 +356,37 @@ collector_id: "collector-us-east-1"
 registry_url: "http://registry-lb.internal:8080"
 center_service_url: "http://center-lb.internal:8080"
 
-# 轮询配置
-health_poll_interval: 30s          # 健康状态轮询间隔
-usage_poll_interval: 5m            # 配额状态轮询间隔
-session_log_scan_interval: 5m      # Session Log扫描间隔
+# Session Log paths - can be configured per instance or as default
+session_log_paths:
+  default: "/var/lib/openclaw/logs"  # Default path for all instances
+  # Instance-specific paths can be configured in openclaw_instances table
 
-# 并发控制
-max_concurrent_instances: 10       # 最大并发实例数
-batch_size: 10                     # 批次大小
+# WebSocket authentication (if required by OpenClaw Gateway)
+# auth_type: "token"  # or "none" if gateway is open
+# auth_header: "X-Auth-Token"
 
-# 推送配置
-push_interval: 5m                  # 推送间隔
-push_batch_max_size: 100           # 批量推送最大条数
-compression_enabled: true          # 启用Gzip压缩
+# Polling configuration
+health_poll_interval: 30s          # Health check polling interval
+usage_poll_interval: 5m            # Quota status polling interval
+session_log_scan_interval: 5m      # Session Log scan interval
 
-# 心跳配置
-heartbeat_interval: 30s            # 心跳间隔
-config_refresh_interval: 60s       # 配置刷新间隔
+# Concurrency control
+max_concurrent_instances: 10       # Max concurrent instances per batch
+batch_size: 10                     # Batch size
+
+# Push configuration
+push_interval: 5m                  # Push interval
+push_batch_max_size: 100           # Max batch size for push
+compression_enabled: true          # Enable Gzip compression
+
+# Heartbeat configuration
+heartbeat_interval: 30s            # Heartbeat interval
+config_refresh_interval: 60s       # Configuration refresh interval
+
+# Local cache protection (for network partition scenarios)
+local_cache_enabled: true          # Enable local cache for resilience
+local_cache_max_age: 1h            # Max age for cached data before forcing refresh
+local_cache_path: "/var/lib/collector/cache"  # Local cache directory
 ```
 
 #### 5.3.3 核心数据结构
@@ -499,9 +516,9 @@ GET /metrics/summary     - 本地缓存的指标摘要(调试用)
 
 ---
 
-### 5.2 Registry Service (SpringBoot)
+### 5.4 Registry Service (SpringBoot)
 
-#### 5.2.1 功能职责
+#### 5.4.1 功能职责
 
 - Collector注册与心跳管理
 - OpenClaw实例管理
@@ -510,7 +527,7 @@ GET /metrics/summary     - 本地缓存的指标摘要(调试用)
 - 故障检测与转移(心跳超时>2分钟)
 - 提供实例分配查询API
 
-#### 5.2.2 数据库表结构
+#### 5.4.2 数据库表结构
 
 ```sql
 -- ==================== Registry相关表 ====================
@@ -556,7 +573,7 @@ CREATE TABLE instance_collector_mapping (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='实例与Collector分配关系表';
 ```
 
-#### 5.2.3 核心Service
+#### 5.4.3 核心Service
 
 **InstanceAssignmentService.java**
 
@@ -738,7 +755,7 @@ public class InstanceAssignmentService {
 }
 ```
 
-#### 5.2.4 REST API端点
+#### 5.4.4 REST API端点
 
 ```
 POST /api/registry/collectors/register
@@ -763,9 +780,9 @@ GET /api/registry/collectors
 
 ---
 
-### 5.3 Center Service (SpringBoot)
+### 5.5 Center Service (SpringBoot)
 
-#### 5.3.1 功能职责
+#### 5.5.1 功能职责
 
 - 接收Edge Collector批量推送的指标数据
 - 解析并入库Session Log元数据
@@ -775,7 +792,7 @@ GET /api/registry/collectors
 - 提供REST API供前端查询
 - Redis缓存实时状态
 
-#### 5.3.2 数据库表结构
+#### 5.5.2 数据库表结构
 
 ```sql
 -- ==================== Session Log元数据表 ====================
@@ -937,7 +954,7 @@ CREATE TABLE alert_events (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='告警事件表';
 ```
 
-#### 5.3.4 Redis数据结构设计
+#### 5.5.3 Redis数据结构设计
 
 **设计原则:**
 - 实时状态数据只存储在Redis，不持久化到数据库
@@ -1079,7 +1096,7 @@ public class RealtimeStatusService {
 }
 ```
 
-#### 5.3.5 核心Service
+#### 5.5.4 核心Service
 
 **SessionLogIngestionService.java**
 
@@ -1401,7 +1418,7 @@ public class UserService {
 }
 ```
 
-#### 5.3.4 REST API端点
+#### 5.5.3 REST API端点
 
 ```
 POST /api/metrics/batch
@@ -1429,16 +1446,16 @@ GET /api/collectors
 
 ---
 
-### 5.4 Data Fusion Engine (SpringBoot)
+### 5.6 Data Fusion Engine (SpringBoot)
 
-#### 5.4.1 功能职责
+#### 5.6.1 功能职责
 
 - 融合多数据源指标(Session Logs + Gateway API + Quota API)
 - 生成智能洞察(高成本低效率Skill、离线但有活动的实例、配额预警等)
 - 评估告警规则并触发告警事件
 - 提供统一的数据查询接口供前端使用
 
-#### 5.4.2 核心Service实现
+#### 5.6.2 核心Service实现
 
 **MetricFusionEngine.java**
 
@@ -1650,7 +1667,7 @@ public class MetricFusionEngine {
 }
 ```
 
-#### 5.4.3 数据结构定义
+#### 5.6.3 数据结构定义
 
 **FusedMetrics.java**
 
@@ -1716,7 +1733,7 @@ public class SkillStats {
 
 ---
 
-## 七、智能洞察与告警系统
+## 八、智能洞察与告警系统
 
 ### 7.1 告警规则配置
 
@@ -1843,7 +1860,7 @@ public class AlertSuppressionEngine {
 
 ---
 
-## 八、动态扩展与故障转移
+## 九、动态扩展与故障转移
 
 ### 8.1 新增Collector流程
 
@@ -1895,7 +1912,7 @@ public class AlertSuppressionEngine {
 
 ---
 
-## 九、前端UI设计规范
+## 十、前端UI设计规范
 
 ### 9.1 技术栈
 
@@ -2009,7 +2026,7 @@ public class AlertSuppressionEngine {
 - 刷新按钮: 手动刷新(默认每60秒自动刷新)
 - 健康统计摘要: 在线率 98.7% / 平均延迟 245ms / 错误率 1.2%
 
-**实例列表 (Ant Design Table):**
+**实例列表 (Element Plus el-table):**
 
 | 列名 | 说明 | 示例 |
 |------|------|------|
@@ -2103,13 +2120,13 @@ public class AlertSuppressionEngine {
 
 ---
 
-## 十、性能优化
+## 十一、性能优化
 
 ### 10.1 Edge Collector优化
 
-**并发控制:**
+**Concurrency Control:**
 ```go
-// 分批并行处理,每批10个实例
+// Batch parallel processing, 10 instances per batch
 chunks := chunk(instances, maxConcurrentInstances)
 for _, batch := range chunks {
     var wg sync.WaitGroup
@@ -2117,27 +2134,27 @@ for _, batch := range chunks {
         wg.Add(1)
         go func(instance OpenClawInstance) {
             defer wg.Done()
-            // 采集逻辑
+            // Collection logic
         }(inst)
     }
     wg.Wait()
-    time.Sleep(1 * time.Second) // 批次间间隔
+    time.Sleep(1 * time.Second) // Inter-batch interval
 }
 ```
 
-**Gzip压缩:**
+**Gzip Compression:**
 ```go
-// 压缩数据(减少80%流量)
+// Compress data (reduces traffic by 80%)
 compressed, _ := gzipCompress(toJSON(payloads))
 req.Header.Set("Content-Encoding", "gzip")
 ```
 
-**短生命周期WebSocket:**
+**Short-lived WebSocket:**
 ```go
-// 每次请求创建新连接,用完即关
+// Create new connection for each request, close after use
 conn, _ := websocket.Dial(ctx, url, nil)
 defer conn.Close()
-// 发送请求并接收响应
+// Send request and receive response
 ```
 
 ### 10.2 数据库查询优化
@@ -2205,16 +2222,22 @@ BEGIN
         tool_name AS skill_name,
         SUM(call_count) AS total_calls,
         AVG(avg_ms) AS avg_duration_ms,
-        -- P95计算: 排序后取第95百分位
-        (SELECT avg_ms FROM metrics_tool_usage t2 
-         WHERE t2.instance_id = t1.instance_id 
-         AND t2.tool_name = t1.tool_name
-         AND DATE(t2.time) = DATE(NOW() - INTERVAL 1 HOUR)
-         ORDER BY avg_ms ASC
-         LIMIT 1 OFFSET (SELECT COUNT(*) * 0.95 FROM metrics_tool_usage t3 
-                        WHERE t3.instance_id = t1.instance_id 
-                        AND t3.tool_name = t1.tool_name
-                        AND DATE(t3.time) = DATE(NOW() - INTERVAL 1 HOUR))) AS p95_duration_ms,
+        -- P95计算: 使用窗口函数 APPROX_PERCENTILE 或百分位计算
+        -- MySQL 8.0+ 可使用 PERCENT_RANK() 窗口函数
+        CASE 
+            WHEN COUNT(*) >= 20 THEN
+                -- 对于大数据量使用近似计算
+                SUBSTRING_INDEX(
+                    SUBSTRING_INDEX(
+                        GROUP_CONCAT(avg_ms ORDER BY avg_ms SEPARATOR ','),
+                        ',',
+                        CEIL(COUNT(*) * 0.95)
+                    ),
+                    ',',
+                    -1
+                )
+            ELSE MAX(avg_ms) -- 数据量小时直接取最大值
+        END AS p95_duration_ms,
         SUM(success_count) * 100.0 / NULLIF(SUM(call_count), 0) AS success_rate,
         SUM(error_count) AS error_count
     FROM metrics_tool_usage t1
@@ -2228,6 +2251,42 @@ BEGIN
         success_rate = VALUES(success_rate),
         error_count = VALUES(error_count);
 END;
+
+-- 备选方案: 使用 PERCENT_RANK() 窗口函数 (MySQL 8.0+)
+-- 如果数据库支持，推荐使用此方案
+/*
+INSERT INTO metrics_skill_hourly_stats (
+    bucket_time, instance_id, skill_name, total_calls,
+    avg_duration_ms, p95_duration_ms, success_rate, error_count
+)
+SELECT
+    bucket_time,
+    instance_id,
+    skill_name,
+    COUNT(*) AS total_calls,
+    AVG(avg_ms) AS avg_duration_ms,
+    MAX(CASE WHEN pct_rank <= 0.95 THEN avg_ms END) AS p95_duration_ms,
+    AVG(success_rate) AS success_rate,
+    SUM(error_count) AS error_count
+FROM (
+    SELECT
+        DATE_FORMAT(time, '%Y-%m-%d %H:00:00') AS bucket_time,
+        instance_id,
+        tool_name AS skill_name,
+        avg_ms,
+        success_count,
+        error_count,
+        success_count * 100.0 / NULLIF(call_count, 0) AS success_rate,
+        PERCENT_RANK() OVER (PARTITION BY instance_id, tool_name ORDER BY avg_ms) AS pct_rank
+    FROM metrics_tool_usage
+    WHERE time >= NOW() - INTERVAL 1 HOUR AND time < NOW()
+) ranked
+GROUP BY bucket_time, instance_id, skill_name
+ON DUPLICATE KEY UPDATE
+    total_calls = VALUES(total_calls),
+    avg_duration_ms = VALUES(avg_duration_ms),
+    p95_duration_ms = VALUES(p95_duration_ms);
+*/
 
 -- 创建每日清理任务 - 删除90天前的原始数据
 CREATE EVENT evt_cleanup_old_data
@@ -2314,60 +2373,66 @@ public class DataAggregationScheduler {
 | MySQL事件调度器 | 数据库原生支持,性能好,不占用应用资源 | OceanBase需确认兼容性 | **推荐**: 生产环境首选 |
 | SpringBoot定时任务 | 灵活可控,易于调试和监控 | 占用应用资源,需要HA配置 | 备选: 事件调度器不可用时 |
 
-### 10.3.5 数据量估算与容量规划
+### 11.3.5 数据量估算与容量规划
+
+> **注意**: 本节基于业务需求中的 **1000+ 实例**规模进行估算，确保容量规划满足实际需求。
 
 **业务模型假设:**
-- 部署规模: 100个OpenClaw实例
+- 部署规模: **1000个** OpenClaw实例
 - 用户模式: **一对一** (每个实例服务1个用户)
-- 总用户数: 100个用户
-- 数据保留期: 90天(日报表), 180天(快照表)
+- 总用户数: 1000个用户
+- 数据保留期: 90天(日报表)
+- 平均每实例每天活跃用户: 10人
+- 平均每实例每天消息数: 500条
 
 **各表数据量估算:**
 
 | 表名 | 日增量 | 90天存量 | 年增量 | 风险等级 | 是否需要分区 |
 |------|--------|---------|--------|---------|------------|
-| `metrics_user_activity` | 100条 | 9,000条 | 3.65万条 | ✅ 低 | ❌ 否 |
-| `metrics_token_daily` | 600条 | 5.4万条 | 21.9万条 | ✅ 低 | ❌ 否 |
-| `metrics_cost_daily` | 600条 | 5.4万条 | 21.9万条 | ✅ 低 | ❌ 否 |
-| `metrics_message_daily` | 100条 | 9,000条 | 3.65万条 | ✅ 低 | ❌ 否 |
-| `metrics_latency_daily` | 300条 | 2.7万条 | 10.95万条 | ✅ 低 | ❌ 否 |
-| `metrics_tool_usage` | 1,000条 | 9万条 | 36.5万条 | ✅ 低 | ❌ 否 |
-| `session_log_metadata` | 1,000条 | 9万条 | 36.5万条 | ⚠️ 中 | ❌ 否(建议归档) |
-| `alert_events` | ~50条 | ~4,500条 | ~1.8万条 | ✅ 低 | ❌ 否 |
+| `metrics_user_activity` | 10,000条 | 90万条 | 365万条 | ✅ 低 | ❌ 否 |
+| `metrics_token_daily` | 60,000条 | 540万条 | 2190万条 | ⚠️ 中 | ❌ 建议按月分区 |
+| `metrics_cost_daily` | 60,000条 | 540万条 | 2190万条 | ⚠️ 中 | ❌ 建议按月分区 |
+| `metrics_message_daily` | 1,000条 | 9万条 | 36.5万条 | ✅ 低 | ❌ 否 |
+| `metrics_latency_daily` | 3,000条 | 27万条 | 109.5万条 | ✅ 低 | ❌ 否 |
+| `metrics_tool_usage` | 100,000条 | 900万条 | 3650万条 | ⚠️ 中 | ❌ 建议按月分区 |
+| `session_log_metadata` | 10,000条 | 90万条 | 365万条 | ⚠️ 中 | ❌ 建议归档 |
+| `alert_events` | ~500条 | 4.5万条 | 18.25万条 | ✅ 低 | ❌ 否 |
 
 **估算说明:**
 
-1. **metrics_user_activity**: 100用户 × 1条/天 = 100条/天
-2. **metrics_token_daily**: 100用户 × 3 Provider × 2 Model = 600条/天
-3. **metrics_tool_usage**: 100用户 × 10工具/天 = 1,000条/天
-4. **session_log_metadata**: 100用户 × 10文件/天 = 1,000条/天
-5. **alert_events**: 保守估计每天50个告警事件
+1. **metrics_user_activity**: 1000实例 × 10活跃用户/天 = 10,000条/天
+2. **metrics_token_daily**: 1000实例 × 3 Provider × 2 Model = 60,000条/天
+3. **metrics_tool_usage**: 1000实例 × 100工具调用/天 = 100,000条/天
+4. **session_log_metadata**: 1000实例 × 10文件/天 = 10,000条/天
+5. **alert_events**: 保守估计每天500个告警事件
 
 **关键结论:**
 
-✅ **所有聚合表均为低风险**
-- 最大的表(`metrics_tool_usage`)90天也只有9万条
+✅ **核心聚合表风险可控**
+- 90天内最大表(`metrics_tool_usage`)约900万条
 - 所有日报表都有唯一约束，不会重复插入
-- **完全不需要数据库分区**
+- **当前规模暂不需要分区**
 
-⚠️ **session_log_metadata需要注意**
-- 如果永久保留，年增长36.5万条
-- 建议: 添加归档策略（例如保留1年后标记为`archived`）
-- 可选: 将已归档记录的`file_path`清空，只保留元数据索引
+⚠️ **需要关注的表**
+- `metrics_token_daily` / `metrics_cost_daily` / `metrics_tool_usage` 建议按月分区
+- `session_log_metadata` 建议添加归档策略（保留1年后标记为`archived`）
 
 📊 **存储容量估算**
-- 假设平均每行1KB
-- 90天常驻数据: ~20万行 × 1KB = **200MB**
+- 假设平均每行500字节（JSON字段较多）
+- 90天常驻数据: ~700万行 × 500B = **~3.5GB**
 - 加上海量Session Log文件归档到S3/OSS
-- **OceanBase存储压力很小**
+- **OceanBase存储压力可控，建议监控增长趋势**
 
-**扩展性考虑:**
-
-如果未来扩展到 **1000个实例**:
-- 所有表数据量 × 10
-- 最大表(`tool_usage`)90天存量: 90万条
-- 仍然**不需要分区**，但需要监控查询性能
-- 建议: 当单表超过500万条时，再考虑分区或归档策略
+**分区建议:**
+当单表超过 **500万条** 时，建议按月分区：
+```sql
+-- 示例: Token统计表按月分区
+ALTER TABLE metrics_token_daily PARTITION BY RANGE (TO_DAYS(stat_date)) (
+    PARTITION p202604 VALUES LESS THAN (TO_DAYS('2026-05-01')),
+    PARTITION p202605 VALUES LESS THAN (TO_DAYS('2026-06-01')),
+    ...
+);
+```
 
 ### 10.4 数据保留策略
 
@@ -2480,15 +2545,19 @@ public class DataRetentionManager {
 
 **缓存Key设计规范:**
 
+> **注意**: 为保持一致性，所有 Key 统一使用冒号分隔命名法 (`monitor:xxx:yyy`)，TTL 统一为 300s（与 Edge Collector 30秒轮询周期配合）。
+
 | Key | 类型 | TTL | 说明 |
 |-----|------|-----|------|
-| `current_health:{instanceId}` | Hash | 60s | 实例实时健康状态 |
-| `current_channels:{instanceId}` | Hash | 60s | 渠道连接状态 |
-| `current_quota:{instanceId}` | Hash | 300s | LLM配额状态 |
-| `alert_active_rules` | Set | - | 当前活跃的告警规则 |
-| `overview_cache` | String | 300s | 领导视图总览缓存 |
-| `user_stats:{userId}` | Hash | 600s | 用户统计缓存 |
-| `alert_suppression:{instanceId}:{ruleName}` | String | 动态 | 告警抑制窗口期 |
+| `monitor:instance:{instanceId}` | Hash | 300s | 实例实时健康状态 |
+| `monitor:channel:{instanceId}:{channel}` | Hash | 300s | 渠道连接状态 |
+| `monitor:quota:{instanceId}:{provider}` | Hash | 300s | LLM配额状态 |
+| `monitor:summary` | String | 60s | 领导视图汇总缓存(快速响应) |
+| `monitor:unhealthy_instances` | Set | 300s | 异常实例ID集合 |
+| `monitor:alert_rules:active` | Set | - | 当前活跃的告警规则 |
+| `monitor:overview` | String | 300s | 领导视图总览缓存 |
+| `monitor:user:{userId}` | Hash | 600s | 用户统计缓存 |
+| `monitor:alert:suppression:{instanceId}:{ruleName}` | String | 动态 | 告警抑制窗口期 |
 
 **缓存更新策略:**
 
@@ -2509,7 +2578,7 @@ public class CacheManagementService {
      * @param healthData 健康数据
      */
     public void updateHealthCache(String instanceId, HealthData healthData) {
-        String cacheKey = "current_health:" + instanceId;
+        String cacheKey = "monitor:instance:" + instanceId;
         
         Map<String, Object> healthMap = new HashMap<>();
         healthMap.put("ok", healthData.isOk());
@@ -2519,7 +2588,7 @@ public class CacheManagementService {
         healthMap.put("timestamp", System.currentTimeMillis());
         
         redisTemplate.opsForHash().putAll(cacheKey, healthMap);
-        redisTemplate.expire(cacheKey, 60, TimeUnit.SECONDS);
+        redisTemplate.expire(cacheKey, 300, TimeUnit.SECONDS); // 300s TTL，与Edge Collector轮询周期配合
     }
     
     /**
@@ -2597,20 +2666,20 @@ public class CacheMetricsMonitor {
     }
     
     /**
-     * 每分钟输出缓存统计
+     * Log cache statistics every minute
      */
     @Scheduled(fixedRate = 60000)
     public void logCacheStats() {
         double hitRate = getHitRate();
-        log.info("Cache stats - Hits: {}, Misses: {}, Hit Rate: {:.2f}%",
-            cacheHits.get(), cacheMisses.get(), hitRate * 100);
+        log.info(String.format("Cache stats - Hits: %d, Misses: %d, Hit Rate: %.2f%%",
+            cacheHits.get(), cacheMisses.get(), hitRate * 100));
     }
 }
 ```
 
 ---
 
-## 十一、安全设计
+## 十二、安全设计
 
 ### 11.1 认证授权
 
@@ -2867,9 +2936,9 @@ GET /api/audit/logs?userId=&action=&startDate=&endDate=&page=1&size=50
 
 ---
 
-## 十二、部署架构
+## 十三、部署架构
 
-### 11.1 组件部署
+### 13.1 组件部署
 
 | 组件 | 部署方式 | 数量 | 资源需求 |
 |------|---------|------|---------|
@@ -2881,7 +2950,39 @@ GET /api/audit/logs?userId=&action=&startDate=&endDate=&page=1&size=50
 | Redis | 有状态容器 | 1 (主从可选) | 1GB RAM, 0.5 CPU |
 | 监控前端 | 静态资源 | CDN或容器 | - |
 
-### 11.2 Docker Compose示例
+### 13.2 数据库迁移
+
+> 使用 **Flyway** 进行数据库版本管理，确保数据库变更可追溯、可回滚。
+
+**迁移文件目录结构:**
+```
+registry-service/src/main/resources/
+├── db/migration/
+│   ├── V1__init_schema.sql          # 初始表结构 (collectors, openclaw_instances, mappings)
+│   ├── V2__add_registry_indexes.sql # 索引优化
+│   └── V3__add_rebalance_history.sql # Rebalance历史记录
+center-service/src/main/resources/
+├── db/migration/
+│   ├── V1__init_metrics_schema.sql  # 指标相关表 (session_log_metadata, metrics_*_daily)
+│   ├── V2__add_alert_tables.sql      # 告警表 (alert_rules, alert_events)
+│   ├── V3__add_audit_logs.sql        # 审计日志表
+│   └── V4__add_hourly_stats.sql      # 小时级聚合表
+```
+
+**flyway.conf 示例:**
+```properties
+# Spring Boot will auto-configure Flyway based on these properties
+spring.flyway.url=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+spring.flyway.user=${DB_USER}
+spring.flyway.password=${DB_PASSWORD}
+spring.flyway.locations=classpath:db/migration
+spring.flyway.baseline-on-migrate=true
+spring.flyway.validate-on-migrate=true
+```
+
+> **注意**: 每次数据库变更需要新增 migration 文件 (如 `V5__add_xxx.sql`)，由 CI/CD 自动执行。
+
+### 13.2 Docker Compose示例
 
 **Edge Collector:**
 ```yaml
@@ -2915,7 +3016,9 @@ services:
         cpus: '0.1'
     
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/health"]
+      # Note: Port 8080 is the default listener port for Edge Collector
+      # Can be configured via COLLECTOR_PORT environment variable
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:${COLLECTOR_PORT:-8080}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -2937,7 +3040,7 @@ networks:
 
 ---
 
-## 十三、实施计划
+## 十四、实施计划
 
 ### Phase 1 - MVP (6-8周)
 
@@ -3057,7 +3160,7 @@ networks:
 
 ---
 
-## 十四、风险与对策
+## 十五、风险与对策
 
 | 风险 | 影响 | 概率 | 对策 |
 |------|------|------|------|
@@ -3071,7 +3174,7 @@ networks:
 
 ---
 
-## 十五、成功标准
+## 十六、成功标准
 
 ### 功能性指标
 - ✅ 三个角色视图完整可用
@@ -3092,7 +3195,7 @@ networks:
 
 ---
 
-## 十六、附录
+## 十七、附录
 
 ### A. OpenClaw Gateway API 方法清单
 
