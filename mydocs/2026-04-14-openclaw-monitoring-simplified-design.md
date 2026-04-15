@@ -289,6 +289,9 @@ Center Service 接收数据
 1. INSERT INTO session_log_metadata (原始数据)
 2. INSERT INTO metrics_token_daily ON DUPLICATE KEY UPDATE (Token聚合)
 3. INSERT INTO metrics_message_daily ON DUPLICATE KEY UPDATE (消息聚合)
+4. INSERT INTO metrics_user_activity ON DUPLICATE KEY UPDATE (用户活跃度)
+5. INSERT INTO metrics_skill_usage ON DUPLICATE KEY UPDATE (技能使用)
+6. INSERT INTO metrics_timeseries ON DUPLICATE KEY UPDATE (时间序列)
     ↓
 所有表原子性更新，保证数据一致性
 ```
@@ -405,7 +408,6 @@ CREATE TABLE rebalance_history (
 
 **重要说明**: 
 - `session_log_metadata` 表存储的是 **文件级别** 的聚合统计信息（每个JSONL文件的汇总数据）
-- `parent_session_id` 字段已废弃，因为Session Log中的 `parentId` 是指**每条消息记录**的父ID，不是session级别的
 - 消息级别的 `id` 和 `parentId` 存储在 `session_message_detail` 表中，用于构建对话链路
 - **性能指标说明**:
   - `avg_duration_ms` / `max_duration_ms`: **仅统计 assistant 消息**（AI回复）
@@ -479,10 +481,10 @@ CREATE TABLE session_log_metadata (
 ```sql
 -- Center Service 接收数据后执行
 INSERT INTO metrics_token_daily (
-    stat_date, user_id, team,
+    stat_date, user_id,
     input_tokens, output_tokens, total_tokens
 ) VALUES (
-    CURDATE(), :userId, :team,
+    CURDATE(), :userId,
     :inputTokens, :outputTokens, :totalTokens
 )
 ON DUPLICATE KEY UPDATE
@@ -525,11 +527,11 @@ CREATE TABLE metrics_token_daily (
 ```sql
 -- Center Service 接收数据后执行
 INSERT INTO metrics_message_daily (
-    stat_date, user_id, team,
+    stat_date, user_id,
     session_count, user_messages, assistant_messages,
     skill_calls, tool_calls
 ) VALUES (
-    CURDATE(), :userId, :team,
+    CURDATE(), :userId,
     1, :userMessages, :assistantMessages,
     :skillCalls, :toolCalls
 )
@@ -563,6 +565,38 @@ CREATE TABLE metrics_message_daily (
 
 ### 5.4 用户活跃度表
 
+**数据生成方式**: 实时聚合 (Real-time Aggregation)
+
+当 Collector 推送 Session Log 元数据时，Center Service 同时更新此表：
+
+```sql
+-- Center Service 接收数据后执行
+INSERT INTO metrics_user_activity (
+    stat_date, user_id,
+    session_count, message_count, total_tokens,
+    skill_calls, tool_calls,
+    first_activity, last_activity
+) VALUES (
+    CURDATE(), :userId,
+    1, :messageCount, :totalTokens,
+    :skillCalls, :toolCalls,
+    :firstTimestamp, :lastTimestamp
+)
+ON DUPLICATE KEY UPDATE
+    session_count = session_count + VALUES(session_count),
+    message_count = message_count + VALUES(message_count),
+    total_tokens = total_tokens + VALUES(total_tokens),
+    skill_calls = skill_calls + VALUES(skill_calls),
+    tool_calls = tool_calls + VALUES(tool_calls),
+    first_activity = LEAST(first_activity, VALUES(first_activity)),
+    last_activity = GREATEST(last_activity, VALUES(last_activity));
+```
+
+**优点**:
+- ✅ 实时性高: 每次推送立即更新
+- ✅ 逻辑简单: 无需定时任务
+- ✅ 与现有架构一致
+
 ```sql
 CREATE TABLE metrics_user_activity (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -591,6 +625,62 @@ CREATE TABLE metrics_user_activity (
 ```
 
 ### 5.5 技能使用统计表
+
+**数据生成方式**: 实时聚合 (Real-time Aggregation)
+
+Collector 在解析 Session Log 时，已统计每个技能的调用情况，Center Service 接收后批量更新：
+
+```go
+// Collector 端伪代码 - 提取技能使用情况
+func extractSkillUsage(entries []LogEntry) map[string]*SkillUsage {
+    skills := make(map[string]*SkillUsage)
+    
+    for _, entry := range entries {
+        if entry.Message.Role == "assistant" {
+            for _, content := range entry.Message.Content {
+                if content.Type == "toolCall" && content.Name != "" {
+                    key := content.Name
+                    if _, exists := skills[key]; !exists {
+                        skills[key] = &SkillUsage{SkillName: content.Name}
+                    }
+                    skills[key].CallCount++
+                    skills[key].TotalTokens += entry.Message.Usage.TotalTokens
+                    if entry.Message.StopReason == "error" {
+                        skills[key].ErrorCount++
+                    } else {
+                        skills[key].SuccessCount++
+                    }
+                }
+            }
+        }
+    }
+    
+    return skills
+}
+```
+
+Center Service 接收后执行:
+
+```sql
+-- 批量更新技能使用统计
+INSERT INTO metrics_skill_usage (
+    stat_date, user_id, skill_name,
+    call_count, success_count, error_count, total_tokens
+) VALUES 
+    (CURDATE(), :userId, :skillName1, :callCount1, :successCount1, :errorCount1, :totalTokens1),
+    (CURDATE(), :userId, :skillName2, :callCount2, :successCount2, :errorCount2, :totalTokens2),
+    ...
+ON DUPLICATE KEY UPDATE
+    call_count = call_count + VALUES(call_count),
+    success_count = success_count + VALUES(success_count),
+    error_count = error_count + VALUES(error_count),
+    total_tokens = total_tokens + VALUES(total_tokens);
+```
+
+**优点**:
+- ✅ 实时性高: 推送后立即更新
+- ✅ Collector 已预计算，Center Service 只做简单累加
+- ✅ 支持按技能维度实时分析
 
 ```sql
 CREATE TABLE metrics_skill_usage (
@@ -765,6 +855,103 @@ CREATE TABLE session_message_detail (
 - "会话检索"页面查询此表,可以通过 `parent_message_id` 追溯完整的对话过程
 - 通过递归查询或应用层组装,可以从任意一条消息追溯到整个对话树
 
+**数据量估算**:
+- 每条记录对应 Session Log JSONL 文件中的一行（一个 message 对象）
+- 中等规模下：日均 10万条，月均 300万条，年均 3600万条
+- 存储空间：每条约 500-1000 字节，年增量约 36 GB
+
+**分区策略**: **按月分区**（推荐）
+
+由于数据量大且查询模式明显（主要按时间范围查询），强烈建议采用分区策略：
+
+```sql
+-- 创建表时指定分区
+CREATE TABLE session_message_detail (
+    -- ... 字段定义同上 ...
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 
+COMMENT='Session消息记录明细表(每条JSONL记录)'
+PARTITION BY RANGE (TO_DAYS(timestamp)) (
+    PARTITION p202601 VALUES LESS THAN (TO_DAYS('2026-02-01')),
+    PARTITION p202602 VALUES LESS THAN (TO_DAYS('2026-03-01')),
+    PARTITION p202603 VALUES LESS THAN (TO_DAYS('2026-04-01')),
+    PARTITION p202604 VALUES LESS THAN (TO_DAYS('2026-05-01')),
+    PARTITION p202605 VALUES LESS THAN (TO_DAYS('2026-06-01')),
+    PARTITION p202606 VALUES LESS THAN (TO_DAYS('2026-07-01')),
+    PARTITION p202607 VALUES LESS THAN (TO_DAYS('2026-08-01')),
+    PARTITION p202608 VALUES LESS THAN (TO_DAYS('2026-09-01')),
+    PARTITION p202609 VALUES LESS THAN (TO_DAYS('2026-10-01')),
+    PARTITION p202610 VALUES LESS THAN (TO_DAYS('2026-11-01')),
+    PARTITION p202611 VALUES LESS THAN (TO_DAYS('2026-12-01')),
+    PARTITION p202612 VALUES LESS THAN (TO_DAYS('2027-01-01')),
+    PARTITION pmax VALUES LESS THAN MAXVALUE
+);
+```
+
+**分区优势**:
+- ✅ **查询性能提升**: 分区裁剪（Partition Pruning）可大幅减少扫描行数
+  - 查询最近7天数据：从全表扫描 1000万行 → 只扫描1个分区 ~300万行（3-5倍提升）
+- ✅ **快速删除过期数据**: 直接 DROP PARTITION，比 DELETE 快数十倍
+- ✅ **维护便利**: 可以单独备份、优化、修复某个分区
+- ✅ **索引效率更高**: 每个分区的索引更小，查询更快
+
+**分区维护**:
+
+```sql
+-- 1. 添加新分区（每月执行）
+ALTER TABLE session_message_detail 
+ADD PARTITION (PARTITION p202701 VALUES LESS THAN (TO_DAYS('2027-02-01')));
+
+-- 2. 删除过期分区（如保留12个月）
+ALTER TABLE session_message_detail 
+DROP PARTITION p202501;
+
+-- 3. 查看各分区的数据量
+SELECT 
+    PARTITION_NAME,
+    TABLE_ROWS,
+    DATA_LENGTH / 1024 / 1024 AS data_mb,
+    INDEX_LENGTH / 1024 / 1024 AS index_mb
+FROM INFORMATION_SCHEMA.PARTITIONS
+WHERE TABLE_SCHEMA = 'your_database'
+  AND TABLE_NAME = 'session_message_detail'
+ORDER BY PARTITION_ORDINAL_POSITION;
+```
+
+**自动化维护**（可选）:
+
+```sql
+-- 创建定时任务，每月1号自动管理分区
+CREATE EVENT auto_manage_partitions
+ON SCHEDULE EVERY 1 MONTH
+STARTS '2026-05-01 00:00:00'
+DO
+BEGIN
+    -- 添加下月分区
+    SET @next_month = DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 2 MONTH), '%Y%m');
+    SET @sql = CONCAT('ALTER TABLE session_message_detail ADD PARTITION (PARTITION p', @next_month, ' VALUES LESS THAN (TO_DAYS(''', DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 3 MONTH), '%Y-%m-01'), ''')))');
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+    
+    -- 删除12个月前的分区
+    SET @old_month = DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 12 MONTH), '%Y%m');
+    SET @sql = CONCAT('ALTER TABLE session_message_detail DROP PARTITION p', @old_month);
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END;
+```
+
+**数据保留策略**:
+- **热数据**（最近3个月）: 保留在 `session_message_detail`，频繁查询
+- **温数据**（3-12个月）: 根据查询需求决定，可选择性归档
+- **冷数据**（>12个月）: 归档到历史表或删除，释放存储空间
+
+**替代方案**（小规模场景）:
+- 如果日均消息数 < 1万，可以不分区，采用定期归档策略
+- 将3个月前的数据移动到 `session_message_detail_archive` 表
+- 但推荐直接使用分区，便于后续扩展
+
 ---
 
 ## 六、关键数据结构
@@ -888,8 +1075,8 @@ public class SessionLogMetadataDTO {
     private String sessionId;
     private String instanceId;
     private String userId;
-    private String userName;
-    private String team;
+    // @Deprecated private String userName;  // 已移除，数据库表中无此字段
+    // @Deprecated private String team;      // 已移除，数据库表中无此字段
     
     private String filePath;
     private String fileName;
@@ -916,7 +1103,6 @@ public class SessionLogMetadataDTO {
     private Integer errorCount;
     private Integer successCount;
     
-    private String parentSessionId;  // @Deprecated 已废弃,使用messageDetail的parentMessageId
     private String userInputPreview;
     private String result;
     private String quality;
@@ -989,8 +1175,8 @@ public class TimeSeriesPoint {
 @Data
 public class UserActivityDTO {
     private String userId;
-    private String userName;
-    private String team;
+    // @Deprecated private String userName;  // 已移除，数据库表中无此字段
+    // @Deprecated private String team;      // 已移除，数据库表中无此字段
     private Integer sessionCount;
     private Integer messageCount;
     private Long totalTokens;
@@ -1321,7 +1507,6 @@ GET /api/sessions/search?userName=王颜&startDate=2026-04-14T00:00:00&endDate=2
     "list": [
       {
         "sessionId": "d6gte...",
-        "parentSessionId": null,  // @Deprecated 已废弃,使用消息级别的 parent_message_id
         "userName": "王颜",
         "userInput": "帮我生成一个...",
         "durationMs": 86000,
@@ -1367,7 +1552,6 @@ GET /api/sessions/search?userName=王颜&startDate=2026-04-14T00:00:00&endDate=2
 ```
 
 **说明**: 
-- `parentSessionId` 字段已废弃,因为 Session Log 中没有 session 级别的父子关系
 - 如果需要查询对话链路,应使用 `/api/sessions/messages/{messageId}/chain` 接口
 - 该接口通过消息级别的 `parent_message_id` 构建完整的对话树
 
@@ -1387,7 +1571,6 @@ GET /api/sessions/d6gte.../detail
   "message": "success",
   "data": {
     "sessionId": "d6gte...",
-    "parentSessionId": null,  // @Deprecated 已废弃,使用消息级别的 parent_message_id
     "userName": "王颜",
     "userInput": "帮我生成一个...",
     "durationMs": 86000,
@@ -1428,7 +1611,6 @@ GET /api/sessions/d6gte.../detail
 ```
 
 **说明**: 
-- `parentSessionId` 字段已废弃,因为 Session Log 中没有 session 级别的父子关系
 - 如果需要查询对话链路,应使用 `/api/sessions/messages/{messageId}/chain` 接口
 
 ---
