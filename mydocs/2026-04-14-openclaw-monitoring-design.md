@@ -1907,19 +1907,41 @@ Content-Type: application/json
 
 ### 7.2 运营大盘接口
 
-#### GET /api/dashboard/summary
+**说明**: 以下接口对应 API 接口文档中的"模块一：下拉列表数据字典接口；模块二：龙虾运营大盘接口"
+
+---
+
+#### GET /api/v1/skills/options
+
+**说明**: 获取技能下拉列表数据字典
 
 **请求:**
 ```http
-GET /api/dashboard/summary?scope=day&team=新技术&userId=18101142&startDate=2026-04-14&endDate=2026-04-14
+GET /api/v1/skills/options
 ```
 
-**参数:**
-- `scope`: day/week/month (本日/周/月)
-- `team`: 团队名称(可选)
-- `userId`: 用户ID(可选)
-- `startDate`: 开始日期
-- `endDate`: 结束日期
+**响应:**
+```json
+{
+  "code": 200,
+  "message": "success",
+  "data": [
+    { "skillId": "official-doc-writer", "skillName": "公文写作" },
+    { "skillId": "pptx", "skillName": "ppt生成" }
+  ]
+}
+```
+
+---
+
+#### GET /api/v1/dashboard/global-stats
+
+**说明**: 获取平台全局累计数据（不受筛选条件影响）
+
+**请求:**
+```http
+GET /api/v1/dashboard/global-stats
+```
 
 **响应:**
 ```json
@@ -1927,61 +1949,74 @@ GET /api/dashboard/summary?scope=day&team=新技术&userId=18101142&startDate=20
   "code": 200,
   "message": "success",
   "data": {
-    "cumulativeTokens": 1250000,
-    "totalConversations": 52000,
+    "totalTokens": 1250000,
+    "totalTurns": 52000,
     "totalSkillCalls": 25000,
-    "totalUsers": 872,
-    
-    "dailyTokens": 1250000,
-    "dailyConversations": 45200,
-    "dailySkillCalls": 12300,
-    "dailyActiveUsers": 150,
-    
-    "trendData": [
-      {
-        "timestamp": "02:00",
-        "tokenConsumption": 1000,
-        "conversationCount": 2,
-        "skillCallCount": 1
-      },
-      {
-        "timestamp": "04:00",
-        "tokenConsumption": 1500,
-        "conversationCount": 3,
-        "skillCallCount": 2
-      }
-    ],
-    
-    "userList": [
-      {
-        "userId": "18101142",
-        "userName": "王颜",
-        "team": "新技术",
-        "status": "active",
-        "lastHeartbeat": "2026-04-14T11:29:29",
-        "consumedTokens": 15400,
-        "inputTokens": "5.4k",
-        "outputTokens": "10.0k",
-        "conversationInfo": "成功3/总数3",
-        "skillCalls": 2,
-        "toolCalls": 1,
-        "commonSkills": ["公文写作", "ppt生成"]
-      }
-    ],
-    "total": 150,
-    "page": 1,
-    "size": 20
+    "totalUsers": 872
   }
 }
 ```
 
 ---
 
-#### GET /api/dashboard/trend
+#### POST /api/v1/dashboard/summary
+
+**说明**: 获取大盘统计卡片数据（受筛选条件联动）
+
+**通用请求体参数** (应用于 summary、trend、usersummary 接口):
+```json
+{
+  "teamName": "新技术",
+  "userName": "王颜",
+  "startTime": 1680000000000,
+  "endTime": 1680000000000
+}
+```
 
 **请求:**
 ```http
-GET /api/dashboard/trend?scope=day&startDate=2026-04-14&endDate=2026-04-14&team=新技术
+POST /api/v1/dashboard/summary
+Content-Type: application/json
+
+{
+  "teamName": "新技术",
+  "userName": "王颜",
+  "startTime": 1680000000000,
+  "endTime": 1680000000000
+}
+```
+
+**响应:**
+```json
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "consumedTokens": 1250000,
+    "conversationTurns": 45200,
+    "skillCalls": 12300,
+    "activeUsers": 150
+  }
+}
+```
+
+---
+
+#### POST /api/v1/dashboard/trend
+
+**说明**: 获取热度趋势图表数据
+
+**请求:**
+```http
+POST /api/v1/dashboard/trend
+Content-Type: application/json
+
+{
+  "teamName": "新技术",
+  "userName": "王颜",
+  "startTime": 1680000000000,
+  "endTime": 1680000000000
+}
 ```
 
 **响应:**
@@ -1991,16 +2026,16 @@ GET /api/dashboard/trend?scope=day&startDate=2026-04-14&endDate=2026-04-14&team=
   "message": "success",
   "data": [
     {
-      "timestamp": "02:00",
-      "tokenConsumption": 1000,
-      "conversationCount": 2,
-      "skillCallCount": 1
+      "timeLabel": 1680000000000,
+      "tokens": 4500,
+      "turns": 120,
+      "skills": 85
     },
     {
-      "timestamp": "04:00",
-      "tokenConsumption": 2000,
-      "conversationCount": 4,
-      "skillCallCount": 2
+      "timeLabel": 1680000000000,
+      "tokens": 5200,
+      "turns": 140,
+      "skills": 95
     }
   ]
 }
@@ -2008,11 +2043,23 @@ GET /api/dashboard/trend?scope=day&startDate=2026-04-14&endDate=2026-04-14&team=
 
 ---
 
-#### GET /api/dashboard/users
+#### POST /api/v1/dashboard/usersummary
+
+**说明**: 分页查询用户状态与消耗明细
 
 **请求:**
 ```http
-GET /api/dashboard/users?team=新技术&page=1&size=20
+POST /api/v1/dashboard/usersummary
+Content-Type: application/json
+
+{
+  "teamName": "新技术",
+  "userName": "王颜",
+  "startTime": 1680000000000,
+  "endTime": 1680000000000,
+  "page": 1,
+  "pageSize": 10
+}
 ```
 
 **响应:**
@@ -2021,33 +2068,39 @@ GET /api/dashboard/users?team=新技术&page=1&size=20
   "code": 200,
   "message": "success",
   "data": {
+    "total": 150,
+    "page": 1,
+    "pageSize": 10,
     "list": [
       {
         "userId": "18101142",
         "userName": "王颜",
-        "team": "新技术",
-        "status": "active",  // 龙虾状态: active=活跃, inactive=离线
-        "lastHeartbeat": "2026-04-14T11:29:29Z",  // 最后心跳时间
-        "consumedTokens": 15400,
-        "inputTokens": "5.4k",
-        "outputTokens": "10.0k",
-        "conversationInfo": "成功3/总数3",
-        "skillCalls": 2,
-        "toolCalls": 1,
-        "commonSkills": ["公文写作", "ppt生成"]
+        "teamName": "新技术",
+        "status": true,
+        "lastHeartbeat": 1680000000000,
+        "tokens": {
+          "total": 15400,
+          "input": 5400,
+          "output": 10000
+        },
+        "turns": {
+          "success": 3,
+          "total": 3
+        },
+        "skillCalls": {
+          "success": 2,
+          "total": 2
+        },
+        "toolCalls": {
+          "success": 1,
+          "total": 1
+        },
+        "topSkills": ["公文写作", "ppt生成"]
       }
-    ],
-    "total": 150,
-    "page": 1,
-    "size": 20
+    ]
   }
 }
 ```
-
-**说明**: 
-- `status` 字段从 Redis 缓存中读取 (Key: `monitor:instance:{instance_id}`)
-- `lastHeartbeat` 是最后一次成功调用 Gateway health API 的时间
-- 如果 Redis 中没有数据或已过期(TTL>5分钟),则显示为 `inactive`
 
 ---
 
