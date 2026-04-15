@@ -319,21 +319,39 @@ Center Service 接收数据
    └─ 返回 JSON 格式
 ```
 
-**会话检索查询:**
+**会话检索查询(Turn 列表)**:
 ```
-1. 前端请求会话列表或详情
-   ├─ 传递搜索条件(session_id, user_id, 技能名称, 时间范围)
-   └─ 指定是否需要对话链路
+1. 前端请求对话列表
+   ├─ 传递搜索条件(userName, startTime, endTime, skillId)
+   └─ 指定分页参数(page, pageSize)
 
 2. 后端查询 OceanBase
-   ├─ 从 session_message_detail 表查询消息记录
-   ├─ 根据 parent_message_id 构建对话树
-   └─ 可选:递归查询获取完整对话链路
+   ├─ 从 session_turn 表查询对话记录 ⭐
+   ├─ 按 start_timestamp 排序
+   └─ 支持多维度过滤(用户、时间、技能)
 
 3. 组装响应并返回
-   ├─ 按时间顺序排列消息
-   ├─ 标记每条消息的 id 和 parentId
-   └─ 返回完整的对话链路或单条消息详情
+   ├─ 返回 Turn 级别的聚合信息
+   ├─ 包含 is_complete 状态字段
+   └─ 支持前端展示"进行中"的对话
+```
+
+**执行链路追踪(Turn Detail)**:
+```
+1. 前端点击某条 Turn 展开详情
+   ├─ 调用 /api/v1/turns/{turnId}/trace
+   └─ 传入 turn_id
+
+2. 后端查询 OceanBase
+   ├─ 从 session_turn 表获取 first_message_id 和 last_message_id
+   ├─ 从 session_message_detail 表查询该范围内的所有消息
+   ├─ 根据 parent_message_id 构建对话树
+   └─ 按 stepOrder 排序生成执行链路
+
+3. 组装响应并返回
+   ├─ 返回节点列表(nodes)
+   ├─ 每个节点包含 stepOrder, nodeType, nodeName, status, timeStamp
+   └─ 前端渲染为流程图或时间线
 ```
 
 ---
@@ -2033,22 +2051,34 @@ GET /api/dashboard/users?team=新技术&page=1&size=20
 
 ---
 
-### 7.3 会话检索接口
+### 7.3 对话记录检索接口 (Turn)
 
-#### GET /api/sessions/search
+#### POST /api/v1/turns/search
+
+**说明**: 此接口对应 API 接口文档中的"模块三 - 6. 分页查询对话记录"
 
 **请求:**
 ```http
-GET /api/sessions/search?userName=王颜&startDate=2026-04-14T00:00:00&endDate=2026-04-14T23:59:59&skillName=公文写作&page=1&size=20
+POST /api/v1/turns/search
+Content-Type: application/json
+
+{
+  "userName": "王颜",
+  "startTime": 1680000000000,
+  "endTime": 1680000000000,
+  "skillId": "pptx",
+  "page": 1,
+  "pageSize": 10
+}
 ```
 
 **参数:**
 - `userName`: 姓名(可选)
-- `startDate`: 开始时间
-- `endDate`: 结束时间
-- `skillName`: 技能名称(可选)
-- `page`: 页码
-- `size`: 每页数量
+- `startTime`: 开始时间戳(毫秒)
+- `endTime`: 结束时间戳(毫秒)
+- `skillId`: 技能ID(可选)
+- `page`: 页码(默认1)
+- `pageSize`: 每页数量(默认10)
 
 **响应:**
 ```json
@@ -2056,137 +2086,74 @@ GET /api/sessions/search?userName=王颜&startDate=2026-04-14T00:00:00&endDate=2
   "code": 200,
   "message": "success",
   "data": {
+    "total": 125,
+    "page": 1,
+    "pageSize": 10,
     "list": [
       {
-        "sessionId": "d6gte...",
+        "turnId": "sess_abc123_turn_a1b2c3d4e5f6g7h8",
+        "timeStamp": 1680000000000,
         "userName": "王颜",
-        "userInput": "帮我生成一个...",
+        "userInput": "帮我生成一份二十届三中全会学习PPT",
         "durationMs": 86000,
-        "result": "失败",
-        "quality": "错误",
-        "consumedTokens": 15400,
-        "inputTokens": "5.4k",
-        "outputTokens": "10.0k",
-        "logFilePath": "/datafs/openclaw/a8a7ga7ba6a6badjibnoainbiona/agents/main/sessions/a8agy7aby7da6b6ab7.jsonl",
-        "executionChain": [
-          {
-            "stepType": "user_input",
-            "description": "用户输入",
-            "durationMs": 200,
-            "status": "success"
-          },
-          {
-            "stepType": "skill_call",
-            "description": "公文写作技能调用",
-            "durationMs": 200,
-            "status": "success"
-          },
-          {
-            "stepType": "tool_call",
-            "description": "xxx工具调用",
-            "durationMs": 200,
-            "status": "success"
-          },
-          {
-            "stepType": "response",
-            "description": "回复用户",
-            "durationMs": 0,
-            "status": "failed"
-          }
-        ]
-      }
-    ],
-    "total": 100,
-    "page": 1,
-    "size": 20
-  }
-}
-```
-
-**说明**: 
-- 如果需要查询对话链路,应使用 `/api/sessions/messages/{messageId}/chain` 接口
-- 该接口通过消息级别的 `parent_message_id` 构建完整的对话树
-
----
-
-#### GET /api/sessions/{sessionId}/detail
-
-**请求:**
-```http
-GET /api/sessions/d6gte.../detail
-```
-
-**响应:**
-```json
-{
-  "code": 200,
-  "message": "success",
-  "data": {
-    "sessionId": "d6gte...",
-    "userName": "王颜",
-    "userInput": "帮我生成一个...",
-    "durationMs": 86000,
-    "result": "失败",
-    "quality": "错误",
-    "consumedTokens": 15400,
-    "inputTokens": "5.4k",
-    "outputTokens": "10.0k",
-    "logFilePath": "/datafs/openclaw/a8a7ga7ba6a6badjibnoainbiona/agents/main/sessions/a8agy7aby7da6b6ab7.jsonl",
-    "executionChain": [
-      {
-        "stepType": "user_input",
-        "description": "用户输入",
-        "durationMs": 200,
-        "status": "success"
-      },
-      {
-        "stepType": "skill_call",
-        "description": "公文写作技能调用",
-        "durationMs": 200,
-        "status": "success"
-      },
-      {
-        "stepType": "tool_call",
-        "description": "xxx工具调用",
-        "durationMs": 200,
-        "status": "success"
-      },
-      {
-        "stepType": "response",
-        "description": "回复用户",
-        "durationMs": 0,
-        "status": "failed"
+        "resultStatus": false,
+        "qualityStatus": 2,
+        "tokens": {
+          "total": 15400,
+          "input": 5400,
+          "output": 10000
+        },
+        "skills": ["公文写作"],
+        "tools": [],
+        "isComplete": false,
+        "logFileName": "/datafs/openclaw/agents/main/sessions/xxx.jsonl"
       }
     ]
   }
 }
 ```
 
+**SQL 查询示例**:
+```sql
+SELECT 
+    turn_id,
+    UNIX_TIMESTAMP(start_timestamp) * 1000 AS time_stamp,
+    user_id,
+    user_input_preview AS user_input,
+    duration_ms,
+    result_status,
+    quality_status,
+    total_tokens,
+    input_tokens,
+    output_tokens,
+    skills_json AS skills,
+    tools_json AS tools,
+    is_complete,
+    log_file_path AS log_file_name
+FROM session_turn
+WHERE user_id = :userName
+  AND start_timestamp >= FROM_UNIXTIME(:startTime / 1000)
+  AND start_timestamp <= FROM_UNIXTIME(:endTime / 1000)
+  AND (:skillId IS NULL OR JSON_CONTAINS(skills_json, CONCAT('"', :skillId, '"')))
+ORDER BY start_timestamp DESC
+LIMIT :pageSize OFFSET (:page - 1) * :pageSize;
+```
+
 **说明**: 
-- 如果需要查询对话链路,应使用 `/api/sessions/messages/{messageId}/chain` 接口
+- 数据源: `session_turn` 表(不是 `session_message_detail`)
+- `isComplete` 字段用于前端区分"进行中"和"已完成"的对话
+- 支持按技能ID过滤(JSON_CONTAINS)
 
 ---
 
-#### GET /api/sessions/messages/search
+#### GET /api/v1/turns/{turnId}/trace
 
-**说明**: 搜索消息记录(每条JSONL记录),支持通过 `message_id` 和 `parent_message_id` 追溯对话链路
+**说明**: 此接口对应 API 接口文档中的"模块三 - 7. 获取执行链路详情"
 
 **请求:**
 ```http
-GET /api/sessions/messages/search?sessionId=d6gte...&messageId=entry-123&role=user&skillName=公文写作&startDate=2026-04-14T00:00:00&endDate=2026-04-14T23:59:59&page=1&size=20
+GET /api/v1/turns/sess_abc123_turn_a1b2c3d4e5f6g7h8/trace
 ```
-
-**参数:**
-- `sessionId`: Session ID(可选)
-- `messageId`: 消息记录ID(可选,对应JSONL中的id字段)
-- `parentMessageId`: 父消息ID(可选,对应JSONL中的parentId字段)
-- `role`: 角色 user/assistant/tool/toolResult(可选)
-- `skillName`: 技能名称(可选)
-- `toolName`: 工具名称(可选)
-- `startDate`: 开始时间
-- `endDate`: 结束时间
-- `page`: 页码
-- `size`: 每页数量
 
 **响应:**
 ```json
@@ -2194,307 +2161,149 @@ GET /api/sessions/messages/search?sessionId=d6gte...&messageId=entry-123&role=us
   "code": 200,
   "message": "success",
   "data": {
-    "list": [
+    "turnId": "sess_abc123_turn_a1b2c3d4e5f6g7h8",
+    "nodes": [
       {
-        "id": 1,
-        "sessionId": "d6gte...",
-        "filePath": "/datafs/openclaw/a8a7ga7ba6a6badjibnoainbiona/agents/main/sessions/a8agy7aby7da6b6ab7.jsonl",
-        
-        "messageId": "entry-123",
-        "parentMessageId": "entry-120",
-        
-        "role": "user",
-        "contentSummary": "帮我生成一个公文写作模板...",
-        
-        "totalTokens": 5400,
-        "inputTokens": 5400,
-        "outputTokens": 0,
-        
-        "skillName": "公文写作",
-        "toolName": null,
-        "toolCallId": null,
-        
-        "timestamp": "2026-04-14T09:30:00",
-        "durationMs": 200,
-        "stopReason": null,
-        
-        "collectedAt": "2026-04-14T10:00:00"
+        "stepOrder": 0,
+        "nodeType": "user_input",
+        "nodeName": "用户输入",
+        "status": true,
+        "timeStamp": 1680000000000
       },
       {
-        "id": 2,
-        "sessionId": "d6gte...",
-        "filePath": "/datafs/openclaw/a8a7ga7ba6a6badjibnoainbiona/agents/main/sessions/a8agy7aby7da6b6ab7.jsonl",
-        
-        "messageId": "entry-124",
-        "parentMessageId": "entry-123",
-        
-        "role": "assistant",
-        "contentSummary": "好的,我来帮你生成公文写作模板...",
-        
-        "totalTokens": 10000,
-        "inputTokens": 5400,
-        "outputTokens": 4600,
-        
-        "skillName": "公文写作",
-        "toolName": "write_document",
-        "toolCallId": "tool_abc123",
-        
-        "timestamp": "2026-04-14T09:31:26",
-        "durationMs": 86000,
-        "stopReason": "stop",
-        
-        "collectedAt": "2026-04-14T10:00:00"
+        "stepOrder": 1,
+        "nodeType": "skill_call",
+        "nodeName": "公文写作技能调用",
+        "status": true,
+        "timeStamp": 1680000001000
+      },
+      {
+        "stepOrder": 2,
+        "nodeType": "tool_call",
+        "nodeName": "xxx工具调用",
+        "status": true,
+        "timeStamp": 1680000002000
+      },
+      {
+        "stepOrder": 3,
+        "nodeType": "reply",
+        "nodeName": "回复用户",
+        "status": false,
+        "timeStamp": 1680000003000
       }
-    ],
-    "total": 120,
-    "page": 1,
-    "size": 20
+    ]
   }
 }
 ```
 
----
-
-#### GET /api/sessions/messages/{messageId}/chain
-
-**说明**: 获取指定消息的完整对话链路(通过递归查询 parent_message_id 构建对话树)
-
-**请求:**
-```http
-GET /api/sessions/messages/entry-124/chain?direction=both&maxDepth=50
-```
-
-**参数:**
-- `messageId`: 消息记录ID(路径参数)
-- `direction`: both/ancestors/descendants(默认both,表示双向追溯)
-- `maxDepth`: 最大追溯深度(默认50,防止循环引用)
-
-**响应:**
-```json
-{
-  "code": 200,
-  "message": "success",
-  "data": {
-    "rootMessageId": "entry-124",
-    "chain": [
-      {
-        "id": 1,
-        "sessionId": "d6gte...",
-        "messageId": "entry-120",
-        "parentMessageId": null,
-        "role": "user",
-        "contentSummary": "你好",
-        "totalTokens": 100,
-        "timestamp": "2026-04-14T09:28:00",
-        "depth": 0
-      },
-      {
-        "id": 2,
-        "sessionId": "d6gte...",
-        "messageId": "entry-121",
-        "parentMessageId": "entry-120",
-        "role": "assistant",
-        "contentSummary": "你好!有什么可以帮助你的吗?",
-        "totalTokens": 200,
-        "timestamp": "2026-04-14T09:28:30",
-        "depth": 1
-      },
-      {
-        "id": 3,
-        "sessionId": "d6gte...",
-        "messageId": "entry-123",
-        "parentMessageId": "entry-121",
-        "role": "user",
-        "contentSummary": "帮我生成一个公文写作模板...",
-        "totalTokens": 5400,
-        "timestamp": "2026-04-14T09:30:00",
-        "depth": 2
-      },
-      {
-        "id": 4,
-        "sessionId": "d6gte...",
-        "messageId": "entry-124",
-        "parentMessageId": "entry-123",
-        "role": "assistant",
-        "contentSummary": "好的,我来帮你生成公文写作模板...",
-        "totalTokens": 10000,
-        "timestamp": "2026-04-14T09:31:26",
-        "depth": 3,
-        "isRoot": true
-      }
-    ],
-    "totalMessages": 4,
-    "maxDepth": 3
-  }
+**实现逻辑**:
+```java
+// TurnTraceService.java
+public TurnTraceResponse getTurnTrace(String turnId) {
+    // 1. 从 session_turn 表获取 Turn 信息
+    SessionTurn turn = turnMapper.selectByTurnId(turnId);
+    if (turn == null) {
+        throw new NotFoundException("Turn not found: " + turnId);
+    }
+    
+    // 2. 从 session_message_detail 表查询该 Turn 范围内的所有消息
+    List<SessionMessage> messages = messageMapper.selectByMessageRange(
+        turn.getFirstMessageId(), 
+        turn.getLastMessageId()
+    );
+    
+    // 3. 构建执行链路节点
+    List<TraceNode> nodes = new ArrayList<>();
+    int stepOrder = 0;
+    
+    for (SessionMessage msg : messages) {
+        TraceNode node = new TraceNode();
+        node.setStepOrder(stepOrder++);
+        node.setTimeStamp(msg.getTimestamp().getTime());
+        
+        // 根据 role 和 content 确定节点类型
+        if ("user".equals(msg.getRole())) {
+            node.setNodeType("user_input");
+            node.setNodeName("用户输入");
+            node.setStatus(true);
+        } else if ("assistant".equals(msg.getRole())) {
+            // 检查是否有技能/工具调用
+            if (msg.getSkillName() != null) {
+                node.setNodeType("skill_call");
+                node.setNodeName(msg.getSkillName() + "技能调用");
+                node.setStatus(msg.getStopReason() == null || !"error".equals(msg.getStopReason()));
+            } else if (msg.getToolName() != null) {
+                node.setNodeType("tool_call");
+                node.setNodeName(msg.getToolName() + "工具调用");
+                node.setStatus(msg.getStopReason() == null || !"error".equals(msg.getStopReason()));
+            } else {
+                node.setNodeType("reply");
+                node.setNodeName("回复用户");
+                node.setStatus(msg.getStopReason() == null || !"error".equals(msg.getStopReason()));
+            }
+        }
+        
+        nodes.add(node);
+    }
+    
+    // 4. 组装响应
+    TurnTraceResponse response = new TurnTraceResponse();
+    response.setTurnId(turnId);
+    response.setNodes(nodes);
+    
+    return response;
 }
 ```
 
-**实现说明**:
-- 后端通过递归查询或迭代方式,从 `rootMessageId` 开始向上追溯 `parent_message_id`,向下查找所有 `parent_message_id = messageId` 的子消息
-- 按 `depth` 字段标记层级关系,前端可以渲染为树形结构
-- 设置 `maxDepth` 限制防止无限递归(理论上不应该出现循环,但作为防御性编程)
+**SQL 查询示例**:
+```sql
+-- 查询 Turn 范围内的所有消息
+SELECT 
+    message_id,
+    parent_message_id,
+    role,
+    content_summary,
+    skill_name,
+    tool_name,
+    timestamp,
+    stop_reason
+FROM session_message_detail
+WHERE session_id = :sessionId
+  AND timestamp >= (
+    SELECT start_timestamp FROM session_turn WHERE turn_id = :turnId
+  )
+  AND timestamp <= (
+    SELECT COALESCE(end_timestamp, NOW()) FROM session_turn WHERE turn_id = :turnId
+  )
+ORDER BY timestamp ASC;
+```
+
+**说明**: 
+- 数据源: `session_turn` + `session_message_detail` 联合查询
+- 通过 `first_message_id` 和 `last_message_id` 确定消息范围
+- 根据 `role`、`skill_name`、`tool_name` 等字段判断节点类型
+- `status` 根据 `stop_reason` 判断(success/error)
 
 ---
 
-### 7.4 下拉选项接口
+## 八、性能优化与监控
 
-#### GET /api/dropdown/teams
+### 8.1 Collector 增量处理策略
 
-**请求:**
-```http
-GET /api/dropdown/teams
-```
+**核心思路**: 基于 `last_message_id` 实现增量处理，避免重复解析整个文件
 
-**响应:**
-```json
-{
-  "code": 200,
-  "message": "success",
-  "data": [
-    "新技术",
-    "产品部",
-    "运营部"
-  ]
-}
-```
-
----
-
-#### GET /api/dropdown/skills
-
-**请求:**
-```http
-GET /api/dropdown/skills
-```
-
-**响应:**
-```json
-{
-  "code": 200,
-  "message": "success",
-  "data": [
-    "公文写作",
-    "ppt生成",
-    "数据分析"
-  ]
-}
-```
-
----
-
-### 7.5 通用响应格式
-
-所有接口统一使用以下响应格式:
-
-```json
-{
-  "code": 200,
-  "message": "success",
-  "data": {}
-}
-```
-
-**错误响应:**
-```json
-{
-  "code": 400,
-  "message": "参数错误",
-  "data": null
-}
-```
-
----
-
-## 八、核心代码示例
-
-### 8.1 Go Collector - JSONL 解析
+#### 基于last_message_id的增量解析
 
 ```go
-// parseJSONLFile 解析单个 JSONL 文件
-func parseJSONLFile(filePath string) (*SessionMetrics, error) {
+// processFileIncrementally 增量解析文件
+func (c *Collector) processFileIncrementally(filePath string, lastMessageID string) error {
     file, err := os.Open(filePath)
     if err != nil {
-        return nil, err
+        return err
     }
     defer file.Close()
     
-    metrics := &SessionMetrics{
-        FilePath: filePath,
-        FileName: filepath.Base(filePath),
-    }
-    
-    var latencies []float64
-    skillCallMap := make(map[string]int)
-    var firstUserMessage string
-    
     scanner := bufio.NewScanner(file)
-    scanner.Buffer(make([]byte, 0, 1024*1024), 10*1024*1024) // 支持大行
-    
-    for scanner.Scan() {
-        line := scanner.Text()
-        var entry SessionLogEntry
-        if err := json.Unmarshal([]byte(line), &entry); err != nil {
-            continue
-        }
-        
-        // 解析时间戳
-        ts, _ := time.Parse(time.RFC3339, entry.Timestamp)
-        if metrics.FirstTimestamp.IsZero() || ts.Before(metrics.FirstTimestamp) {
-            metrics.FirstTimestamp = ts
-        }
-        if ts.After(metrics.LastTimestamp) {
-            metrics.LastTimestamp = ts
-        }
-        
-        // 统计 Token
-        if entry.Message.Usage != nil {
-            metrics.InputTokens += int64(entry.Message.Usage.Input)
-            metrics.OutputTokens += int64(entry.Message.Usage.Output)
-            metrics.TotalTokens += int64(entry.Message.Usage.Total)
-        }
-        
-        // 统计消息
-        metrics.MessageCount++
-        switch entry.Message.Role {
-        case "user":
-            metrics.UserMessages++
-            if firstUserMessage == "" {
-                // 保存用户输入预览
-                firstUserMessage = extractTextPreview(entry.Message.Content)
-            }
-        case "assistant":
-            metrics.AssistantMessages++
-        }
-        
-        // 统计技能/工具调用
-        for _, content := range entry.Message.Content {
-            if content.Type == "tool_use" {
-                metrics.SkillCalls++
-                if content.Name != "" {
-                    skillCallMap[content.Name]++
-                }
-            }
-            if content.Type == "tool_result" {
-                metrics.ToolCalls++
-            }
-        }
-        
-        // 统计耗时
-        if entry.Message.DurationMs > 0 {
-            latencies = append(latencies, float64(entry.Message.DurationMs))
-        }
-        
-        // 判断结果
-        if entry.Message.IsError {
-            metrics.ErrorCount++
-        } else {
-            metrics.SuccessCount++
-        }
-        
-        metrics.LineCount++
-    }
-    
-    // 计算平均耗时
     if len(latencies) > 0 {
         metrics.AvgDurationMs = sum(latencies) / float64(len(latencies))
         metrics.MaxDurationMs = max(latencies)
