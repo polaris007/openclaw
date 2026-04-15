@@ -94,9 +94,10 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
 **处理流程**：
 1. 扫描 NFS 挂载目录下的所有 Session Log 文件
 2. 基于文件修改时间和 last_message_id 判断是否有新数据
-3. 流式逐行解析 JSONL 文件
-4. 提取消息元数据并聚合到 session_turn 表
-5. 更新 last_message_id 记录
+3. 流式逐行解析 JSONL 文件，提取消息元数据
+4. **不解析 Token 统计**：Token、成本等数据通过 Gateway RPC `sessions.list` 获取
+5. 聚合 Turn 结构（消息数、时间范围、Skill 使用等）到 session_turn 表
+6. 更新 last_message_id 记录
 
 **增量策略**：
 - 文件级别：检测文件修改时间或大小变化
@@ -111,10 +112,87 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
 
 **处理流程**：
 1. 从 `openclaw_instances` 表获取所有 status为running的instance 列表
-2. 遍历每个 instance，调用其 Gateway 的 `/health` 端点
+2. 遍历每个 instance，调用其 Gateway 的 `/health` 端点（HTTP GET）
 3. HTTP 请求超时设置为 3 秒（可配置）
-4. 更新 `gateway_health_cache` 表的状态信息
+4. 解析 Health API 响应，提取关键指标更新到 `gateway_health_cache` 表
 5. 对比 `openclaw_instances` 表，清理非running的 instance 缓存记录
+
+**Health API 实际返回结构**（来自 OpenClaw 源码 `src/commands/health.ts`）：
+```json
+{
+  "ok": true,
+  "ts": 1713123456789,
+  "durationMs": 245,
+  "channels": {
+    "discord": {
+      "accountId": "default",
+      "configured": true,
+      "probe": {
+        "ok": true,
+        "elapsedMs": 120,
+        "bot": { "username": "mybot" }
+      }
+    },
+    "telegram": {
+      "accountId": "default",
+      "configured": false
+    }
+  },
+  "channelOrder": ["discord", "telegram", "slack"],
+  "channelLabels": {
+    "discord": "Discord",
+    "telegram": "Telegram"
+  },
+  "heartbeatSeconds": 30,
+  "defaultAgentId": "main",
+  "agents": [
+    {
+      "agentId": "main",
+      "name": "Main Agent",
+      "isDefault": true,
+      "heartbeat": {
+        "everyMs": 30000,
+        "lastBeat": 1713123456000
+      },
+      "sessions": {
+        "path": "/data/sessions/main.json",
+        "count": 15,
+        "recent": [...]
+      }
+    }
+  ],
+  "sessions": {
+    "path": "/data/sessions/main.json",
+    "count": 15,
+    "recent": [
+      {
+        "key": "discord:user123",
+        "updatedAt": 1713123400000,
+        "age": 56789
+      }
+    ]
+  }
+}
+```
+
+**关键字段映射到缓存表**：
+- `ok` → `status`: `true` = "online", `false` = "offline"
+- `agents[0].heartbeat.lastBeat` → `last_heartbeat`: 最后心跳时间戳
+- `ts` → `last_check_time`: 健康检查时间
+- `agents[0].heartbeat.everyMs` → 可用于计算下次预期心跳
+- **注意**: 实际返回中**没有** `version`, `nodeId`, `memory.rss` 等字段
+
+**Token 统计数据获取**：
+- **不从 Session Log 解析**：Token、成本等统计数据直接从 Gateway 获取
+- **RPC 方法**: 通过 WebSocket 调用 `sessions.list` 方法
+- **返回字段**:
+  - `inputTokens`: 输入 Token 数
+  - `outputTokens`: 输出 Token 数
+  - `totalTokens`: 总 Token 数
+  - `estimatedCostUsd`: 预估成本（美元）
+  - `contextTokens`: 上下文 Token 数
+  - `modelProvider`: 模型提供商
+  - `model`: 模型 ID
 
 **快速失败机制**：
 - 连接超时：3 秒
@@ -215,12 +293,12 @@ CREATE TABLE `dashboard_session_turn` (
   `tool_call_count` INT NOT NULL DEFAULT 0 COMMENT '工具调用次数',
   `total_duration_ms` BIGINT DEFAULT 0 COMMENT '总耗时（毫秒）',
   `ai_duration_ms` BIGINT DEFAULT 0 COMMENT 'AI 响应总耗时（毫秒）',
-  `input_tokens` INT DEFAULT 0 COMMENT '输入 Token 数',
-  `output_tokens` INT DEFAULT 0 COMMENT '输出 Token 数',
-  `total_tokens` INT DEFAULT 0 COMMENT '总 Token 数',
-  `estimated_cost_cents` INT DEFAULT 0 COMMENT '预估成本（美分）',
+  `input_tokens` INT DEFAULT 0 COMMENT '输入 Token 数（从 Gateway sessions.list 获取）',
+  `output_tokens` INT DEFAULT 0 COMMENT '输出 Token 数（从 Gateway sessions.list 获取）',
+  `total_tokens` INT DEFAULT 0 COMMENT '总 Token 数（从 Gateway sessions.list 获取）',
+  `estimated_cost_cents` INT DEFAULT 0 COMMENT '预估成本（美分，从 Gateway sessions.list 获取）',
   `skill_ids` TEXT COMMENT '使用的 Skill ID 列表（JSON 数组）',
-  `model_ids` TEXT COMMENT '使用的模型 ID 列表（JSON 数组）',
+  `model_ids` TEXT COMMENT '使用的模型 ID 列表（JSON 数组，从 Gateway sessions.list 获取）',
   `user_input_preview` VARCHAR(500) DEFAULT NULL COMMENT '用户输入预览（前500字符）',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
@@ -1005,6 +1083,84 @@ public class AdminController {
     }
 }
 ```
+
+### 5.4 Gateway Token 统计数据获取
+
+**说明**: Token、成本等统计数据不从 Session Log 解析，而是通过 Gateway RPC 接口获取。
+
+**RPC 方法**: `sessions.list`
+
+**调用方式**:
+```java
+@Component
+@Slf4j
+public class GatewayTokenStatsClient {
+    
+    /**
+     * 从 Gateway 获取会话的 Token 统计信息
+     */
+    public SessionTokenStats fetchTokenStats(String gatewayUrl, String authToken, String sessionKey) {
+        try {
+            // 建立 WebSocket 连接
+            WebSocketClient client = new WebSocketClient(gatewayUrl, authToken);
+            
+            // 调用 sessions.list RPC 方法
+            JsonNode response = client.callRpc("sessions.list", Map.of(
+                "agentId", "default",
+                "includeGlobal", false,
+                "includeUnknown", false
+            ));
+            
+            // 解析返回数据
+            JsonNode sessions = response.get("sessions");
+            for (JsonNode session : sessions) {
+                if (sessionKey.equals(session.get("key").asText())) {
+                    return new SessionTokenStats(
+                        session.get("inputTokens").asInt(0),
+                        session.get("outputTokens").asInt(0),
+                        session.get("totalTokens").asInt(0),
+                        session.get("estimatedCostUsd").asDouble(0.0) * 100, // 转换为美分
+                        session.get("contextTokens").asInt(0),
+                        session.get("modelProvider").asText(null),
+                        session.get("model").asText(null)
+                    );
+                }
+            }
+            
+            return null;
+        } catch (Exception e) {
+            log.error("从 Gateway 获取 Token 统计失败: {}", sessionKey, e);
+            return null;
+        }
+    }
+    
+    @Data
+    @AllArgsConstructor
+    public static class SessionTokenStats {
+        private int inputTokens;
+        private int outputTokens;
+        private int totalTokens;
+        private int estimatedCostCents;
+        private int contextTokens;
+        private String modelProvider;
+        private String model;
+    }
+}
+```
+
+**返回字段说明**:
+- `inputTokens`: 输入 Token 数
+- `outputTokens`: 输出 Token 数
+- `totalTokens`: 总 Token 数
+- `estimatedCostUsd`: 预估成本（美元），需转换为美分存储
+- `contextTokens`: 上下文 Token 数
+- `modelProvider`: 模型提供商（如 anthropic, openai）
+- `model`: 模型 ID（如 sonnet-4.6, gpt-4）
+
+**使用场景**:
+1. **Session 扫描任务**: 解析完 Turn 结构后，调用 Gateway 获取该 Session 的 Token 统计
+2. **批量更新**: 每小时扫描时，批量获取所有活跃 Session 的 Token 数据并更新到数据库
+3. **按需查询**: 用户查询对话详情时，实时从 Gateway 获取最新 Token 数据
 
 ---
 
