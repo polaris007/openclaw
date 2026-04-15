@@ -1074,18 +1074,12 @@ public class SessionScanTask {
             }
         }
         
-        // 7. 第二遍扫描：流式解析 JSONL 文件
-        List<TurnAggregate> aggregates = parseJsonlFile(file, lastMessageId);
+        // 7. 第二遍扫描：流式处理 + 分批写入数据库
+        TurnAggregate lastTurn = streamProcessAndBatchWrite(file, lastMessageId);
         
-        // 8. 批量插入或更新 session_turn 表
-        if (!aggregates.isEmpty()) {
-            turnRepository.batchUpsert(aggregates);
-        }
-        
-        // 9. 更新处理状态（包括 compaction_count）
-        if (!aggregates.isEmpty()) {
-            String newLastMessageId = aggregates.get(aggregates.size() - 1).getLastMessageId();
-            updateProcessingState(fileHash, filePath, file, newLastMessageId, currentCompactionCount);
+        // 8. 更新处理状态（包括 compaction_count）
+        if (lastTurn != null) {
+            updateProcessingState(fileHash, filePath, file, lastTurn.getLastMessageId(), currentCompactionCount);
         }
     }
     
@@ -1097,35 +1091,64 @@ public class SessionScanTask {
                currentTime != state.getFileModifiedTime().getTime();
     }
     
-    private List<TurnAggregate> parseJsonlFile(File file, String lastMessageId) throws IOException {
-        List<TurnAggregate> aggregates = new ArrayList<>();
+    /**
+     * 流式处理 JSONL 文件，分批写入数据库
+     * 内存中只保留当前正在构建的 Turn 和一个小的写入批次
+     * 
+     * @return 最后处理的 Turn，用于更新处理状态
+     */
+    private TurnAggregate streamProcessAndBatchWrite(File file, String lastMessageId) throws IOException {
+        List<TurnAggregate> batch = new ArrayList<>();
+        int batchSize = 100; // 每 100 条 Turn 写入一次
+        TurnAggregate lastTurn = null;
         TurnBuilder builder = new TurnBuilder();
         
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                JsonNode message = objectMapper.readTree(line);
-                String messageId = message.get("id").asText();
-                
-                // 跳过已处理的消息
-                if (lastMessageId != null && messageId.compareTo(lastMessageId) <= 0) {
+                if (line.trim().isEmpty()) {
                     continue;
                 }
                 
-                // 构建 Turn
-                builder.addMessage(message);
-                
-                // 如果遇到新的 user 消息，完成当前 Turn
-                if ("user".equals(message.get("role").asText()) && builder.hasCurrentTurn()) {
-                    TurnAggregate completedTurn = builder.completeCurrentTurn();
-                    if (completedTurn != null) {
-                        aggregates.add(completedTurn);
+                try {
+                    JsonNode message = objectMapper.readTree(line);
+                    String messageId = message.get("id").asText();
+                    
+                    // 跳过已处理的消息
+                    if (lastMessageId != null && messageId.compareTo(lastMessageId) <= 0) {
+                        continue;
                     }
+                    
+                    // 构建 Turn
+                    builder.addMessage(message);
+                    
+                    // 如果遇到新的 user 消息，完成当前 Turn
+                    if ("user".equals(message.get("role").asText()) && builder.hasCurrentTurn()) {
+                        TurnAggregate completedTurn = builder.completeCurrentTurn();
+                        if (completedTurn != null) {
+                            batch.add(completedTurn);
+                            lastTurn = completedTurn;
+                            
+                            // 达到批次大小，写入数据库
+                            if (batch.size() >= batchSize) {
+                                turnRepository.batchUpsert(batch);
+                                batch.clear();
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    // 忽略解析错误的行
+                    log.debug("解析行失败: {}", line, e);
                 }
             }
         }
         
-        return aggregates;
+        // 写入剩余的 Turn
+        if (!batch.isEmpty()) {
+            turnRepository.batchUpsert(batch);
+        }
+        
+        return lastTurn;
     }
     
     /**
@@ -1903,7 +1926,7 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
 | Gateway | OpenClaw 网关服务，提供 WebSocket 和 HTTP API |
 
 ### 9.2 参考资料
-- [源码](D:\workplace\github\openclaw)
+- [源码](../openclaw)
 - [Session Log 格式说明](./2026-04-14-openclaw-monitoring-design.md)
 - [API 接口文档](./API接口文档.md)
 - [openclaw_instances 数据](./openclaw-instances_sample-data.txt)
