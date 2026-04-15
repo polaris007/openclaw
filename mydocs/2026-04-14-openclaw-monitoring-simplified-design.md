@@ -28,8 +28,8 @@
 ✅ **必须满足:**
 - 零修改 OpenClaw 源码 (非侵入式)
 - 所有 Session Log 通过 NAS 挂载直接访问
-- 不实现文件备份,仅解析和统计
-- 仅实现原型中列出的指标
+- 暂不实现文件备份,仅解析和统计
+- 实现原型中列出的指标
 - 不实现前端,仅定义接口和报文格式
 
 ### 1.4 龙虾状态说明
@@ -278,7 +278,26 @@ HSET monitor:instance:inst-001 \
 6. ✅ **归档文件处理**: `.reset.`/`.deleted.`文件仍会解析统计,保证数据完整性
 7. ✅ **Backend幂等性**: 使用`INSERT IGNORE`防止Collector重试导致的重复
 
-### 4.2 数据查询流程
+### 4.2 数据聚合与查询流程
+
+**实时聚合策略:**
+```
+Collector 推送 Session Log 元数据
+    ↓
+Center Service 接收数据
+    ↓
+1. INSERT INTO session_log_metadata (原始数据)
+2. INSERT INTO metrics_token_daily ON DUPLICATE KEY UPDATE (Token聚合)
+3. INSERT INTO metrics_message_daily ON DUPLICATE KEY UPDATE (消息聚合)
+    ↓
+所有表原子性更新，保证数据一致性
+```
+
+**优势**:
+- ✅ 实时性高: 数据立即可见，无需等待批处理
+- ✅ 实现简单: 利用 MySQL 的 `ON DUPLICATE KEY UPDATE` 特性
+- ✅ 一致性好: 在同一事务中更新，避免数据不一致
+- ✅ 性能可控: 每次只更新几条记录（按 user_id + date 分组）
 
 **运营大盘查询:**
 ```
@@ -327,7 +346,7 @@ HSET monitor:instance:inst-001 \
 
 -- Collector注册表
 CREATE TABLE collectors (
-    collector_id VARCHAR(50) PRIMARY KEY COMMENT 'Collector唯一标识',
+    collector_id VARCHAR(64) PRIMARY KEY COMMENT 'Collector唯一标识',
     host VARCHAR(100) NOT NULL COMMENT 'Collector主机IP或域名',
     port INT NOT NULL COMMENT 'Collector服务端口',
     capacity INT DEFAULT 100 COMMENT '最大管理实例数容量',
@@ -342,7 +361,7 @@ CREATE TABLE collectors (
 
 -- OpenClaw实例表
 CREATE TABLE openclaw_instances (
-    instance_id VARCHAR(50) PRIMARY KEY COMMENT '实例唯一标识',
+    instance_id VARCHAR(64) PRIMARY KEY COMMENT '实例唯一标识',
     gateway_url VARCHAR(200) NOT NULL COMMENT 'Gateway WebSocket地址 ws://host:port',
     auth_token VARCHAR(500) COMMENT '认证Token(如果需要)',
     status ENUM('active', 'inactive') DEFAULT 'active' COMMENT '状态',
@@ -353,8 +372,8 @@ CREATE TABLE openclaw_instances (
 -- 实例-Collector映射表
 CREATE TABLE instance_collector_mapping (
     id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
-    instance_id VARCHAR(50) NOT NULL COMMENT '实例ID',
-    collector_id VARCHAR(50) NOT NULL COMMENT 'Collector ID',
+    instance_id VARCHAR(64) NOT NULL COMMENT '实例ID',
+    collector_id VARCHAR(64) NOT NULL COMMENT 'Collector ID',
     assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '分配时间',
     UNIQUE KEY uk_instance (instance_id) COMMENT '实例唯一约束',
     INDEX idx_collector (collector_id) COMMENT '按Collector查询索引',
@@ -366,7 +385,7 @@ CREATE TABLE instance_collector_mapping (
 CREATE TABLE rebalance_history (
     id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
     trigger_type ENUM('collector_register', 'collector_unregister', 'scheduled', 'manual') NOT NULL COMMENT '触发类型',
-    trigger_collector_id VARCHAR(50) COMMENT '触发本次Rebalance的Collector ID',
+    trigger_collector_id VARCHAR(64) COMMENT '触发本次Rebalance的Collector ID',
     total_instances INT NOT NULL DEFAULT 0 COMMENT '涉及的总实例数',
     reassigned_count INT NOT NULL DEFAULT 0 COMMENT '实际重新分配的实例数',
     started_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始时间',
@@ -388,15 +407,29 @@ CREATE TABLE rebalance_history (
 - `session_log_metadata` 表存储的是 **文件级别** 的聚合统计信息（每个JSONL文件的汇总数据）
 - `parent_session_id` 字段已废弃，因为Session Log中的 `parentId` 是指**每条消息记录**的父ID，不是session级别的
 - 消息级别的 `id` 和 `parentId` 存储在 `session_message_detail` 表中，用于构建对话链路
+- **性能指标说明**:
+  - `avg_duration_ms` / `max_duration_ms`: **仅统计 assistant 消息**（AI回复）
+  - Session Log 中**没有直接的 `durationMs` 字段**，需要通过时间戳计算
+  - **计算方法**: `assistant.timestamp - previous_message.timestamp`
+    - `assistant.timestamp`: AI 响应完成并写入日志的时间
+    - `previous_message.timestamp`: 上一条消息（user 或 toolResult）的时间戳
+    - 差值 = AI 生成时间 + 网络传输时间（近似值）
+  - User 消息不参与耗时统计（作为请求起点）
+  - 如果 assistant 是最后一条消息，无法计算耗时（跳过）
+- **用户输入预览说明**:
+  - `user_input_preview`: 提取 Session 中**第一条 user 消息**的前500字符
+  - 用途: 快速识别会话主题（如 cron 任务、聊天话题等）
+  - 如果内容超过500字符，截断并添加 "..."
+  - 多轮对话时，不包含后续的用户输入
 
 ```sql
 CREATE TABLE session_log_metadata (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    session_id VARCHAR(200) NOT NULL COMMENT '会话ID',
-    instance_id VARCHAR(50) COMMENT '实例ID',
-    user_id VARCHAR(100) COMMENT '用户ID(工号)',
-    user_name VARCHAR(100) COMMENT '用户姓名',
-    team VARCHAR(100) COMMENT '产品团队',
+    session_id VARCHAR(64) NOT NULL COMMENT '会话ID',
+    instance_id VARCHAR(64) COMMENT '实例ID',
+    user_id VARCHAR(64) COMMENT '用户ID',
+    -- user_name VARCHAR(100) COMMENT '用户姓名',
+    -- team VARCHAR(100) COMMENT '产品团队',
     
     file_path VARCHAR(500) NOT NULL COMMENT '文件绝对路径',
     file_name VARCHAR(200) NOT NULL COMMENT '文件名',
@@ -417,23 +450,21 @@ CREATE TABLE session_log_metadata (
     skill_calls INT DEFAULT 0 COMMENT '技能调用次数',
     tool_calls INT DEFAULT 0 COMMENT '工具调用次数',
     
-    avg_duration_ms DECIMAL(10,2) COMMENT '平均耗时(ms)',
-    max_duration_ms DECIMAL(10,2) COMMENT '最大耗时(ms)',
-    
+    -- 性能指标 (仅统计assistant消息,即AI回复的生成耗时)
+    avg_duration_ms DECIMAL(10,2) COMMENT 'AI回复平均耗时(ms),仅统计assistant消息',
+    max_duration_ms DECIMAL(10,2) COMMENT 'AI回复最大耗时(ms),仅统计assistant消息',
+   
     error_count INT DEFAULT 0 COMMENT '错误数',
     success_count INT DEFAULT 0 COMMENT '成功数',
     
-    parent_session_id VARCHAR(200) COMMENT '父会话ID (已废弃,使用message_detail表的parent_message_id)',
-    user_input_preview VARCHAR(500) COMMENT '用户输入预览',
-    result VARCHAR(50) COMMENT '结果: success/failed',
-    quality VARCHAR(50) COMMENT '质量: 优秀/良好/一般/错误',
+    user_input_preview VARCHAR(500) COMMENT '首次用户输入预览(前500字符),用于快速识别会话主题',
     
     status ENUM('active', 'archived', 'deleted') DEFAULT 'active',
-    ingested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间(数据摄入时间)',
     
     INDEX idx_session_id (session_id),
     INDEX idx_user_id (user_id),
-    INDEX idx_team (team),
+    -- INDEX idx_team (team),
     INDEX idx_last_timestamp (last_timestamp),
     INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Session Log元数据表';
@@ -441,12 +472,37 @@ CREATE TABLE session_log_metadata (
 
 ### 5.2 Token 消耗日报表
 
+**数据生成方式**: 实时聚合 (Real-time Aggregation)
+
+当 Collector 推送 Session Log 元数据时，Center Service 同时更新此表：
+
+```sql
+-- Center Service 接收数据后执行
+INSERT INTO metrics_token_daily (
+    stat_date, user_id, team,
+    input_tokens, output_tokens, total_tokens
+) VALUES (
+    CURDATE(), :userId, :team,
+    :inputTokens, :outputTokens, :totalTokens
+)
+ON DUPLICATE KEY UPDATE
+    input_tokens = input_tokens + VALUES(input_tokens),
+    output_tokens = output_tokens + VALUES(output_tokens),
+    total_tokens = total_tokens + VALUES(total_tokens);
+```
+
+**优点**:
+- ✅ 实时性高: 数据立即可见
+- ✅ 实现简单: 无需额外的批处理任务
+- ✅ 一致性好: 与原始数据同步更新
+- ✅ 适合增量推送: 每次只更新几条记录
+
 ```sql
 CREATE TABLE metrics_token_daily (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     stat_date DATE NOT NULL COMMENT '统计日期',
-    user_id VARCHAR(100) COMMENT '用户ID',
-    team VARCHAR(100) COMMENT '团队',
+    user_id VARCHAR(64) COMMENT '用户ID',
+    -- team VARCHAR(100) COMMENT '团队',
     
     input_tokens BIGINT DEFAULT 0,
     output_tokens BIGINT DEFAULT 0,
@@ -455,19 +511,42 @@ CREATE TABLE metrics_token_daily (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
     UNIQUE KEY uk_date_user (stat_date, user_id),
-    INDEX idx_stat_date (stat_date),
-    INDEX idx_team (team)
+    INDEX idx_stat_date (stat_date)
+    -- INDEX idx_team (team)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Token消耗日报表';
 ```
 
 ### 5.3 消息统计日报表
 
+**数据生成方式**: 实时聚合 (Real-time Aggregation)
+
+与 Token 消耗表类似，每次推送时实时更新：
+
+```sql
+-- Center Service 接收数据后执行
+INSERT INTO metrics_message_daily (
+    stat_date, user_id, team,
+    session_count, user_messages, assistant_messages,
+    skill_calls, tool_calls
+) VALUES (
+    CURDATE(), :userId, :team,
+    1, :userMessages, :assistantMessages,
+    :skillCalls, :toolCalls
+)
+ON DUPLICATE KEY UPDATE
+    session_count = session_count + VALUES(session_count),
+    user_messages = user_messages + VALUES(user_messages),
+    assistant_messages = assistant_messages + VALUES(assistant_messages),
+    skill_calls = skill_calls + VALUES(skill_calls),
+    tool_calls = tool_calls + VALUES(tool_calls);
+```
+
 ```sql
 CREATE TABLE metrics_message_daily (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     stat_date DATE NOT NULL COMMENT '统计日期',
-    user_id VARCHAR(100) COMMENT '用户ID',
-    team VARCHAR(100) COMMENT '团队',
+    user_id VARCHAR(64) COMMENT '用户ID',
+    -- team VARCHAR(100) COMMENT '团队',
     
     session_count INT DEFAULT 0 COMMENT '会话数',
     user_messages INT DEFAULT 0 COMMENT '用户消息数',
@@ -488,9 +567,9 @@ CREATE TABLE metrics_message_daily (
 CREATE TABLE metrics_user_activity (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     stat_date DATE NOT NULL COMMENT '统计日期',
-    user_id VARCHAR(100) NOT NULL COMMENT '用户ID(工号)',
-    user_name VARCHAR(100) COMMENT '用户姓名',
-    team VARCHAR(100) COMMENT '团队',
+    user_id VARCHAR(64) NOT NULL COMMENT '用户ID(工号)',
+    -- user_name VARCHAR(100) COMMENT '用户姓名',
+    -- team VARCHAR(100) COMMENT '团队',
     
     session_count INT DEFAULT 0 COMMENT '会话数',
     message_count INT DEFAULT 0 COMMENT '消息数',
@@ -501,13 +580,13 @@ CREATE TABLE metrics_user_activity (
     first_activity TIMESTAMP NULL,
     last_activity TIMESTAMP NULL,
     
-    status VARCHAR(50) DEFAULT 'active' COMMENT '龙虾状态',
+    -- status VARCHAR(50) DEFAULT 'active' COMMENT '龙虾状态',
     
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
     UNIQUE KEY uk_date_user (stat_date, user_id),
-    INDEX idx_stat_date (stat_date),
-    INDEX idx_team (team)
+    INDEX idx_stat_date (stat_date)
+    -- INDEX idx_team (team)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户活跃度表';
 ```
 
@@ -517,7 +596,7 @@ CREATE TABLE metrics_user_activity (
 CREATE TABLE metrics_skill_usage (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     stat_date DATE NOT NULL COMMENT '统计日期',
-    user_id VARCHAR(100) COMMENT '用户ID',
+    user_id VARCHAR(64) COMMENT '用户ID',
     skill_name VARCHAR(100) NOT NULL COMMENT '技能名称',
     
     call_count INT DEFAULT 0 COMMENT '调用次数',
@@ -535,12 +614,90 @@ CREATE TABLE metrics_skill_usage (
 
 ### 5.6 时间序列数据表(用于热度趋势)
 
+**数据生成方式**: Collector 端预聚合 (Pre-aggregation at Collector)
+
+Collector 在解析 Session Log 时，按小时窗口聚合数据并推送：
+
+```go
+// Collector 端伪代码
+func aggregateByHour(entries []SessionLogEntry) map[string]*TimeSeriesBucket {
+    buckets := make(map[string]*TimeSeriesBucket)
+    
+    for _, entry := range entries {
+        // 计算小时窗口: 2026-04-14 10:30:00 → 2026-04-14 10:00:00
+        bucketTime := truncateToHour(entry.Timestamp)
+        key := fmt.Sprintf("%s|%s", bucketTime, entry.UserID)
+        
+        if _, exists := buckets[key]; !exists {
+            buckets[key] = &TimeSeriesBucket{
+                BucketTime: bucketTime,
+                UserID:     entry.UserID,
+            }
+        }
+        
+        // 累加指标
+        buckets[key].TotalTokens += entry.TotalTokens
+        buckets[key].SessionCount++
+        buckets[key].SkillCalls += entry.SkillCalls
+    }
+    
+    return buckets
+}
+```
+
+Center Service 接收后执行:
+
+```sql
+-- Center Service 接收数据后执行
+INSERT INTO metrics_timeseries (
+    bucket_time, user_id,
+    total_tokens, session_count, skill_calls
+) VALUES (
+    :bucketTime, :userId,
+    :totalTokens, :sessionCount, :skillCalls
+)
+ON DUPLICATE KEY UPDATE
+    total_tokens = total_tokens + VALUES(total_tokens),
+    session_count = session_count + VALUES(session_count),
+    skill_calls = skill_calls + VALUES(skill_calls);
+```
+
+**优点**:
+- ✅ 减轻 Center Service 计算压力
+- ✅ 网络传输量小（已聚合）
+- ✅ 实时性好（每小时更新一次）
+- ✅ 支持细粒度查询（如最近24小时趋势）
+
+**典型查询场景**:
+```sql
+-- 查询某用户最近24小时的Token消耗趋势
+SELECT 
+    bucket_time,
+    total_tokens,
+    session_count
+FROM metrics_timeseries
+WHERE user_id = 'user123'
+  AND bucket_time >= NOW() - INTERVAL 24 HOUR
+ORDER BY bucket_time;
+
+-- 查询全局每小时活跃度
+SELECT 
+    bucket_time,
+    SUM(total_tokens) as total_tokens,
+    SUM(session_count) as session_count
+FROM metrics_timeseries
+WHERE user_id IS NULL  -- 全局聚合记录
+  AND bucket_time >= CURDATE()
+GROUP BY bucket_time
+ORDER BY bucket_time;
+```
+
 ```sql
 CREATE TABLE metrics_timeseries (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     bucket_time TIMESTAMP NOT NULL COMMENT '时间窗口(小时级)',
-    user_id VARCHAR(100) COMMENT '用户ID(空表示全局)',
-    team VARCHAR(100) COMMENT '团队(空表示全局)',
+    user_id VARCHAR(64) COMMENT '用户ID(空表示全局)',
+    -- team VARCHAR(100) COMMENT '团队(空表示全局)',
     
     total_tokens BIGINT DEFAULT 0 COMMENT 'Token消耗',
     session_count INT DEFAULT 0 COMMENT '会话数',
@@ -549,8 +706,8 @@ CREATE TABLE metrics_timeseries (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
     INDEX idx_bucket_time (bucket_time),
-    INDEX idx_user_id (user_id),
-    INDEX idx_team (team)
+    INDEX idx_user_id (user_id)
+    -- INDEX idx_team (team)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='时间序列数据表';
 ```
 
@@ -561,7 +718,7 @@ CREATE TABLE session_message_detail (
     id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
     
     -- 关联信息
-    session_id VARCHAR(200) NOT NULL COMMENT 'Session ID (从文件名提取)',
+    session_id VARCHAR(64) NOT NULL COMMENT 'Session ID (从文件名提取)',
     file_path VARCHAR(500) NOT NULL COMMENT '所属JSONL文件路径',
     
     -- 消息记录标识
@@ -571,7 +728,6 @@ CREATE TABLE session_message_detail (
     -- 消息内容
     role VARCHAR(50) COMMENT '角色(user/assistant/tool/toolResult)',
     content_summary TEXT COMMENT '内容摘要(前500字符)',
-    full_content_path VARCHAR(500) COMMENT '完整内容存储路径(可选,大内容存文件)',
     
     -- Token统计
     total_tokens INT DEFAULT 0 COMMENT '该消息的Token数',
@@ -591,7 +747,7 @@ CREATE TABLE session_message_detail (
     stop_reason VARCHAR(50) COMMENT '停止原因',
     
     -- 元数据
-    collected_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '采集时间',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
     
     UNIQUE KEY uk_message_id (message_id),
     INDEX idx_session_id (session_id),
@@ -804,7 +960,6 @@ public class MessageDetailDTO {
     
     private String role;
     private String contentSummary;
-    private String fullContentPath;
     
     private Integer totalTokens;
     private Integer inputTokens;
@@ -2086,7 +2241,7 @@ public interface MessageDetailMapper {
     <insert id="batchInsertIgnore">
         INSERT IGNORE INTO session_message_detail 
         (message_id, parent_message_id, session_id, file_path,
-         role, content_summary, full_content_path,
+         role, content_summary,
          total_tokens, input_tokens, output_tokens,
          cache_read_tokens, cache_write_tokens,
          skill_name, tool_name, tool_call_id,
@@ -2095,7 +2250,7 @@ public interface MessageDetailMapper {
         VALUES
         <foreach collection="list" item="item" separator=",">
             (#{item.messageId}, #{item.parentMessageId}, #{item.sessionId}, #{item.filePath},
-             #{item.role}, #{item.contentSummary}, #{item.fullContentPath},
+             #{item.role}, #{item.contentSummary},
              #{item.totalTokens}, #{item.inputTokens}, #{item.outputTokens},
              #{item.cacheReadTokens}, #{item.cacheWriteTokens},
              #{item.skillName}, #{item.toolName}, #{item.toolCallId},
@@ -2108,7 +2263,7 @@ public interface MessageDetailMapper {
     <insert id="insertIgnore">
         INSERT IGNORE INTO session_message_detail 
         (message_id, parent_message_id, session_id, file_path,
-         role, content_summary, full_content_path,
+         role, content_summary,
          total_tokens, input_tokens, output_tokens,
          cache_read_tokens, cache_write_tokens,
          skill_name, tool_name, tool_call_id,
@@ -2116,7 +2271,7 @@ public interface MessageDetailMapper {
          collected_at)
         VALUES 
         (#{messageId}, #{parentMessageId}, #{sessionId}, #{filePath},
-         #{role}, #{contentSummary}, #{fullContentPath},
+         #{role}, #{contentSummary},
          #{totalTokens}, #{inputTokens}, #{outputTokens},
          #{cacheReadTokens}, #{cacheWriteTokens},
          #{skillName}, #{toolName}, #{toolCallId},
@@ -2526,7 +2681,7 @@ public interface MessageDetailMapper {
     <insert id="batchInsertIgnore">
         INSERT IGNORE INTO session_message_detail 
         (message_id, parent_message_id, session_id, file_path,
-         role, content_summary, full_content_path,
+         role, content_summary,
          total_tokens, input_tokens, output_tokens,
          cache_read_tokens, cache_write_tokens,
          skill_name, tool_name, tool_call_id,
@@ -2535,7 +2690,7 @@ public interface MessageDetailMapper {
         VALUES
         <foreach collection="list" item="item" separator=",">
             (#{item.messageId}, #{item.parentMessageId}, #{item.sessionId}, #{item.filePath},
-             #{item.role}, #{item.contentSummary}, #{item.fullContentPath},
+             #{item.role}, #{item.contentSummary},
              #{item.totalTokens}, #{item.inputTokens}, #{item.outputTokens},
              #{item.cacheReadTokens}, #{item.cacheWriteTokens},
              #{item.skillName}, #{item.toolName}, #{item.toolCallId},
@@ -2548,7 +2703,7 @@ public interface MessageDetailMapper {
     <insert id="insertIgnore">
         INSERT IGNORE INTO session_message_detail 
         (message_id, parent_message_id, session_id, file_path,
-         role, content_summary, full_content_path,
+         role, content_summary,
          total_tokens, input_tokens, output_tokens,
          cache_read_tokens, cache_write_tokens,
          skill_name, tool_name, tool_call_id,
@@ -2556,7 +2711,7 @@ public interface MessageDetailMapper {
          collected_at)
         VALUES 
         (#{messageId}, #{parentMessageId}, #{sessionId}, #{filePath},
-         #{role}, #{contentSummary}, #{fullContentPath},
+         #{role}, #{contentSummary},
          #{totalTokens}, #{inputTokens}, #{outputTokens},
          #{cacheReadTokens}, #{cacheWriteTokens},
          #{skillName}, #{toolName}, #{toolCallId},
@@ -3158,6 +3313,46 @@ func (c *Collector) processFileIncrementally(filePath string, lastMessageID stri
     
     // 聚合指标和消息明细
     metrics, messageDetails := aggregateEntries(newEntries)
+    
+    // 计算性能指标 (仅统计assistant消息)
+    // 方法: assistant.timestamp - previous_message.timestamp
+    var totalDuration float64
+    var maxDuration float64
+    var assistantCount int
+    
+    for i, entry := range newEntries {
+        // 只统计assistant消息
+        if entry.Message.Role == "assistant" && i > 0 {
+            // 获取上一条消息的时间戳
+            prevEntry := newEntries[i-1]
+            
+            // 解析时间戳
+            currentTs, err1 := time.Parse(time.RFC3339, entry.Timestamp)
+            prevTs, err2 := time.Parse(time.RFC3339, prevEntry.Timestamp)
+            
+            if err1 == nil && err2 == nil {
+                durationMs := currentTs.Sub(prevTs).Milliseconds()
+                
+                // 过滤异常值 (负数或超过5分钟)
+                if durationMs > 0 && durationMs < 300000 {
+                    totalDuration += float64(durationMs)
+                    if float64(durationMs) > maxDuration {
+                        maxDuration = float64(durationMs)
+                    }
+                    assistantCount++
+                }
+            }
+        }
+    }
+    
+    var avgDuration float64
+    if assistantCount > 0 {
+        avgDuration = totalDuration / float64(assistantCount)
+    }
+    
+    // 将性能指标添加到metrics中
+    metrics.AvgDurationMs = avgDuration
+    metrics.MaxDurationMs = maxDuration
     
     // 推送到后端
     payload := BatchPushPayload{
