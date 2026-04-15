@@ -94,8 +94,12 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
 **处理流程**：
 1. 扫描 NFS 挂载目录下的所有 Session Log 文件（基于配置的路径模式）
 2. **检测文件变化**：基于文件大小、修改时间判断是否需要处理
-3. **检测 Compaction**：如果文件显著缩小（>10%），触发全量重扫
-4. 流式逐行解析 JSONL 文件，提取消息元数据
+3. **检测 Compaction（双重检测机制）**：
+   - **主要方式**：第一遍快速扫描，统计 JSONL 文件中 `type: "compaction"` 记录数量
+   - 与数据库中存储的 `compaction_count` 对比，如果数量增加则判定为发生了新的 compaction
+   - **备用方式**：检测文件大小缩小超过 10%（用于兜底，防止遗漏）
+   - 如果检测到新的 compaction，触发全量重扫
+4. **第二遍扫描**：流式逐行解析 JSONL 文件，提取消息元数据
 5. **不解析 Token 统计**：Token、成本等数据通过 Gateway RPC `sessions.list` 获取
 6. 聚合 Turn 结构（消息数、时间范围、Skill 使用等）到 session_turn 表
 7. **清理无效数据**：如果检测到 compaction，删除该 session 未完成的 Turn 记录
@@ -129,11 +133,40 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
 - **Instance 关联**：从路径中提取 `instance_id`，与 `openclaw_instances` 表关联
 - **Agent 隔离**：支持多 agent 场景，每个 agent 有独立的 sessions 目录
 
+**Compaction 机制说明**：
+
+OpenClaw 的 Session Compaction 分为两个阶段：
+
+1. **Compaction 阶段**：
+   - 将历史对话压缩为摘要，减少 token 消耗
+   - 在 JSONL 文件中添加一条 `type: "compaction"` 记录
+   - **此时旧消息仍然保留**在文件中
+   - Compaction 记录包含 `firstKeptEntryId` 字段，标记未压缩部分的起点
+   - Compaction 记录示例：
+     ```json
+     {
+       "type": "compaction",
+       "id": "comp_abc123",
+       "timestamp": "2026-04-15T10:30:00Z",
+       "firstKeptEntryId": "msg_xyz789",
+       "parentId": "msg_def456"
+     }
+     ```
+
+2. **Truncation 阶段**（独立执行）：
+   - 从 JSONL 文件中物理删除被压缩的旧消息（`firstKeptEntryId` 之前的消息）
+   - 保留：Session header、Compaction 记录、未压缩的尾部消息
+   - 文件大小显著减小（通常 >10%）
+
 **增量策略**：
 - **文件级别**：检测文件修改时间或大小变化
-- **Compaction 检测**：文件大小缩小超过 10% 时，判定为发生 compaction
+- **Compaction 检测（双重保障）**：
+  - **主要方式**：统计 JSONL 文件中 `type: "compaction"` 记录数量，与数据库存储的 `compaction_count` 对比
+  - **备用方式**：文件大小缩小超过 10% 时，判定为发生 truncation
+  - **优势**：主要方式更可靠，即使 compaction 导致的文件缩小 <10% 也能检测到
+  - **实现**：第一遍快速扫描只统计 compaction 记录，第二遍才处理消息内容
 - **消息级别**：正常情况下记录 last_message_id，只处理新增消息
-- **全量重扫**：检测到 compaction 后，重置 last_message_id，重新扫描整个文件
+- **全量重扫**：检测到新的 compaction 后，重置 last_message_id，重新扫描整个文件
 - **数据清理**：compaction 后删除 is_complete=0 的未完成 Turn 记录，避免数据不一致
 
 #### 2.2.2 Gateway 健康检查轮询
@@ -437,6 +470,7 @@ CREATE TABLE `dashboard_session_processing_state` (
   `file_size` BIGINT DEFAULT 0 COMMENT '文件大小（字节）',
   `file_modified_time` DATETIME DEFAULT NULL COMMENT '文件修改时间',
   `processed_count` BIGINT DEFAULT 0 COMMENT '累计处理的消息数',
+  `compaction_count` INT DEFAULT 0 COMMENT 'Compaction 记录数量，用于检测新的 compaction',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`file_path_hash`),
@@ -449,6 +483,7 @@ CREATE TABLE `dashboard_session_processing_state` (
 - `file_path_hash`: 文件路径的 SHA256 Hash，作为主键避免长字符串索引
 - `last_message_id`: 记录该文件最后处理到的消息 ID，用于增量处理
 - `file_size`, `file_modified_time`: 用于快速判断文件是否有变化
+- `compaction_count`: 记录该文件中 compaction 记录的数量，用于检测新的 compaction 事件（主要检测方式）
 
 ---
 
@@ -1004,19 +1039,53 @@ public class SessionScanTask {
             return;
         }
         
-        // 3. 流式解析 JSONL 文件
+        // 3. 第一遍扫描：统计 compaction 记录数量（主要检测方式）
+        int currentCompactionCount = countCompactionEntries(file);
+        int storedCompactionCount = state != null ? state.getCompactionCount() : 0;
+        
+        // 4. 检测是否有新的 compaction
+        boolean hasNewCompaction = currentCompactionCount > storedCompactionCount;
+        
+        // 5. 备用检测：文件大小缩小超过 10%（用于兜底）
+        if (!hasNewCompaction && state != null) {
+            long currentSize = file.length();
+            long previousSize = state.getFileSize();
+            if (previousSize > 0 && currentSize < previousSize * 0.9) {
+                log.warn("检测到文件大小显著缩小: {}, 之前={} bytes, 当前={} bytes, 缩小={:.1f}%",
+                    filePath, previousSize, currentSize, 
+                    (1 - (double)currentSize / previousSize) * 100);
+                hasNewCompaction = true;
+            }
+        }
+        
+        // 6. 如果检测到新的 compaction，触发全量重扫
         String lastMessageId = state != null ? state.getLastMessageId() : null;
+        if (hasNewCompaction) {
+            log.info("检测到新的 compaction: {}, 旧计数={}, 新计数={}", 
+                filePath, storedCompactionCount, currentCompactionCount);
+            
+            // 重置 last_message_id，触发全量重扫
+            lastMessageId = null;
+            
+            // 清理该 session 的未完成 Turn 记录
+            String sessionId = extractSessionIdFromPath(filePath);
+            if (sessionId != null) {
+                cleanupIncompleteTurns(sessionId);
+            }
+        }
+        
+        // 7. 第二遍扫描：流式解析 JSONL 文件
         List<TurnAggregate> aggregates = parseJsonlFile(file, lastMessageId);
         
-        // 4. 批量插入或更新 session_turn 表
+        // 8. 批量插入或更新 session_turn 表
         if (!aggregates.isEmpty()) {
             turnRepository.batchUpsert(aggregates);
         }
         
-        // 5. 更新处理状态
+        // 9. 更新处理状态（包括 compaction_count）
         if (!aggregates.isEmpty()) {
             String newLastMessageId = aggregates.get(aggregates.size() - 1).getLastMessageId();
-            updateProcessingState(fileHash, filePath, file, newLastMessageId);
+            updateProcessingState(fileHash, filePath, file, newLastMessageId, currentCompactionCount);
         }
     }
     
@@ -1057,6 +1126,80 @@ public class SessionScanTask {
         }
         
         return aggregates;
+    }
+    
+    /**
+     * 第一遍快速扫描：统计 compaction 记录数量
+     */
+    private int countCompactionEntries(File file) throws IOException {
+        int count = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+                try {
+                    JsonNode entry = objectMapper.readTree(line);
+                    if ("compaction".equals(entry.path("type").asText())) {
+                        count++;
+                    }
+                } catch (Exception e) {
+                    // 忽略解析错误的行
+                    log.debug("解析行失败: {}", line, e);
+                }
+            }
+        }
+        return count;
+    }
+    
+    /**
+     * 从文件路径中提取 session_id
+     * 例如：/mnt/session-logs/instances/instance-001/agents/main/sessions/abc-123.jsonl
+     * 返回：abc-123
+     */
+    private String extractSessionIdFromPath(String filePath) {
+        String fileName = new File(filePath).getName();
+        // 移除 .jsonl 后缀
+        if (fileName.endsWith(".jsonl")) {
+            return fileName.substring(0, fileName.length() - 6);
+        }
+        return fileName;
+    }
+    
+    /**
+     * 清理指定 session 的未完成 Turn 记录
+     * Compaction 后，未完成的 Turn 可能引用了已被删除的消息，需要清理
+     */
+    private void cleanupIncompleteTurns(String sessionId) {
+        int deleted = turnRepository.deleteBySessionIdAndIsComplete(sessionId, false);
+        if (deleted > 0) {
+            log.info("清理 session {} 的未完成 Turn 记录: {} 条", sessionId, deleted);
+        }
+    }
+    
+    /**
+     * 更新处理状态（包括 compaction_count）
+     */
+    private void updateProcessingState(String fileHash, String filePath, File file, 
+                                       String lastMessageId, int compactionCount) {
+        SessionProcessingState state = stateRepository.findByFilePathHash(fileHash);
+        if (state == null) {
+            state = new SessionProcessingState();
+            state.setFilePathHash(fileHash);
+            state.setFilePath(filePath);
+        }
+        
+        state.setLastMessageId(lastMessageId);
+        state.setLastProcessedTime(LocalDateTime.now());
+        state.setFileSize(file.length());
+        state.setFileModifiedTime(LocalDateTime.ofInstant(
+            Instant.ofEpochMilli(file.lastModified()), 
+            ZoneId.systemDefault()
+        ));
+        state.setCompactionCount(compactionCount);
+        
+        stateRepository.save(state);
     }
 }
 ```
@@ -1720,7 +1863,10 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
 ### 7.1 Session Log 解析优化
 
 1. **流式解析**: 使用 BufferedReader 逐行读取，避免一次性加载大文件
-2. **批量写入**: 累积一定数量的 Turn 后批量插入数据库
+2. **分块批量写入**: 每解析 100 个 Turn 后批量插入数据库，避免内存中累积大量数据
+   - 不在内存中保留整个文件的所有 Turn（防止 OOM）
+   - 不使用单一大事务（失败回滚代价大）
+   - 使用固定大小的批次（100 条），平衡性能和内存占用
 3. **增量处理**: 基于 last_message_id 只处理新增消息
 4. **路径配置化**: Session 文件扫描路径通过配置文件指定，支持灵活调整
 5. **Compaction 检测**: 文件大小缩小超过 10% 时触发全量重扫，保证数据一致性
