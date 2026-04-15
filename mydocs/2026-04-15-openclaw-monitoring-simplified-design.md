@@ -112,10 +112,24 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
 
 **处理流程**：
 1. 从 `openclaw_instances` 表获取所有 status为running的instance 列表
-2. 遍历每个 instance，调用其 Gateway 的 `/health` 端点（HTTP GET）
-3. HTTP 请求超时设置为 3 秒（可配置）
-4. 解析 Health API 响应，提取关键指标更新到 `gateway_health_cache` 表
+2. 遍历每个 instance，通过 **WebSocket RPC** 调用 `health` 方法（不是 HTTP GET）
+3. WebSocket 连接超时设置为 3 秒（可配置）
+4. 解析 Health RPC 响应，提取关键指标更新到 `gateway_health_cache` 表
 5. 对比 `openclaw_instances` 表，清理非running的 instance 缓存记录
+
+**重要说明 - Health API 调用方式**：
+- ❌ **错误方式**: HTTP GET `/health` （只返回 `{"ok":true,"status":"live"}`）
+- ✅ **正确方式**: WebSocket RPC `health` 方法
+- **调用示例**（TypeScript）:
+  ```typescript
+  const summary = await callGateway<HealthSummary>({
+    method: "health",
+    params: { probe: false },  // probe=true 会执行渠道探测，耗时更长
+    timeoutMs: 3000,
+    config: cfg,
+  });
+  ```
+- **Java 实现**: 需要使用 WebSocket 客户端库（如 Java-WebSocket 或 Spring WebSocket）建立连接并发送 JSON-RPC 请求
 
 **Health API 实际返回结构**（来自 OpenClaw 源码 `src/commands/health.ts`）：
 ```json
@@ -232,6 +246,27 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
 
 #### 3.2.1 openclaw_instances（用户实例表）
 **该表已在库中存在，仅用于查询数据，不可写入**
+
+**认证机制说明**:
+OpenClaw Gateway 需要认证才能调用 RPC 方法。监控系统从该表获取认证信息：
+
+1. **优先使用 `access_url`**: 该字段已包含完整的认证参数
+   ```sql
+   SELECT access_url FROM openclaw_instances WHERE id = 113;
+   -- 结果: http://host:port?token=1c1d23658e3ab1fe...
+   ```
+
+2. **备用方案**: 使用 `base_url` + `encrypted_token` 构造 URL
+   ```java
+   String wsUrl = baseUrl.replace("/v1", "") + "?token=" + encryptedToken;
+   ```
+
+3. **URL 转换规则**: HTTP → WebSocket
+   - `http://` → `ws://`
+   - `https://` → `wss://`
+
+**示例数据**: 参见 [openclaw-instances_sample-data.txt](./openclaw-instances_sample-data.txt)
+
 ```sql
 CREATE TABLE IF NOT EXISTS openclaw_instances (
     id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
@@ -329,12 +364,12 @@ CREATE TABLE `dashboard_session_turn` (
 CREATE TABLE `dashboard_gateway_health_cache` (
   `instance_id` VARCHAR(128) NOT NULL COMMENT '实例 ID',
   `status` VARCHAR(32) NOT NULL DEFAULT 'offline' COMMENT '状态: online/offline',
-  `last_heartbeat` DATETIME DEFAULT NULL COMMENT '最后心跳时间',
+  `last_heartbeat` DATETIME DEFAULT NULL COMMENT '最后心跳时间（从 agents[0].heartbeat.lastBeat 获取）',
   `last_check_time` DATETIME NOT NULL COMMENT '最后检查时间',
-  `version` VARCHAR(64) DEFAULT NULL COMMENT 'OpenClaw 版本',
-  `channels_total` INT DEFAULT 0 COMMENT '渠道总数',
-  `agents_total` INT DEFAULT 0 COMMENT 'Agent 总数',
-  `memory_rss_mb` INT DEFAULT 0 COMMENT '内存占用（MB）',
+  `version` VARCHAR(64) DEFAULT NULL COMMENT 'OpenClaw 版本（Health API 不返回此字段，保留为 NULL）',
+  `channels_total` INT DEFAULT 0 COMMENT '渠道总数（Health API 不返回此字段，保留为 0）',
+  `agents_total` INT DEFAULT 0 COMMENT 'Agent 总数（Health API 不返回此字段，保留为 0）',
+  `memory_rss_mb` INT DEFAULT 0 COMMENT '内存占用 MB（Health API 不返回此字段，保留为 0）',
   `error_message` VARCHAR(512) DEFAULT NULL COMMENT '错误信息',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
@@ -991,41 +1026,102 @@ public class HealthCheckTask {
     }
     
     private void checkInstanceHealth(OpenclawInstance instance) {
-        String healthUrl = instance.getGatewayUrl() + "/health";
-        
         GatewayHealthCache cache = new GatewayHealthCache();
         cache.setInstanceId(instance.getInstanceId());
         cache.setLastCheckTime(LocalDateTime.now());
         
         try {
-            ResponseEntity<JsonNode> response = restTemplate.exchange(
-                healthUrl,
-                HttpMethod.GET,
-                null,
-                JsonNode.class
+            // 通过 WebSocket RPC 调用 health 方法
+            JsonNode healthData = callGatewayHealthRpc(
+                instance.getGatewayUrl(),
+                instance.getAuthToken(),
+                3000  // 超时 3 秒
             );
             
-            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
-                JsonNode body = response.getBody();
-                cache.setStatus("online");
-                cache.setLastHeartbeat(parseHeartbeat(body));
-                cache.setVersion(body.path("version").asText(null));
-                cache.setChannelsTotal(body.path("channels").path("total").asInt(0));
-                cache.setAgentsTotal(body.path("agents").path("total").asInt(0));
-                cache.setMemoryRssMb(body.path("memory").path("rss_mb").asInt(0));
+            if (healthData != null) {
+                // 解析 ok 字段判断在线状态
+                boolean isOnline = healthData.path("ok").asBoolean(false);
+                cache.setStatus(isOnline ? "online" : "offline");
+                
+                // 解析最后心跳时间：agents[0].heartbeat.lastBeat
+                JsonNode agents = healthData.path("agents");
+                if (agents.isArray() && agents.size() > 0) {
+                    JsonNode firstAgent = agents.get(0);
+                    JsonNode heartbeat = firstAgent.path("heartbeat");
+                    long lastBeatMs = heartbeat.path("lastBeat").asLong(0);
+                    if (lastBeatMs > 0) {
+                        cache.setLastHeartbeat(
+                            LocalDateTime.ofInstant(
+                                Instant.ofEpochMilli(lastBeatMs), 
+                                ZoneId.systemDefault()
+                            )
+                        );
+                    }
+                }
+                
+                // 没有 version, nodeId, memory 等字段，这些字段设为 null
+                cache.setVersion(null);
+                cache.setChannelsTotal(0);
+                cache.setAgentsTotal(0);
+                cache.setMemoryRssMb(0);
                 cache.setErrorMessage(null);
+                
+                log.debug("健康检查成功: {} - status={}", 
+                    instance.getInstanceId(), cache.getStatus());
             } else {
                 cache.setStatus("offline");
-                cache.setErrorMessage("HTTP " + response.getStatusCode());
+                cache.setErrorMessage("WebSocket RPC 调用失败");
+                log.warn("健康检查失败: {} - RPC 返回 null", 
+                    instance.getInstanceId());
             }
         } catch (Exception e) {
             cache.setStatus("offline");
             cache.setErrorMessage(e.getMessage());
+            log.error("健康检查异常: {}", instance.getInstanceId(), e);
         }
         
         healthCacheRepository.save(cache);
     }
     
+    /**
+     * 通过 WebSocket RPC 调用 Gateway health 方法
+     * 
+     * @param gatewayUrl Gateway URL，如 ws://localhost:18789
+     * @param authToken 认证 Token
+     * @param timeoutMs 超时时间（毫秒）
+     * @return HealthSummary JSON 数据，失败返回 null
+     */
+    private JsonNode callGatewayHealthRpc(String gatewayUrl, String authToken, int timeoutMs) {
+        // TODO: 实现 WebSocket RPC 调用
+        // 需要使用 WebSocket 客户端库，例如:
+        // 1. Java-WebSocket: https://github.com/TooTallNate/Java-WebSocket
+        // 2. Spring WebSocket: org.springframework.web.socket
+        // 3. Tyrus: org.glassfish.tyrus
+        
+        // 伪代码示例：
+        // 1. 建立 WebSocket 连接到 gatewayUrl
+        // 2. 发送 JSON-RPC 请求:
+        //    {
+        //      "jsonrpc": "2.0",
+        //      "id": 1,
+        //      "method": "health",
+        //      "params": { "probe": false }
+        //    }
+        // 3. 等待响应（超时 timeoutMs）
+        // 4. 解析响应:
+        //    {
+        //      "jsonrpc": "2.0",
+        //      "id": 1,
+        //      "result": { ...HealthSummary... }
+        //    }
+        // 5. 返回 result 字段
+        
+        throw new UnsupportedOperationException("需要实现 WebSocket RPC 客户端");
+    }
+    
+    /**
+     * 清理已删除或不活跃的 instance 缓存
+     */
     private void cleanupDeletedInstances(Set<String> existingInstanceIds) {
         List<GatewayHealthCache> allCaches = healthCacheRepository.findAll();
         
@@ -1088,55 +1184,240 @@ public class AdminController {
 
 **说明**: Token、成本等统计数据不从 Session Log 解析，而是通过 Gateway RPC 接口获取。
 
-**RPC 方法**: `sessions.list`
+#### 5.4.1 RPC 方法
 
-**调用方式**:
+**方法名**: `sessions.list`
+
+**请求参数**:
+```json
+{
+  "agentId": "main",           // Agent ID，默认 "main"
+  "includeGlobal": false,      // 是否包含全局会话
+  "includeUnknown": false,     // 是否包含未知会话
+  "limit": 100                 // 限制返回数量（可选）
+}
+```
+
+**响应格式**:
+```json
+{
+  "ts": 1713123456789,
+  "path": "/data/sessions/main.json",
+  "count": 15,
+  "defaults": { ... },
+  "sessions": [
+    {
+      "key": "discord:user123",
+      "sessionId": "sess_abc",
+      "updatedAt": 1713123400000,
+      "inputTokens": 1200,
+      "outputTokens": 800,
+      "totalTokens": 2000,
+      "estimatedCostUsd": 0.035,
+      "contextTokens": 1500,
+      "modelProvider": "anthropic",
+      "model": "sonnet-4.6",
+      ...
+    }
+  ]
+}
+```
+
+**关键字段**:
+- `inputTokens`: 输入 Token 数
+- `outputTokens`: 输出 Token 数
+- `totalTokens`: 总 Token 数
+- `estimatedCostUsd`: 预估成本（美元）
+- `contextTokens`: 上下文 Token 数
+- `modelProvider`: 模型提供商
+- `model`: 模型 ID
+
+#### 5.4.2 WebSocket 连接建立
+
+**步骤**:
+1. **从数据库获取认证信息**:
+   ```sql
+   SELECT instance_id, access_url, encrypted_token 
+   FROM openclaw_instances 
+   WHERE status = 'running'
+   ```
+   
+   **示例数据**（来自 `openclaw-instances_sample-data.txt`）:
+   - `instance_id`: `113`
+   - `access_url`: `http://openclaw-18100732-svc.default.svc.cluster.local:18789?token=1c1d23658e3ab1fe568ab57af641c745ac04bf86d64fa0f7d893145762aac810`
+   - `encrypted_token`: `1c1d23658e3ab1fe568ab57af641c745ac04bf86d64fa0f7d893145762aac810`
+
+2. **构造 WebSocket URL**:
+   - **方式1（推荐）**: 直接从 `access_url` 转换
+     ```java
+     // access_url: http://host:port?token=xxx
+     String wsUrl = accessUrl.replace("http://", "ws://")
+                             .replace("https://", "wss://");
+     // 结果: ws://host:port?token=xxx
+     ```
+   
+   - **方式2**: 使用 `base_url` + `encrypted_token`
+     ```java
+     // base_url: http://host:port/v1
+     String baseUrl = instance.getBaseUrl(); // 去掉 /v1 后缀
+     String wsUrl = baseUrl.replace("http://", "ws://")
+                           .replace("https://", "wss://")
+                           + "?token=" + instance.getEncryptedToken();
+     // 结果: ws://host:port?token=xxx
+     ```
+
+3. **认证机制**:
+   OpenClaw Gateway 支持多种认证方式：
+   
+   - **URL 参数认证**（最常用）:
+     ```
+     ws://host:port?token=YOUR_TOKEN
+     ```
+     ✅ 简单直接，适合监控系统使用
+   
+   - **WebSocket 子协议头**:
+     ```java
+     Map<String, String> headers = new HashMap<>();
+     headers.put("Authorization", "Bearer YOUR_TOKEN");
+     ```
+   
+   - **连接后发送认证消息**:
+     ```json
+     {
+       "type": "auth",
+       "token": "YOUR_TOKEN"
+     }
+     ```
+
+4. **建立 WebSocket 连接**: 使用 WebSocket 客户端库建立连接
+
+5. **发送 JSON-RPC 请求**:
+   ```json
+   {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "health",
+     "params": { "probe": false }
+   }
+   ```
+
+6. **接收响应**:
+   ```json
+   {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": { ...HealthSummary... }
+   }
+   ```
+
+7. **解析 `result` 字段**
+
+#### 5.4.3 Java 实现示例
+
 ```java
-@Component
+@Service
 @Slf4j
-public class GatewayTokenStatsClient {
+public class GatewaySessionsClient {
+    
+    private final ObjectMapper objectMapper = new ObjectMapper();
     
     /**
-     * 从 Gateway 获取会话的 Token 统计信息
+     * 通过 sessions.list RPC 获取 Token 统计数据
      */
-    public SessionTokenStats fetchTokenStats(String gatewayUrl, String authToken, String sessionKey) {
-        try {
-            // 建立 WebSocket 连接
-            WebSocketClient client = new WebSocketClient(gatewayUrl, authToken);
+    public List<SessionTokenStats> fetchSessionTokenStats(OpenclawInstance instance) {
+        
+        // 1. 建立 WebSocket 连接（从 instance 中获取认证信息）
+        try (WebSocketClient client = createWebSocketClient(instance)) {
             
-            // 调用 sessions.list RPC 方法
-            JsonNode response = client.callRpc("sessions.list", Map.of(
-                "agentId", "default",
+            // 2. 构建 JSON-RPC 请求
+            JsonNode request = buildJsonRpcRequest("sessions.list", Map.of(
+                "agentId", "main",
                 "includeGlobal", false,
-                "includeUnknown", false
+                "includeUnknown", false,
+                "limit", 100
             ));
             
-            // 解析返回数据
-            JsonNode sessions = response.get("sessions");
+            // 3. 发送请求并等待响应（超时 3 秒）
+            String responseJson = client.sendAndReceive(request.toString(), 3000);
+            
+            // 4. 解析响应
+            JsonNode response = objectMapper.readTree(responseJson);
+            JsonNode result = response.path("result");
+            JsonNode sessions = result.path("sessions");
+            
+            // 5. 提取 Token 统计信息
+            List<SessionTokenStats> statsList = new ArrayList<>();
             for (JsonNode session : sessions) {
-                if (sessionKey.equals(session.get("key").asText())) {
-                    return new SessionTokenStats(
-                        session.get("inputTokens").asInt(0),
-                        session.get("outputTokens").asInt(0),
-                        session.get("totalTokens").asInt(0),
-                        session.get("estimatedCostUsd").asDouble(0.0) * 100, // 转换为美分
-                        session.get("contextTokens").asInt(0),
-                        session.get("modelProvider").asText(null),
-                        session.get("model").asText(null)
-                    );
-                }
+                SessionTokenStats stats = new SessionTokenStats();
+                stats.setSessionKey(session.path("key").asText());
+                stats.setSessionId(session.path("sessionId").asText(null));
+                stats.setInputTokens(session.path("inputTokens").asInt(0));
+                stats.setOutputTokens(session.path("outputTokens").asInt(0));
+                stats.setTotalTokens(session.path("totalTokens").asInt(0));
+                stats.setEstimatedCostCents(
+                    (int)(session.path("estimatedCostUsd").asDouble(0.0) * 100)
+                );
+                stats.setContextTokens(session.path("contextTokens").asInt(0));
+                stats.setModelProvider(session.path("modelProvider").asText(null));
+                stats.setModel(session.path("model").asText(null));
+                statsList.add(stats);
             }
             
-            return null;
+            return statsList;
+            
         } catch (Exception e) {
-            log.error("从 Gateway 获取 Token 统计失败: {}", sessionKey, e);
-            return null;
+            log.error("获取 Session Token 统计失败", e);
+            return Collections.emptyList();
         }
     }
     
+    /**
+     * 创建 WebSocket 客户端
+     */
+    private WebSocketClient createWebSocketClient(OpenclawInstance instance) {
+        // 方式1（推荐）: 直接从 access_url 转换
+        String accessUrl = instance.getAccessUrl();
+        if (accessUrl != null && !accessUrl.isEmpty()) {
+            String wsUrl = accessUrl.replace("http://", "ws://")
+                                    .replace("https://", "wss://");
+            log.debug("使用 access_url 建立 WebSocket 连接: {}", wsUrl);
+            return new WebSocketClient(wsUrl);
+        }
+        
+        // 方式2: 使用 base_url + encrypted_token
+        String baseUrl = instance.getBaseUrl();
+        String token = instance.getEncryptedToken();
+        if (baseUrl != null && token != null) {
+            // 去掉 /v1 后缀
+            String cleanBaseUrl = baseUrl.replaceAll("/v1$", "");
+            String wsUrl = cleanBaseUrl.replace("http://", "ws://")
+                                       .replace("https://", "wss://")
+                                       + "?token=" + token;
+            log.debug("使用 base_url + token 建立 WebSocket 连接: {}", wsUrl);
+            return new WebSocketClient(wsUrl);
+        }
+        
+        throw new IllegalArgumentException(
+            "无法构造 WebSocket URL: instance_id=" + instance.getInstanceId()
+        );
+    }
+    
+    /**
+     * 构建 JSON-RPC 请求
+     */
+    private JsonNode buildJsonRpcRequest(String method, Map<String, Object> params) {
+        ObjectNode request = objectMapper.createObjectNode();
+        request.put("jsonrpc", "2.0");
+        request.put("id", 1);
+        request.put("method", method);
+        request.set("params", objectMapper.valueToTree(params));
+        return request;
+    }
+    
     @Data
-    @AllArgsConstructor
     public static class SessionTokenStats {
+        private String sessionKey;
+        private String sessionId;
         private int inputTokens;
         private int outputTokens;
         private int totalTokens;
@@ -1148,19 +1429,19 @@ public class GatewayTokenStatsClient {
 }
 ```
 
-**返回字段说明**:
-- `inputTokens`: 输入 Token 数
-- `outputTokens`: 输出 Token 数
-- `totalTokens`: 总 Token 数
-- `estimatedCostUsd`: 预估成本（美元），需转换为美分存储
-- `contextTokens`: 上下文 Token 数
-- `modelProvider`: 模型提供商（如 anthropic, openai）
-- `model`: 模型 ID（如 sonnet-4.6, gpt-4）
+#### 5.4.4 使用场景
 
-**使用场景**:
-1. **Session 扫描任务**: 解析完 Turn 结构后，调用 Gateway 获取该 Session 的 Token 统计
-2. **批量更新**: 每小时扫描时，批量获取所有活跃 Session 的 Token 数据并更新到数据库
-3. **按需查询**: 用户查询对话详情时，实时从 Gateway 获取最新 Token 数据
+1. **Session 扫描任务**: 
+   - 解析完 Turn 结构后，调用 Gateway 获取该 Session 的 Token 统计
+   - 批量更新到 `dashboard_session_turn` 表
+
+2. **按需查询**: 
+   - 用户查询对话详情时，实时从 Gateway 获取最新 Token 数据
+   - 避免数据库数据过期
+
+3. **定时同步**: 
+   - 每小时扫描时，批量获取所有活跃 Session 的 Token 数据
+   - 与 Session Log 解析结果合并存储
 
 ---
 
@@ -1262,6 +1543,7 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
 - [源码](D:\workplace\github\openclaw)
 - [Session Log 格式说明](./2026-04-14-openclaw-monitoring-design.md)
 - [API 接口文档](./API接口文档.md)
+- [openclaw_instances 数据](./openclaw-instances_sample-data.txt)
 
 ---
 
