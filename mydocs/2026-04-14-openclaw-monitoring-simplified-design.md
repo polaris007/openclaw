@@ -952,6 +952,558 @@ END;
 - 将3个月前的数据移动到 `session_message_detail_archive` 表
 - 但推荐直接使用分区，便于后续扩展
 
+### 5.8 会话对话单元表 (Turn)
+
+**业务定义**: 
+- **对话(Turn)**: 从一条 `role="user"` 的消息开始，到下一条 `role="user"` 消息之前的所有消息构成一个完整的对话单元
+- 代表一次完整的"用户输入 → AI回复"交互循环
+- 是前端展示和用户理解的自然单位
+
+**数据生成方式**: Collector 端预聚合 + Center Service UPSERT
+
+#### 设计思路
+
+**为什么需要 Turn 表？**
+
+直接从 `session_message_detail` 实时计算 Turn 列表会面临以下挑战：
+
+1. **复杂的窗口函数查询**: 需要使用 SQL 窗口函数识别每个 Turn 的边界
+2. **性能开销大**: 每次查询需要扫描整个 Session 的所有消息并聚合
+3. **分页困难**: Turn 不是物理存在的记录，无法直接 LIMIT OFFSET
+4. **响应慢**: 预估性能差距 5-10 倍（无 Turn 表: 500ms-2s vs 有 Turn 表: 50ms-200ms）
+
+**Turn 表的优势**:
+- ✅ 查询性能提升 5-10 倍
+- ✅ 支持高效的多维度过滤（按技能、状态、时间等）
+- ✅ 分页简单直接
+- ✅ 与应用层语义对齐（Turn 是业务概念）
+
+#### 增量更新策略
+
+**核心挑战**: Collector 推送的是增量数据，当前最后一个 Turn 可能还未完成（没有下一个 user 消息）
+
+**解决方案**:
+
+1. **Turn ID 生成规则**: 使用 `session_id + user_message_id` 组合
+   - 格式: `{session_id}_turn_{user_message_id_hash}`
+   - 示例: `sess_abc123_turn_a1b2c3d4e5f6g7h8`
+   - 优势: 唯一性天然保证、不依赖解析顺序、可追溯
+
+2. **is_complete 状态字段**: 区分已完成和进行中的 Turn
+   - `false`: Turn 进行中（当前最后一个 user 消息，等待后续消息或超时）
+   - `true`: Turn 已完成（收到下一个 user 消息）
+
+3. **UPSERT 累加逻辑**: Center Service 接收时动态累加指标
+   - 首次推送: INSERT 新记录，`is_complete=false`
+   - 后续推送: UPDATE 累加 tokens、message_count、skills 等
+   - 收到下一个 user 消息: 标记前一个 Turn 为 `is_complete=true`
+
+4. **应用层去重**: Center Service 合并 skills_json 和 tools_json 时去重
+
+#### 表结构设计
+
+```sql
+CREATE TABLE session_turn (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    
+    -- 关联信息
+    turn_id VARCHAR(128) NOT NULL COMMENT 'Turn ID (格式: sessionID_turn_userMessageIDHash)',
+    session_id VARCHAR(64) NOT NULL COMMENT '所属 Session',
+    instance_id VARCHAR(64) COMMENT '实例ID',
+    user_id VARCHAR(64) COMMENT '用户ID',
+    
+    -- Turn 边界
+    first_message_id VARCHAR(200) NOT NULL COMMENT '第一条消息ID (user角色)',
+    last_message_id VARCHAR(200) COMMENT '最后一条消息ID',
+    
+    -- 时间信息
+    start_timestamp DATETIME NOT NULL COMMENT 'Turn开始时间',
+    end_timestamp DATETIME COMMENT 'Turn结束时间',
+    duration_ms INT COMMENT '耗时(毫秒)',
+    
+    -- 用户输入
+    user_input_preview VARCHAR(500) COMMENT '用户输入预览(前500字符)',
+    
+    -- 聚合指标
+    total_tokens INT DEFAULT 0,
+    input_tokens INT DEFAULT 0,
+    output_tokens INT DEFAULT 0,
+    
+    message_count INT DEFAULT 0 COMMENT 'Turn内消息总数',
+    skill_calls INT DEFAULT 0 COMMENT '技能调用次数',
+    tool_calls INT DEFAULT 0 COMMENT '工具调用次数',
+    
+    -- 技能和工具列表 (JSON数组)
+    skills_json JSON COMMENT '调用的技能列表 ["skill1", "skill2"]',
+    tools_json JSON COMMENT '调用的工具列表 ["tool1", "tool2"]',
+    
+    -- 状态和质量
+    result_status BOOLEAN DEFAULT TRUE COMMENT '结果状态: true=成功, false=失败',
+    quality_status TINYINT DEFAULT 0 COMMENT '质量评价: 0=未评价, 1=正确, 2=错误, 3=待优化',
+    
+    -- Turn 完成状态
+    is_complete BOOLEAN DEFAULT FALSE COMMENT 'Turn是否完成',
+    complete_reason VARCHAR(50) COMMENT '完成原因: next_user/timeout/null',
+    completed_at DATETIME COMMENT '完成时间',
+    
+    -- 元数据
+    log_file_path VARCHAR(500) COMMENT '所属日志文件路径',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    UNIQUE KEY uk_turn_id (turn_id),
+    INDEX idx_session_id (session_id),
+    INDEX idx_user_id (user_id),
+    INDEX idx_start_timestamp (start_timestamp),
+    INDEX idx_is_complete (is_complete),
+    INDEX idx_result_status (result_status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 
+COMMENT='Session Turn表(支持增量更新)';
+```
+
+**说明**:
+- **不分区**: Turn 表数据量约为 `session_message_detail` 的 10%-20%，初期无需分区
+- **未来扩展**: 当数据量达到千万级时，可考虑按月分区
+- **触发条件**: table_rows > 1000万 或 data_size > 50GB 或 P95查询 > 500ms
+
+#### Collector 端处理逻辑
+
+```go
+// TurnRecord - Turn 聚合记录
+type TurnRecord struct {
+    TurnID           string    `json:"turn_id"`
+    SessionID        string    `json:"session_id"`
+    UserID           string    `json:"user_id"`
+    FirstMessageID   string    `json:"first_message_id"`
+    LastMessageID    string    `json:"last_message_id"`
+    StartTimestamp   time.Time `json:"start_timestamp"`
+    EndTimestamp     time.Time `json:"end_timestamp"`
+    DurationMs       int       `json:"duration_ms"`
+    UserInputPreview string    `json:"user_input_preview"`
+    TotalTokens      int       `json:"total_tokens"`
+    InputTokens      int       `json:"input_tokens"`
+    OutputTokens     int       `json:"output_tokens"`
+    MessageCount     int       `json:"message_count"`
+    SkillCalls       int       `json:"skill_calls"`
+    ToolCalls        int       `json:"tool_calls"`
+    Skills           []string  `json:"skills"`
+    Tools            []string  `json:"tools"`
+    ResultStatus     bool      `json:"result_status"`
+    IsComplete       bool      `json:"is_complete"`
+    CompleteReason   string    `json:"complete_reason"`
+}
+
+// extractTurns - 从 Session Log 条目中提取 Turn 记录
+func extractTurns(entries []LogEntry) []TurnRecord {
+    var turns []TurnRecord
+    var currentTurn *TurnRecord
+    
+    for _, entry := range entries {
+        if entry.Message.Role == "user" {
+            // 保存上一个 Turn（标记为已完成）
+            if currentTurn != nil {
+                finalizeTurn(currentTurn, "next_user")
+                turns = append(turns, *currentTurn)
+            }
+            
+            // 开始新 Turn
+            currentTurn = &TurnRecord{
+                TurnID:           generateTurnID(extractSessionID(entry.FilePath), entry.ID),
+                SessionID:        extractSessionID(entry.FilePath),
+                UserID:           entry.UserID,
+                FirstMessageID:   entry.ID,
+                StartTimestamp:   entry.Timestamp,
+                UserInputPreview: truncateContent(entry.Content, 500),
+                IsComplete:       false,
+                LastMessageID:    entry.ID,
+                MessageCount:     1,
+                TotalTokens:      entry.Usage.TotalTokens,
+                InputTokens:      entry.Usage.InputTokens,
+                OutputTokens:     entry.Usage.OutputTokens,
+            }
+        } else if currentTurn != nil {
+            // 累加当前 Turn 的指标
+            currentTurn.LastMessageID = entry.ID
+            currentTurn.EndTimestamp = entry.Timestamp
+            currentTurn.TotalTokens += entry.Usage.TotalTokens
+            currentTurn.InputTokens += entry.Usage.InputTokens
+            currentTurn.OutputTokens += entry.Usage.OutputTokens
+            currentTurn.MessageCount++
+            
+            // 收集技能和工具
+            if entry.Message.Role == "assistant" {
+                for _, content := range entry.Message.Content {
+                    if content.Type == "toolCall" && content.Name != "" {
+                        currentTurn.Skills = append(currentTurn.Skills, content.Name)
+                        currentTurn.ToolCalls++
+                    }
+                }
+                
+                // 检查结果状态
+                if entry.Message.StopReason == "error" || entry.Message.IsError {
+                    currentTurn.ResultStatus = false
+                }
+            }
+        }
+    }
+    
+    // 最后一个 Turn 保持未完成状态
+    if currentTurn != nil {
+        currentTurn.DurationMs = calculateDuration(currentTurn.StartTimestamp, currentTurn.EndTimestamp)
+        turns = append(turns, *currentTurn)
+    }
+    
+    return turns
+}
+
+// finalizeTurn - 完成 Turn 并计算最终指标
+func finalizeTurn(turn *TurnRecord, reason string) {
+    // 计算耗时
+    turn.DurationMs = int(turn.EndTimestamp.Sub(turn.StartTimestamp).Milliseconds())
+    
+    // 去重技能和工具列表
+    turn.Skills = uniqueStrings(turn.Skills)
+    turn.Tools = uniqueStrings(turn.Tools)
+    
+    // 标记为完成
+    turn.IsComplete = true
+    turn.CompleteReason = reason
+    turn.CompletedAt = time.Now()
+}
+
+// generateTurnID - 生成 Turn ID (使用 Hash 避免特殊字符问题)
+func generateTurnID(sessionID string, userMessageID string) string {
+    hash := sha256.Sum256([]byte(userMessageID))
+    shortHash := hex.EncodeToString(hash[:8])  // 取前16位
+    return fmt.Sprintf("%s_turn_%s", sessionID, shortHash)
+}
+
+// uniqueStrings - 字符串数组去重
+func uniqueStrings(slice []string) []string {
+    seen := make(map[string]bool)
+    result := []string{}
+    for _, s := range slice {
+        if !seen[s] {
+            seen[s] = true
+            result = append(result, s)
+        }
+    }
+    return result
+}
+```
+
+#### Center Service 接收逻辑
+
+```java
+// TurnService.java - Center Service 端处理
+@Service
+public class TurnService {
+    
+    @Autowired
+    private SessionTurnMapper turnMapper;
+    
+    /**
+     * 批量插入或更新 Turn 记录
+     */
+    @Transactional
+    public void upsertTurns(List<TurnRecord> turns) {
+        for (TurnRecord turn : turns) {
+            // 1. 查询现有记录
+            SessionTurn existing = turnMapper.selectByTurnId(turn.getTurnId());
+            
+            if (existing != null) {
+                // 2. 合并技能和工具列表（去重）
+                List<String> mergedSkills = mergeAndDeduplicate(
+                    existing.getSkillsJson(), 
+                    turn.getSkills()
+                );
+                List<String> mergedTools = mergeAndDeduplicate(
+                    existing.getToolsJson(), 
+                    turn.getTools()
+                );
+                
+                // 3. 更新记录（累加指标）
+                existing.setLastMessageId(turn.getLastMessageId());
+                existing.setEndTimestamp(turn.getEndTimestamp());
+                existing.setDurationMs(turn.getDurationMs());
+                existing.setTotalTokens(existing.getTotalTokens() + turn.getTotalTokens());
+                existing.setInputTokens(existing.getInputTokens() + turn.getInputTokens());
+                existing.setOutputTokens(existing.getOutputTokens() + turn.getOutputTokens());
+                existing.setMessageCount(existing.getMessageCount() + turn.getMessageCount());
+                existing.setSkillCalls(existing.getSkillCalls() + turn.getSkillCalls());
+                existing.setToolCalls(existing.getToolCalls() + turn.getToolCalls());
+                existing.setSkillsJson(mergedSkills);
+                existing.setToolsJson(mergedTools);
+                existing.setResultStatus(turn.getResultStatus());
+                
+                // 只有当 is_complete=true 时才更新完成状态
+                if (turn.getIsComplete()) {
+                    existing.setIsComplete(true);
+                    existing.setCompleteReason(turn.getCompleteReason());
+                    existing.setCompletedAt(turn.getCompletedAt());
+                }
+                
+                existing.setUpdatedAt(new Date());
+                turnMapper.updateById(existing);
+            } else {
+                // 4. 插入新记录
+                SessionTurn newTurn = convertToEntity(turn);
+                turnMapper.insert(newTurn);
+            }
+        }
+    }
+    
+    /**
+     * 合并两个字符串列表并去重
+     */
+    private List<String> mergeAndDeduplicate(List<String> list1, List<String> list2) {
+        Set<String> merged = new LinkedHashSet<>(); // 保持插入顺序
+        if (list1 != null) {
+            merged.addAll(list1);
+        }
+        if (list2 != null) {
+            merged.addAll(list2);
+        }
+        return new ArrayList<>(merged);
+    }
+}
+```
+
+#### 典型查询场景
+
+```sql
+-- 1. 分页查询用户的对话列表（包含进行中的 Turn）
+SELECT 
+    turn_id,
+    start_timestamp AS time_stamp,
+    user_id,
+    user_input_preview AS user_input,
+    duration_ms,
+    result_status,
+    quality_status,
+    total_tokens,
+    input_tokens,
+    output_tokens,
+    skills_json AS skills,
+    tools_json AS tools,
+    is_complete,
+    log_file_path AS log_file_name
+FROM session_turn
+WHERE user_id = :userId
+  AND start_timestamp BETWEEN :startTime AND :endTime
+ORDER BY start_timestamp DESC
+LIMIT :pageSize OFFSET :offset;
+
+-- 2. 按技能过滤
+SELECT * FROM session_turn
+WHERE user_id = :userId
+  AND JSON_CONTAINS(skills_json, '"pptx"')
+ORDER BY start_timestamp DESC;
+
+-- 3. 只查询已完成的 Turn
+SELECT * FROM session_turn
+WHERE user_id = :userId
+  AND is_complete = TRUE
+ORDER BY start_timestamp DESC;
+
+-- 4. 统计某用户的 Turn 数量
+SELECT 
+    COUNT(*) AS total_turns,
+    SUM(CASE WHEN is_complete = TRUE THEN 1 ELSE 0 END) AS completed_turns,
+    SUM(CASE WHEN is_complete = FALSE THEN 1 ELSE 0 END) AS incomplete_turns
+FROM session_turn
+WHERE user_id = :userId;
+```
+
+#### 前端展示逻辑
+
+```typescript
+interface Turn {
+  turnId: string;
+  timeStamp: number;
+  userName: string;
+  userInput: string;
+  durationMs?: number;
+  resultStatus: boolean;
+  qualityStatus: number;
+  tokens: { total: number; input: number; output: number };
+  skills: string[];
+  tools: string[];
+  isComplete: boolean;  // ⭐ 新增字段
+  logFileName: string;
+}
+
+function TurnCard({ turn }: { turn: Turn }) {
+  // 1. 进行中的 Turn
+  if (!turn.isComplete) {
+    return (
+      <div className="turn-card processing">
+        <div className="status-indicator">
+          <Spinner size="small" />
+          <span>AI 正在回复...</span>
+        </div>
+        <div className="turn-info">
+          <span className="user-input">{turn.userInput}</span>
+          <span className="meta">
+            已处理 {turn.messageCount} 条消息
+            {turn.durationMs && ` · ${formatDuration(turn.durationMs)}`}
+          </span>
+        </div>
+      </div>
+    );
+  }
+  
+  // 2. 已完成的 Turn - 成功
+  if (turn.resultStatus === true) {
+    return (
+      <div className="turn-card success">
+        <div className="status-indicator">
+          <CheckIcon />
+          <span>完成</span>
+        </div>
+        <div className="turn-info">
+          <span className="user-input">{turn.userInput}</span>
+          <span className="meta">
+            {formatDuration(turn.durationMs)} · 
+            {turn.tokens.total.toLocaleString()} tokens
+          </span>
+        </div>
+      </div>
+    );
+  }
+  
+  // 3. 已完成的 Turn - 失败
+  return (
+    <div className="turn-card error">
+      <div className="status-indicator">
+        <ErrorIcon />
+        <span>失败</span>
+      </div>
+      <div className="turn-info">
+        <span className="user-input">{turn.userInput}</span>
+        <span className="meta">
+          {formatDuration(turn.durationMs)} · 
+          点击查看错误详情
+        </span>
+      </div>
+    </div>
+  );
+}
+```
+
+**UI 效果示意**:
+
+```
+┌─────────────────────────────────────────────┐
+│ 🔄 AI 正在回复...                            │
+│ 帮我生成一份二十届三中全会学习PPT              │
+│ 已处理 5 条消息 · 1分26秒                     │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│ ✅ 完成                                      │
+│ 帮我写一份季度工作总结                        │
+│ 45秒 · 12,340 tokens                         │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│ ❌ 失败                                      │
+│ 分析这份销售数据                              │
+│ 2分钟 · 点击查看错误详情                      │
+└─────────────────────────────────────────────┘
+```
+
+#### 数据流示例
+
+**场景 1: 正常对话流程**
+
+```
+时间线:
+T1: User: "帮我生成PPT"
+T2: Assistant: [思考中...]
+T3: Assistant: [调用技能: pptx]
+T4: Assistant: "好的，已生成"
+T5: User: "再帮我写一份报告"  ← 触发 Turn 1 完成
+
+Collector 推送批次 1 (T1-T4):
+├─ Turn 1: is_complete=false, message_count=4
+└─ Center Service: INSERT INTO session_turn (...)
+
+Collector 推送批次 2 (T5):
+├─ Turn 1: is_complete=true, complete_reason="next_user"  ← 更新
+├─ Turn 2: is_complete=false, message_count=1             ← 新建
+└─ Center Service: 
+    UPDATE session_turn SET is_complete=true WHERE turn_id="..."
+    INSERT INTO session_turn (Turn 2)
+```
+
+**场景 2: 用户中断对话（无超时机制）**
+
+```
+时间线:
+T1: User: "帮我生成PPT"
+T2: Assistant: [思考中...]
+T3: Assistant: [调用技能: pptx]
+... 用户长时间没有继续对话 ...
+
+Turn 状态:
+├─ Turn 1: is_complete=false (保持未完成状态)
+└─ 前端查询时显示: "🔄 AI 正在回复..."
+
+注意: 不引入超时自动完成逻辑，直接返回当前状态
+```
+
+**场景 3: Assistant 流式输出**
+
+```
+时间线:
+T1: User: "帮我生成PPT"
+T2: Assistant: [stream chunk 1]
+T3: Assistant: [stream chunk 2]
+T4: Assistant: [stream chunk 3]
+... 还在输出中 ...
+
+Collector 每次推送都会更新 Turn:
+批次 1: Turn 1, message_count=2, is_complete=false
+批次 2: Turn 1, message_count=3, is_complete=false  ← 累加
+批次 3: Turn 1, message_count=4, is_complete=false  ← 累加
+
+Center Service UPSERT:
+UPDATE session_turn SET
+  message_count = message_count + VALUES(message_count),
+  total_tokens = total_tokens + VALUES(total_tokens),
+  ...
+WHERE turn_id = "...";
+
+前端轮询查询:
+GET /api/v1/turns/search?userName=王颜
+→ 返回 Turn 1 (is_complete: false)
+→ 前端显示: "🔄 AI 正在回复..." + 实时更新的消息数
+```
+
+#### 性能评估
+
+**数据量估算**:
+- 假设日均 10 万条 JSONL 消息
+- 平均每个 Turn 有 5-10 条消息
+- 日均 Turn 数: 1万 - 2万
+- 月均 Turn 数: 30万 - 60万
+- 年均 Turn 数: 360万 - 720万
+
+**存储空间**:
+- 每条约 500-800 字节
+- 年增量约 2-6 GB
+
+**查询性能对比**:
+
+| 场景 | 无 Turn 表 | 有 Turn 表 | 提升倍数 |
+|------|-----------|-----------|---------|
+| 分页查询（10条/页） | 500ms - 2s | 50ms - 200ms | 5-10x |
+| 按技能过滤 | 800ms - 3s | 80ms - 300ms | 5-10x |
+| 统计查询 | 1s - 5s | 100ms - 500ms | 5-10x |
+
+**结论**: Turn 表能显著提升查询性能，特别是在数据量增长后优势更明显。
+
 ---
 
 ## 六、关键数据结构
