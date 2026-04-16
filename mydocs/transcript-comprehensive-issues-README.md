@@ -25,6 +25,9 @@
 
 **不满足以上任一条，就认为这次对话有问题。**
 
+**特殊规则**: 
+- `sessions_yield` 工具结果会被跳过检测，因为该工具用于异步任务提交，不需要立即返回最终答案。
+
 ### 2. 已知错误模式检测
 
 通过正则表达式匹配以下7类错误：
@@ -98,7 +101,7 @@
 **特点**:
 - ✅ 一个问题一条记录
 - ✅ 即使是同类型的问题也分开记录
-- ✅ 包含完整的上下文信息
+- ✅ 包含完整的上下文信息（流程完整性错误会提取错误行和下一行的内容）
 - ✅ 便于追踪和定位问题
 
 ---
@@ -137,9 +140,14 @@
 如果修复了问题或收集了新的transcript文件，可以重新运行脚本生成最新报告：
 
 ```bash
-cd d:\workplace\github\openclaw
+# 使用默认路径 (logs/session-transcript/openclaw-logs)
 bun scripts/detect-all-transcript-issues.ts
+
+# 指定自定义路径
+bun scripts/detect-all-transcript-issues.ts /path/to/your/transcripts
 ```
+
+**报告输出位置**: 脚本所在目录 (`scripts/transcript-comprehensive-issues.md`)
 
 ---
 
@@ -158,10 +166,12 @@ bun scripts/detect-all-transcript-issues.ts
 ### 关键优化
 
 - **排除误报**: 只对`role: "assistant"`的消息且**仅检查errorMessage字段**进行错误模式匹配，避免将content中的命令行参数、代码注释等文本误判为错误
-- **特殊规则**: 跳过`sessions_yield`工具结果的流程完整性检测（该工具用于异步任务，不需要立即返回最终答案）
+- **特殊规则**: 跳过`sessions_yield`工具结果的流程完整性检测（该工具用于异步任务提交，不需要立即返回最终答案）
 - **全面扫描**: 检测所有包含`.jsonl`的文件名（包括`.jsonl.reset.*`等Reset归档文件），确保不遗漏任何会话日志
 - **准确提取Session ID**: 从JSONL文件的第一个`session`事件中提取，而非依赖文件名
 - **去重机制**: 每个事件只匹配一次错误类型，避免重复报告
+- **上下文提取**: 对于流程完整性错误，自动提取错误行和下一行的原始内容，便于快速诊断
+- **跨平台支持**: 报告生成在脚本所在目录，支持通过命令行参数指定任意扫描路径，方便在其他机器上执行
 
 ---
 

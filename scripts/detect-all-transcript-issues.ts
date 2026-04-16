@@ -5,10 +5,20 @@
  * 1. 对话流程完整性检测（user→assistant, toolCall→toolResult, toolResult→assistant）
  * 2. 已知错误模式检测（modelErrors, timeoutErrors等）
  * 3. 异常停止检测（stopReason异常）
+ * 
+ * 使用方法：
+ *   bun scripts/detect-all-transcript-issues.ts [transcript_dir]
+ * 
+ * 参数说明：
+ *   transcript_dir: 可选，指定要扫描的transcript目录路径
+ *                  如果不提供，默认使用 logs/session-transcript/openclaw-logs
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ==================== 类型定义 ====================
 
@@ -227,12 +237,13 @@ function detectFlowIntegrity(
     if (current.event.message?.role === 'user') {
       if (!next) {
         // user是最后一条消息
+        const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_no_reply',
           eventType: 'message',
           description: '用户提问后没有任何回复（文件在此结束）',
-          errorMessage: 'Expected assistant message after user message, but reached end of file',
+          errorMessage: `Expected assistant message after user message, but reached end of file\n${contextInfo}`,
           causeAnalysis: '可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录',
           filePath,
           sessionId,
@@ -242,12 +253,13 @@ function detectFlowIntegrity(
         });
       } else if (next.event.message?.role !== 'assistant') {
         // user的下一条不是assistant
+        const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_no_reply',
           eventType: 'message',
           description: `用户提问后的下一条消息角色是"${next.event.message?.role}"，而非预期的assistant`,
-          errorMessage: `Expected "assistant" after "user", but got "${next.event.message?.role}"`,
+          errorMessage: `Expected "assistant" after "user", but got "${next.event.message?.role}"\n${contextInfo}`,
           causeAnalysis: '可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错',
           filePath,
           sessionId,
@@ -261,12 +273,13 @@ function detectFlowIntegrity(
     // 规则2: toolCall后面必须要有toolResult
     if (current.event.message?.role === 'assistant' && hasToolCall(current.event)) {
       if (!next) {
+        const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_tool_result',
           eventType: 'message',
           description: 'Assistant调用了工具但没有收到工具执行结果（文件在此结束）',
-          errorMessage: 'Expected toolResult after toolCall, but reached end of file',
+          errorMessage: `Expected toolResult after toolCall, but reached end of file\n${contextInfo}`,
           causeAnalysis: '可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果',
           filePath,
           sessionId,
@@ -275,12 +288,13 @@ function detectFlowIntegrity(
           severity: 'HIGH',
         });
       } else if (next.event.message?.role !== 'toolResult') {
+        const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_tool_result',
           eventType: 'message',
           description: `Assistant调用工具后的下一条消息角色是"${next.event.message?.role}"，而非预期的toolResult`,
-          errorMessage: `Expected "toolResult" after "toolCall", but got "${next.event.message?.role}"`,
+          errorMessage: `Expected "toolResult" after "toolCall", but got "${next.event.message?.role}"\n${contextInfo}`,
           causeAnalysis: '可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失',
           filePath,
           sessionId,
@@ -294,6 +308,7 @@ function detectFlowIntegrity(
     // 规则3: toolResult后面必须要有assistant
     if (current.event.message?.role === 'toolResult') {
       // 特殊规则：跳过sessions_yield工具结果的检测
+      // sessions_yield用于异步任务提交，不需要立即返回最终答案
       const toolName = current.event.message.toolName;
       
       if (toolName === 'sessions_yield') {
@@ -301,12 +316,13 @@ function detectFlowIntegrity(
       }
       
       if (!next) {
+        const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_final_answer',
           eventType: 'message',
           description: '工具执行完成后没有Assistant的最终回复（文件在此结束）',
-          errorMessage: 'Expected assistant message after toolResult, but reached end of file',
+          errorMessage: `Expected assistant message after toolResult, but reached end of file\n${contextInfo}`,
           causeAnalysis: '可能的原因：1) Assistant在处理工具结果时出错；2) 会话被意外终止；3) 工具结果过于复杂导致无法生成回复；4) 系统资源耗尽',
           filePath,
           sessionId,
@@ -315,12 +331,13 @@ function detectFlowIntegrity(
           severity: 'MEDIUM',
         });
       } else if (next.event.message?.role !== 'assistant') {
+        const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_final_answer',
           eventType: 'message',
           description: `工具执行完成后的下一条消息角色是"${next.event.message?.role}"，而非预期的assistant最终回复`,
-          errorMessage: `Expected "assistant" after "toolResult", but got "${next.event.message?.role}"`,
+          errorMessage: `Expected "assistant" after "toolResult", but got "${next.event.message?.role}"\n${contextInfo}`,
           causeAnalysis: '可能的原因：1) Assistant未能正确处理工具结果；2) 触发了新的用户输入打断流程；3) 消息顺序异常；4) 多轮工具调用中间状态',
           filePath,
           sessionId,
@@ -456,6 +473,31 @@ function detectAbnormalStops(
   }
   
   return issues;
+}
+
+/**
+ * 提取错误行和下一行的上下文信息
+ */
+function extractContextInfo(lineNum: number, messages: Array<{ lineNum: number; event: MessageEvent }>): string {
+  try {
+    const currentIndex = messages.findIndex(m => m.lineNum === lineNum);
+    if (currentIndex === -1) return '';
+    
+    const currentMsg = messages[currentIndex];
+    const nextMsg = messages[currentIndex + 1];
+    
+    let context = '\n--- 错误行内容 ---\n';
+    context += `Line ${lineNum}: ${JSON.stringify(currentMsg.event).substring(0, 500)}\n`;
+    
+    if (nextMsg) {
+      context += `\n--- 下一行内容 ---\n`;
+      context += `Line ${nextMsg.lineNum}: ${JSON.stringify(nextMsg.event).substring(0, 500)}\n`;
+    }
+    
+    return context;
+  } catch (e) {
+    return '\n[提取上下文失败]';
+  }
 }
 
 /**
@@ -648,10 +690,23 @@ function generateMarkdownReport(allIssues: Issue[]): string {
  * 主函数
  */
 async function main() {
-  const transcriptDir = path.join(__dirname, '..', 'logs', 'session-transcript', 'openclaw-logs');
+  // 获取命令行参数指定的路径，如果没有则使用默认路径
+  const args = process.argv.slice(2);
+  const customDir = args[0];
+  
+  let transcriptDir: string;
+  if (customDir) {
+    // 如果提供了自定义路径，使用它
+    transcriptDir = path.isAbsolute(customDir) ? customDir : path.join(process.cwd(), customDir);
+    console.log(`📂 使用自定义路径: ${transcriptDir}\n`);
+  } else {
+    // 否则使用默认路径
+    transcriptDir = path.join(__dirname, '..', 'logs', 'session-transcript', 'openclaw-logs');
+    console.log(`📂 使用默认路径: ${transcriptDir}\n`);
+  }
   
   if (!fs.existsSync(transcriptDir)) {
-    console.error(`Transcript directory not found: ${transcriptDir}`);
+    console.error(`❌ Transcript directory not found: ${transcriptDir}`);
     process.exit(1);
   }
   
@@ -673,8 +728,8 @@ async function main() {
   
   console.log(`\n✅ 分析完成！共发现 ${allIssues.length} 个问题\n`);
   
-  // 生成报告
-  const reportPath = path.join(__dirname, '..', 'mydocs', 'transcript-comprehensive-issues.md');
+  // 生成报告到脚本所在目录
+  const reportPath = path.join(__dirname, 'transcript-comprehensive-issues.md');
   const report = generateMarkdownReport(allIssues);
   fs.writeFileSync(reportPath, report, 'utf-8');
   
