@@ -1,6 +1,6 @@
 # OpenClaw Session Transcript 综合问题检测报告
 
-**生成时间**: 2026-04-16T12:34:23.969Z
+**生成时间**: 2026-04-16T12:37:22.071Z
 
 ## 📊 统计概览
 
@@ -21,7 +21,7 @@
 
 ## flow_integrity_missing_final_answer - 工具执行后无最终回复 (532)
 
-### 问题
+### 问题 #1
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -43,7 +43,7 @@ Line 18: {"type":"message","id":"e7011170","parentId":"096c9daf","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #2
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -65,7 +65,7 @@ Line 19: {"type":"message","id":"5ac4a234","parentId":"e7011170","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #3
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -87,7 +87,7 @@ Line 114: {"type":"custom","customType":"openclaw:prompt-error","data":{"timesta
 
 ---
 
-### 问题
+### 问题 #4
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -109,7 +109,7 @@ Line 130: {"type":"custom","customType":"openclaw:prompt-error","data":{"timesta
 
 ---
 
-### 问题
+### 问题 #5
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
@@ -128,7 +128,7 @@ Line 19: {"type":"message","id":"a23fb7fa","parentId":"cb88f7e1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #6
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -150,7 +150,7 @@ Line 22: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #7
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -172,7 +172,7 @@ Line 18: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #8
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -194,7 +194,7 @@ Line 8: {"type":"message","id":"551547d3","parentId":"926d9263","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #9
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -216,7 +216,7 @@ Line 9: {"type":"message","id":"afff7510","parentId":"551547d3","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #10
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -238,7 +238,7 @@ Line 10: {"type":"message","id":"33fec723","parentId":"afff7510","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #11
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -260,7 +260,7 @@ Line 11: {"type":"message","id":"c0763308","parentId":"33fec723","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #12
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -282,7 +282,7 @@ Line 14: {"type":"message","id":"b8e0297f","parentId":"bfd72a26","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #13
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -304,7 +304,7 @@ Line 41: {"type":"message","id":"7b52fa45","parentId":"04f5052d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #14
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -326,7 +326,7 @@ Line 44: {"type":"message","id":"4405a620","parentId":"90b9acc4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #15
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -348,7 +348,7 @@ Line 77: {"type":"message","id":"5ff19a8c","parentId":"55bb0bf4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #16
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -370,7 +370,7 @@ Line 78: {"type":"message","id":"4555d08c","parentId":"5ff19a8c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #17
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -392,7 +392,7 @@ Line 79: {"type":"message","id":"df29f231","parentId":"4555d08c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #18
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -414,7 +414,7 @@ Line 86: {"type":"message","id":"1fb75c62","parentId":"c5771f78","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #19
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -436,7 +436,7 @@ Line 8: {"type":"message","id":"59ec5ea8","parentId":"7fae712a","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #20
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -458,7 +458,7 @@ Line 9: {"type":"message","id":"01098a1d","parentId":"59ec5ea8","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #21
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -480,7 +480,7 @@ Line 10: {"type":"message","id":"b0805435","parentId":"01098a1d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #22
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -502,7 +502,7 @@ Line 115: {"type":"message","id":"9dd35aef","parentId":"601533db","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #23
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -524,7 +524,7 @@ Line 116: {"type":"message","id":"792794e3","parentId":"9dd35aef","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #24
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -546,7 +546,7 @@ Line 123: {"type":"message","id":"62f7e868","parentId":"ee5baee1","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #25
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -568,7 +568,7 @@ Line 18: {"type":"message","id":"31cf641f","parentId":"30f70f2c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #26
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -590,7 +590,7 @@ Line 19: {"type":"message","id":"84cfe7c5","parentId":"31cf641f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #27
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -612,7 +612,7 @@ Line 20: {"type":"message","id":"e660c8d0","parentId":"84cfe7c5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #28
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -634,7 +634,7 @@ Line 8: {"type":"message","id":"b3e27249","parentId":"6964c076","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #29
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -656,7 +656,7 @@ Line 9: {"type":"message","id":"dd7b127c","parentId":"b3e27249","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #30
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -678,7 +678,7 @@ Line 16: {"type":"message","id":"088e076b","parentId":"74e44d80","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #31
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -700,7 +700,7 @@ Line 19: {"type":"message","id":"eb45e4b3","parentId":"5e11aebd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #32
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -722,7 +722,7 @@ Line 8: {"type":"message","id":"414a9a72","parentId":"fd1fddfd","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #33
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -744,7 +744,7 @@ Line 9: {"type":"message","id":"3a331005","parentId":"414a9a72","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #34
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -766,7 +766,7 @@ Line 10: {"type":"message","id":"51ad4db2","parentId":"3a331005","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #35
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -788,7 +788,7 @@ Line 11: {"type":"message","id":"bf5586d8","parentId":"51ad4db2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #36
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -810,7 +810,7 @@ Line 36: {"type":"message","id":"f951c648","parentId":"82603b80","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #37
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -832,7 +832,7 @@ Line 37: {"type":"message","id":"25ce2c61","parentId":"f951c648","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #38
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -854,7 +854,7 @@ Line 38: {"type":"message","id":"6fa6f6d8","parentId":"25ce2c61","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #39
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -876,7 +876,7 @@ Line 10: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #40
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -898,7 +898,7 @@ Line 8: {"type":"message","id":"0529e028","parentId":"8b3a96d6","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #41
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -920,7 +920,7 @@ Line 9: {"type":"message","id":"2e20bd20","parentId":"0529e028","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #42
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -942,7 +942,7 @@ Line 10: {"type":"message","id":"81668a9b","parentId":"2e20bd20","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #43
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -964,7 +964,7 @@ Line 11: {"type":"message","id":"7bf21f6d","parentId":"81668a9b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #44
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -986,7 +986,7 @@ Line 8: {"type":"message","id":"dd6323eb","parentId":"8b2678f0","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #45
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1008,7 +1008,7 @@ Line 9: {"type":"message","id":"95007efe","parentId":"dd6323eb","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #46
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1030,7 +1030,7 @@ Line 10: {"type":"message","id":"c4b59d2e","parentId":"95007efe","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #47
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1052,7 +1052,7 @@ Line 11: {"type":"message","id":"f1931f77","parentId":"c4b59d2e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #48
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1074,7 +1074,7 @@ Line 34: {"type":"message","id":"450dd44d","parentId":"622af54b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #49
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1096,7 +1096,7 @@ Line 34: {"type":"message","id":"b6bf9735","parentId":"aec0ef16","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #50
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1118,7 +1118,7 @@ Line 35: {"type":"message","id":"ffe58d03","parentId":"b6bf9735","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #51
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1140,7 +1140,7 @@ Line 36: {"type":"message","id":"1ff0046e","parentId":"ffe58d03","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #52
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1162,7 +1162,7 @@ Line 43: {"type":"message","id":"c5e9df3c","parentId":"f6c8d3d5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #53
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1184,7 +1184,7 @@ Line 44: {"type":"message","id":"4656533a","parentId":"c5e9df3c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #54
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1206,7 +1206,7 @@ Line 59: {"type":"message","id":"dc4c8858","parentId":"d688d503","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #55
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1228,7 +1228,7 @@ Line 60: {"type":"message","id":"1c2c0d0e","parentId":"dc4c8858","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #56
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1250,7 +1250,7 @@ Line 71: {"type":"message","id":"947ab6d2","parentId":"878190f0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #57
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1272,7 +1272,7 @@ Line 72: {"type":"message","id":"69f6b4eb","parentId":"947ab6d2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #58
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1294,7 +1294,7 @@ Line 79: {"type":"message","id":"aade078d","parentId":"86e86078","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #59
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1316,7 +1316,7 @@ Line 80: {"type":"message","id":"977ad405","parentId":"aade078d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #60
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1338,7 +1338,7 @@ Line 95: {"type":"message","id":"5b2a0baf","parentId":"fcf505b1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #61
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1360,7 +1360,7 @@ Line 96: {"type":"message","id":"ba0485f2","parentId":"5b2a0baf","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #62
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1382,7 +1382,7 @@ Line 109: {"type":"message","id":"bfae3a6e","parentId":"0250a258","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #63
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1404,7 +1404,7 @@ Line 110: {"type":"message","id":"c7700854","parentId":"bfae3a6e","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #64
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1426,7 +1426,7 @@ Line 111: {"type":"message","id":"cfe59a8d","parentId":"c7700854","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #65
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1448,7 +1448,7 @@ Line 8: {"type":"message","id":"5a8826d1","parentId":"e3a92224","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #66
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1470,7 +1470,7 @@ Line 9: {"type":"message","id":"2bbe1930","parentId":"5a8826d1","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #67
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1492,7 +1492,7 @@ Line 10: {"type":"message","id":"99ad071e","parentId":"2bbe1930","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #68
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -1514,7 +1514,7 @@ Line 126: {"type":"custom","customType":"openclaw:prompt-error","data":{"timesta
 
 ---
 
-### 问题
+### 问题 #69
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
@@ -1533,7 +1533,7 @@ Line 103: {"type":"message","id":"c6126f96","parentId":"4e2ded31","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #70
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1555,7 +1555,7 @@ Line 28: {"type":"message","id":"70bde3dc","parentId":"361c1c90","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #71
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1577,7 +1577,7 @@ Line 9: {"type":"message","id":"e3c56fc0","parentId":"cc605b68","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #72
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1599,7 +1599,7 @@ Line 10: {"type":"message","id":"d66c0a80","parentId":"fc66aff2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #73
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -1621,7 +1621,7 @@ Line 13: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #74
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1643,7 +1643,7 @@ Line 14: {"type":"message","id":"db338817","parentId":"5cbe2b2b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #75
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1665,7 +1665,7 @@ Line 10: {"type":"message","id":"fc187902","parentId":"956b258e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #76
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1687,7 +1687,7 @@ Line 11: {"type":"message","id":"6e19d7ca","parentId":"fc187902","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #77
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1709,7 +1709,7 @@ Line 12: {"type":"message","id":"0400e19e","parentId":"6e19d7ca","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #78
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1731,7 +1731,7 @@ Line 13: {"type":"message","id":"27c5611e","parentId":"0400e19e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #79
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1753,7 +1753,7 @@ Line 10: {"type":"message","id":"a869563e","parentId":"fe6df0dd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #80
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1775,7 +1775,7 @@ Line 11: {"type":"message","id":"48de6156","parentId":"a869563e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #81
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1797,7 +1797,7 @@ Line 12: {"type":"message","id":"66ffe8c8","parentId":"48de6156","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #82
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1819,7 +1819,7 @@ Line 13: {"type":"message","id":"c2270da2","parentId":"66ffe8c8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #83
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1841,7 +1841,7 @@ Line 14: {"type":"message","id":"7ff774b8","parentId":"c2270da2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #84
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1863,7 +1863,7 @@ Line 15: {"type":"message","id":"b8a93ec6","parentId":"7ff774b8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #85
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1885,7 +1885,7 @@ Line 16: {"type":"message","id":"07d3b64f","parentId":"b8a93ec6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #86
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1907,7 +1907,7 @@ Line 17: {"type":"message","id":"303d8b62","parentId":"07d3b64f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #87
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1929,7 +1929,7 @@ Line 10: {"type":"message","id":"5e05f1c9","parentId":"023567c0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #88
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1951,7 +1951,7 @@ Line 10: {"type":"message","id":"daae028e","parentId":"ad45585e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #89
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1973,7 +1973,7 @@ Line 11: {"type":"message","id":"fb051286","parentId":"daae028e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #90
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -1995,7 +1995,7 @@ Line 12: {"type":"message","id":"0d2e361d","parentId":"fb051286","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #91
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2017,7 +2017,7 @@ Line 13: {"type":"message","id":"7dba3ad2","parentId":"0d2e361d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #92
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2039,7 +2039,7 @@ Line 14: {"type":"message","id":"b41029c9","parentId":"7dba3ad2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #93
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2061,7 +2061,7 @@ Line 15: {"type":"message","id":"1b83af94","parentId":"b41029c9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #94
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2083,7 +2083,7 @@ Line 16: {"type":"message","id":"a213b397","parentId":"1b83af94","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #95
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2105,7 +2105,7 @@ Line 17: {"type":"message","id":"a0b0c6f6","parentId":"a213b397","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #96
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2127,7 +2127,7 @@ Line 22: {"type":"message","id":"09da37e4","parentId":"f59354cc","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #97
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2149,7 +2149,7 @@ Line 25: {"type":"message","id":"2c47d86e","parentId":"310de116","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #98
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2171,7 +2171,7 @@ Line 26: {"type":"message","id":"d37c9bbc","parentId":"2c47d86e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #99
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2193,7 +2193,7 @@ Line 29: {"type":"message","id":"5c401739","parentId":"1d0227d7","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #100
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2215,7 +2215,7 @@ Line 30: {"type":"message","id":"d0731721","parentId":"5c401739","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #101
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -2237,7 +2237,7 @@ Line 33: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #102
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -2259,7 +2259,7 @@ Line 72: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #103
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2281,7 +2281,7 @@ Line 108: {"type":"message","id":"5506fb9c","parentId":"662908ca","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #104
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2303,7 +2303,7 @@ Line 109: {"type":"message","id":"9f3b8507","parentId":"5506fb9c","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #105
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2325,7 +2325,7 @@ Line 110: {"type":"message","id":"038616c6","parentId":"9f3b8507","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #106
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2347,7 +2347,7 @@ Line 111: {"type":"message","id":"a881957d","parentId":"038616c6","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #107
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2369,7 +2369,7 @@ Line 112: {"type":"message","id":"7ec44c8f","parentId":"a881957d","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #108
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2391,7 +2391,7 @@ Line 122: {"type":"message","id":"6472a714","parentId":"dd457e8d","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #109
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2413,7 +2413,7 @@ Line 10: {"type":"message","id":"4a4c51ab","parentId":"81f2ad60","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #110
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2435,7 +2435,7 @@ Line 11: {"type":"message","id":"15f4e33c","parentId":"4a4c51ab","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #111
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2457,7 +2457,7 @@ Line 12: {"type":"message","id":"a2dbf9de","parentId":"15f4e33c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #112
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2479,7 +2479,7 @@ Line 15: {"type":"message","id":"14749f94","parentId":"ce854d47","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #113
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2501,7 +2501,7 @@ Line 16: {"type":"message","id":"0f430c6b","parentId":"14749f94","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #114
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2523,7 +2523,7 @@ Line 17: {"type":"message","id":"4ada4207","parentId":"0f430c6b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #115
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2545,7 +2545,7 @@ Line 20: {"type":"message","id":"a764ec5b","parentId":"1f07395f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #116
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2567,7 +2567,7 @@ Line 21: {"type":"message","id":"4de379c7","parentId":"a764ec5b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #117
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2589,7 +2589,7 @@ Line 22: {"type":"message","id":"78f7f2ca","parentId":"4de379c7","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #118
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2611,7 +2611,7 @@ Line 25: {"type":"message","id":"8766a9f1","parentId":"5c178814","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #119
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2633,7 +2633,7 @@ Line 26: {"type":"message","id":"8cfb1128","parentId":"8766a9f1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #120
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2655,7 +2655,7 @@ Line 27: {"type":"message","id":"6ee7d178","parentId":"8cfb1128","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #121
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2677,7 +2677,7 @@ Line 30: {"type":"message","id":"991aa1a1","parentId":"de87e00d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #122
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2699,7 +2699,7 @@ Line 31: {"type":"message","id":"f89d33b2","parentId":"991aa1a1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #123
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2721,7 +2721,7 @@ Line 32: {"type":"message","id":"68692816","parentId":"f89d33b2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #124
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2743,7 +2743,7 @@ Line 35: {"type":"message","id":"107feddd","parentId":"ab5d3db6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #125
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2765,7 +2765,7 @@ Line 36: {"type":"message","id":"e2f8a04a","parentId":"107feddd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #126
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2787,7 +2787,7 @@ Line 37: {"type":"message","id":"6f47f8cf","parentId":"e2f8a04a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #127
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2809,7 +2809,7 @@ Line 40: {"type":"message","id":"773cf696","parentId":"a23c21dd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #128
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -2831,7 +2831,7 @@ Line 47: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #129
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2853,7 +2853,7 @@ Line 44: {"type":"message","id":"41b2104d","parentId":"bdd0537a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #130
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2875,7 +2875,7 @@ Line 83: {"type":"message","id":"85109f34","parentId":"7c9043ab","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #131
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2897,7 +2897,7 @@ Line 84: {"type":"message","id":"a0f357d9","parentId":"85109f34","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #132
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2919,7 +2919,7 @@ Line 10: {"type":"message","id":"c5e38864","parentId":"2bacf681","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #133
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2941,7 +2941,7 @@ Line 11: {"type":"message","id":"3eafb8fc","parentId":"c5e38864","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #134
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2963,7 +2963,7 @@ Line 12: {"type":"message","id":"5cd32c4d","parentId":"3eafb8fc","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #135
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -2985,7 +2985,7 @@ Line 13: {"type":"message","id":"4be4a802","parentId":"5cd32c4d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #136
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3007,7 +3007,7 @@ Line 16: {"type":"message","id":"79dc1a1e","parentId":"927701d6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #137
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3029,7 +3029,7 @@ Line 17: {"type":"message","id":"f49aabc5","parentId":"79dc1a1e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #138
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3051,7 +3051,7 @@ Line 18: {"type":"message","id":"3cbf7808","parentId":"f49aabc5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #139
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -3073,7 +3073,7 @@ Line 21: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #140
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3095,7 +3095,7 @@ Line 10: {"type":"message","id":"8e5a1de0","parentId":"dadc59fd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #141
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3117,7 +3117,7 @@ Line 11: {"type":"message","id":"2837f502","parentId":"8e5a1de0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #142
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3139,7 +3139,7 @@ Line 12: {"type":"message","id":"60b9fcad","parentId":"2837f502","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #143
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3161,7 +3161,7 @@ Line 15: {"type":"message","id":"3dec348f","parentId":"c6a4265b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #144
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3183,7 +3183,7 @@ Line 16: {"type":"message","id":"b96e9a8a","parentId":"3dec348f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #145
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3205,7 +3205,7 @@ Line 17: {"type":"message","id":"fee27abf","parentId":"b96e9a8a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #146
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3227,7 +3227,7 @@ Line 20: {"type":"message","id":"0f862935","parentId":"964ff673","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #147
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3249,7 +3249,7 @@ Line 21: {"type":"message","id":"aaaae082","parentId":"0f862935","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #148
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3271,7 +3271,7 @@ Line 22: {"type":"message","id":"1515b682","parentId":"aaaae082","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #149
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -3293,7 +3293,7 @@ Line 25: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #150
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3315,7 +3315,7 @@ Line 10: {"type":"message","id":"dc1e7634","parentId":"dcf62b59","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #151
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3337,7 +3337,7 @@ Line 11: {"type":"message","id":"8677dbe4","parentId":"dc1e7634","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #152
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3359,7 +3359,7 @@ Line 12: {"type":"message","id":"484e7484","parentId":"8677dbe4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #153
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3381,7 +3381,7 @@ Line 15: {"type":"message","id":"79071b17","parentId":"fb399695","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #154
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3403,7 +3403,7 @@ Line 16: {"type":"message","id":"32270f87","parentId":"79071b17","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #155
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3425,7 +3425,7 @@ Line 17: {"type":"message","id":"108e0d0e","parentId":"32270f87","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #156
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3447,7 +3447,7 @@ Line 20: {"type":"message","id":"0eb6089a","parentId":"a733c4fe","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #157
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3469,7 +3469,7 @@ Line 21: {"type":"message","id":"a2ee558a","parentId":"0eb6089a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #158
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -3491,7 +3491,7 @@ Line 22: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #159
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3513,7 +3513,7 @@ Line 18: {"type":"message","id":"e3e583b1","parentId":"ee5f7653","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #160
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3535,7 +3535,7 @@ Line 19: {"type":"message","id":"4f20876c","parentId":"e3e583b1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #161
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3557,7 +3557,7 @@ Line 20: {"type":"message","id":"c8b70d23","parentId":"4f20876c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #162
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3579,7 +3579,7 @@ Line 21: {"type":"message","id":"913b3e48","parentId":"c8b70d23","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #163
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3601,7 +3601,7 @@ Line 24: {"type":"message","id":"d08f6a77","parentId":"691daafd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #164
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3623,7 +3623,7 @@ Line 25: {"type":"message","id":"8a115ccb","parentId":"d08f6a77","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #165
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3645,7 +3645,7 @@ Line 26: {"type":"message","id":"cb49e239","parentId":"8a115ccb","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #166
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3667,7 +3667,7 @@ Line 27: {"type":"message","id":"9c39a23d","parentId":"cb49e239","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #167
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3689,7 +3689,7 @@ Line 34: {"type":"message","id":"9e957227","parentId":"2862f4e9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #168
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3711,7 +3711,7 @@ Line 35: {"type":"message","id":"d3255d28","parentId":"9e957227","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #169
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3733,7 +3733,7 @@ Line 36: {"type":"message","id":"5cb9543a","parentId":"d3255d28","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #170
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3755,7 +3755,7 @@ Line 37: {"type":"message","id":"626fce98","parentId":"5cb9543a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #171
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3777,7 +3777,7 @@ Line 40: {"type":"message","id":"3599cbf8","parentId":"fb834963","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #172
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3799,7 +3799,7 @@ Line 41: {"type":"message","id":"607a0c82","parentId":"3599cbf8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #173
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3821,7 +3821,7 @@ Line 42: {"type":"message","id":"510fe162","parentId":"607a0c82","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #174
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3843,7 +3843,7 @@ Line 43: {"type":"message","id":"18c5701a","parentId":"510fe162","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #175
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3865,7 +3865,7 @@ Line 46: {"type":"message","id":"989da349","parentId":"6d2ab77c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #176
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3887,7 +3887,7 @@ Line 12: {"type":"message","id":"097a7422","parentId":"d6630590","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #177
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3909,7 +3909,7 @@ Line 13: {"type":"message","id":"41441d13","parentId":"097a7422","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #178
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3931,7 +3931,7 @@ Line 14: {"type":"message","id":"2bf0efc1","parentId":"41441d13","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #179
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3953,7 +3953,7 @@ Line 17: {"type":"message","id":"9aa814d9","parentId":"152f99e1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #180
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3975,7 +3975,7 @@ Line 18: {"type":"message","id":"f0eb8f3f","parentId":"9aa814d9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #181
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -3997,7 +3997,7 @@ Line 19: {"type":"message","id":"d6d294be","parentId":"f0eb8f3f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #182
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4019,7 +4019,7 @@ Line 22: {"type":"message","id":"f157de8b","parentId":"c8767838","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #183
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4041,7 +4041,7 @@ Line 23: {"type":"message","id":"7fbc9af3","parentId":"f157de8b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #184
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4063,7 +4063,7 @@ Line 24: {"type":"message","id":"fb1854d4","parentId":"7fbc9af3","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #185
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4085,7 +4085,7 @@ Line 25: {"type":"message","id":"8148fb4a","parentId":"fb1854d4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #186
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4107,7 +4107,7 @@ Line 26: {"type":"message","id":"c99aee30","parentId":"8148fb4a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #187
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -4129,7 +4129,7 @@ Line 29: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #188
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4151,7 +4151,7 @@ Line 78: {"type":"message","id":"ab922649","parentId":"9debc2b4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #189
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4173,7 +4173,7 @@ Line 79: {"type":"message","id":"9a90e52b","parentId":"ab922649","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #190
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4195,7 +4195,7 @@ Line 10: {"type":"message","id":"4d1a0c0e","parentId":"f450091d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #191
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4217,7 +4217,7 @@ Line 11: {"type":"message","id":"723d0efd","parentId":"4d1a0c0e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #192
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4239,7 +4239,7 @@ Line 12: {"type":"message","id":"d54c023a","parentId":"723d0efd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #193
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -4261,7 +4261,7 @@ Line 15: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #194
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4283,7 +4283,7 @@ Line 10: {"type":"message","id":"842abf25","parentId":"dd833b41","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #195
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4305,7 +4305,7 @@ Line 11: {"type":"message","id":"6875405f","parentId":"842abf25","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #196
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4327,7 +4327,7 @@ Line 12: {"type":"message","id":"15bb70fb","parentId":"6875405f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #197
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4349,7 +4349,7 @@ Line 15: {"type":"message","id":"0a79ba4d","parentId":"be9dc85b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #198
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4371,7 +4371,7 @@ Line 16: {"type":"message","id":"51d41b9f","parentId":"0a79ba4d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #199
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4393,7 +4393,7 @@ Line 17: {"type":"message","id":"0f75c4b2","parentId":"51d41b9f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #200
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4415,7 +4415,7 @@ Line 20: {"type":"message","id":"a04202bd","parentId":"860f137e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #201
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4437,7 +4437,7 @@ Line 21: {"type":"message","id":"0120f2ce","parentId":"a04202bd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #202
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -4459,7 +4459,7 @@ Line 30: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #203
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -4481,7 +4481,7 @@ Line 8: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp
 
 ---
 
-### 问题
+### 问题 #204
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4503,7 +4503,7 @@ Line 10: {"type":"message","id":"1682679a","parentId":"bcbc9a7f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #205
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4525,7 +4525,7 @@ Line 11: {"type":"message","id":"1339dce3","parentId":"1682679a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #206
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4547,7 +4547,7 @@ Line 12: {"type":"message","id":"4580d9c4","parentId":"1339dce3","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #207
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4569,7 +4569,7 @@ Line 13: {"type":"message","id":"484c6e4e","parentId":"4580d9c4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #208
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4591,7 +4591,7 @@ Line 14: {"type":"message","id":"1959f0f2","parentId":"484c6e4e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #209
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4613,7 +4613,7 @@ Line 17: {"type":"message","id":"6ab448df","parentId":"08b211f4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #210
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4635,7 +4635,7 @@ Line 18: {"type":"message","id":"45617a05","parentId":"6ab448df","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #211
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4657,7 +4657,7 @@ Line 19: {"type":"message","id":"492a3d1c","parentId":"45617a05","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #212
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4679,7 +4679,7 @@ Line 20: {"type":"message","id":"99b4830f","parentId":"492a3d1c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #213
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -4701,7 +4701,7 @@ Line 23: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #214
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4723,7 +4723,7 @@ Line 10: {"type":"message","id":"cf396ca1","parentId":"93e82709","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #215
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4745,7 +4745,7 @@ Line 11: {"type":"message","id":"d7a73dca","parentId":"cf396ca1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #216
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4767,7 +4767,7 @@ Line 12: {"type":"message","id":"59abb822","parentId":"d7a73dca","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #217
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4789,7 +4789,7 @@ Line 13: {"type":"message","id":"dfa4db94","parentId":"59abb822","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #218
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4811,7 +4811,7 @@ Line 16: {"type":"message","id":"049819ea","parentId":"da5e1a91","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #219
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4833,7 +4833,7 @@ Line 17: {"type":"message","id":"80cf7966","parentId":"049819ea","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #220
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4855,7 +4855,7 @@ Line 18: {"type":"message","id":"1f138511","parentId":"80cf7966","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #221
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4877,7 +4877,7 @@ Line 19: {"type":"message","id":"ca68062e","parentId":"1f138511","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #222
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4899,7 +4899,7 @@ Line 20: {"type":"message","id":"c771d201","parentId":"ca68062e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #223
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4921,7 +4921,7 @@ Line 10: {"type":"message","id":"7d658bec","parentId":"1f4a94d9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #224
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4943,7 +4943,7 @@ Line 11: {"type":"message","id":"886803ee","parentId":"7d658bec","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #225
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -4965,7 +4965,7 @@ Line 32: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #226
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -4987,7 +4987,7 @@ Line 14: {"type":"message","id":"9be2776f","parentId":"b80f8e8c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #227
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5009,7 +5009,7 @@ Line 15: {"type":"message","id":"a8b5042a","parentId":"9be2776f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #228
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5031,7 +5031,7 @@ Line 16: {"type":"message","id":"be36e50b","parentId":"a8b5042a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #229
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5053,7 +5053,7 @@ Line 19: {"type":"message","id":"1e3ff881","parentId":"7041223e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #230
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5075,7 +5075,7 @@ Line 20: {"type":"message","id":"a28830f0","parentId":"1e3ff881","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #231
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5097,7 +5097,7 @@ Line 21: {"type":"message","id":"af61a2e3","parentId":"a28830f0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #232
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5119,7 +5119,7 @@ Line 24: {"type":"message","id":"dba719aa","parentId":"69371edb","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #233
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5141,7 +5141,7 @@ Line 27: {"type":"message","id":"23d36ef7","parentId":"a8dec6db","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #234
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5163,7 +5163,7 @@ Line 28: {"type":"message","id":"3fc0af1b","parentId":"23d36ef7","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #235
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5185,7 +5185,7 @@ Line 29: {"type":"message","id":"bcea41d1","parentId":"3fc0af1b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #236
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5207,7 +5207,7 @@ Line 32: {"type":"message","id":"70ebf180","parentId":"a482cb08","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #237
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5229,7 +5229,7 @@ Line 33: {"type":"message","id":"79c8da20","parentId":"70ebf180","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #238
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5251,7 +5251,7 @@ Line 34: {"type":"message","id":"523f1172","parentId":"79c8da20","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #239
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5273,7 +5273,7 @@ Line 37: {"type":"message","id":"660b61a9","parentId":"339cbaa5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #240
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5295,7 +5295,7 @@ Line 38: {"type":"message","id":"0e1c0b2a","parentId":"660b61a9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #241
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5317,7 +5317,7 @@ Line 39: {"type":"message","id":"abd12589","parentId":"0e1c0b2a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #242
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -5339,7 +5339,7 @@ Line 42: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #243
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -5361,7 +5361,7 @@ Line 8: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp
 
 ---
 
-### 问题
+### 问题 #244
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5383,7 +5383,7 @@ Line 10: {"type":"message","id":"5c93f5e5","parentId":"9758afab","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #245
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5405,7 +5405,7 @@ Line 11: {"type":"message","id":"efa771c6","parentId":"5c93f5e5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #246
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5427,7 +5427,7 @@ Line 14: {"type":"message","id":"38156694","parentId":"4663eb15","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #247
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5449,7 +5449,7 @@ Line 15: {"type":"message","id":"4b36e77d","parentId":"38156694","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #248
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5471,7 +5471,7 @@ Line 18: {"type":"message","id":"c29a8105","parentId":"724391bf","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #249
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5493,7 +5493,7 @@ Line 19: {"type":"message","id":"c50cee16","parentId":"c29a8105","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #250
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5515,7 +5515,7 @@ Line 20: {"type":"message","id":"2b5b65ed","parentId":"c50cee16","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #251
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5537,7 +5537,7 @@ Line 27: {"type":"message","id":"bb52f19d","parentId":"01c5da53","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #252
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5559,7 +5559,7 @@ Line 30: {"type":"message","id":"84b1d624","parentId":"94c2e212","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #253
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5581,7 +5581,7 @@ Line 31: {"type":"message","id":"0ca3bc8c","parentId":"84b1d624","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #254
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5603,7 +5603,7 @@ Line 32: {"type":"message","id":"5533a590","parentId":"0ca3bc8c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #255
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5625,7 +5625,7 @@ Line 35: {"type":"message","id":"8fa4b618","parentId":"b1d91248","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #256
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5647,7 +5647,7 @@ Line 38: {"type":"message","id":"e18d2ea3","parentId":"7e8d168b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #257
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5669,7 +5669,7 @@ Line 39: {"type":"message","id":"901c44fb","parentId":"e18d2ea3","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #258
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
@@ -5691,7 +5691,7 @@ Line 40: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #259
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5713,7 +5713,7 @@ Line 8: {"type":"message","id":"aa183603","parentId":"4363692d","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #260
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5735,7 +5735,7 @@ Line 20: {"type":"message","id":"37f5fd3d","parentId":"6b72fe27","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #261
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5757,7 +5757,7 @@ Line 21: {"type":"message","id":"6fb34409","parentId":"37f5fd3d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #262
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5779,7 +5779,7 @@ Line 22: {"type":"message","id":"d1bfb2b5","parentId":"6fb34409","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #263
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5801,7 +5801,7 @@ Line 23: {"type":"message","id":"58ef0320","parentId":"d1bfb2b5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #264
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5823,7 +5823,7 @@ Line 26: {"type":"message","id":"172a9096","parentId":"87e843ff","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #265
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5845,7 +5845,7 @@ Line 27: {"type":"message","id":"b4672b28","parentId":"172a9096","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #266
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5867,7 +5867,7 @@ Line 28: {"type":"message","id":"d7254a9d","parentId":"b4672b28","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #267
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5889,7 +5889,7 @@ Line 29: {"type":"message","id":"04f6399a","parentId":"d7254a9d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #268
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5911,7 +5911,7 @@ Line 36: {"type":"message","id":"eb2effa6","parentId":"efe09b2f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #269
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5933,7 +5933,7 @@ Line 37: {"type":"message","id":"0cecce6c","parentId":"eb2effa6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #270
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5955,7 +5955,7 @@ Line 12: {"type":"message","id":"8736c2b6","parentId":"1842aff7","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #271
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5977,7 +5977,7 @@ Line 13: {"type":"message","id":"0bd8e0d7","parentId":"8736c2b6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #272
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -5999,7 +5999,7 @@ Line 14: {"type":"message","id":"b4dc90bb","parentId":"0bd8e0d7","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #273
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6021,7 +6021,7 @@ Line 15: {"type":"message","id":"48c30c9c","parentId":"b4dc90bb","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #274
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6043,7 +6043,7 @@ Line 16: {"type":"message","id":"f11fe439","parentId":"48c30c9c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #275
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6065,7 +6065,7 @@ Line 17: {"type":"message","id":"eb5aa7e8","parentId":"f11fe439","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #276
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6087,7 +6087,7 @@ Line 18: {"type":"message","id":"e6ad6df6","parentId":"eb5aa7e8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #277
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6109,7 +6109,7 @@ Line 19: {"type":"message","id":"f01ff80b","parentId":"e6ad6df6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #278
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6131,7 +6131,7 @@ Line 157: {"type":"message","id":"028a65c3","parentId":"214931af","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #279
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6153,7 +6153,7 @@ Line 158: {"type":"message","id":"ef3477e9","parentId":"028a65c3","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #280
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6175,7 +6175,7 @@ Line 159: {"type":"message","id":"c71f94a7","parentId":"ef3477e9","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #281
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6197,7 +6197,7 @@ Line 160: {"type":"message","id":"56256594","parentId":"c71f94a7","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #282
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6219,7 +6219,7 @@ Line 161: {"type":"message","id":"4d1a2aed","parentId":"56256594","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #283
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6241,7 +6241,7 @@ Line 162: {"type":"message","id":"5d357aeb","parentId":"4d1a2aed","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #284
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6263,7 +6263,7 @@ Line 163: {"type":"message","id":"8127c41a","parentId":"5d357aeb","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #285
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6285,7 +6285,7 @@ Line 164: {"type":"message","id":"651309b4","parentId":"8127c41a","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #286
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6307,7 +6307,7 @@ Line 165: {"type":"message","id":"3ceea055","parentId":"651309b4","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #287
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6329,7 +6329,7 @@ Line 10: {"type":"message","id":"7ab57ceb","parentId":"1e34b765","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #288
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6351,7 +6351,7 @@ Line 16: {"type":"message","id":"490191cf","parentId":"fafd3f9e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #289
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6373,7 +6373,7 @@ Line 17: {"type":"message","id":"2f952f5a","parentId":"490191cf","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #290
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6395,7 +6395,7 @@ Line 18: {"type":"message","id":"99f36ea5","parentId":"2f952f5a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #291
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6417,7 +6417,7 @@ Line 12: {"type":"message","id":"091f95d0","parentId":"ef88303c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #292
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6439,7 +6439,7 @@ Line 13: {"type":"message","id":"57bdb61f","parentId":"091f95d0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #293
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6461,7 +6461,7 @@ Line 14: {"type":"message","id":"06264d7e","parentId":"57bdb61f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #294
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6483,7 +6483,7 @@ Line 15: {"type":"message","id":"ad48eda2","parentId":"06264d7e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #295
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6505,7 +6505,7 @@ Line 8: {"type":"message","id":"e5d3aaf6","parentId":"48f8e82a","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #296
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6527,7 +6527,7 @@ Line 9: {"type":"message","id":"6abdff9e","parentId":"e5d3aaf6","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #297
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6549,7 +6549,7 @@ Line 10: {"type":"message","id":"825e3d7b","parentId":"6abdff9e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #298
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6571,7 +6571,7 @@ Line 11: {"type":"message","id":"d2fdf325","parentId":"825e3d7b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #299
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6593,7 +6593,7 @@ Line 12: {"type":"message","id":"95294a3d","parentId":"ed6bf7f2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #300
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6615,7 +6615,7 @@ Line 12: {"type":"message","id":"ab7e6187","parentId":"09a26299","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #301
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6637,7 +6637,7 @@ Line 12: {"type":"message","id":"2cf5f620","parentId":"1c4cc752","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #302
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6659,7 +6659,7 @@ Line 13: {"type":"message","id":"8047ec6c","parentId":"2cf5f620","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #303
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6681,7 +6681,7 @@ Line 14: {"type":"message","id":"e15edc13","parentId":"8047ec6c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #304
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6703,7 +6703,7 @@ Line 15: {"type":"message","id":"5dba653f","parentId":"e15edc13","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #305
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6725,7 +6725,7 @@ Line 24: {"type":"message","id":"6f932991","parentId":"b3280ebd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #306
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6747,7 +6747,7 @@ Line 25: {"type":"message","id":"fd54a018","parentId":"6f932991","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #307
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6769,7 +6769,7 @@ Line 26: {"type":"message","id":"24b61a43","parentId":"fd54a018","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #308
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6791,7 +6791,7 @@ Line 27: {"type":"message","id":"fcd1a619","parentId":"24b61a43","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #309
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6813,7 +6813,7 @@ Line 36: {"type":"message","id":"30c24031","parentId":"55237902","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #310
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6835,7 +6835,7 @@ Line 37: {"type":"message","id":"65c8060b","parentId":"30c24031","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #311
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6857,7 +6857,7 @@ Line 38: {"type":"message","id":"41edba3f","parentId":"65c8060b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #312
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6879,7 +6879,7 @@ Line 39: {"type":"message","id":"b8df3721","parentId":"41edba3f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #313
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6901,7 +6901,7 @@ Line 12: {"type":"message","id":"c61eef17","parentId":"f63e3869","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #314
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6923,7 +6923,7 @@ Line 13: {"type":"message","id":"c58651f5","parentId":"c61eef17","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #315
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6945,7 +6945,7 @@ Line 14: {"type":"message","id":"9ae5750a","parentId":"c58651f5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #316
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6967,7 +6967,7 @@ Line 15: {"type":"message","id":"fac156aa","parentId":"9ae5750a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #317
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -6989,7 +6989,7 @@ Line 22: {"type":"message","id":"e158e57a","parentId":"8aefb98d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #318
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7011,7 +7011,7 @@ Line 23: {"type":"message","id":"6432a7b4","parentId":"e158e57a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #319
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7033,7 +7033,7 @@ Line 24: {"type":"message","id":"973d2724","parentId":"6432a7b4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #320
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7055,7 +7055,7 @@ Line 25: {"type":"message","id":"59656157","parentId":"973d2724","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #321
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7077,7 +7077,7 @@ Line 34: {"type":"message","id":"f994876d","parentId":"60a2a8e3","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #322
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7099,7 +7099,7 @@ Line 35: {"type":"message","id":"0db48a52","parentId":"f994876d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #323
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7121,7 +7121,7 @@ Line 36: {"type":"message","id":"566e50c2","parentId":"0db48a52","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #324
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7143,7 +7143,7 @@ Line 37: {"type":"message","id":"0a5a6018","parentId":"566e50c2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #325
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7165,7 +7165,7 @@ Line 18: {"type":"message","id":"8ce3af7e","parentId":"25757321","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #326
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7187,7 +7187,7 @@ Line 19: {"type":"message","id":"b4c88d63","parentId":"8ce3af7e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #327
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7209,7 +7209,7 @@ Line 20: {"type":"message","id":"30a20e06","parentId":"b4c88d63","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #328
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7231,7 +7231,7 @@ Line 29: {"type":"message","id":"cc555386","parentId":"058e53a5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #329
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7253,7 +7253,7 @@ Line 30: {"type":"message","id":"302bdc9e","parentId":"cc555386","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #330
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7275,7 +7275,7 @@ Line 31: {"type":"message","id":"95486b39","parentId":"302bdc9e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #331
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7297,7 +7297,7 @@ Line 40: {"type":"message","id":"fe115335","parentId":"bc09b462","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #332
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7319,7 +7319,7 @@ Line 41: {"type":"message","id":"5062a37c","parentId":"fe115335","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #333
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7341,7 +7341,7 @@ Line 42: {"type":"message","id":"ebda4c76","parentId":"5062a37c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #334
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7363,7 +7363,7 @@ Line 51: {"type":"message","id":"154a6ba4","parentId":"43918403","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #335
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7385,7 +7385,7 @@ Line 52: {"type":"message","id":"d9cd0f8a","parentId":"154a6ba4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #336
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7407,7 +7407,7 @@ Line 53: {"type":"message","id":"81384853","parentId":"d9cd0f8a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #337
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7429,7 +7429,7 @@ Line 8: {"type":"message","id":"42c89145","parentId":"3320a00e","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #338
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7451,7 +7451,7 @@ Line 9: {"type":"message","id":"ca40fe92","parentId":"42c89145","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #339
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7473,7 +7473,7 @@ Line 18: {"type":"message","id":"d7889c46","parentId":"29ee63a5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #340
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7495,7 +7495,7 @@ Line 41: {"type":"message","id":"5c398e88","parentId":"b494591d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #341
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7517,7 +7517,7 @@ Line 62: {"type":"message","id":"c935b5c4","parentId":"47352ffc","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #342
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7539,7 +7539,7 @@ Line 65: {"type":"message","id":"d3a2511f","parentId":"4e7b2f09","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #343
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7561,7 +7561,7 @@ Line 68: {"type":"message","id":"8d0ccf6f","parentId":"200d06b0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #344
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7583,7 +7583,7 @@ Line 8: {"type":"message","id":"f91da8b8","parentId":"5418b341","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #345
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7605,7 +7605,7 @@ Line 9: {"type":"message","id":"98301b34","parentId":"f91da8b8","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #346
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7627,7 +7627,7 @@ Line 10: {"type":"message","id":"2fb355a8","parentId":"98301b34","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #347
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7649,7 +7649,7 @@ Line 25: {"type":"message","id":"c252663e","parentId":"d728d637","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #348
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7671,7 +7671,7 @@ Line 28: {"type":"message","id":"ba1de6c0","parentId":"e8d611c2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #349
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7693,7 +7693,7 @@ Line 29: {"type":"message","id":"34109674","parentId":"ba1de6c0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #350
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7715,7 +7715,7 @@ Line 64: {"type":"message","id":"c893b66f","parentId":"e771527b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #351
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7737,7 +7737,7 @@ Line 8: {"type":"message","id":"320b5fe1","parentId":"0c067ec3","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #352
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7759,7 +7759,7 @@ Line 9: {"type":"message","id":"f7a57505","parentId":"320b5fe1","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #353
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7781,7 +7781,7 @@ Line 10: {"type":"message","id":"233a0f15","parentId":"f7a57505","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #354
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7803,7 +7803,7 @@ Line 11: {"type":"message","id":"226e75ce","parentId":"233a0f15","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #355
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7825,7 +7825,7 @@ Line 24: {"type":"message","id":"4c963429","parentId":"2e0845bc","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #356
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7847,7 +7847,7 @@ Line 37: {"type":"message","id":"2edc7e90","parentId":"42431967","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #357
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7869,7 +7869,7 @@ Line 44: {"type":"message","id":"d6307e9f","parentId":"4f834734","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #358
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7891,7 +7891,7 @@ Line 38: {"type":"message","id":"faa5312d","parentId":"7bc1a8bc","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #359
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7913,7 +7913,7 @@ Line 39: {"type":"message","id":"36ac9142","parentId":"faa5312d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #360
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7935,7 +7935,7 @@ Line 8: {"type":"message","id":"eef84935","parentId":"35d2228f","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #361
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7957,7 +7957,7 @@ Line 9: {"type":"message","id":"2decc98b","parentId":"eef84935","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #362
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -7979,7 +7979,7 @@ Line 12: {"type":"message","id":"d2a98f54","parentId":"9a6210aa","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #363
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8001,7 +8001,7 @@ Line 13: {"type":"message","id":"2be160f2","parentId":"d2a98f54","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #364
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8023,7 +8023,7 @@ Line 14: {"type":"message","id":"a221b54d","parentId":"2be160f2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #365
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8045,7 +8045,7 @@ Line 27: {"type":"message","id":"7931b7c7","parentId":"b88847b5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #366
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8067,7 +8067,7 @@ Line 28: {"type":"message","id":"fc9b300c","parentId":"7931b7c7","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #367
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8089,7 +8089,7 @@ Line 29: {"type":"message","id":"8a38e678","parentId":"fc9b300c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #368
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8111,7 +8111,7 @@ Line 38: {"type":"message","id":"26f52f6b","parentId":"c40806b9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #369
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8133,7 +8133,7 @@ Line 39: {"type":"message","id":"26a96f92","parentId":"26f52f6b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #370
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8155,7 +8155,7 @@ Line 40: {"type":"message","id":"a0c1f261","parentId":"26a96f92","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #371
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8177,7 +8177,7 @@ Line 49: {"type":"message","id":"27ab64ba","parentId":"bb00e8c7","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #372
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8199,7 +8199,7 @@ Line 50: {"type":"message","id":"1a96a7a2","parentId":"27ab64ba","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #373
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8221,7 +8221,7 @@ Line 51: {"type":"message","id":"772c3eff","parentId":"1a96a7a2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #374
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8243,7 +8243,7 @@ Line 58: {"type":"message","id":"313686d3","parentId":"68e0281a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #375
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8265,7 +8265,7 @@ Line 59: {"type":"message","id":"83fb7ac1","parentId":"313686d3","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #376
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8287,7 +8287,7 @@ Line 60: {"type":"message","id":"741cc5b5","parentId":"83fb7ac1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #377
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8309,7 +8309,7 @@ Line 68: {"type":"message","id":"a974290d","parentId":"c727746a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #378
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8331,7 +8331,7 @@ Line 69: {"type":"message","id":"5d8f5e0e","parentId":"a974290d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #379
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8353,7 +8353,7 @@ Line 70: {"type":"message","id":"20308cf0","parentId":"5d8f5e0e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #380
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8375,7 +8375,7 @@ Line 83: {"type":"message","id":"2e048ea2","parentId":"7dbc9b52","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #381
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8397,7 +8397,7 @@ Line 84: {"type":"message","id":"7f86963f","parentId":"2e048ea2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #382
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8419,7 +8419,7 @@ Line 85: {"type":"message","id":"5c544cba","parentId":"7f86963f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #383
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8441,7 +8441,7 @@ Line 100: {"type":"message","id":"959f6fbb","parentId":"dc6b97fb","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #384
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8463,7 +8463,7 @@ Line 101: {"type":"message","id":"17949793","parentId":"959f6fbb","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #385
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8485,7 +8485,7 @@ Line 102: {"type":"message","id":"811348fa","parentId":"17949793","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #386
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8507,7 +8507,7 @@ Line 118: {"type":"message","id":"f74e5106","parentId":"d3b2f1ad","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #387
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8529,7 +8529,7 @@ Line 119: {"type":"message","id":"9a5e086a","parentId":"f74e5106","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #388
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8551,7 +8551,7 @@ Line 120: {"type":"message","id":"4f676749","parentId":"9a5e086a","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #389
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8573,7 +8573,7 @@ Line 144: {"type":"message","id":"113aa1af","parentId":"2d742163","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #390
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8595,7 +8595,7 @@ Line 145: {"type":"message","id":"98ded299","parentId":"113aa1af","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #391
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8617,7 +8617,7 @@ Line 146: {"type":"message","id":"4f794e67","parentId":"98ded299","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #392
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8639,7 +8639,7 @@ Line 8: {"type":"message","id":"2be3a81e","parentId":"c55a82bd","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #393
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8661,7 +8661,7 @@ Line 9: {"type":"message","id":"38a0d4c8","parentId":"2be3a81e","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #394
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8683,7 +8683,7 @@ Line 10: {"type":"message","id":"d73f152b","parentId":"38a0d4c8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #395
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8705,7 +8705,7 @@ Line 11: {"type":"message","id":"82e6a5fb","parentId":"d73f152b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #396
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8727,7 +8727,7 @@ Line 12: {"type":"message","id":"3c79606c","parentId":"7f923bad","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #397
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8749,7 +8749,7 @@ Line 8: {"type":"message","id":"54207ed4","parentId":"30eaa80c","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #398
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8771,7 +8771,7 @@ Line 8: {"type":"message","id":"de00c992","parentId":"bc74b1a5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #399
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8793,7 +8793,7 @@ Line 9: {"type":"message","id":"9a1cdfa0","parentId":"de00c992","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #400
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8815,7 +8815,7 @@ Line 10: {"type":"message","id":"b4b10f3a","parentId":"9a1cdfa0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #401
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8837,7 +8837,7 @@ Line 11: {"type":"message","id":"0e136616","parentId":"b4b10f3a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #402
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8859,7 +8859,7 @@ Line 16: {"type":"message","id":"ddaf45fe","parentId":"cb90fecb","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #403
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8881,7 +8881,7 @@ Line 17: {"type":"message","id":"201447e3","parentId":"ddaf45fe","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #404
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8903,7 +8903,7 @@ Line 18: {"type":"message","id":"1297cc07","parentId":"201447e3","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #405
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8925,7 +8925,7 @@ Line 8: {"type":"message","id":"18efc509","parentId":"6f501922","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #406
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8947,7 +8947,7 @@ Line 9: {"type":"message","id":"7958b553","parentId":"18efc509","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #407
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8969,7 +8969,7 @@ Line 10: {"type":"message","id":"e5eb0e55","parentId":"7958b553","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #408
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -8991,7 +8991,7 @@ Line 11: {"type":"message","id":"6b5b4e23","parentId":"e5eb0e55","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #409
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9013,7 +9013,7 @@ Line 42: {"type":"message","id":"a07cba69","parentId":"dc8f06f9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #410
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9035,7 +9035,7 @@ Line 178: {"type":"message","id":"4a91b8f5","parentId":"3b721994","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #411
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9057,7 +9057,7 @@ Line 179: {"type":"message","id":"5217f0a7","parentId":"4a91b8f5","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #412
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9079,7 +9079,7 @@ Line 180: {"type":"message","id":"e47b57e8","parentId":"5217f0a7","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #413
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9101,7 +9101,7 @@ Line 12: {"type":"message","id":"0890c2af","parentId":"13e121d6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #414
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9123,7 +9123,7 @@ Line 13: {"type":"message","id":"20436883","parentId":"0890c2af","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #415
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9145,7 +9145,7 @@ Line 14: {"type":"message","id":"1776061c","parentId":"20436883","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #416
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9167,7 +9167,7 @@ Line 15: {"type":"message","id":"dede601d","parentId":"1776061c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #417
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9189,7 +9189,7 @@ Line 8: {"type":"message","id":"be5ac8d5","parentId":"bb9a8302","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #418
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9211,7 +9211,7 @@ Line 9: {"type":"message","id":"3c297701","parentId":"be5ac8d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #419
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9233,7 +9233,7 @@ Line 10: {"type":"message","id":"fd4bc5db","parentId":"3c297701","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #420
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9255,7 +9255,7 @@ Line 11: {"type":"message","id":"4a5af5eb","parentId":"fd4bc5db","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #421
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9277,7 +9277,7 @@ Line 12: {"type":"message","id":"cb1ab42e","parentId":"d42dbe94","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #422
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9299,7 +9299,7 @@ Line 13: {"type":"message","id":"d8058f00","parentId":"cb1ab42e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #423
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9321,7 +9321,7 @@ Line 9: {"type":"message","id":"76679a37","parentId":"6b798ba9","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #424
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9343,7 +9343,7 @@ Line 10: {"type":"message","id":"d8af6b69","parentId":"76679a37","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #425
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9365,7 +9365,7 @@ Line 11: {"type":"message","id":"fdf690ac","parentId":"d8af6b69","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #426
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9387,7 +9387,7 @@ Line 12: {"type":"message","id":"bf4e725c","parentId":"fdf690ac","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #427
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9409,7 +9409,7 @@ Line 12: {"type":"message","id":"3ece2f3e","parentId":"e60b2bcb","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #428
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9431,7 +9431,7 @@ Line 13: {"type":"message","id":"321083ae","parentId":"3ece2f3e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #429
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9453,7 +9453,7 @@ Line 14: {"type":"message","id":"bf1f74e1","parentId":"321083ae","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #430
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9475,7 +9475,7 @@ Line 15: {"type":"message","id":"7ae0224a","parentId":"bf1f74e1","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #431
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9497,7 +9497,7 @@ Line 16: {"type":"message","id":"feda6a50","parentId":"7ae0224a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #432
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9519,7 +9519,7 @@ Line 53: {"type":"message","id":"330bf7fd","parentId":"39c49f71","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #433
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9541,7 +9541,7 @@ Line 8: {"type":"message","id":"74ac81a3","parentId":"00603f56","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #434
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9563,7 +9563,7 @@ Line 12: {"type":"message","id":"1cec553a","parentId":"4fae6d9e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #435
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9585,7 +9585,7 @@ Line 13: {"type":"message","id":"9f5dea6b","parentId":"1cec553a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #436
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9607,7 +9607,7 @@ Line 14: {"type":"message","id":"24a07f33","parentId":"9f5dea6b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #437
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9629,7 +9629,7 @@ Line 15: {"type":"message","id":"c454d094","parentId":"24a07f33","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #438
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9651,7 +9651,7 @@ Line 24: {"type":"message","id":"7287bb8d","parentId":"073b4922","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #439
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9673,7 +9673,7 @@ Line 25: {"type":"message","id":"d3232dca","parentId":"7287bb8d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #440
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9695,7 +9695,7 @@ Line 26: {"type":"message","id":"af787eb0","parentId":"d3232dca","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #441
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9717,7 +9717,7 @@ Line 27: {"type":"message","id":"6fb18874","parentId":"af787eb0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #442
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9739,7 +9739,7 @@ Line 16: {"type":"message","id":"937a0876","parentId":"c60e9c73","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #443
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9761,7 +9761,7 @@ Line 17: {"type":"message","id":"a78a6784","parentId":"937a0876","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #444
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9783,7 +9783,7 @@ Line 18: {"type":"message","id":"17650897","parentId":"a78a6784","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #445
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9805,7 +9805,7 @@ Line 19: {"type":"message","id":"80bc7237","parentId":"17650897","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #446
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9827,7 +9827,7 @@ Line 8: {"type":"message","id":"7bf22980","parentId":"483e2313","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #447
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9849,7 +9849,7 @@ Line 9: {"type":"message","id":"3085e0fd","parentId":"7bf22980","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #448
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9871,7 +9871,7 @@ Line 10: {"type":"message","id":"b42d6aa0","parentId":"3085e0fd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #449
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9893,7 +9893,7 @@ Line 11: {"type":"message","id":"aecb300d","parentId":"b42d6aa0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #450
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9915,7 +9915,7 @@ Line 20: {"type":"message","id":"59bf2886","parentId":"cd3d5c7c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #451
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9937,7 +9937,7 @@ Line 21: {"type":"message","id":"a347439a","parentId":"59bf2886","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #452
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9959,7 +9959,7 @@ Line 22: {"type":"message","id":"8edeaaed","parentId":"a347439a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #453
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -9981,7 +9981,7 @@ Line 31: {"type":"message","id":"500297c0","parentId":"ca216e12","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #454
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10003,7 +10003,7 @@ Line 32: {"type":"message","id":"00aa6783","parentId":"500297c0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #455
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10025,7 +10025,7 @@ Line 33: {"type":"message","id":"a0e94746","parentId":"00aa6783","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #456
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10047,7 +10047,7 @@ Line 42: {"type":"message","id":"24a2cc21","parentId":"3a8e2fe0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #457
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10069,7 +10069,7 @@ Line 43: {"type":"message","id":"6820db3e","parentId":"24a2cc21","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #458
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10091,7 +10091,7 @@ Line 44: {"type":"message","id":"9ee446f8","parentId":"6820db3e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #459
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10113,7 +10113,7 @@ Line 53: {"type":"message","id":"23abe62a","parentId":"d96fad3e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #460
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10135,7 +10135,7 @@ Line 54: {"type":"message","id":"748deca0","parentId":"23abe62a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #461
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10157,7 +10157,7 @@ Line 55: {"type":"message","id":"717c4737","parentId":"748deca0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #462
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10179,7 +10179,7 @@ Line 64: {"type":"message","id":"eb7ea9a9","parentId":"2e37508d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #463
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10201,7 +10201,7 @@ Line 65: {"type":"message","id":"9fdf155e","parentId":"eb7ea9a9","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #464
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10223,7 +10223,7 @@ Line 66: {"type":"message","id":"04c544ad","parentId":"9fdf155e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #465
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10245,7 +10245,7 @@ Line 75: {"type":"message","id":"6408eeb4","parentId":"5012c387","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #466
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10267,7 +10267,7 @@ Line 76: {"type":"message","id":"61201312","parentId":"6408eeb4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #467
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10289,7 +10289,7 @@ Line 77: {"type":"message","id":"ad49d7c8","parentId":"61201312","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #468
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10311,7 +10311,7 @@ Line 86: {"type":"message","id":"317156b0","parentId":"6bb5d7ee","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #469
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10333,7 +10333,7 @@ Line 87: {"type":"message","id":"36a656b4","parentId":"317156b0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #470
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10355,7 +10355,7 @@ Line 88: {"type":"message","id":"532aa2f6","parentId":"36a656b4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #471
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10377,7 +10377,7 @@ Line 98: {"type":"message","id":"536c1ad8","parentId":"5a3ee099","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #472
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10399,7 +10399,7 @@ Line 99: {"type":"message","id":"19b7e8bf","parentId":"536c1ad8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #473
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10421,7 +10421,7 @@ Line 100: {"type":"message","id":"ebb880ee","parentId":"19b7e8bf","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #474
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10443,7 +10443,7 @@ Line 109: {"type":"message","id":"c1ff0bd8","parentId":"4f3a6cb2","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #475
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10465,7 +10465,7 @@ Line 110: {"type":"message","id":"61d1029c","parentId":"c1ff0bd8","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #476
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10487,7 +10487,7 @@ Line 111: {"type":"message","id":"89c59189","parentId":"61d1029c","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #477
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10509,7 +10509,7 @@ Line 126: {"type":"message","id":"237c405d","parentId":"b9cbedf8","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #478
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10531,7 +10531,7 @@ Line 127: {"type":"message","id":"d7ca8e36","parentId":"237c405d","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #479
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10553,7 +10553,7 @@ Line 128: {"type":"message","id":"adfd8b98","parentId":"d7ca8e36","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #480
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10575,7 +10575,7 @@ Line 3: {"type":"message","id":"b101c7db","parentId":"56500443","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #481
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10597,7 +10597,7 @@ Line 4: {"type":"message","id":"ae7fca8b","parentId":"b101c7db","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #482
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10619,7 +10619,7 @@ Line 12: {"type":"message","id":"dec111e4","parentId":"7e2750bb","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #483
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10641,7 +10641,7 @@ Line 13: {"type":"message","id":"679efb4b","parentId":"dec111e4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #484
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10663,7 +10663,7 @@ Line 14: {"type":"message","id":"c12d3444","parentId":"679efb4b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #485
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10685,7 +10685,7 @@ Line 15: {"type":"message","id":"c7845043","parentId":"c12d3444","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #486
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10707,7 +10707,7 @@ Line 24: {"type":"message","id":"cbae1aa8","parentId":"cd6e594a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #487
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10729,7 +10729,7 @@ Line 25: {"type":"message","id":"33920b00","parentId":"cbae1aa8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #488
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10751,7 +10751,7 @@ Line 26: {"type":"message","id":"a31efdde","parentId":"33920b00","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #489
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10773,7 +10773,7 @@ Line 27: {"type":"message","id":"8a01015b","parentId":"a31efdde","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #490
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10795,7 +10795,7 @@ Line 12: {"type":"message","id":"da5ec462","parentId":"761b194c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #491
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10817,7 +10817,7 @@ Line 13: {"type":"message","id":"96316df0","parentId":"da5ec462","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #492
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10839,7 +10839,7 @@ Line 14: {"type":"message","id":"e98cc717","parentId":"96316df0","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #493
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10861,7 +10861,7 @@ Line 29: {"type":"message","id":"21b53356","parentId":"85445807","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #494
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10883,7 +10883,7 @@ Line 30: {"type":"message","id":"22de5c53","parentId":"21b53356","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #495
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10905,7 +10905,7 @@ Line 31: {"type":"message","id":"bbd5d714","parentId":"22de5c53","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #496
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10927,7 +10927,7 @@ Line 12: {"type":"message","id":"578fff53","parentId":"dbf221c5","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #497
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10949,7 +10949,7 @@ Line 13: {"type":"message","id":"8da2c62f","parentId":"578fff53","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #498
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10971,7 +10971,7 @@ Line 14: {"type":"message","id":"3097321c","parentId":"8da2c62f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #499
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -10993,7 +10993,7 @@ Line 15: {"type":"message","id":"0d6a7d9f","parentId":"3097321c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #500
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11015,7 +11015,7 @@ Line 24: {"type":"message","id":"3717364c","parentId":"c3dbdbdd","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #501
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11037,7 +11037,7 @@ Line 25: {"type":"message","id":"1b3d2130","parentId":"3717364c","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #502
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11059,7 +11059,7 @@ Line 26: {"type":"message","id":"8d3c0e00","parentId":"1b3d2130","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #503
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11081,7 +11081,7 @@ Line 39: {"type":"message","id":"5af9e6af","parentId":"6c9c19e6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #504
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11103,7 +11103,7 @@ Line 40: {"type":"message","id":"625193bc","parentId":"5af9e6af","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #505
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11125,7 +11125,7 @@ Line 41: {"type":"message","id":"2afc9d34","parentId":"625193bc","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #506
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11147,7 +11147,7 @@ Line 11: {"type":"message","id":"ef7eae5e","parentId":"762f8a85","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #507
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11169,7 +11169,7 @@ Line 12: {"type":"message","id":"6b2bb9bb","parentId":"ef7eae5e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #508
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11191,7 +11191,7 @@ Line 13: {"type":"message","id":"9eec65d6","parentId":"6b2bb9bb","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #509
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11213,7 +11213,7 @@ Line 14: {"type":"message","id":"cfaab29d","parentId":"9eec65d6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #510
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11235,7 +11235,7 @@ Line 9: {"type":"message","id":"a3b6e457","parentId":"a9a07cf0","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #511
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11257,7 +11257,7 @@ Line 12: {"type":"message","id":"549a3ddc","parentId":"6f986128","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #512
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11279,7 +11279,7 @@ Line 19: {"type":"message","id":"b302c1f4","parentId":"3def519d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #513
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11301,7 +11301,7 @@ Line 20: {"type":"message","id":"ca46020e","parentId":"b302c1f4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #514
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11323,7 +11323,7 @@ Line 21: {"type":"message","id":"19186e15","parentId":"ca46020e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #515
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11345,7 +11345,7 @@ Line 22: {"type":"message","id":"1f89b78e","parentId":"19186e15","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #516
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11367,7 +11367,7 @@ Line 25: {"type":"message","id":"02997f40","parentId":"4baef71d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #517
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11389,7 +11389,7 @@ Line 26: {"type":"message","id":"17f6302e","parentId":"02997f40","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #518
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11411,7 +11411,7 @@ Line 27: {"type":"message","id":"c520a308","parentId":"17f6302e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #519
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11433,7 +11433,7 @@ Line 28: {"type":"message","id":"053cb9fe","parentId":"c520a308","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #520
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11455,7 +11455,7 @@ Line 9: {"type":"message","id":"e0772581","parentId":"99d39886","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #521
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11477,7 +11477,7 @@ Line 10: {"type":"message","id":"1d6c2d8d","parentId":"e0772581","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #522
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11499,7 +11499,7 @@ Line 11: {"type":"message","id":"4dbe833a","parentId":"1d6c2d8d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #523
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11521,7 +11521,7 @@ Line 12: {"type":"message","id":"b24aa17d","parentId":"4dbe833a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #524
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11543,7 +11543,7 @@ Line 13: {"type":"message","id":"8a56229f","parentId":"b24aa17d","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #525
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11565,7 +11565,7 @@ Line 14: {"type":"message","id":"4a6c2f8e","parentId":"8a56229f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #526
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11587,7 +11587,7 @@ Line 15: {"type":"message","id":"aad29a15","parentId":"4a6c2f8e","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #527
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11609,7 +11609,7 @@ Line 16: {"type":"message","id":"2f420c94","parentId":"aad29a15","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #528
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11631,7 +11631,7 @@ Line 17: {"type":"message","id":"9b7729f6","parentId":"2f420c94","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #529
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11653,7 +11653,7 @@ Line 18: {"type":"message","id":"1c393bab","parentId":"9b7729f6","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #530
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11675,7 +11675,7 @@ Line 19: {"type":"message","id":"dedb2dd2","parentId":"1c393bab","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #531
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11697,7 +11697,7 @@ Line 20: {"type":"message","id":"7264d74c","parentId":"dedb2dd2","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #532
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
@@ -11721,7 +11721,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ## abnormal_stop - 异常停止 (168)
 
-### 问题
+### 问题 #533
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11738,7 +11738,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #534
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11755,7 +11755,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #535
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11772,7 +11772,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #536
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11789,7 +11789,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #537
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11806,7 +11806,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #538
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11823,7 +11823,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #539
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11840,7 +11840,7 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #540
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -11857,7 +11857,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #541
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -11874,7 +11874,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #542
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11891,7 +11891,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #543
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11908,7 +11908,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #544
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11925,7 +11925,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #545
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11942,7 +11942,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #546
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11959,7 +11959,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #547
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11976,7 +11976,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #548
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -11993,7 +11993,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #549
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12010,7 +12010,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #550
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12027,7 +12027,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #551
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12044,7 +12044,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #552
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12061,7 +12061,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #553
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12078,7 +12078,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #554
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12095,7 +12095,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #555
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12112,7 +12112,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #556
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12129,7 +12129,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #557
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12146,7 +12146,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #558
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12163,7 +12163,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #559
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12180,7 +12180,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #560
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12197,7 +12197,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #561
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12214,7 +12214,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #562
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12231,7 +12231,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #563
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12248,7 +12248,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #564
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12265,7 +12265,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #565
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12282,7 +12282,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #566
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12299,7 +12299,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #567
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12316,7 +12316,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #568
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12333,7 +12333,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #569
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12350,7 +12350,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #570
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12367,7 +12367,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #571
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12384,7 +12384,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #572
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12401,7 +12401,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #573
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12418,7 +12418,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #574
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12435,7 +12435,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #575
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12452,7 +12452,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #576
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12469,7 +12469,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #577
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12486,7 +12486,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #578
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12503,7 +12503,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #579
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12520,7 +12520,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #580
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12537,7 +12537,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #581
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12554,7 +12554,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #582
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12571,7 +12571,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #583
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12588,7 +12588,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #584
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12605,7 +12605,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #585
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12622,7 +12622,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #586
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12639,7 +12639,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #587
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12656,7 +12656,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #588
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12673,7 +12673,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #589
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12690,7 +12690,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #590
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12707,7 +12707,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #591
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12724,7 +12724,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #592
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12741,7 +12741,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #593
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12758,7 +12758,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #594
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12775,7 +12775,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #595
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12792,7 +12792,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #596
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12809,7 +12809,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #597
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12826,7 +12826,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #598
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12843,7 +12843,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #599
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12860,7 +12860,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #600
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12877,7 +12877,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #601
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12894,7 +12894,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #602
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12911,7 +12911,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #603
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12928,7 +12928,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #604
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12945,7 +12945,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #605
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -12962,7 +12962,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #606
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12979,7 +12979,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #607
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -12996,7 +12996,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #608
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13013,7 +13013,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #609
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -13030,7 +13030,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #610
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13047,7 +13047,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #611
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13064,7 +13064,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #612
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13081,7 +13081,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #613
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13098,7 +13098,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #614
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13115,7 +13115,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #615
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13132,7 +13132,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #616
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13149,7 +13149,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #617
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -13166,7 +13166,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #618
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13183,7 +13183,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #619
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -13200,7 +13200,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #620
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13217,7 +13217,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #621
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13234,7 +13234,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #622
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13251,7 +13251,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #623
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13268,7 +13268,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #624
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13285,7 +13285,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #625
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13302,7 +13302,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #626
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13319,7 +13319,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #627
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13336,7 +13336,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #628
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13353,7 +13353,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #629
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13370,7 +13370,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #630
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13387,7 +13387,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #631
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -13404,7 +13404,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #632
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13421,7 +13421,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #633
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -13438,7 +13438,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #634
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13455,7 +13455,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #635
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -13472,7 +13472,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #636
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13489,7 +13489,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #637
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13506,7 +13506,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #638
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13523,7 +13523,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #639
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13540,7 +13540,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #640
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13557,7 +13557,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #641
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13574,7 +13574,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #642
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13591,7 +13591,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #643
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13608,7 +13608,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #644
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -13625,7 +13625,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #645
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13642,7 +13642,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #646
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13659,7 +13659,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #647
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13676,7 +13676,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #648
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13693,7 +13693,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #649
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13710,7 +13710,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #650
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13727,7 +13727,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #651
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13744,7 +13744,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #652
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13761,7 +13761,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #653
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13778,7 +13778,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #654
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13795,7 +13795,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #655
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13812,7 +13812,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #656
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13829,7 +13829,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #657
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13846,7 +13846,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #658
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13863,7 +13863,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #659
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13880,7 +13880,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #660
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13897,7 +13897,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #661
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13914,7 +13914,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #662
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13931,7 +13931,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #663
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13948,7 +13948,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #664
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13965,7 +13965,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #665
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13982,7 +13982,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #666
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -13999,7 +13999,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #667
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14016,7 +14016,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #668
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14033,7 +14033,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #669
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14050,7 +14050,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #670
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14067,7 +14067,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #671
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14084,7 +14084,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #672
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14101,7 +14101,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #673
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14118,7 +14118,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #674
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14135,7 +14135,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #675
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14152,7 +14152,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #676
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14169,7 +14169,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #677
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14186,7 +14186,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #678
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14203,7 +14203,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #679
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14220,7 +14220,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #680
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14237,7 +14237,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #681
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14254,7 +14254,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #682
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14271,7 +14271,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #683
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14288,7 +14288,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #684
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14305,7 +14305,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #685
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14322,7 +14322,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #686
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14339,7 +14339,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #687
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14356,7 +14356,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #688
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14373,7 +14373,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #689
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14390,7 +14390,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #690
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14407,7 +14407,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #691
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14424,7 +14424,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #692
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14441,7 +14441,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #693
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14458,7 +14458,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #694
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14475,7 +14475,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #695
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14492,7 +14492,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #696
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14509,7 +14509,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #697
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14526,7 +14526,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #698
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14543,7 +14543,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #699
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
@@ -14560,7 +14560,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #700
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
@@ -14579,7 +14579,7 @@ Request was aborted
 
 ## modelErrors - 模型API错误 (105)
 
-### 问题
+### 问题 #701
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14597,7 +14597,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #702
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14614,7 +14614,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #703
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14632,7 +14632,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #704
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14649,7 +14649,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #705
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14667,7 +14667,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #706
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14685,7 +14685,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #707
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14703,7 +14703,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #708
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14720,7 +14720,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #709
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14738,7 +14738,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #710
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14756,7 +14756,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #711
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14774,7 +14774,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #712
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14792,7 +14792,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #713
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14809,7 +14809,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #714
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14827,7 +14827,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #715
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14844,7 +14844,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #716
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14862,7 +14862,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #717
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14880,7 +14880,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #718
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14898,7 +14898,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #719
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14915,7 +14915,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #720
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14933,7 +14933,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #721
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14950,7 +14950,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #722
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -14968,7 +14968,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #723
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -14985,7 +14985,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #724
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15003,7 +15003,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #725
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15020,7 +15020,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #726
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15038,7 +15038,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #727
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15055,7 +15055,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #728
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15073,7 +15073,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #729
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15090,7 +15090,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #730
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15108,7 +15108,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #731
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15125,7 +15125,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #732
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15143,7 +15143,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #733
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15160,7 +15160,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #734
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15178,7 +15178,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #735
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15195,7 +15195,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #736
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15213,7 +15213,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #737
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15230,7 +15230,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #738
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15248,7 +15248,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #739
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15266,7 +15266,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #740
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15284,7 +15284,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #741
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15301,7 +15301,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #742
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15319,7 +15319,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #743
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15337,7 +15337,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #744
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15354,7 +15354,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #745
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15372,7 +15372,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #746
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15389,7 +15389,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #747
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15407,7 +15407,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #748
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15424,7 +15424,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #749
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15442,7 +15442,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #750
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15459,7 +15459,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #751
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15477,7 +15477,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #752
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15495,7 +15495,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #753
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15512,7 +15512,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #754
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15530,7 +15530,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #755
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15547,7 +15547,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #756
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15565,7 +15565,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #757
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15582,7 +15582,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #758
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15600,7 +15600,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #759
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15617,7 +15617,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #760
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15635,7 +15635,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #761
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15652,7 +15652,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #762
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15670,7 +15670,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #763
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15687,7 +15687,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #764
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15705,7 +15705,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #765
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15722,7 +15722,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #766
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15740,7 +15740,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #767
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15757,7 +15757,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #768
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15775,7 +15775,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #769
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15793,7 +15793,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #770
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15811,7 +15811,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #771
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15829,7 +15829,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #772
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15847,7 +15847,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #773
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15864,7 +15864,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #774
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15882,7 +15882,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #775
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -15899,7 +15899,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #776
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15917,7 +15917,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #777
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15935,7 +15935,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #778
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15953,7 +15953,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #779
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15971,7 +15971,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #780
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -15989,7 +15989,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #781
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16007,7 +16007,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #782
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16025,7 +16025,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #783
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16043,7 +16043,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #784
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -16060,7 +16060,7 @@ Request was aborted.
 
 ---
 
-### 问题
+### 问题 #785
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16078,7 +16078,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #786
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16096,7 +16096,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #787
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16114,7 +16114,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #788
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16132,7 +16132,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #789
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16150,7 +16150,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #790
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16168,7 +16168,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #791
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16186,7 +16186,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #792
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -16203,7 +16203,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #793
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16221,7 +16221,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #794
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16239,7 +16239,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #795
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -16256,7 +16256,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #796
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16274,7 +16274,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #797
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16292,7 +16292,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #798
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -16309,7 +16309,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #799
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16327,7 +16327,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #800
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16345,7 +16345,7 @@ aborted
 
 ---
 
-### 问题
+### 问题 #801
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16363,7 +16363,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #802
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16381,7 +16381,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #803
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -16398,7 +16398,7 @@ Request was aborted
 
 ---
 
-### 问题
+### 问题 #804
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
@@ -16416,7 +16416,7 @@ This operation was aborted
 
 ---
 
-### 问题
+### 问题 #805
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
@@ -16435,7 +16435,7 @@ Request was aborted
 
 ## flow_integrity_missing_tool_result - 工具调用后无执行结果 (29)
 
-### 问题
+### 问题 #806
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
@@ -16457,7 +16457,7 @@ Line 35: {"type":"message","id":"c59f0816","parentId":"08719293","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #807
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
@@ -16479,7 +16479,7 @@ Line 39: {"type":"message","id":"aa1d6325","parentId":"71d78ce8","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #808
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
@@ -16501,7 +16501,7 @@ Line 23: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #809
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16523,7 +16523,7 @@ Line 51: {"type":"message","id":"9117e9be","parentId":"ec099416","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #810
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16545,7 +16545,7 @@ Line 110: {"type":"message","id":"03d23230","parentId":"961a72d8","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #811
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16567,7 +16567,7 @@ Line 119: {"type":"message","id":"95c64be8","parentId":"4225785c","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #812
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
@@ -16589,7 +16589,7 @@ Line 41: {"type":"message","id":"b0e1b765","parentId":"58a1236b","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #813
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16611,7 +16611,7 @@ Line 105: {"type":"message","id":"cc68268a","parentId":"54641f07","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #814
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16633,7 +16633,7 @@ Line 341: {"type":"message","id":"a061e972","parentId":"50f5cff9","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #815
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
@@ -16655,7 +16655,7 @@ Line 69: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #816
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16677,7 +16677,7 @@ Line 78: {"type":"message","id":"129fc4eb","parentId":"110b9026","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #817
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16699,7 +16699,7 @@ Line 98: {"type":"message","id":"4be3a10a","parentId":"ed1ac085","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #818
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16721,7 +16721,7 @@ Line 116: {"type":"message","id":"b87f2b58","parentId":"53e58948","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #819
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
@@ -16743,7 +16743,7 @@ Line 170: {"type":"custom","customType":"openclaw:prompt-error","data":{"timesta
 
 ---
 
-### 问题
+### 问题 #820
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16765,7 +16765,7 @@ Line 214: {"type":"message","id":"00de27c6","parentId":"b339531e","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #821
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16787,7 +16787,7 @@ Line 235: {"type":"message","id":"63aa604c","parentId":"a6f751e2","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #822
 
 - **事件类型**: `message`
 - **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
@@ -16806,7 +16806,7 @@ Line 30: {"type":"message","id":"fe5b8dee","parentId":"3bb82aa3","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #823
 
 - **事件类型**: `message`
 - **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
@@ -16825,7 +16825,7 @@ Line 70: {"type":"message","id":"5e775a88","parentId":"b285a2cf","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #824
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16847,7 +16847,7 @@ Line 11: {"type":"message","id":"830452f1","parentId":"b5c527d4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #825
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
@@ -16869,7 +16869,7 @@ Line 59: {"type":"message","id":"65186e84","parentId":"40dc2a42","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #826
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16891,7 +16891,7 @@ Line 53: {"type":"message","id":"eea0341f","parentId":"b8d51b9a","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #827
 
 - **事件类型**: `message`
 - **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
@@ -16910,7 +16910,7 @@ Line 22: {"type":"message","id":"089b3d1d","parentId":"2ac6baa4","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #828
 
 - **事件类型**: `message`
 - **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
@@ -16929,7 +16929,7 @@ Line 22: {"type":"message","id":"a13e13dd","parentId":"47f485de","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #829
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -16951,7 +16951,7 @@ Line 19: {"type":"message","id":"6fbe2c67","parentId":"36bc2a63","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #830
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
@@ -16973,7 +16973,7 @@ Line 101: {"type":"message","id":"e3ce8dea","parentId":"8817786f","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #831
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
@@ -16995,7 +16995,7 @@ Line 111: {"type":"message","id":"560df41b","parentId":"1493dd29","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #832
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -17017,7 +17017,7 @@ Line 29: {"type":"message","id":"50b60623","parentId":"71b273cf","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #833
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
@@ -17039,7 +17039,7 @@ Line 212: {"type":"message","id":"0c9bce49","parentId":"602ad070","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #834
 
 - **事件类型**: `message`
 - **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
@@ -17060,7 +17060,7 @@ Line 40: {"type":"message","id":"932b47a6","parentId":"ed2bd7ef","timestamp":"20
 
 ## timeoutErrors - 超时错误 (23)
 
-### 问题
+### 问题 #835
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17078,7 +17078,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #836
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17096,7 +17096,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #837
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17114,7 +17114,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #838
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17132,7 +17132,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #839
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17150,7 +17150,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #840
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17168,7 +17168,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #841
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17186,7 +17186,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #842
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17204,7 +17204,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #843
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17222,7 +17222,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #844
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17240,7 +17240,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #845
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17258,7 +17258,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #846
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17276,7 +17276,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #847
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17294,7 +17294,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #848
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17312,7 +17312,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #849
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17330,7 +17330,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #850
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17348,7 +17348,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #851
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17366,7 +17366,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #852
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17384,7 +17384,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #853
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17402,7 +17402,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #854
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17420,7 +17420,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #855
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17438,7 +17438,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #856
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17456,7 +17456,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题
+### 问题 #857
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -17476,7 +17476,7 @@ LLM idle timeout (60s): no response from model
 
 ## flow_integrity_no_reply - 用户提问后无回复 (16)
 
-### 问题
+### 问题 #858
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
@@ -17498,7 +17498,7 @@ Line 27: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #859
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -17520,7 +17520,7 @@ Line 8: {"type":"message","id":"cc605b68","parentId":"34d68000","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #860
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
@@ -17542,7 +17542,7 @@ Line 74: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #861
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
@@ -17564,7 +17564,7 @@ Line 52: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题
+### 问题 #862
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -17583,7 +17583,7 @@ Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #863
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -17605,7 +17605,7 @@ Line 127: {"type":"message","id":"770661a5","parentId":"3c4a82a7","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #864
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -17624,7 +17624,7 @@ Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2
 
 ---
 
-### 问题
+### 问题 #865
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -17643,7 +17643,7 @@ Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #866
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -17662,7 +17662,7 @@ Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #867
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -17684,7 +17684,7 @@ Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #868
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -17703,7 +17703,7 @@ Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #869
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -17722,7 +17722,7 @@ Line 9: {"type":"message","id":"50fa9702","parentId":"e7fa7a8a","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #870
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -17744,7 +17744,7 @@ Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #871
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -17766,7 +17766,7 @@ Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"202
 
 ---
 
-### 问题
+### 问题 #872
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -17788,7 +17788,7 @@ Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"20
 
 ---
 
-### 问题
+### 问题 #873
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant

@@ -652,12 +652,15 @@ function generateMarkdownReport(allIssues: Issue[]): string {
   // 按问题数量降序排列
   const sortedTypes = Object.entries(groupedByType).sort((a, b) => b[1].length - a[1].length);
   
+  let globalIssueNumber = 1;
+  
   for (const [errorType, issues] of sortedTypes) {
     const typeDesc = typeDescriptionsLong[errorType] || errorType;
     markdown += `## ${errorType} - ${typeDesc} (${issues.length})\n\n`;
     
     for (const issue of issues) {
-      markdown += `### 问题\n\n`;
+      markdown += `### 问题 #${globalIssueNumber}\n\n`;
+      globalIssueNumber++;
       markdown += `- **事件类型**: \`${issue.eventType}\`\n`;
       markdown += `- **描述**: ${issue.description}\n`;
       markdown += `- **错误信息**: \`\`\`\n${issue.errorMessage}\n\`\`\`\n`;
