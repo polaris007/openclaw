@@ -1,13 +1,10 @@
 # OpenClaw Session Transcript 综合问题检测报告
 
-**生成时间**: 2026-04-16T12:19:28.792Z
+**生成时间**: 2026-04-16T12:34:23.969Z
 
 ## 📊 统计概览
 
 - **总问题数**: 873
-- **高优先级**: 341
-- **中优先级**: 532
-- **低优先级**: 0
 
 ### 问题类型分布
 
@@ -22,6435 +19,10 @@
 
 ---
 
-## 🔴 高优先级问题 (341)
+## flow_integrity_missing_final_answer - 工具执行后无最终回复 (532)
 
-### 问题 #1
+### 问题
 
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54128 input tokens (16384 > 65536 - 54128). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
-- **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
-- **行号**: 104
-- **时间戳**: 2026-04-13T07:42:15.621Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #2
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54307 input tokens (16384 > 65536 - 54307). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
-- **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
-- **行号**: 107
-- **时间戳**: 2026-04-13T07:42:35.973Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #3
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 57458 input tokens (16384 > 65536 - 57458). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\46ab4208-374c-4215-853c-5c7987c2e791.jsonl.reset.2026-04-13T07-49-48.941Z`
-- **Session ID**: `46ab4208-374c-4215-853c-5c7987c2e791`
-- **行号**: 26
-- **时间戳**: 2026-04-13T07:49:36.027Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #4
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54129 input tokens (16384 > 65536 - 54129). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\7b971aed-e825-456c-a609-bdb2463e6ccc.jsonl.reset.2026-04-13T07-46-28.872Z`
-- **Session ID**: `7b971aed-e825-456c-a609-bdb2463e6ccc`
-- **行号**: 32
-- **时间戳**: 2026-04-13T07:46:19.684Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #7
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50183 input tokens (16384 > 65536 - 50183). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\c4803ea6-54cc-4d56-a500-bc98653190ca.jsonl.reset.2026-04-14T13-49-35.396Z`
-- **Session ID**: `c4803ea6-54cc-4d56-a500-bc98653190ca`
-- **行号**: 50
-- **时间戳**: 2026-04-14T13:49:25.880Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #8
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59325 input tokens (16384 > 65536 - 59325). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
-- **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
-- **行号**: 68
-- **时间戳**: 2026-04-14T13:43:38.018Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #9
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59431 input tokens (16384 > 65536 - 59431). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
-- **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
-- **行号**: 71
-- **时间戳**: 2026-04-14T13:43:50.101Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #10
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
-- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
-- **行号**: 67
-- **时间戳**: 2026-04-13T08:22:43.124Z
-- **Run ID**: `bc2b3f7b-2fae-4774-92b5-a36dc673385d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #11
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
-- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
-- **行号**: 68
-- **时间戳**: 2026-04-13T08:22:43.126Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #12
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
-- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
-- **行号**: 71
-- **时间戳**: 2026-04-13T08:24:02.172Z
-- **Run ID**: `2e6ad39f-3981-4dfa-9e0e-8454d3961af2`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #13
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
-- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
-- **行号**: 72
-- **时间戳**: 2026-04-13T08:24:02.174Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #14
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
-- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
-- **行号**: 68
-- **时间戳**: 2026-04-13T08:22:43.126Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #15
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
-- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
-- **行号**: 72
-- **时间戳**: 2026-04-13T08:24:02.174Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #17
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\0ee5ff89-79d5-41f8-a93f-49146d0f3722.jsonl`
-- **Session ID**: `0ee5ff89-79d5-41f8-a93f-49146d0f3722`
-- **行号**: 114
-- **时间戳**: 2026-04-13T10:51:00.469Z
-- **Run ID**: `b8a86d98-7887-4263-90d8-d5e5c0153909`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #18
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\0ee5ff89-79d5-41f8-a93f-49146d0f3722.jsonl`
-- **Session ID**: `0ee5ff89-79d5-41f8-a93f-49146d0f3722`
-- **行号**: 114
-- **时间戳**: 2026-04-13T10:51:00.469Z
-- **Run ID**: `b8a86d98-7887-4263-90d8-d5e5c0153909`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #19
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52189 input tokens (16384 > 65536 - 52189). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
-- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
-- **行号**: 102
-- **时间戳**: 2026-04-15T09:11:33.012Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #20
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52195 input tokens (16384 > 65536 - 52195). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
-- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
-- **行号**: 105
-- **时间戳**: 2026-04-15T09:31:33.448Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #21
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52317 input tokens (16384 > 65536 - 52317). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
-- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
-- **行号**: 108
-- **时间戳**: 2026-04-16T01:12:45.945Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #22
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52617 input tokens (16384 > 65536 - 52617). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
-- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
-- **行号**: 111
-- **时间戳**: 2026-04-16T01:12:48.085Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #23
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52738 input tokens (16384 > 65536 - 52738). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
-- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
-- **行号**: 114
-- **时间戳**: 2026-04-16T01:12:49.844Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #24
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52859 input tokens (16384 > 65536 - 52859). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
-- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
-- **行号**: 117
-- **时间戳**: 2026-04-16T01:12:51.724Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #26
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\c2dadcbe-f4b0-472d-aafe-122d0e670ede.jsonl`
-- **Session ID**: `c2dadcbe-f4b0-472d-aafe-122d0e670ede`
-- **行号**: 130
-- **时间戳**: 2026-04-13T10:24:08.008Z
-- **Run ID**: `aba0cdf6-68d5-4842-a735-b4adad95ff4c`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #27
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\c2dadcbe-f4b0-472d-aafe-122d0e670ede.jsonl`
-- **Session ID**: `c2dadcbe-f4b0-472d-aafe-122d0e670ede`
-- **行号**: 130
-- **时间戳**: 2026-04-13T10:24:08.008Z
-- **Run ID**: `aba0cdf6-68d5-4842-a735-b4adad95ff4c`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #28
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49443 input tokens (16384 > 65536 - 49443). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\17d2ff9a-4d20-443e-b885-f02f99596d0e.jsonl.reset.2026-04-15T04-48-17.449Z`
-- **Session ID**: `17d2ff9a-4d20-443e-b885-f02f99596d0e`
-- **行号**: 32
-- **时间戳**: 2026-04-15T04:36:21.682Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #29
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49667 input tokens (16384 > 65536 - 49667). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\17d2ff9a-4d20-443e-b885-f02f99596d0e.jsonl.reset.2026-04-15T04-48-17.449Z`
-- **Session ID**: `17d2ff9a-4d20-443e-b885-f02f99596d0e`
-- **行号**: 35
-- **时间戳**: 2026-04-15T04:45:40.725Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #31
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54822 input tokens (16384 > 65536 - 54822). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
-- **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
-- **行号**: 38
-- **时间戳**: 2026-04-03T06:22:54.912Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #32
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54850 input tokens (16384 > 65536 - 54850). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
-- **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
-- **行号**: 40
-- **时间戳**: 2026-04-03T06:50:47.415Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #33
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54920 input tokens (16384 > 65536 - 54920). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
-- **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
-- **行号**: 42
-- **时间戳**: 2026-04-03T07:18:27.370Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #34
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "undefined"
-
---- 错误行内容 ---
-Line 26: {"type":"message","id":"c3392c7b","parentId":"870e422e","timestamp":"2026-04-15T05:08:30.526Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 13:08 GMT+8] 需要怎么办"}],"timestamp":1776229710522}}
-
---- 下一行内容 ---
-Line 27: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776229710682,"runId":"req_1776229706650_j0xc69j36","sessionId":"a002ae1e-4ba1-4f81-901c-478c09b1502f","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"This operation was aborted"},"id":"4d0e3df8","parentId":"c3392c7b","timestamp":"2026-04-15T05:08:30.682Z"}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 26
-- **时间戳**: 2026-04-15T05:08:30.526Z
-
----
-
-### 问题 #35
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 27
-- **时间戳**: 2026-04-15T05:08:30.682Z
-- **Run ID**: `req_1776229706650_j0xc69j36`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #36
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 28
-- **时间戳**: 2026-04-15T05:08:30.684Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #37
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 85605 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85605)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 18
-- **时间戳**: 2026-04-15T05:07:14.548Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #38
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 85773 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85773)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 21
-- **时间戳**: 2026-04-15T05:08:18.269Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #39
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 85836 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85836)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 24
-- **时间戳**: 2026-04-15T05:08:28.536Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #40
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 28
-- **时间戳**: 2026-04-15T05:08:30.684Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #41
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 85322 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85322)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a4bcb8af-0927-4f3f-934b-fb7f1f625da2.jsonl.reset.2026-04-15T05-09-44.243Z`
-- **Session ID**: `a4bcb8af-0927-4f3f-934b-fb7f1f625da2`
-- **行号**: 18
-- **时间戳**: 2026-04-15T05:09:39.058Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #43
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
-- **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
-- **行号**: 22
-- **时间戳**: 2026-04-15T07:33:33.231Z
-- **Run ID**: `bb3c513f-d87e-448f-8014-614e40c21906`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #44
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
-- **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
-- **行号**: 22
-- **时间戳**: 2026-04-15T07:33:33.231Z
-- **Run ID**: `bb3c513f-d87e-448f-8014-614e40c21906`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #46
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\fe368a91-4216-43d0-9bf1-dfa1cceed4bc.jsonl`
-- **Session ID**: `fe368a91-4216-43d0-9bf1-dfa1cceed4bc`
-- **行号**: 18
-- **时间戳**: 2026-04-15T05:12:10.967Z
-- **Run ID**: `0da67fde-8212-48e1-aaec-2bf06e64800d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #47
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\fe368a91-4216-43d0-9bf1-dfa1cceed4bc.jsonl`
-- **Session ID**: `fe368a91-4216-43d0-9bf1-dfa1cceed4bc`
-- **行号**: 18
-- **时间戳**: 2026-04-15T05:12:10.967Z
-- **Run ID**: `0da67fde-8212-48e1-aaec-2bf06e64800d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #65
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
-- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
-- **行号**: 130
-- **时间戳**: 2026-03-30T11:04:56.556Z
-- **Run ID**: `req_1774868684378_4e84zalrb`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #66
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57546 input tokens (8192 > 65536 - 57546). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
-- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
-- **行号**: 249
-- **时间戳**: 2026-03-30T11:59:24.310Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #67
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58049 input tokens (8192 > 65536 - 58049). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
-- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
-- **行号**: 251
-- **时间戳**: 2026-03-30T12:00:40.495Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #68
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57568 input tokens (8192 > 65536 - 57568). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
-- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
-- **行号**: 269
-- **时间戳**: 2026-03-30T12:02:07.765Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #69
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58542 input tokens (8192 > 65536 - 58542). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
-- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
-- **行号**: 271
-- **时间戳**: 2026-03-30T12:36:21.160Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #70
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58834 input tokens (8192 > 65536 - 58834). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
-- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
-- **行号**: 273
-- **时间戳**: 2026-03-30T12:36:21.617Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #85
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "user"
-
---- 错误行内容 ---
-Line 34: {"type":"message","id":"08719293","parentId":"152e5424","timestamp":"2026-04-10T09:08:28.972Z","message":{"role":"assistant","content":[{"type":"text","text":"返回了 \"Bad Request\"，可能是中文字符需要 URL 编码。让我进行 URL 编码后重试：\n\n"},{"type":"toolCall","id":"call_b0ce18ac3c1f4f30b7631c49","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"
-
---- 下一行内容 ---
-Line 35: {"type":"message","id":"c59f0816","parentId":"08719293","timestamp":"2026-04-10T09:08:39.665Z","message":{"role":"user","content":[{"type":"text","text":"System: [2026-04-10 17:07:40 GMT+8] Exec failed (faint-ot, code 127) :: sh: 1: jq: not found\nSystem: [2026-04-10 17:08:10 GMT+8] Exec completed (fresh-da, code 0) :: -- 0 0 0 0 0 0 0 0 0 --:--:-- 0:00:09 --:--:-- 0* ipv4 connect timeout after 9992ms, move on! * Failed to connect to km.clic port 80 after 10001 ms: Timeout was reached 0 0 0 0 0 
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 34
-- **时间戳**: 2026-04-10T09:08:28.972Z
-
----
-
-### 问题 #86
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "user"
-
---- 错误行内容 ---
-Line 38: {"type":"message","id":"71d78ce8","parentId":"f33fc347","timestamp":"2026-04-10T09:08:46.305Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 contact-book Skill\n\n刚才查询时遇到了\"Bad Request\"错误，可能是因为中文参数需要 URL 编码。让我重新尝试，对\"张凯磊\"进行 URL 编码：\n\n"},{"type":"toolCall","id":"call_e5188db4d2294baeb21508bf","name":"exec","arguments":{"command":"curl -s -H \"env: cabp-platform-dev\" \"http://10.38.223.128:19211/cabp/cabp-platform/jw/web/json/plugin/com.chinalife.yunque.AddressLis
-
---- 下一行内容 ---
-Line 39: {"type":"message","id":"aa1d6325","parentId":"71d78ce8","timestamp":"2026-04-10T09:08:53.745Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Fri 2026-04-10 17:08 GMT+8] 当前版本"}],"timestamp":1775812133741}}
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 38
-- **时间戳**: 2026-04-10T09:08:46.305Z
-
----
-
-### 问题 #87
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 33
-- **时间戳**: 2026-04-10T09:08:28.968Z
-- **Run ID**: `req_1775812023148_3ayoeq04t`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #88
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 34
-- **时间戳**: 2026-04-10T09:08:28.972Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #89
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 37
-- **时间戳**: 2026-04-10T09:08:46.303Z
-- **Run ID**: `req_1775812118772_bkabwdnw5`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #90
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 38
-- **时间戳**: 2026-04-10T09:08:46.305Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #91
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 34
-- **时间戳**: 2026-04-10T09:08:28.972Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #92
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
-- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
-- **行号**: 38
-- **时间戳**: 2026-04-10T09:08:46.305Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #93
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "undefined"
-
---- 错误行内容 ---
-Line 22: {"type":"message","id":"079eec30","parentId":"1fb22ccf","timestamp":"2026-04-16T01:14:48.756Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_b8b75be9f4da4870889566fb","name":"memory_search","arguments":{"query":"龙虾项目 时间 计划 开始 结束"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":19652,"output":35,"cacheRead":0,"cacheWrite":0,"totalTokens":19687,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}
-
---- 下一行内容 ---
-Line 23: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776302272673,"runId":"req_1776302087795_5cms510hh","sessionId":"4f250dc6-3ebe-4fff-90ba-3497bbb9fe07","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"This operation was aborted"},"id":"5eb2ca71","parentId":"079eec30","timestamp":"2026-04-16T01:17:52.673Z"}
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\4f250dc6-3ebe-4fff-90ba-3497bbb9fe07.jsonl`
-- **Session ID**: `4f250dc6-3ebe-4fff-90ba-3497bbb9fe07`
-- **行号**: 22
-- **时间戳**: 2026-04-16T01:14:48.756Z
-
----
-
-### 问题 #94
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\4f250dc6-3ebe-4fff-90ba-3497bbb9fe07.jsonl`
-- **Session ID**: `4f250dc6-3ebe-4fff-90ba-3497bbb9fe07`
-- **行号**: 23
-- **时间戳**: 2026-04-16T01:17:52.673Z
-- **Run ID**: `req_1776302087795_5cms510hh`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #96
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\39028978-7dfa-4c83-ac08-4a49ed087310.jsonl`
-- **Session ID**: `39028978-7dfa-4c83-ac08-4a49ed087310`
-- **行号**: 10
-- **时间戳**: 2026-04-13T08:14:46.326Z
-- **Run ID**: `237cc3e6-bd84-4004-8086-704bedb2fe42`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #97
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\39028978-7dfa-4c83-ac08-4a49ed087310.jsonl`
-- **Session ID**: `39028978-7dfa-4c83-ac08-4a49ed087310`
-- **行号**: 10
-- **时间戳**: 2026-04-13T08:14:46.326Z
-- **Run ID**: `237cc3e6-bd84-4004-8086-704bedb2fe42`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #102
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 {'error': '/chat/completions: Invalid model name passed in model=AIAPLLM-vision-nothink. Call `/v1/models` to view available models for your key.'}
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
-- **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
-- **行号**: 40
-- **时间戳**: 2026-04-13T06:13:30.457Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #103
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 {'error': '/chat/completions: Invalid model name passed in model=AIAPLLM-vision-nothink. Call `/v1/models` to view available models for your key.'}
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
-- **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
-- **行号**: 42
-- **时间戳**: 2026-04-13T06:14:13.557Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #104
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 50: {"type":"message","id":"ec099416","parentId":"b5154f52","timestamp":"2026-04-09T06:41:01.229Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_178f85f57f79476fb5b65738","name":"process","arguments":{"action":"poll","sessionId":"good-pine","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":23457,"output":56,"cacheRead":0,"cacheWrite":0,"totalTokens":23513,"cost":{"input":0,"output":0,"cacheRead":0,"c
-
---- 下一行内容 ---
-Line 51: {"type":"message","id":"9117e9be","parentId":"ec099416","timestamp":"2026-04-09T06:41:16.115Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来该私有源虽然可访问，但可能没有 `requests` 包的特定版本，或者需要添加 `--trusted-host` 参数来忽略安全警告。让我尝试显式添加信任主机参数：太好了！`requests` 包已成功安装。现在让我们再次运行保险问答客户端："}],"timestamp":1775716876112,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"api":"openai-respons
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
-- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
-- **行号**: 50
-- **时间戳**: 2026-04-09T06:41:01.229Z
-
----
-
-### 问题 #105
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
-- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
-- **行号**: 52
-- **时间戳**: 2026-04-09T06:41:16.119Z
-- **Run ID**: `req_1775716725543_m18wr8518`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #106
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
-- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
-- **行号**: 54
-- **时间戳**: 2026-04-09T06:41:31.238Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #107
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
-- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
-- **行号**: 54
-- **时间戳**: 2026-04-09T06:41:31.238Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #113
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 109: {"type":"message","id":"961a72d8","parentId":"a7bc7276","timestamp":"2026-03-30T03:40:08.186Z","message":{"role":"assistant","content":[{"type":"text","text":"安装过程似乎还在进行中。让我再等待一下：\n\n"},{"type":"toolCall","id":"call_aebb4cdf8f3f4464aa0ec01d","name":"process","arguments":{"action":"poll","sessionId":"sharp-falcon","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":31311,"output":68,"cacheRead":0,"cacheWrite":0,"totalTokens
-
---- 下一行内容 ---
-Line 110: {"type":"message","id":"03d23230","parentId":"961a72d8","timestamp":"2026-03-30T03:40:11.340Z","message":{"role":"assistant","content":[{"type":"text","text":"安装过程似乎还在进行中。让我再等待一下："}],"timestamp":1774842011335,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"api":"openai-responses","provider":"openclaw","model":"gateway-injected","idempotencyKey":"edf572b2-a915-4059-a27f-6745b6e04c
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
-- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
-- **行号**: 109
-- **时间戳**: 2026-03-30T03:40:08.186Z
-
----
-
-### 问题 #114
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
-- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
-- **行号**: 111
-- **时间戳**: 2026-03-30T03:40:11.343Z
-- **Run ID**: `edf572b2-a915-4059-a27f-6745b6e04c39`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #115
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
-- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
-- **行号**: 113
-- **时间戳**: 2026-03-30T03:40:38.194Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #116
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
-- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
-- **行号**: 113
-- **时间戳**: 2026-03-30T03:40:38.194Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #117
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 118: {"type":"message","id":"4225785c","parentId":"da1e53ac","timestamp":"2026-03-26T02:20:48.216Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来下载被中断了。让我再试一次：\n\n"},{"type":"toolCall","id":"call_29ca2853b30d48279db2ed9c","name":"exec","arguments":{"command":"openclaw plugins install clawhub 2>&1","timeout":120}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":36969,"output":62,"cacheRead":0,"cacheWrite":0,"totalTokens"
-
---- 下一行内容 ---
-Line 119: {"type":"message","id":"95c64be8","parentId":"4225785c","timestamp":"2026-03-26T02:20:53.488Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我现在帮你运行这三条命令来安装 `humanizer` 技能：看起来 `clawhub` 命令没有安装或者不在系统路径中。让我检查一下是否有其他安装方式：我看到 `openclaw` 命令存在，但 `clawhub` 似乎没有安装。让我检查一下是否有 `clawhub` 作为 npm 包或者需要单独安装：看起来 `clawhub` 工具还没有安装。根据 OpenClaw 的文档，`clawhub` 可能是一个需要单独安装的 CLI 工具。\n\n让我尝试另一种方法 - 直接从 ClawHub 注册表下载技能文件：好的，注册表需要认证。让我检查一下是否有认证信息或者另一种安装方式：让我查看完整的配置文件，看看是否有 `clawhub` 相关的配置：配置文件里没有 `cl
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
-- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
-- **行号**: 118
-- **时间戳**: 2026-03-26T02:20:48.216Z
-
----
-
-### 问题 #118
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
-- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
-- **行号**: 120
-- **时间戳**: 2026-03-26T02:20:53.491Z
-- **Run ID**: `3d4c95e1-f63a-437a-9645-06016f7c1da5`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #119
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
-- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
-- **行号**: 122
-- **时间戳**: 2026-03-26T02:20:53.522Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #120
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
-- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
-- **行号**: 122
-- **时间戳**: 2026-03-26T02:20:53.522Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #121
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "user"
-
---- 错误行内容 ---
-Line 40: {"type":"message","id":"58a1236b","parentId":"abfebe5a","timestamp":"2026-04-02T08:42:17.933Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_baf48146d09143a7bc4c872f","name":"process","arguments":{"action":"poll","sessionId":"quick-crustacean"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"tota
-
---- 下一行内容 ---
-Line 41: {"type":"message","id":"b0e1b765","parentId":"58a1236b","timestamp":"2026-04-02T08:42:45.231Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
-- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
-- **行号**: 40
-- **时间戳**: 2026-04-02T08:42:17.933Z
-
----
-
-### 问题 #122
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
-- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
-- **行号**: 39
-- **时间戳**: 2026-04-02T08:42:17.929Z
-- **Run ID**: `c523f071-01fd-46d5-898a-0dc6341a26c6`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #123
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
-- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
-- **行号**: 40
-- **时间戳**: 2026-04-02T08:42:17.933Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #124
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
-- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
-- **行号**: 40
-- **时间戳**: 2026-04-02T08:42:17.933Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #125
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 6
-- **时间戳**: 2026-03-25T05:25:08.052Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #126
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 7
-- **时间戳**: 2026-03-25T05:25:11.504Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #127
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 8
-- **时间戳**: 2026-03-25T05:25:16.991Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #128
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 9
-- **时间戳**: 2026-03-25T05:25:26.271Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #129
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 11
-- **时间戳**: 2026-03-25T05:25:49.595Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #130
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 12
-- **时间戳**: 2026-03-25T05:25:53.195Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #131
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 13
-- **时间戳**: 2026-03-25T05:25:58.663Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #132
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 14
-- **时间戳**: 2026-03-25T05:26:08.147Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #133
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57554 input tokens (8192 > 65536 - 57554). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 244
-- **时间戳**: 2026-03-26T01:53:01.595Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #134
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57852 input tokens (8192 > 65536 - 57852). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 246
-- **时间戳**: 2026-03-26T02:00:40.558Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #135
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58165 input tokens (8192 > 65536 - 58165). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 248
-- **时间戳**: 2026-03-26T02:01:46.469Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #136
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57910 input tokens (8192 > 65536 - 57910). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
-- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
-- **行号**: 250
-- **时间戳**: 2026-03-26T02:01:46.893Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #137
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 104: {"type":"message","id":"54641f07","parentId":"f6216d1b","timestamp":"2026-04-01T02:43:46.086Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_bc56123d2f074babbfe13d3c","name":"process","arguments":{"action":"poll","sessionId":"fresh-ember","timeout":10000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":31487,"output":56,"cacheRead":0,"cacheWrite":0,"totalTokens":31543,"cost":{"input":0,"output":0,"cacheRead":0,
-
---- 下一行内容 ---
-Line 105: {"type":"message","id":"cc68268a","parentId":"54641f07","timestamp":"2026-04-01T02:43:52.130Z","message":{"role":"assistant","content":[{"type":"text","text":"向导已启动！现在需要交互式输入。让我查看一下当前状态：向导正在询问是否创建配置文件。让我输入 `Y` 确认：看起来输入了但还没响应。让我等待一下再查看：可能需要回车确认。让我发送一个回车：让我尝试发送回车键符：看起来输入被重复了。让我先停止这个进程，然后重新以正确的方式启动：进程已终止。让我重新启动向导，这次使用更干净的方式："}],"timestamp":1775011432126,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWri
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 104
-- **时间戳**: 2026-04-01T02:43:46.086Z
-
----
-
-### 问题 #138
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 340: {"type":"message","id":"50f5cff9","parentId":"50b78c3c","timestamp":"2026-04-01T02:54:21.635Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_e24c164239994f92a025051d","name":"process","arguments":{"action":"poll","sessionId":"delta-nexus","timeout":10000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":46219,"output":56,"cacheRead":0,"cacheWrite":0,"totalTokens":46275,"cost":{"input":0,"output":0,"cacheRead":0,
-
---- 下一行内容 ---
-Line 341: {"type":"message","id":"a061e972","parentId":"50f5cff9","timestamp":"2026-04-01T02:54:23.021Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我来帮你配置这个企业邮箱账户。根据你提供的信息，我将手动创建配置文件。让我修正配置文件格式：需要添加 `email` 字段：让我检查一下配置是否正确，可能需要创建 maildir 目录：让我用 debug 模式查看具体错误：看起来配置可能需要调整。让我查看一下 Himalaya 的正确配置格式，可能需要使用不同的结构：让我查看配置示例：让我尝试查看官方示例或重新检查配置格式。根据错误信息，可能需要使用 `default_account` 设置：让我查看正确的配置格式，看起来应该是扁平结构：让我查看 himalaya 的文档或示例配置。根据错误信息，配置文件的根级别应该包含 `accounts` 数组或对象。让我尝试另一种格式：让我查看 himalaya 的示例配置或官
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 340
-- **时间戳**: 2026-04-01T02:54:21.635Z
-
----
-
-### 问题 #139
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 106
-- **时间戳**: 2026-04-01T02:43:52.136Z
-- **Run ID**: `76c21deb-60b4-4916-bb75-2d72fe5c1ff1`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #140
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 108
-- **时间戳**: 2026-04-01T02:43:56.096Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #141
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 342
-- **时间戳**: 2026-04-01T02:54:23.024Z
-- **Run ID**: `6b28e2b8-4841-4edc-ad5f-7517d8f399cf`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #142
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 344
-- **时间戳**: 2026-04-01T02:54:31.651Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #143
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 370
-- **时间戳**: 2026-04-01T03:01:54.284Z
-- **Run ID**: `6682af54-bbd4-48c4-bb2e-27b0554db7cf`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #144
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 371
-- **时间戳**: 2026-04-01T03:01:54.287Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #145
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 108
-- **时间戳**: 2026-04-01T02:43:56.096Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #146
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 344
-- **时间戳**: 2026-04-01T02:54:31.651Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #147
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
-- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
-- **行号**: 371
-- **时间戳**: 2026-04-01T03:01:54.287Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #148
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "undefined"
-
---- 错误行内容 ---
-Line 68: {"type":"message","id":"d73bb0e8","parentId":"6972bb91","timestamp":"2026-03-30T05:54:23.459Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_191683eff2924c2495dc1505","name":"process","arguments":{"action":"poll","sessionId":"faint-claw","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":34826,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":34883,"cost":{"input":0,"output":0,"cacheRead":0,"
-
---- 下一行内容 ---
-Line 69: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1774850090709,"runId":"56245caf-ce14-4ee7-836c-e7883b7183da","sessionId":"9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"aborted"},"id":"425533ef","parentId":"d73bb0e8","timestamp":"2026-03-30T05:54:50.710Z"}
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 68
-- **时间戳**: 2026-03-30T05:54:23.459Z
-
----
-
-### 问题 #149
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 77: {"type":"message","id":"110b9026","parentId":"a1a12141","timestamp":"2026-03-30T05:55:36.808Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_b78fa0e89b9e4e3689b52e93","name":"process","arguments":{"action":"poll","sessionId":"nimble-rook","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":35434,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":35491,"cost":{"input":0,"output":0,"cacheRead":0,
-
---- 下一行内容 ---
-Line 78: {"type":"message","id":"129fc4eb","parentId":"110b9026","timestamp":"2026-03-30T05:55:51.109Z","message":{"role":"assistant","content":[{"type":"text","text":"命令正在运行中，让我继续等待并检查结果：安装失败，原因是无法访问 npm 注册表（`registry.npmjs.org`）。这可能是因为：\n\n1. **网络限制**：Kubernetes 集群内部可能无法访问外部 npm 注册表\n2. **代理问题**：可能需要配置 npm 代理\n\n不过，`clawhub` 应该使用我们刚设置的内部 `CLAWHUB_REGISTRY` 地址。让我检查一下 clawhub CLI 是否正确使用了这个环境变量，或者尝试直接使用内部地址："}],"timestamp":1774850151105,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cach
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 77
-- **时间戳**: 2026-03-30T05:55:36.808Z
-
----
-
-### 问题 #150
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 97: {"type":"message","id":"ed1ac085","parentId":"dffa56c7","timestamp":"2026-03-30T05:56:34.101Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_5b24e389792c48b9b090be47","name":"exec","arguments":{"command":"openclaw skills list"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":32338,"output":30,"cacheRead":0,"cacheWrite":0,"totalTokens":32368,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"
-
---- 下一行内容 ---
-Line 98: {"type":"message","id":"4be3a10a","parentId":"ed1ac085","timestamp":"2026-03-30T05:56:35.462Z","message":{"role":"assistant","content":[{"type":"text","text":"我可以执行 `clawhub` 命令，但遇到了网络问题。\n\n**当前情况：**\n- ✅ 命令可以执行\n- ❌ 无法连接到 npm 注册表 (`registry.npmjs.org`)\n- ❌ 也无法从内部 ClawHub 注册表下载技能\n\n**问题原因：**\n这个 Kubernetes 环境似乎无法访问外部网络（npm registry），可能也没有正确配置内部 ClawHub 服务的访问。\n\n**可能的解决方案：**\n1. **检查网络连通性** - 测试能否 ping 通 `10.38.149.60`\n2. **配置 npm 代理** - 如果集群需要代理访问外部网络\n3. **手动安装技能** - 如果你有技能的本地副本\n\n让我先测试一下
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 97
-- **时间戳**: 2026-03-30T05:56:34.101Z
-
----
-
-### 问题 #151
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 115: {"type":"message","id":"53e58948","parentId":"6b2e854f","timestamp":"2026-03-30T05:57:32.202Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_5951ee3e83f14fe5bb765bd8","name":"process","arguments":{"action":"poll","sessionId":"salty-mist","timeout":45000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":35575,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":35632,"cost":{"input":0,"output":0,"cacheRead":0,"
-
---- 下一行内容 ---
-Line 116: {"type":"message","id":"b87f2b58","parentId":"53e58948","timestamp":"2026-03-30T05:57:34.814Z","message":{"role":"assistant","content":[{"type":"text","text":"明白了，只能用 `clawhub install pdf` 命令。问题在于 `npx clawhub` 试图从外部 npm 下载，而不是使用内部注册表。\n\n让我尝试直接调用内部 ClawHub 的 CLI 工具（如果已安装在容器内），或者配置 npm 使用内部代理：让我检查是否有全局安装的 clawhub：看来 `clawhub` CLI 没有全局安装，`npx` 尝试从外部 npm 下载但失败了。\n\n**问题分析：**\n- 内部 ClawHub 服务 (`http://10.38.149.60`) 是可访问的\n- 但 `npx clawhub` 试图从 `registry.npmjs.org` 下载，而外部网络不可达\n- 需要一种方式让 `clawhub` 
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 115
-- **时间戳**: 2026-03-30T05:57:32.202Z
-
----
-
-### 问题 #152
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "undefined"
-
---- 错误行内容 ---
-Line 169: {"type":"message","id":"d842aabb","parentId":"f693791f","timestamp":"2026-03-30T06:06:38.708Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_8f1238614bfc47bc967be02e","name":"process","arguments":{"action":"poll","sessionId":"briny-shoal","timeout":90000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":40664,"output":58,"cacheRead":0,"cacheWrite":0,"totalTokens":40722,"cost":{"input":0,"output":0,"cacheRead":0,
-
---- 下一行内容 ---
-Line 170: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1774850821599,"runId":"85f51477-671f-4958-a9da-faf0f893d786","sessionId":"9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"aborted"},"id":"d0903c21","parentId":"d842aabb","timestamp":"2026-03-30T06:07:01.599Z"}
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 169
-- **时间戳**: 2026-03-30T06:06:38.708Z
-
----
-
-### 问题 #153
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 213: {"type":"message","id":"b339531e","parentId":"6ac21509","timestamp":"2026-03-30T06:24:09.617Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来 Gateway 重启后，之前全局安装的 `clawhub` 丢失了（可能是因为使用了临时环境或不同的 npm 配置）。让我重新安装 `clawhub`：\n\n"},{"type":"toolCall","id":"call_349c43926c89487486ab8eae","name":"exec","arguments":{"command":"npm install -g clawhub"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":43123,"output":69,"cacheRe
-
---- 下一行内容 ---
-Line 214: {"type":"message","id":"00de27c6","parentId":"b339531e","timestamp":"2026-03-30T06:24:16.685Z","message":{"role":"assistant","content":[{"type":"text","text":"`clawhub` 命令未找到。这可能是因为 Gateway 重启后，全局安装的 `clawhub` 不在当前环境的 `PATH` 中，或者需要重新加载环境变量。\n\n让我尝试几种方法：看起来 Gateway 重启后，之前全局安装的 `clawhub` 丢失了（可能是因为使用了临时环境或不同的 npm 配置）。让我重新安装 `clawhub`："}],"timestamp":1774851856678,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 213
-- **时间戳**: 2026-03-30T06:24:09.617Z
-
----
-
-### 问题 #154
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 69
-- **时间戳**: 2026-03-30T05:54:50.710Z
-- **Run ID**: `56245caf-ce14-4ee7-836c-e7883b7183da`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #155
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 71
-- **时间戳**: 2026-03-30T05:54:53.469Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #156
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 79
-- **时间戳**: 2026-03-30T05:55:51.111Z
-- **Run ID**: `73292f13-7427-4b3b-931d-da52baf4244f`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #157
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 81
-- **时间戳**: 2026-03-30T05:56:06.817Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #158
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 99
-- **时间戳**: 2026-03-30T05:56:35.466Z
-- **Run ID**: `bdd37d46-3f0c-48a5-b251-c1636c556cb9`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #159
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 101
-- **时间戳**: 2026-03-30T05:56:35.474Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #160
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 117
-- **时间戳**: 2026-03-30T05:57:34.817Z
-- **Run ID**: `4b3b8adc-ea97-4940-9a9a-67fd54c64c50`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #161
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 170
-- **时间戳**: 2026-03-30T06:07:01.599Z
-- **Run ID**: `85f51477-671f-4958-a9da-faf0f893d786`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #162
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 215
-- **时间戳**: 2026-03-30T06:24:16.689Z
-- **Run ID**: `0ed7e5d5-d854-4611-b848-71ef56b31517`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #163
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 217
-- **时间戳**: 2026-03-30T06:24:16.702Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #164
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 71
-- **时间戳**: 2026-03-30T05:54:53.469Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #165
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 81
-- **时间戳**: 2026-03-30T05:56:06.817Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #166
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 101
-- **时间戳**: 2026-03-30T05:56:35.474Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #167
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
-- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
-- **行号**: 217
-- **时间戳**: 2026-03-30T06:24:16.702Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #184
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 234: {"type":"message","id":"a6f751e2","parentId":"7ade871a","timestamp":"2026-03-27T09:00:04.188Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_c7072ebce6c4432ab66fee7f","name":"process","arguments":{"action":"poll","sessionId":"fast-ocean","timeout":300000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":44179,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":44236,"cost":{"input":0,"output":0,"cacheRead":0,
-
---- 下一行内容 ---
-Line 235: {"type":"message","id":"63aa604c","parentId":"a6f751e2","timestamp":"2026-03-27T09:00:10.967Z","message":{"role":"assistant","content":[{"type":"text","text":"让我再等待一下并检查状态：安装过程似乎还在进行中。让我再等待更长时间：安装过程似乎卡住了或者非常慢。让我检查一下是否有任何输出或者进程状态：进程已经运行了 5 分 29 秒。npm 安装全局包可能需要较长时间，特别是如果要下载依赖。让我继续等待：npm 安装似乎还在进行中，但没有输出。让我再等待一段时间："}],"timestamp":1774602010916,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"tota
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\df4171e6-52bd-4d19-9055-8efff9620296.jsonl.reset.2026-03-30T01-28-17.541Z`
-- **Session ID**: `df4171e6-52bd-4d19-9055-8efff9620296`
-- **行号**: 234
-- **时间戳**: 2026-03-27T09:00:04.188Z
-
----
-
-### 问题 #185
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\df4171e6-52bd-4d19-9055-8efff9620296.jsonl.reset.2026-03-30T01-28-17.541Z`
-- **Session ID**: `df4171e6-52bd-4d19-9055-8efff9620296`
-- **行号**: 236
-- **时间戳**: 2026-03-27T09:00:10.975Z
-- **Run ID**: `e8da8dd9-9f40-4fa9-a388-26e13def0508`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #186
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
-- **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
-- **行号**: 41
-- **时间戳**: 2026-04-13T07:25:01.704Z
-- **Run ID**: `req_1776065045265_p6z61fkxg`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #187
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
-- **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
-- **行号**: 42
-- **时间戳**: 2026-04-13T07:25:01.706Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #188
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
-- **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
-- **行号**: 42
-- **时间戳**: 2026-04-13T07:25:01.706Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #189
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
-- **错误信息**: ```
-Expected toolResult after toolCall, but reached end of file
-
---- 错误行内容 ---
-Line 30: {"type":"message","id":"fe5b8dee","parentId":"3bb82aa3","timestamp":"2026-04-03T05:57:05.661Z","message":{"role":"assistant","content":[{"type":"text","text":"我看到技能列表中没有 `contact-book` 技能。让我通过 clawhub 搜索一下是否有这个技能：\n\n"},{"type":"toolCall","id":"call_6bfbda0f2bc04a118e2f14d2","name":"exec","arguments":{"command":"npx clawhub search contact-book 2>/dev/null | head -30"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":20481,"output":65,"c
-
-```
-- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
-- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\c0ba4ea8-18e2-408e-bb43-5804fe01b725.jsonl.deleted.2026-04-03T06-57-15.640Z`
-- **Session ID**: `c0ba4ea8-18e2-408e-bb43-5804fe01b725`
-- **行号**: 30
-- **时间戳**: 2026-04-03T05:57:05.661Z
-
----
-
-### 问题 #190
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 99103 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99103)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\0a3d3e95-5bff-462a-9ef4-cc86be37d0e9.jsonl.reset.2026-04-14T08-03-10.977Z`
-- **Session ID**: `0a3d3e95-5bff-462a-9ef4-cc86be37d0e9`
-- **行号**: 12
-- **时间戳**: 2026-04-14T07:56:14.963Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #191
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50053 input tokens (16384 > 65536 - 50053). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
-- **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
-- **行号**: 116
-- **时间戳**: 2026-04-03T09:15:16.986Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #192
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50321 input tokens (16384 > 65536 - 50321). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
-- **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
-- **行号**: 118
-- **时间戳**: 2026-04-03T09:17:19.445Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #193
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50589 input tokens (16384 > 65536 - 50589). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
-- **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
-- **行号**: 120
-- **时间戳**: 2026-04-03T09:32:46.406Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #194
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
-- **错误信息**: ```
-Expected toolResult after toolCall, but reached end of file
-
---- 错误行内容 ---
-Line 70: {"type":"message","id":"5e775a88","parentId":"b285a2cf","timestamp":"2026-04-07T07:11:07.267Z","message":{"role":"assistant","content":[{"type":"text","text":"由于网络限制无法安装依赖，让我采用替代方案：我先创建一个简单的文本文件作为占位，然后手动创建一个最小化的 PPTX 文件结构（PPTX 本质是 ZIP 格式的 XML 文件）。或者，我可以询问用户是否可以使用现有的 PPTX 文件进行上传测试。\n\n不过，考虑到任务是演示上传功能，让我尝试创建一个最小化的 PPTX 文件。PPTX 文件实际上是 ZIP 压缩包，包含 XML 文件。让我用 shell 命令创建一个最简单的 PPTX：\n\n"},{"type":"toolCall","id":"call_17c583a22f05424a98bb60c7","name":"exec","arguments":{}}],"api":"openai-completions","
-
-```
-- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
-- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
-- **行号**: 70
-- **时间戳**: 2026-04-07T07:11:07.267Z
-
----
-
-### 问题 #195
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
-- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
-- **行号**: 69
-- **时间戳**: 2026-04-07T07:11:07.260Z
-- **Run ID**: `req_1775545808679_tx8wy3sew`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #196
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
-- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
-- **行号**: 70
-- **时间戳**: 2026-04-07T07:11:07.267Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #197
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
-- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
-- **行号**: 70
-- **时间戳**: 2026-04-07T07:11:07.267Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #198
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50038 input tokens (16384 > 65536 - 50038). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\3054f47d-9495-49fc-8621-094decd75ed5.jsonl.reset.2026-04-11T13-18-03.510Z`
-- **Session ID**: `3054f47d-9495-49fc-8621-094decd75ed5`
-- **行号**: 94
-- **时间戳**: 2026-04-11T13:17:34.816Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #202
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 10: {"type":"message","id":"b5c527d4","parentId":"7e58b1bb","timestamp":"2026-04-07T07:11:37.274Z","message":{"role":"assistant","content":[{"type":"text","text":"文档已创建成功！现在我将使用 km-operation-prod 技能将其上传到 km.clic 平台。\n\n## 🛠️ 正在使用 km-operation-prod Skill\n\n"},{"type":"toolCall","id":"call_005c24e5e8b74e75bc659d29","name":"exec","arguments":{"command":"curl -X POST \"http://km.clic/api/files/upload\" \\\n  -H \"Content-Type: multipart/form-data\" \\\n  -F \"file=@/home/node/.openclaw/workspace/teste
-
---- 下一行内容 ---
-Line 11: {"type":"message","id":"830452f1","parentId":"b5c527d4","timestamp":"2026-04-07T07:11:42.769Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 docx Skill\n好的，任健鑫！我先帮你创建一个简单的 Word 文档，命名为 `testest123123123123.docx`，然后上传到你的知识管理平台。文档已创建成功！现在我将使用 km-operation-prod 技能将其上传到 km.clic 平台。\n\n## 🛠️ 正在使用 km-operation-prod Skill"}],"timestamp":1775545902768,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
-- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
-- **行号**: 10
-- **时间戳**: 2026-04-07T07:11:37.274Z
-
----
-
-### 问题 #203
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
-- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
-- **行号**: 12
-- **时间戳**: 2026-04-07T07:11:42.771Z
-- **Run ID**: `req_1775545891636_7a58lcldo`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #204
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
-- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
-- **行号**: 14
-- **时间戳**: 2026-04-07T07:11:42.779Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #205
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
-- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
-- **行号**: 14
-- **时间戳**: 2026-04-07T07:11:42.779Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #206
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 98636 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=98636)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\3d57363f-2801-4839-9f62-3a83486176a2.jsonl.reset.2026-04-14T07-30-17.046Z`
-- **Session ID**: `3d57363f-2801-4839-9f62-3a83486176a2`
-- **行号**: 12
-- **时间戳**: 2026-04-14T07:29:57.228Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #207
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 137445 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=137445)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\4c785688-835b-4c1c-8aaf-d21b38146873.jsonl.reset.2026-04-14T05-42-06.587Z`
-- **Session ID**: `4c785688-835b-4c1c-8aaf-d21b38146873`
-- **行号**: 74
-- **时间戳**: 2026-04-11T13:25:46.909Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #208
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 93196 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93196)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\57655182-1fa9-4dca-aafc-f16e69319ef6.jsonl`
-- **Session ID**: `57655182-1fa9-4dca-aafc-f16e69319ef6`
-- **行号**: 8
-- **时间戳**: 2026-04-14T07:18:49.508Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #209
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "user"
-
---- 错误行内容 ---
-Line 58: {"type":"message","id":"40dc2a42","parentId":"4e5ca0ff","timestamp":"2026-04-09T10:10:55.094Z","message":{"role":"assistant","content":[{"type":"text","text":"我看到图片已经被读取了。根据技能的设计，当图片被读取后，系统应该能够通过内部的多模态大模型来分析内容。\n\n让我尝试直接通过 Python 脚本在本地执行 API 调用（因为 `requests` 可能已经通过其他方式可用，或者我们可以尝试使用 `urllib`）：\n\n"},{"type":"toolCall","id":"call_5a022c314b3a4980b3455021","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"out
-
---- 下一行内容 ---
-Line 59: {"type":"message","id":"65186e84","parentId":"40dc2a42","timestamp":"2026-04-09T10:11:02.823Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Thu 2026-04-09 18:11 GMT+8] http://nxtest.clic/repository/pypi-group/simple/ 用这个镜像源 安装requests"}],"timestamp":1775729462818}}
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
-- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
-- **行号**: 58
-- **时间戳**: 2026-04-09T10:10:55.094Z
-
----
-
-### 问题 #210
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
-- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
-- **行号**: 57
-- **时间戳**: 2026-04-09T10:10:55.092Z
-- **Run ID**: `req_1775729397229_nsdf9td21`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #211
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
-- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
-- **行号**: 58
-- **时间戳**: 2026-04-09T10:10:55.094Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #212
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
-- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
-- **行号**: 58
-- **时间戳**: 2026-04-09T10:10:55.094Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #214
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9a0af35c-6303-4ae7-a932-54396b74e799.jsonl`
-- **Session ID**: `9a0af35c-6303-4ae7-a932-54396b74e799`
-- **行号**: 126
-- **时间戳**: 2026-04-14T07:18:07.476Z
-- **Run ID**: `010bceeb-4f2b-4b81-acf0-7a01daee7b26`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #215
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9a0af35c-6303-4ae7-a932-54396b74e799.jsonl`
-- **Session ID**: `9a0af35c-6303-4ae7-a932-54396b74e799`
-- **行号**: 126
-- **时间戳**: 2026-04-14T07:18:07.476Z
-- **Run ID**: `010bceeb-4f2b-4b81-acf0-7a01daee7b26`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #216
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 92360 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92360)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9ccfae6c-1ba2-4215-b07c-f16eebaee938.jsonl`
-- **Session ID**: `9ccfae6c-1ba2-4215-b07c-f16eebaee938`
-- **行号**: 8
-- **时间戳**: 2026-04-14T07:05:53.732Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #218
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 94948 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=94948)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\a022d143-025f-48f2-b75f-2c21ba0750d7.jsonl.reset.2026-04-14T07-28-25.256Z`
-- **Session ID**: `b2331c11-96c5-41c7-ac67-515700ec2e19`
-- **行号**: 8
-- **时间戳**: 2026-04-14T07:26:22.974Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #219
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 99703 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99703)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\a022d143-025f-48f2-b75f-2c21ba0750d7.jsonl.reset.2026-04-14T07-28-25.256Z`
-- **Session ID**: `b2331c11-96c5-41c7-ac67-515700ec2e19`
-- **行号**: 11
-- **时间戳**: 2026-04-14T07:28:16.070Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #220
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
-- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
-- **行号**: 93
-- **时间戳**: 2026-04-03T06:23:38.193Z
-- **Run ID**: `req_1775197362262_n7z2xlxi6`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #221
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
-- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
-- **行号**: 94
-- **时间戳**: 2026-04-03T06:23:38.196Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #222
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
-- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
-- **行号**: 94
-- **时间戳**: 2026-04-03T06:23:38.196Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #223
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 73149 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73149)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
-- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
-- **行号**: 144
-- **时间戳**: 2026-04-03T06:45:38.126Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #224
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 73204 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73204)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
-- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
-- **行号**: 146
-- **时间戳**: 2026-04-03T07:01:02.066Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #225
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 73462 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73462)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
-- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
-- **行号**: 148
-- **时间戳**: 2026-04-03T07:13:44.537Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #226
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 52: {"type":"message","id":"b8d51b9a","parentId":"b66ade63","timestamp":"2026-04-09T09:46:55.607Z","message":{"role":"assistant","content":[{"type":"text","text":"现在让我用生产环境重新运行图片分析：\n\n"},{"type":"toolCall","id":"call_207d3180699a4956a24bbbe8","name":"exec","arguments":{"command":"node /home/node/.openclaw/workspace/skills/understand-image/understand-image.js /home/node/.openclaw/workspace/2026-04-09/image-1772760276779.png \"提取这张图片中的所有文字内容并描述图片\""}}],"api":"openai-completions","provider":"my-qwen-p
-
---- 下一行内容 ---
-Line 53: {"type":"message","id":"eea0341f","parentId":"b8d51b9a","timestamp":"2026-04-09T09:47:03.558Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 understand-image Skill\n\n让我读取这个技能的详细使用说明，然后正确调用它来处理你的图片。好的，我现在了解了 `understand-image` 技能的使用方法。这个技能需要通过命令行或代码调用来分析图片。让我直接在命令行中调用这个技能来分析你的图片：让我尝试更直接的命令格式：命令正在运行中，让我等待一下结果：看起来测试环境的 API 服务器无法连接（超时了）。让我尝试切换到生产环境，或者检查配置：测试环境服务器超时了。让我尝试切换到生产环境再试一次：现在让我用生产环境重新运行图片分析："}],"timestamp":1775728023554,"stopReason":"stop","usage":{"input":0,"
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
-- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
-- **行号**: 52
-- **时间戳**: 2026-04-09T09:46:55.607Z
-
----
-
-### 问题 #227
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
-- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
-- **行号**: 54
-- **时间戳**: 2026-04-09T09:47:03.568Z
-- **Run ID**: `req_1775727951508_exkphp00l`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #228
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
-- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
-- **行号**: 56
-- **时间戳**: 2026-04-09T09:47:03.579Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #229
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
-- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
-- **行号**: 56
-- **时间戳**: 2026-04-09T09:47:03.579Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #230
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 92483 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92483)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\f15427eb-5cbe-4649-b5e5-ff97dbf69934.jsonl`
-- **Session ID**: `f15427eb-5cbe-4649-b5e5-ff97dbf69934`
-- **行号**: 8
-- **时间戳**: 2026-04-14T07:06:12.385Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #232
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49879 input tokens (16384 > 65536 - 49879). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\01fccd16-4957-41b5-827d-1b9ab1383fa0.jsonl.reset.2026-04-15T05-47-20.402Z`
-- **Session ID**: `01fccd16-4957-41b5-827d-1b9ab1383fa0`
-- **行号**: 57
-- **时间戳**: 2026-04-15T05:47:11.354Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #233
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49551 input tokens (16384 > 65536 - 49551). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\0d695f54-31ca-411d-aafc-f993d82f10cb.jsonl.reset.2026-04-15T06-17-41.113Z`
-- **Session ID**: `0d695f54-31ca-411d-aafc-f993d82f10cb`
-- **行号**: 28
-- **时间戳**: 2026-04-15T06:16:05.863Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #234
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 85041 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85041)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\1ac21cbc-b486-40a3-8dc0-0dc3a52c1e91.jsonl.reset.2026-04-13T05-57-43.669Z`
-- **Session ID**: `1ac21cbc-b486-40a3-8dc0-0dc3a52c1e91`
-- **行号**: 10
-- **时间戳**: 2026-04-13T05:50:43.036Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #235
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52253 input tokens (16384 > 65536 - 52253). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\1b8fdaa0-0c61-4dc0-af9f-3d2e3ccb0c84.jsonl.reset.2026-04-15T05-56-35.850Z`
-- **Session ID**: `1b8fdaa0-0c61-4dc0-af9f-3d2e3ccb0c84`
-- **行号**: 50
-- **时间戳**: 2026-04-15T05:50:03.251Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #236
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50614 input tokens (16384 > 65536 - 50614). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\34931b7e-4dfd-4801-a704-0f7c938ec0a6.jsonl.reset.2026-04-15T06-15-16.128Z`
-- **Session ID**: `34931b7e-4dfd-4801-a704-0f7c938ec0a6`
-- **行号**: 18
-- **时间戳**: 2026-04-15T06:14:35.345Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #237
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50771 input tokens (16384 > 65536 - 50771). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\34931b7e-4dfd-4801-a704-0f7c938ec0a6.jsonl.reset.2026-04-15T06-15-16.128Z`
-- **Session ID**: `34931b7e-4dfd-4801-a704-0f7c938ec0a6`
-- **行号**: 21
-- **时间戳**: 2026-04-15T06:15:09.150Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #238
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
-- **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
-- **行号**: 103
-- **时间戳**: 2026-04-11T09:51:30.555Z
-- **Run ID**: `req_1775901082274_t7sd6ovl8`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #239
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
-- **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
-- **行号**: 104
-- **时间戳**: 2026-04-11T09:51:30.557Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #240
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
-- **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
-- **行号**: 104
-- **时间戳**: 2026-04-11T09:51:30.557Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #241
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49306 input tokens (16384 > 65536 - 49306). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\3929f5b4-46c5-4300-97b7-7394f1b3a843.jsonl.reset.2026-04-15T05-48-59.434Z`
-- **Session ID**: `3929f5b4-46c5-4300-97b7-7394f1b3a843`
-- **行号**: 24
-- **时间戳**: 2026-04-15T05:48:54.676Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #242
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
-- **错误信息**: ```
-Expected toolResult after toolCall, but reached end of file
-
---- 错误行内容 ---
-Line 22: {"type":"message","id":"089b3d1d","parentId":"2ac6baa4","timestamp":"2026-04-15T06:21:12.328Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我已经读取了文档内容。现在让我创建一个子代理来帮您制作一份精美的PPT汇报：\n\n"},{"type":"toolCall","id":"call_7d48f26768b74588abbe61d5","name":"sessions_spawn","arguments":{"label":"SJE馨孕宝PPT制作","mode":"run","runtime":"subagent"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheW
-
-```
-- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
-- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
-- **行号**: 22
-- **时间戳**: 2026-04-15T06:21:12.328Z
-
----
-
-### 问题 #243
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
-- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
-- **行号**: 21
-- **时间戳**: 2026-04-15T06:21:12.325Z
-- **Run ID**: `req_1776234050173_vtyvi7p8j`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #244
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
-- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
-- **行号**: 22
-- **时间戳**: 2026-04-15T06:21:12.328Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #245
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
-- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
-- **行号**: 22
-- **时间戳**: 2026-04-15T06:21:12.328Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #246
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 85682 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85682)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\56bc2a9d-74c5-4168-a298-e607bd80f4f7.jsonl.reset.2026-04-13T06-04-55.489Z`
-- **Session ID**: `56bc2a9d-74c5-4168-a298-e607bd80f4f7`
-- **行号**: 10
-- **时间戳**: 2026-04-13T06:03:55.659Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #247
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 85893 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85893)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\56bc2a9d-74c5-4168-a298-e607bd80f4f7.jsonl.reset.2026-04-13T06-04-55.489Z`
-- **Session ID**: `56bc2a9d-74c5-4168-a298-e607bd80f4f7`
-- **行号**: 13
-- **时间戳**: 2026-04-13T06:04:42.640Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #248
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 6
-- **时间戳**: 2026-04-09T07:24:42.625Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #249
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 7
-- **时间戳**: 2026-04-09T07:24:46.096Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #250
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 8
-- **时间戳**: 2026-04-09T07:24:51.468Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #251
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 9
-- **时间戳**: 2026-04-09T07:25:00.963Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #252
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 11
-- **时间戳**: 2026-04-09T07:25:30.815Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #253
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 12
-- **时间戳**: 2026-04-09T07:25:34.362Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #254
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 13
-- **时间戳**: 2026-04-09T07:25:39.790Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #255
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
-- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
-- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
-- **行号**: 14
-- **时间戳**: 2026-04-09T07:25:49.289Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #256
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51784 input tokens (16384 > 65536 - 51784). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\8e991737-22bf-448e-8bbe-c62186c39811.jsonl`
-- **Session ID**: `8e991737-22bf-448e-8bbe-c62186c39811`
-- **行号**: 40
-- **时间戳**: 2026-04-15T06:24:52.873Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #257
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 7: {"type":"message","id":"34d68000","parentId":"93389adb","timestamp":"2026-04-15T05:47:31.592Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 13:47 GMT+8] 刚刚我把SHU心无忧.docx放到了./2026-04-15目录下。我的需求是： 分析word中的内容，提炼并总结，最终产生一个ppt汇报，使用我刚刚上传的skills"}],"timestamp":1776232051589}}
-
---- 下一行内容 ---
-Line 8: {"type":"message","id":"cc605b68","parentId":"34d68000","timestamp":"2026-04-15T05:47:32.843Z","message":{"role":"toolResult","toolCallId":"call_303b45e7d0af4b4089f3bf8e","toolName":"pptx","content":[{"type":"text","text":"Tool pptx not found"}],"details":{},"isError":true,"timestamp":1776232052840}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
-- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
-- **行号**: 7
-- **时间戳**: 2026-04-15T05:47:31.592Z
-
----
-
-### 问题 #259
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
-- **错误信息**: ```
-Expected toolResult after toolCall, but reached end of file
-
---- 错误行内容 ---
-Line 22: {"type":"message","id":"a13e13dd","parentId":"47f485de","timestamp":"2026-04-15T05:47:54.533Z","message":{"role":"assistant","content":[{"type":"text","text":"文件确实存在。让我使用绝对路径来读取。\n\n"},{"type":"toolCall","id":"call_b71683ec49fe483abc081435","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"tota
-
-```
-- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
-- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
-- **行号**: 22
-- **时间戳**: 2026-04-15T05:47:54.533Z
-
----
-
-### 问题 #260
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
-- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
-- **行号**: 21
-- **时间戳**: 2026-04-15T05:47:54.532Z
-- **Run ID**: `req_1776232051300_0n8mzo724`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #261
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
-- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
-- **行号**: 22
-- **时间戳**: 2026-04-15T05:47:54.533Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #262
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
-- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
-- **行号**: 22
-- **时间戳**: 2026-04-15T05:47:54.533Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #263
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64677 input tokens (16384 > 65536 - 64677). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9bbcbd94-84a2-49f0-adb3-382e5a64bda9.jsonl.reset.2026-04-15T05-15-43.580Z`
-- **Session ID**: `9bbcbd94-84a2-49f0-adb3-382e5a64bda9`
-- **行号**: 10
-- **时间戳**: 2026-04-15T05:15:23.071Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #266
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
-- **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
-- **行号**: 13
-- **时间戳**: 2026-04-15T06:06:53.114Z
-- **Run ID**: `req_1776233210265_a31w4bwuk`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #267
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
-- **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
-- **行号**: 14
-- **时间戳**: 2026-04-15T06:06:53.116Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #268
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
-- **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
-- **行号**: 14
-- **时间戳**: 2026-04-15T06:06:53.116Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #269
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49373 input tokens (16384 > 65536 - 49373). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a3229da1-206f-4681-9a0a-dd00816ea472.jsonl.reset.2026-04-15T06-23-43.304Z`
-- **Session ID**: `a3229da1-206f-4681-9a0a-dd00816ea472`
-- **行号**: 42
-- **时间戳**: 2026-04-15T06:23:17.708Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #271
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
-- **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
-- **行号**: 22
-- **时间戳**: 2026-04-15T05:57:24.020Z
-- **Run ID**: `req_1776232632769_h7o0huel8`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #272
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
-- **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
-- **行号**: 23
-- **时间戳**: 2026-04-15T05:57:24.022Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #273
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
-- **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
-- **行号**: 23
-- **时间戳**: 2026-04-15T05:57:24.022Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #278
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 284596 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=284596)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\bb86d4f5-81b5-4207-b8fd-6c447aea9b59.jsonl.reset.2026-04-13T05-49-51.030Z`
-- **Session ID**: `bb86d4f5-81b5-4207-b8fd-6c447aea9b59`
-- **行号**: 14
-- **时间戳**: 2026-04-13T05:49:35.149Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #279
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49349 input tokens (16384 > 65536 - 49349). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\bed1b9e5-93b7-4584-b13f-feabc4b6b05d.jsonl.reset.2026-04-15T06-21-53.908Z`
-- **Session ID**: `bed1b9e5-93b7-4584-b13f-feabc4b6b05d`
-- **行号**: 22
-- **时间戳**: 2026-04-15T06:21:50.609Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #280
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64170 input tokens (16384 > 65536 - 64170). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
-- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
-- **行号**: 10
-- **时间戳**: 2026-04-15T05:15:50.271Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #281
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64329 input tokens (16384 > 65536 - 64329). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
-- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
-- **行号**: 13
-- **时间戳**: 2026-04-15T05:17:31.594Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #282
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64391 input tokens (16384 > 65536 - 64391). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
-- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
-- **行号**: 16
-- **时间戳**: 2026-04-15T05:17:56.401Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #283
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64453 input tokens (16384 > 65536 - 64453). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
-- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
-- **行号**: 19
-- **时间戳**: 2026-04-15T05:17:58.646Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #284
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64515 input tokens (16384 > 65536 - 64515). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
-- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
-- **行号**: 22
-- **时间戳**: 2026-04-15T05:18:00.910Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #285
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64577 input tokens (16384 > 65536 - 64577). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
-- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
-- **行号**: 25
-- **时间戳**: 2026-04-15T05:18:02.611Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #286
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 18: {"type":"message","id":"36bc2a63","parentId":"48d91a2f","timestamp":"2026-04-15T06:07:28.729Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来文档内容是二进制格式，直接读取显示的是乱码。让我尝试使用 `anthropics-xlsx` 技能来读取这个 Word 文档，或者使用 Python 来解析它。\n\n"},{"type":"toolCall","id":"call_5e6779926ea04d98b804ed25","name":"exec","arguments":{"command":"cd /home/node/.openclaw/workspace/2026-04-15 && python3 -c \"\nfrom docx import Document\nimport json\n\ndoc = Document('SHU心无忧.docx')\ntext_content = []\nfo
-
---- 下一行内容 ---
-Line 19: {"type":"message","id":"6fbe2c67","parentId":"36bc2a63","timestamp":"2026-04-15T06:07:28.864Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来系统提示需要配对节点才能使用 ACP 模式的 ppt-master 技能。让我先检查一下可用的技能列表，看看是否有其他替代方案。看来当前环境下 ACP 模式的 agent 不可用。让我尝试使用 subagent 模式来调用 ppt-master 技能。看起来系统需要节点配对才能启动子代理。让我先读取一下文档内容，然后使用本地的 pptx 技能来手动创建 PT。看起来文档内容是二进制格式，直接读取显示的是乱码。让我尝试使用 `anthropics-xlsx` 技能来读取这个 Word 文档，或者使用 Python 来解析它。"}],"timestamp":1776233248861,"stopReason":"stop","usage":{"input":0,"outp
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
-- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
-- **行号**: 18
-- **时间戳**: 2026-04-15T06:07:28.729Z
-
----
-
-### 问题 #287
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
-- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
-- **行号**: 20
-- **时间戳**: 2026-04-15T06:07:28.869Z
-- **Run ID**: `req_1776233230386_gay17jumu`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #288
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
-- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
-- **行号**: 22
-- **时间戳**: 2026-04-15T06:07:28.878Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #289
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
-- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
-- **行号**: 22
-- **时间戳**: 2026-04-15T06:07:28.878Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #298
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 111407 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=111407)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\eebb13c4-9aea-4158-a939-d8a67d302e68.jsonl.reset.2026-04-15T05-58-15.968Z`
-- **Session ID**: `eebb13c4-9aea-4158-a939-d8a67d302e68`
-- **行号**: 22
-- **时间戳**: 2026-04-15T05:58:05.483Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #300
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 153331 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=153331)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\fe19ff77-0e5e-4a00-ad34-4f5bdd7df7c3.jsonl.reset.2026-04-13T05-50-23.534Z`
-- **Session ID**: `fe19ff77-0e5e-4a00-ad34-4f5bdd7df7c3`
-- **行号**: 11
-- **时间戳**: 2026-04-13T05:50:03.002Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #315
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0b6f9e7d-6192-44d8-b925-2c94cc74d371.jsonl`
-- **Session ID**: `0b6f9e7d-6192-44d8-b925-2c94cc74d371`
-- **行号**: 33
-- **时间戳**: 2026-04-14T09:06:02.548Z
-- **Run ID**: `bd352a63-b3a1-40de-ad85-384f60bb7a9a`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #316
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0b6f9e7d-6192-44d8-b925-2c94cc74d371.jsonl`
-- **Session ID**: `0b6f9e7d-6192-44d8-b925-2c94cc74d371`
-- **行号**: 33
-- **时间戳**: 2026-04-14T09:06:02.548Z
-- **Run ID**: `bd352a63-b3a1-40de-ad85-384f60bb7a9a`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #318
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "undefined"
-
---- 错误行内容 ---
-Line 73: {"type":"message","id":"968ec36f","parentId":"8903060c","timestamp":"2026-04-14T06:41:51.306Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Tue 2026-04-14 14:41 GMT+8] 分析的如何？"}],"timestamp":1776148911300}}
-
---- 下一行内容 ---
-Line 74: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776148975899,"runId":"req_1776148910958_kbpe7zfuk","sessionId":"0f678300-9756-4ea9-b283-9cf231eaba5f","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"LLM idle timeout (60s): no response from model"},"id":"4d43191e","parentId":"968ec36f","timestamp":"2026-04-14T06:42:55.899Z"}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 73
-- **时间戳**: 2026-04-14T06:41:51.306Z
-
----
-
-### 问题 #325
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 72
-- **时间戳**: 2026-04-14T06:25:22.297Z
-- **Run ID**: `req_1776147850337_tyub0lfc0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #326
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 72
-- **时间戳**: 2026-04-14T06:25:22.297Z
-- **Run ID**: `req_1776147850337_tyub0lfc0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #327
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 74
-- **时间戳**: 2026-04-14T06:42:55.899Z
-- **Run ID**: `req_1776148910958_kbpe7zfuk`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #328
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 74
-- **时间戳**: 2026-04-14T06:42:55.899Z
-- **Run ID**: `req_1776148910958_kbpe7zfuk`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #329
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51191 input tokens (16384 > 65536 - 51191). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 113
-- **时间戳**: 2026-04-14T09:04:07.147Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #330
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49625 input tokens (16384 > 65536 - 49625). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 149
-- **时间戳**: 2026-04-14T09:11:40.120Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #331
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49635 input tokens (16384 > 65536 - 49635). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 152
-- **时间戳**: 2026-04-14T09:11:41.959Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #332
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50137 input tokens (16384 > 65536 - 50137). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 155
-- **时间戳**: 2026-04-14T09:11:43.993Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #333
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51119 input tokens (16384 > 65536 - 51119). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 158
-- **时间戳**: 2026-04-14T09:11:46.324Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #334
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51677 input tokens (16384 > 65536 - 51677). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 161
-- **时间戳**: 2026-04-14T09:11:48.360Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #335
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52235 input tokens (16384 > 65536 - 52235). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 164
-- **时间戳**: 2026-04-14T09:11:51.942Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #336
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51945 input tokens (16384 > 65536 - 51945). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 167
-- **时间戳**: 2026-04-14T09:11:53.787Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #337
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52954 input tokens (16384 > 65536 - 52954). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 170
-- **时间戳**: 2026-04-14T09:11:56.038Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #338
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53315 input tokens (16384 > 65536 - 53315). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 173
-- **时间戳**: 2026-04-14T09:11:58.063Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #339
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53676 input tokens (16384 > 65536 - 53676). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 176
-- **时间戳**: 2026-04-14T09:12:00.091Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #340
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53166 input tokens (16384 > 65536 - 53166). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 179
-- **时间戳**: 2026-04-14T09:12:02.226Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #341
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54424 input tokens (16384 > 65536 - 54424). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 182
-- **时间戳**: 2026-04-14T09:12:04.694Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #342
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54798 input tokens (16384 > 65536 - 54798). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 185
-- **时间戳**: 2026-04-14T09:12:06.970Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #343
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55172 input tokens (16384 > 65536 - 55172). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 188
-- **时间戳**: 2026-04-14T09:12:09.210Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #344
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54355 input tokens (16384 > 65536 - 54355). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 191
-- **时间戳**: 2026-04-14T09:20:57.903Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #345
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55606 input tokens (16384 > 65536 - 55606). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 194
-- **时间戳**: 2026-04-14T09:21:00.619Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #346
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55737 input tokens (16384 > 65536 - 55737). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 197
-- **时间戳**: 2026-04-14T09:21:02.413Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #347
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55868 input tokens (16384 > 65536 - 55868). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 200
-- **时间戳**: 2026-04-14T09:21:04.194Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #348
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49196 input tokens (16384 > 65536 - 49196). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\1f52a892-ec2c-43f4-a681-117ad1d2347f.jsonl.reset.2026-04-15T07-33-34.422Z`
-- **Session ID**: `1f52a892-ec2c-43f4-a681-117ad1d2347f`
-- **行号**: 72
-- **时间戳**: 2026-04-15T07:33:11.959Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #369
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3.jsonl`
-- **Session ID**: `3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3`
-- **行号**: 47
-- **时间戳**: 2026-04-14T09:06:15.144Z
-- **Run ID**: `574deee7-91d2-4251-8ab6-348eb9cadac3`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #370
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3.jsonl`
-- **Session ID**: `3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3`
-- **行号**: 47
-- **时间戳**: 2026-04-14T09:06:15.144Z
-- **Run ID**: `574deee7-91d2-4251-8ab6-348eb9cadac3`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #374
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51023 input tokens (16384 > 65536 - 51023). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\441e8f2d-1bb7-44cc-b7d4-42a152401e7b.jsonl.reset.2026-04-15T07-21-15.065Z`
-- **Session ID**: `441e8f2d-1bb7-44cc-b7d4-42a152401e7b`
-- **行号**: 119
-- **时间戳**: 2026-04-15T07:19:41.327Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #375
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51117 input tokens (16384 > 65536 - 51117). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\441e8f2d-1bb7-44cc-b7d4-42a152401e7b.jsonl.reset.2026-04-15T07-21-15.065Z`
-- **Session ID**: `441e8f2d-1bb7-44cc-b7d4-42a152401e7b`
-- **行号**: 122
-- **时间戳**: 2026-04-15T07:21:06.036Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #376
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "user"
-
---- 错误行内容 ---
-Line 100: {"type":"message","id":"8817786f","parentId":"19bc695d","timestamp":"2026-04-15T09:08:50.382Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_b29bef332ede41ebaa6f9bca","name":"edit","arguments":{"file":"/home/node/.openclaw/workspace/skills/devcdoc-query/SKILL.md"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,
-
---- 下一行内容 ---
-Line 101: {"type":"message","id":"e3ce8dea","parentId":"8817786f","timestamp":"2026-04-15T09:09:13.190Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 17:09 GMT+8] 不是更改devcdoc-query和devcdoc-upload"}],"timestamp":1776244153180}}
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 100
-- **时间戳**: 2026-04-15T09:08:50.382Z
-
----
-
-### 问题 #377
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "user"
-
---- 错误行内容 ---
-Line 110: {"type":"message","id":"1493dd29","parentId":"1393a5bb","timestamp":"2026-04-15T09:09:37.377Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_afdf6207c62143dfbde8f9d3","name":"exec","arguments":{"command":"cd /home/node/.openclaw/workspace/svn-workspace && svn diff env_config.json"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output
-
---- 下一行内容 ---
-Line 111: {"type":"message","id":"560df41b","parentId":"1493dd29","timestamp":"2026-04-15T09:10:01.296Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 17:10 GMT+8] 你现在执行svn的更新和上传是否使用技能？"}],"timestamp":1776244201287}}
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 110
-- **时间戳**: 2026-04-15T09:09:37.377Z
-
----
-
-### 问题 #378
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 99
-- **时间戳**: 2026-04-15T09:08:50.380Z
-- **Run ID**: `req_1776244120064_g2qco6dmc`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #379
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 100
-- **时间戳**: 2026-04-15T09:08:50.382Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #380
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 109
-- **时间戳**: 2026-04-15T09:09:37.375Z
-- **Run ID**: `req_1776244152817_a0f7rzzdh`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #381
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 110
-- **时间戳**: 2026-04-15T09:09:37.377Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #382
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 100
-- **时间戳**: 2026-04-15T09:08:50.382Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #383
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
-- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
-- **行号**: 110
-- **时间戳**: 2026-04-15T09:09:37.377Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #392
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\495e09f3-443a-40ad-b26f-edc30ebcf118.jsonl`
-- **Session ID**: `495e09f3-443a-40ad-b26f-edc30ebcf118`
-- **行号**: 21
-- **时间戳**: 2026-04-14T09:31:41.107Z
-- **Run ID**: `25f6a0f7-6100-45bf-a238-3c1bde61470d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #393
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\495e09f3-443a-40ad-b26f-edc30ebcf118.jsonl`
-- **Session ID**: `495e09f3-443a-40ad-b26f-edc30ebcf118`
-- **行号**: 21
-- **时间戳**: 2026-04-14T09:31:41.107Z
-- **Run ID**: `25f6a0f7-6100-45bf-a238-3c1bde61470d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #404
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\66a18763-dcc3-4f3f-8838-88ce893158a4.jsonl`
-- **Session ID**: `66a18763-dcc3-4f3f-8838-88ce893158a4`
-- **行号**: 25
-- **时间戳**: 2026-04-14T09:05:50.615Z
-- **Run ID**: `a68d9714-a191-40b6-9d65-30d26303535a`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #405
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\66a18763-dcc3-4f3f-8838-88ce893158a4.jsonl`
-- **Session ID**: `66a18763-dcc3-4f3f-8838-88ce893158a4`
-- **行号**: 25
-- **时间戳**: 2026-04-14T09:05:50.615Z
-- **Run ID**: `a68d9714-a191-40b6-9d65-30d26303535a`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #415
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\8011363c-3210-4c83-a4d6-13c03b465220.jsonl`
-- **Session ID**: `8011363c-3210-4c83-a4d6-13c03b465220`
-- **行号**: 22
-- **时间戳**: 2026-04-14T09:07:39.822Z
-- **Run ID**: `421add1e-43ff-4965-894d-176cf2f736d0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #416
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\8011363c-3210-4c83-a4d6-13c03b465220.jsonl`
-- **Session ID**: `8011363c-3210-4c83-a4d6-13c03b465220`
-- **行号**: 22
-- **时间戳**: 2026-04-14T09:07:39.822Z
-- **Run ID**: `421add1e-43ff-4965-894d-176cf2f736d0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #446
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\a5d510bb-1b47-4314-9446-1732cc207874.jsonl`
-- **Session ID**: `a5d510bb-1b47-4314-9446-1732cc207874`
-- **行号**: 29
-- **时间戳**: 2026-04-14T09:27:15.603Z
-- **Run ID**: `27ca7b27-88b7-4ee2-8d53-d0c795bfe759`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #447
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\a5d510bb-1b47-4314-9446-1732cc207874.jsonl`
-- **Session ID**: `a5d510bb-1b47-4314-9446-1732cc207874`
-- **行号**: 29
-- **时间戳**: 2026-04-14T09:27:15.603Z
-- **Run ID**: `27ca7b27-88b7-4ee2-8d53-d0c795bfe759`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #450
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51908 input tokens (16384 > 65536 - 51908). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ac6fd251-fdd1-4b14-aefa-7aef9b5364b3.jsonl.reset.2026-04-15T01-12-21.164Z`
-- **Session ID**: `ac6fd251-fdd1-4b14-aefa-7aef9b5364b3`
-- **行号**: 80
-- **时间戳**: 2026-04-15T01:11:24.983Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #451
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51774 input tokens (16384 > 65536 - 51774). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ac6fd251-fdd1-4b14-aefa-7aef9b5364b3.jsonl.reset.2026-04-15T01-12-21.164Z`
-- **Session ID**: `ac6fd251-fdd1-4b14-aefa-7aef9b5364b3`
-- **行号**: 83
-- **时间戳**: 2026-04-15T01:12:04.651Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #456
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\acee90b3-b877-42fd-abeb-3700b4b5fd57.jsonl`
-- **Session ID**: `acee90b3-b877-42fd-abeb-3700b4b5fd57`
-- **行号**: 15
-- **时间戳**: 2026-04-14T09:07:51.000Z
-- **Run ID**: `c4c8ea24-93a8-431a-aa6f-3f891ee544d9`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #457
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\acee90b3-b877-42fd-abeb-3700b4b5fd57.jsonl`
-- **Session ID**: `acee90b3-b877-42fd-abeb-3700b4b5fd57`
-- **行号**: 15
-- **时间戳**: 2026-04-14T09:07:51.000Z
-- **Run ID**: `c4c8ea24-93a8-431a-aa6f-3f891ee544d9`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #458
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51032 input tokens (16384 > 65536 - 51032). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b1544dc1-80ec-4318-80eb-cb1c433cd1e2.jsonl.reset.2026-04-14T06-11-31.069Z`
-- **Session ID**: `b1544dc1-80ec-4318-80eb-cb1c433cd1e2`
-- **行号**: 140
-- **时间戳**: 2026-04-14T06:11:15.067Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #468
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
-- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
-- **行号**: 30
-- **时间戳**: 2026-04-14T09:05:53.879Z
-- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #469
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
-- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
-- **行号**: 30
-- **时间戳**: 2026-04-14T09:05:53.879Z
-- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #471
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
-- **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
-- **行号**: 8
-- **时间戳**: 2026-04-15T09:20:51.687Z
-- **Run ID**: `bbae6408-de89-479f-90f0-235dd832faed`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #472
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
-- **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
-- **行号**: 8
-- **时间戳**: 2026-04-15T09:20:51.687Z
-- **Run ID**: `bbae6408-de89-479f-90f0-235dd832faed`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #473
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "assistant"
-
---- 错误行内容 ---
-Line 28: {"type":"message","id":"71b273cf","parentId":"9f796414","timestamp":"2026-04-15T01:19:26.649Z","message":{"role":"assistant","content":[{"type":"text","text":"提交信息编码问题。让我用英文提交信息重试：\n\n"},{"type":"toolCall","id":"call_c840b3cb31794c5e9a3b5928","name":"exec","arguments":{"command":"cd /home/node/.openclaw/workspace/svn-workspace && svn commit -m \"Add CICD CI directory exception handling analysis report\"","pty":true}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-visi
-
---- 下一行内容 ---
-Line 29: {"type":"message","id":"50b60623","parentId":"71b273cf","timestamp":"2026-04-15T01:19:35.561Z","message":{"role":"assistant","content":[{"type":"text","text":"当前工作区不是 Git 仓库。不过根据 MEMORY.md 的记录，我们有一个 SVN 交换区可以用来上传文件。让我先检查一下 `.claw` 目录是否存在，然后将其提交到 SVN：文件已存在。现在让我将其上传到 SVN 交换区：让我先检查 SVN 工作区状态：目录已经存在但未被跟踪。让我重新添加并提交：提交信息编码问题。让我用英文提交信息重试："}],"timestamp":1776215975560,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
-- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
-- **行号**: 28
-- **时间戳**: 2026-04-15T01:19:26.649Z
-
----
-
-### 问题 #474
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
-- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
-- **行号**: 30
-- **时间戳**: 2026-04-15T01:19:35.582Z
-- **Run ID**: `req_1776215954739_uc52acp0g`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #475
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
-- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
-- **行号**: 32
-- **时间戳**: 2026-04-15T01:19:35.790Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #476
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted.
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
-- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
-- **行号**: 32
-- **时间戳**: 2026-04-15T01:19:35.790Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #487
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d66da86c-8415-45d4-b226-3f67b20e6c72.jsonl`
-- **Session ID**: `d66da86c-8415-45d4-b226-3f67b20e6c72`
-- **行号**: 23
-- **时间戳**: 2026-04-14T09:05:45.740Z
-- **Run ID**: `4020997d-ba23-4765-be3d-419acf130ddc`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #488
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d66da86c-8415-45d4-b226-3f67b20e6c72.jsonl`
-- **Session ID**: `d66da86c-8415-45d4-b226-3f67b20e6c72`
-- **行号**: 23
-- **时间戳**: 2026-04-14T09:05:45.740Z
-- **Run ID**: `4020997d-ba23-4765-be3d-419acf130ddc`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #498
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "undefined"
-
---- 错误行内容 ---
-Line 51: {"type":"message","id":"17b7226b","parentId":"b650e4c9","timestamp":"2026-04-15T09:22:19.183Z","message":{"role":"user","content":[{"type":"text","text":"[Wed 2026-04-15 17:22 GMT+8] <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\nOpenClaw runtime context (internal):\nThis context is runtime-generated, not user-authored. Keep internal details private.\n\n[Internal task completion event]\nsource: subagent\nsession_key: agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc\nsession_id: f2d7f49d-9571-4cc
-
---- 下一行内容 ---
-Line 52: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776245000623,"runId":"announce:v1:agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc:766d9b83-aada-4e2e-9b95-75c228b3b61d","sessionId":"db704d36-95c4-4926-a7eb-e9799a26cc6a","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"LLM idle timeout (60s): no response from model"},"id":"7f3ccaae","parentId":"17b7226b","timestamp":"2026-04-15T09:23:20.623Z"}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
-- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
-- **行号**: 51
-- **时间戳**: 2026-04-15T09:22:19.183Z
-
----
-
-### 问题 #499
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
-- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
-- **行号**: 52
-- **时间戳**: 2026-04-15T09:23:20.623Z
-- **Run ID**: `announce:v1:agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc:766d9b83-aada-4e2e-9b95-75c228b3b61d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #500
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
-- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
-- **行号**: 52
-- **时间戳**: 2026-04-15T09:23:20.623Z
-- **Run ID**: `announce:v1:agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc:766d9b83-aada-4e2e-9b95-75c228b3b61d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #501
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49295 input tokens (16384 > 65536 - 49295). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
-- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
-- **行号**: 134
-- **时间戳**: 2026-04-15T09:56:38.011Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #502
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49239 input tokens (16384 > 65536 - 49239). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ea170d88-f848-4950-b1bb-039e1340f07f.jsonl.reset.2026-04-15T07-50-22.851Z`
-- **Session ID**: `ea170d88-f848-4950-b1bb-039e1340f07f`
-- **行号**: 36
-- **时间戳**: 2026-04-15T07:50:03.170Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #506
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\efe3c556-5c92-4323-b1dc-9d80cadd71fb.jsonl`
-- **Session ID**: `efe3c556-5c92-4323-b1dc-9d80cadd71fb`
-- **行号**: 32
-- **时间戳**: 2026-04-14T09:33:04.696Z
-- **Run ID**: `68d03430-23ec-4958-b0fa-9b1f2fe9325e`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #507
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\efe3c556-5c92-4323-b1dc-9d80cadd71fb.jsonl`
-- **Session ID**: `efe3c556-5c92-4323-b1dc-9d80cadd71fb`
-- **行号**: 32
-- **时间戳**: 2026-04-14T09:33:04.696Z
-- **Run ID**: `68d03430-23ec-4958-b0fa-9b1f2fe9325e`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #525
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
-- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
-- **行号**: 42
-- **时间戳**: 2026-04-14T09:30:17.499Z
-- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #526
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
-- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
-- **行号**: 42
-- **时间戳**: 2026-04-14T09:30:17.499Z
-- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #528
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
-- **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
-- **行号**: 8
-- **时间戳**: 2026-04-15T09:22:18.505Z
-- **Run ID**: `766d9b83-aada-4e2e-9b95-75c228b3b61d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #529
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
-- **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
-- **行号**: 8
-- **时间戳**: 2026-04-15T09:22:18.505Z
-- **Run ID**: `766d9b83-aada-4e2e-9b95-75c228b3b61d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #545
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\fe866c45-f880-4daa-b46e-4db9ee164372.jsonl`
-- **Session ID**: `fe866c45-f880-4daa-b46e-4db9ee164372`
-- **行号**: 40
-- **时间戳**: 2026-04-14T09:06:10.791Z
-- **Run ID**: `62ca17d5-cbc7-45a4-a5ea-7d5faeeb11d0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #546
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\fe866c45-f880-4daa-b46e-4db9ee164372.jsonl`
-- **Session ID**: `fe866c45-f880-4daa-b46e-4db9ee164372`
-- **行号**: 40
-- **时间戳**: 2026-04-14T09:06:10.791Z
-- **Run ID**: `62ca17d5-cbc7-45a4-a5ea-7d5faeeb11d0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #558
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53947 input tokens (16384 > 65536 - 53947). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\452b6522-ab61-4cb5-9e12-993c22302827.jsonl`
-- **Session ID**: `452b6522-ab61-4cb5-9e12-993c22302827`
-- **行号**: 38
-- **时间戳**: 2026-04-07T02:07:42.220Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #576
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
-- **错误信息**: ```
-Expected "toolResult" after "toolCall", but got "user"
-
---- 错误行内容 ---
-Line 211: {"type":"message","id":"602ad070","parentId":"258bc99a","timestamp":"2026-03-31T09:58:21.528Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我来使用 `py-executor` 技能创建一个名为 `test.docx` 的 Word 文档，内容写入 \"123\"：\n\n"},{"type":"toolCall","id":"call_480949ba5e9a4c8b85b8ec34","name":"write","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input"
-
---- 下一行内容 ---
-Line 212: {"type":"message","id":"0c9bce49","parentId":"602ad070","timestamp":"2026-03-31T10:00:02.773Z","message":{"role":"user","content":[{"type":"text","text":"If nothing important to store, reply with NO_REPLY. Otherwise, write notes to memory/2026-03-31.md and ALWAYS reply with NO_REPLY.\n\nStore durable memories only in memory/2026-03-31.md (create memory/ if needed).\n\nIf memory/2026-03-31.md already exists, APPEND new content only and do not overwrite existing entries.\n\nTreat workspace bootstr
-
-```
-- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
-- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
-- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
-- **行号**: 211
-- **时间戳**: 2026-03-31T09:58:21.528Z
-
----
-
-### 问题 #577
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
-- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
-- **行号**: 210
-- **时间戳**: 2026-03-31T09:58:21.524Z
-- **Run ID**: `128a6d2b-ffc6-404c-b8c6-3b5d674aed8c`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #578
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
-- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
-- **行号**: 211
-- **时间戳**: 2026-03-31T09:58:21.528Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #579
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
-- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
-- **行号**: 211
-- **时间戳**: 2026-03-31T09:58:21.528Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #581
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 84033 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=84033)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\03e9ea66-6f41-4a6d-a639-21be7cb52768.jsonl.reset.2026-04-14T08-04-13.586Z`
-- **Session ID**: `03e9ea66-6f41-4a6d-a639-21be7cb52768`
-- **行号**: 13
-- **时间戳**: 2026-04-14T06:39:41.102Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #631
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\54355af5-ac92-4baf-a0df-42f72ff7c497.jsonl`
-- **Session ID**: `d4678ca9-d333-45fc-b9d5-9197b9cf2cea`
-- **行号**: 5
-- **时间戳**: 2026-04-03T06:35:02.235Z
-- **Run ID**: `req_1775197972491_55uwzwguf`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #646
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"2026-04-09T09:29:14.877Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Thu 2026-04-09 09:28 UTC] 使用技contact-book技能； 我的通讯录电话是多少"}],"timestamp":1775726954865}}
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
-- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
-- **行号**: 72
-- **时间戳**: 2026-04-09T09:29:14.877Z
-
----
-
-### 问题 #647
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
-- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
-- **行号**: 68
-- **时间戳**: 2026-04-09T09:29:11.690Z
-- **Run ID**: `req_1775726937907_oe3qac1sp`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #648
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
-- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
-- **行号**: 69
-- **时间戳**: 2026-04-09T09:29:11.693Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #649
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
-- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
-- **行号**: 71
-- **时间戳**: 2026-04-09T09:29:14.866Z
-- **Run ID**: `req_1775726937907_oe3qac1sp`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #650
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
-- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
-- **行号**: 69
-- **时间戳**: 2026-04-09T09:29:11.693Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #660
-
-- **错误类型**: `flow_integrity_missing_tool_result`
-- **事件类型**: `message`
-- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
-- **错误信息**: ```
-Expected toolResult after toolCall, but reached end of file
-
---- 错误行内容 ---
-Line 40: {"type":"message","id":"932b47a6","parentId":"ed2bd7ef","timestamp":"2026-04-03T02:18:28.170Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_bbabc70b90d642da9f89e299","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"stopReason":"aborted","timestamp":1775182
-
-```
-- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
-- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
-- **行号**: 40
-- **时间戳**: 2026-04-03T02:18:28.170Z
-
----
-
-### 问题 #661
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
-- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
-- **行号**: 39
-- **时间戳**: 2026-04-03T02:18:28.166Z
-- **Run ID**: `req_1775182602904_zhmn94rhg`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #662
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
-- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
-- **行号**: 40
-- **时间戳**: 2026-04-03T02:18:28.170Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #663
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
-- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
-- **行号**: 40
-- **时间戳**: 2026-04-03T02:18:28.170Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #664
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 63202 input tokens (16384 > 65536 - 63202). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\587d2128-7fa3-43df-a083-eddf93414d0a.jsonl.reset.2026-04-15T06-55-26.318Z`
-- **Session ID**: `587d2128-7fa3-43df-a083-eddf93414d0a`
-- **行号**: 10
-- **时间戳**: 2026-04-14T08:50:51.572Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #694
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 126: {"type":"message","id":"3c4a82a7","parentId":"f36496ed","timestamp":"2026-04-02T08:49:41.849Z","message":{"role":"user","content":[{"type":"text","text":"System: [2026-04-02 08:49:06 UTC] [Post-compaction context refresh]\nSystem: \nSystem: Session was just compacted. The conversation summary above is a hint, NOT a substitute for your startup sequence. Execute your Session Startup sequence now — read the required files before responding to the user.\nSystem: \nSystem: Critical rules from AGENTS.
-
---- 下一行内容 ---
-Line 127: {"type":"message","id":"770661a5","parentId":"3c4a82a7","timestamp":"2026-04-02T08:49:44.185Z","message":{"role":"toolResult","toolCallId":"call_918e18952809411f9caaf68c","toolName":"weather","content":[{"type":"text","text":"Tool weather not found"}],"details":{},"isError":true,"timestamp":1775119784166}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
-- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
-- **行号**: 126
-- **时间戳**: 2026-04-02T08:49:41.849Z
-
----
-
-### 问题 #698
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2026-04-02T08:56:03.465Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
-- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
-- **行号**: 148
-- **时间戳**: 2026-04-02T08:56:03.465Z
-
----
-
-### 问题 #699
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57883 input tokens (8192 > 65536 - 57883). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
-- **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
-- **行号**: 121
-- **时间戳**: 2026-03-31T09:25:55.791Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #700
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58180 input tokens (8192 > 65536 - 58180). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
-- **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
-- **行号**: 123
-- **时间戳**: 2026-03-31T09:26:11.341Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #701
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58297 input tokens (8192 > 65536 - 58297). (parameter=max_tokens, value=8192)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
-- **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
-- **行号**: 125
-- **时间戳**: 2026-03-31T09:26:11.662Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #720
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"2026-04-02T15:05:05.579Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\9fd7e156-e3a7-496e-89e3-84e8611ab65a.jsonl.reset.2026-04-02T15-05-05.957Z`
-- **Session ID**: `9fd7e156-e3a7-496e-89e3-84e8611ab65a`
-- **行号**: 84
-- **时间戳**: 2026-04-02T15:05:05.579Z
-
----
-
-### 问题 #724
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\a209aa52-f716-47c0-bd66-d9644415ee6c.jsonl.reset.2026-03-31T06-12-09.312Z`
-- **Session ID**: `a209aa52-f716-47c0-bd66-d9644415ee6c`
-- **行号**: 109
-- **时间戳**: 2026-03-30T11:00:07.773Z
-- **Run ID**: `req_1774868397791_fk4kjs6zw`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #739
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl`
-- **Session ID**: `b5018140-32f9-4102-879a-7853821a47d1`
-- **行号**: 5
-- **时间戳**: 2026-04-02T09:27:20.261Z
-- **Run ID**: `req_1775122020273_g1x9hzjom`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #746
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"2026-04-02T09:27:00.471Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl.reset.2026-04-02T09-27-03.259Z`
-- **Session ID**: `c5c862a7-da7a-4e74-ad62-5c3afec2c9e2`
-- **行号**: 59
-- **时间戳**: 2026-04-02T09:27:00.471Z
-
----
-
-### 问题 #794
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 11: {"type":"message","id":"7821a954","parentId":"5753a2fe","timestamp":"2026-03-25T08:24:57.664Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Wed 2026-03-25 08:24 UTC] 帮我创建一个skill 功能是读取若干个excel文件 根据excel的构成 和处理 excel的具体需求 生成nodejs代码 执行后处理excel"}],"timestamp":1774427097659}}
-
---- 下一行内容 ---
-Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"2026-03-25T08:24:58.566Z","message":{"role":"toolResult","toolCallId":"call_9e2a906cccd44542bdccc5a0","toolName":"skill-creator","content":[{"type":"text","text":"Tool skill-creator not found"}],"details":{},"isError":true,"timestamp":1774427098557}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\e680e881-9873-444c-bd8b-2f6742248e45.jsonl.reset.2026-03-28T04-14-20.084Z`
-- **Session ID**: `e680e881-9873-444c-bd8b-2f6742248e45`
-- **行号**: 11
-- **时间戳**: 2026-03-25T08:24:57.664Z
-
----
-
-### 问题 #805
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"2026-04-03T07:05:13.013Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Fri 2026-04-03 07:05 UTC] 是。"}],"timestamp":1775199913009}}
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\f3456e19-3ffe-4e41-9bad-cc80f8083c91.jsonl.reset.2026-04-03T07-05-16.658Z`
-- **Session ID**: `f3456e19-3ffe-4e41-9bad-cc80f8083c91`
-- **行号**: 29
-- **时间戳**: 2026-04-03T07:05:13.013Z
-
----
-
-### 问题 #822
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\0dcd285c-6703-44d3-a494-d22ebb0521d9.jsonl.reset.2026-04-15T05-13-50.598Z`
-- **Session ID**: `0dcd285c-6703-44d3-a494-d22ebb0521d9`
-- **行号**: 39
-- **时间戳**: 2026-04-15T05:08:43.564Z
-- **Run ID**: `68a1ff56-5d0c-41a9-ace1-af5ab4aeb27f`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #823
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 60318 input tokens (16384 > 65536 - 60318). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\0dcd285c-6703-44d3-a494-d22ebb0521d9.jsonl.reset.2026-04-15T05-13-50.598Z`
-- **Session ID**: `0dcd285c-6703-44d3-a494-d22ebb0521d9`
-- **行号**: 115
-- **时间戳**: 2026-04-15T05:13:41.143Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #824
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 9: {"type":"message","id":"50fa9702","parentId":"e7fa7a8a","timestamp":"2026-04-15T08:37:09.355Z","message":{"role":"user","content":[{"type":"text","text":"Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.\nWhen reading HEARTBEAT.md, use workspace file /home/node/.openclaw/workspace/HEARTBEAT.md (exact case). Do not read docs/heartbeat.md.\nCurrent time: Wednesday, April 15th, 2
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\52c52422-bc70-4b32-b797-b01f0285619d.jsonl`
-- **Session ID**: `52c52422-bc70-4b32-b797-b01f0285619d`
-- **行号**: 9
-- **时间戳**: 2026-04-15T08:37:09.355Z
-
----
-
-### 问题 #825
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 9: {"type":"message","id":"af72a086","parentId":"d27eec57","timestamp":"2026-04-15T05:15:31.762Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 13:15 GMT+8] k8s-xc-02/xjsyy-cluster-xc-04 分析这个集群的异常pod 本次允许你使用kubectl"}],"timestamp":1776230131758}}
-
---- 下一行内容 ---
-Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"2026-04-15T05:15:33.066Z","message":{"role":"toolResult","toolCallId":"call_9899960148154855a4a2ef11","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776230133062}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
-- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
-- **行号**: 9
-- **时间戳**: 2026-04-15T05:15:31.762Z
-
----
-
-### 问题 #830
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49567 input tokens (16384 > 65536 - 49567). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
-- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
-- **行号**: 47
-- **时间戳**: 2026-04-15T05:18:00.407Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #831
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49886 input tokens (16384 > 65536 - 49886). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
-- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
-- **行号**: 50
-- **时间戳**: 2026-04-15T06:36:34.609Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #832
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 37
-- **时间戳**: 2026-04-15T01:44:18.902Z
-- **Run ID**: `f73d774c-9773-48ae-a324-5d1e18eddad4`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #833
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 38
-- **时间戳**: 2026-04-15T01:44:18.906Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #834
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 38
-- **时间戳**: 2026-04-15T01:44:18.906Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #835
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49813 input tokens (16384 > 65536 - 49813). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 118
-- **时间戳**: 2026-04-15T01:56:58.502Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #836
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49935 input tokens (16384 > 65536 - 49935). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 121
-- **时间戳**: 2026-04-15T01:58:42.863Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #837
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50012 input tokens (16384 > 65536 - 50012). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 124
-- **时间戳**: 2026-04-15T01:59:10.369Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #838
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50089 input tokens (16384 > 65536 - 50089). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 127
-- **时间戳**: 2026-04-15T01:59:14.608Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #839
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50166 input tokens (16384 > 65536 - 50166). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 130
-- **时间戳**: 2026-04-15T01:59:17.769Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #840
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50243 input tokens (16384 > 65536 - 50243). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
-- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
-- **行号**: 133
-- **时间戳**: 2026-04-15T01:59:19.899Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #841
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 7: {"type":"message","id":"e25c2201","parentId":"44f0a4fa","timestamp":"2026-04-15T02:00:33.324Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 10:00 GMT+8] 查看下 包含aiap的pod"}],"timestamp":1776218433320}}
-
---- 下一行内容 ---
-Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"2026-04-15T02:00:36.599Z","message":{"role":"toolResult","toolCallId":"call_dfbb1b44df024fb389c9f07d","toolName":"k8s_pilot","content":[{"type":"text","text":"Tool k8s_pilot not found"}],"details":{},"isError":true,"timestamp":1776218436596}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
-- **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
-- **行号**: 7
-- **时间戳**: 2026-04-15T02:00:33.324Z
-
----
-
-### 问题 #848
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50041 input tokens (16384 > 65536 - 50041). (parameter=max_tokens, value=16384)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
-- **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
-- **行号**: 57
-- **时间戳**: 2026-04-15T03:07:27.918Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #849
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 23: {"type":"message","id":"b9a12180","parentId":"6e4ea368","timestamp":"2026-04-15T03:15:17.410Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:15 GMT+8] 重新加载下kube-polot 工具"}],"timestamp":1776222917405}}
-
---- 下一行内容 ---
-Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"2026-04-15T03:15:17.925Z","message":{"role":"toolResult","toolCallId":"call_921848a820714f22af405c82","toolName":"skills-installer","content":[{"type":"text","text":"Tool skills-installer not found"}],"details":{},"isError":true,"timestamp":1776222917921}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
-- **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
-- **行号**: 23
-- **时间戳**: 2026-04-15T03:15:17.410Z
-
----
-
-### 问题 #854
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 71540 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=71540)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
-- **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
-- **行号**: 47
-- **时间戳**: 2026-04-15T03:15:42.644Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #855
-
-- **错误类型**: `flow_integrity_no_reply`
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 7: {"type":"message","id":"848d45fc","parentId":"f16c9f9f","timestamp":"2026-04-15T03:07:48.450Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:07 GMT+8] 帮我统计下所有包含sidecar的pod 中sidecar 的资源占用情况 按照集群汇总给我"}],"timestamp":1776222468443}}
-
---- 下一行内容 ---
-Line 8: {"type":"message","id":"99d39886","parentId":"848d45fc","timestamp":"2026-04-15T03:07:51.348Z","message":{"role":"toolResult","toolCallId":"call_6601b8b04bf34c02acfd3187","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776222471344}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
-- **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
-- **行号**: 7
-- **时间戳**: 2026-04-15T03:07:48.450Z
-
----
-
-### 问题 #868
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 112206 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=112206)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
-- **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
-- **行号**: 55
-- **时间戳**: 2026-04-15T03:11:10.014Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #869
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
-400 This model's maximum context length is 65536 tokens. However, your request has 93398 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93398)
-```
-- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\8a7a7bbf-e23c-4c9c-bee2-e3b0d0f793dd.jsonl`
-- **Session ID**: `8a7a7bbf-e23c-4c9c-bee2-e3b0d0f793dd`
-- **行号**: 38
-- **时间戳**: 2026-04-13T02:18:17.058Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #871
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-This operation was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
-- **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
-- **行号**: 13
-- **时间戳**: 2026-04-13T06:39:29.925Z
-- **Run ID**: `req_1776062364436_7dn2kii3m`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #872
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `message`
-- **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
-- **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
-- **行号**: 14
-- **时间戳**: 2026-04-13T06:39:29.927Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #873
-
-- **错误类型**: `abnormal_stop`
-- **事件类型**: `message`
-- **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
-Request was aborted
-```
-- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
-- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
-- **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
-- **行号**: 14
-- **时间戳**: 2026-04-13T06:39:29.927Z
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-## 🟡 中优先级问题 (532)
-
-### 问题 #5
-
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6471,9 +43,8 @@ Line 18: {"type":"message","id":"e7011170","parentId":"096c9daf","timestamp":"20
 
 ---
 
-### 问题 #6
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6494,9 +65,8 @@ Line 19: {"type":"message","id":"5ac4a234","parentId":"e7011170","timestamp":"20
 
 ---
 
-### 问题 #16
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6517,9 +87,8 @@ Line 114: {"type":"custom","customType":"openclaw:prompt-error","data":{"timesta
 
 ---
 
-### 问题 #25
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6540,9 +109,8 @@ Line 130: {"type":"custom","customType":"openclaw:prompt-error","data":{"timesta
 
 ---
 
-### 问题 #30
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
 - **错误信息**: ```
@@ -6560,9 +128,8 @@ Line 19: {"type":"message","id":"a23fb7fa","parentId":"cb88f7e1","timestamp":"20
 
 ---
 
-### 问题 #42
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6583,9 +150,8 @@ Line 22: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #45
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6606,9 +172,8 @@ Line 18: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #48
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6629,9 +194,8 @@ Line 8: {"type":"message","id":"551547d3","parentId":"926d9263","timestamp":"202
 
 ---
 
-### 问题 #49
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6652,9 +216,8 @@ Line 9: {"type":"message","id":"afff7510","parentId":"551547d3","timestamp":"202
 
 ---
 
-### 问题 #50
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6675,9 +238,8 @@ Line 10: {"type":"message","id":"33fec723","parentId":"afff7510","timestamp":"20
 
 ---
 
-### 问题 #51
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6698,9 +260,8 @@ Line 11: {"type":"message","id":"c0763308","parentId":"33fec723","timestamp":"20
 
 ---
 
-### 问题 #52
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6721,9 +282,8 @@ Line 14: {"type":"message","id":"b8e0297f","parentId":"bfd72a26","timestamp":"20
 
 ---
 
-### 问题 #53
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6744,9 +304,8 @@ Line 41: {"type":"message","id":"7b52fa45","parentId":"04f5052d","timestamp":"20
 
 ---
 
-### 问题 #54
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6767,9 +326,8 @@ Line 44: {"type":"message","id":"4405a620","parentId":"90b9acc4","timestamp":"20
 
 ---
 
-### 问题 #55
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6790,9 +348,8 @@ Line 77: {"type":"message","id":"5ff19a8c","parentId":"55bb0bf4","timestamp":"20
 
 ---
 
-### 问题 #56
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6813,9 +370,8 @@ Line 78: {"type":"message","id":"4555d08c","parentId":"5ff19a8c","timestamp":"20
 
 ---
 
-### 问题 #57
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6836,9 +392,8 @@ Line 79: {"type":"message","id":"df29f231","parentId":"4555d08c","timestamp":"20
 
 ---
 
-### 问题 #58
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6859,9 +414,8 @@ Line 86: {"type":"message","id":"1fb75c62","parentId":"c5771f78","timestamp":"20
 
 ---
 
-### 问题 #59
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6882,9 +436,8 @@ Line 8: {"type":"message","id":"59ec5ea8","parentId":"7fae712a","timestamp":"202
 
 ---
 
-### 问题 #60
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6905,9 +458,8 @@ Line 9: {"type":"message","id":"01098a1d","parentId":"59ec5ea8","timestamp":"202
 
 ---
 
-### 问题 #61
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6928,9 +480,8 @@ Line 10: {"type":"message","id":"b0805435","parentId":"01098a1d","timestamp":"20
 
 ---
 
-### 问题 #62
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6951,9 +502,8 @@ Line 115: {"type":"message","id":"9dd35aef","parentId":"601533db","timestamp":"2
 
 ---
 
-### 问题 #63
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6974,9 +524,8 @@ Line 116: {"type":"message","id":"792794e3","parentId":"9dd35aef","timestamp":"2
 
 ---
 
-### 问题 #64
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -6997,9 +546,8 @@ Line 123: {"type":"message","id":"62f7e868","parentId":"ee5baee1","timestamp":"2
 
 ---
 
-### 问题 #71
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7020,9 +568,8 @@ Line 18: {"type":"message","id":"31cf641f","parentId":"30f70f2c","timestamp":"20
 
 ---
 
-### 问题 #72
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7043,9 +590,8 @@ Line 19: {"type":"message","id":"84cfe7c5","parentId":"31cf641f","timestamp":"20
 
 ---
 
-### 问题 #73
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7066,9 +612,8 @@ Line 20: {"type":"message","id":"e660c8d0","parentId":"84cfe7c5","timestamp":"20
 
 ---
 
-### 问题 #74
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7089,9 +634,8 @@ Line 8: {"type":"message","id":"b3e27249","parentId":"6964c076","timestamp":"202
 
 ---
 
-### 问题 #75
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7112,9 +656,8 @@ Line 9: {"type":"message","id":"dd7b127c","parentId":"b3e27249","timestamp":"202
 
 ---
 
-### 问题 #76
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7135,9 +678,8 @@ Line 16: {"type":"message","id":"088e076b","parentId":"74e44d80","timestamp":"20
 
 ---
 
-### 问题 #77
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7158,9 +700,8 @@ Line 19: {"type":"message","id":"eb45e4b3","parentId":"5e11aebd","timestamp":"20
 
 ---
 
-### 问题 #78
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7181,9 +722,8 @@ Line 8: {"type":"message","id":"414a9a72","parentId":"fd1fddfd","timestamp":"202
 
 ---
 
-### 问题 #79
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7204,9 +744,8 @@ Line 9: {"type":"message","id":"3a331005","parentId":"414a9a72","timestamp":"202
 
 ---
 
-### 问题 #80
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7227,9 +766,8 @@ Line 10: {"type":"message","id":"51ad4db2","parentId":"3a331005","timestamp":"20
 
 ---
 
-### 问题 #81
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7250,9 +788,8 @@ Line 11: {"type":"message","id":"bf5586d8","parentId":"51ad4db2","timestamp":"20
 
 ---
 
-### 问题 #82
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7273,9 +810,8 @@ Line 36: {"type":"message","id":"f951c648","parentId":"82603b80","timestamp":"20
 
 ---
 
-### 问题 #83
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7296,9 +832,8 @@ Line 37: {"type":"message","id":"25ce2c61","parentId":"f951c648","timestamp":"20
 
 ---
 
-### 问题 #84
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7319,9 +854,8 @@ Line 38: {"type":"message","id":"6fa6f6d8","parentId":"25ce2c61","timestamp":"20
 
 ---
 
-### 问题 #95
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7342,9 +876,8 @@ Line 10: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #98
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7365,9 +898,8 @@ Line 8: {"type":"message","id":"0529e028","parentId":"8b3a96d6","timestamp":"202
 
 ---
 
-### 问题 #99
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7388,9 +920,8 @@ Line 9: {"type":"message","id":"2e20bd20","parentId":"0529e028","timestamp":"202
 
 ---
 
-### 问题 #100
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7411,9 +942,8 @@ Line 10: {"type":"message","id":"81668a9b","parentId":"2e20bd20","timestamp":"20
 
 ---
 
-### 问题 #101
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7434,9 +964,8 @@ Line 11: {"type":"message","id":"7bf21f6d","parentId":"81668a9b","timestamp":"20
 
 ---
 
-### 问题 #108
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7457,9 +986,8 @@ Line 8: {"type":"message","id":"dd6323eb","parentId":"8b2678f0","timestamp":"202
 
 ---
 
-### 问题 #109
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7480,9 +1008,8 @@ Line 9: {"type":"message","id":"95007efe","parentId":"dd6323eb","timestamp":"202
 
 ---
 
-### 问题 #110
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7503,9 +1030,8 @@ Line 10: {"type":"message","id":"c4b59d2e","parentId":"95007efe","timestamp":"20
 
 ---
 
-### 问题 #111
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7526,9 +1052,8 @@ Line 11: {"type":"message","id":"f1931f77","parentId":"c4b59d2e","timestamp":"20
 
 ---
 
-### 问题 #112
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7549,9 +1074,8 @@ Line 34: {"type":"message","id":"450dd44d","parentId":"622af54b","timestamp":"20
 
 ---
 
-### 问题 #168
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7572,9 +1096,8 @@ Line 34: {"type":"message","id":"b6bf9735","parentId":"aec0ef16","timestamp":"20
 
 ---
 
-### 问题 #169
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7595,9 +1118,8 @@ Line 35: {"type":"message","id":"ffe58d03","parentId":"b6bf9735","timestamp":"20
 
 ---
 
-### 问题 #170
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7618,9 +1140,8 @@ Line 36: {"type":"message","id":"1ff0046e","parentId":"ffe58d03","timestamp":"20
 
 ---
 
-### 问题 #171
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7641,9 +1162,8 @@ Line 43: {"type":"message","id":"c5e9df3c","parentId":"f6c8d3d5","timestamp":"20
 
 ---
 
-### 问题 #172
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7664,9 +1184,8 @@ Line 44: {"type":"message","id":"4656533a","parentId":"c5e9df3c","timestamp":"20
 
 ---
 
-### 问题 #173
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7687,9 +1206,8 @@ Line 59: {"type":"message","id":"dc4c8858","parentId":"d688d503","timestamp":"20
 
 ---
 
-### 问题 #174
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7710,9 +1228,8 @@ Line 60: {"type":"message","id":"1c2c0d0e","parentId":"dc4c8858","timestamp":"20
 
 ---
 
-### 问题 #175
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7733,9 +1250,8 @@ Line 71: {"type":"message","id":"947ab6d2","parentId":"878190f0","timestamp":"20
 
 ---
 
-### 问题 #176
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7756,9 +1272,8 @@ Line 72: {"type":"message","id":"69f6b4eb","parentId":"947ab6d2","timestamp":"20
 
 ---
 
-### 问题 #177
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7779,9 +1294,8 @@ Line 79: {"type":"message","id":"aade078d","parentId":"86e86078","timestamp":"20
 
 ---
 
-### 问题 #178
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7802,9 +1316,8 @@ Line 80: {"type":"message","id":"977ad405","parentId":"aade078d","timestamp":"20
 
 ---
 
-### 问题 #179
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7825,9 +1338,8 @@ Line 95: {"type":"message","id":"5b2a0baf","parentId":"fcf505b1","timestamp":"20
 
 ---
 
-### 问题 #180
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7848,9 +1360,8 @@ Line 96: {"type":"message","id":"ba0485f2","parentId":"5b2a0baf","timestamp":"20
 
 ---
 
-### 问题 #181
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7871,9 +1382,8 @@ Line 109: {"type":"message","id":"bfae3a6e","parentId":"0250a258","timestamp":"2
 
 ---
 
-### 问题 #182
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7894,9 +1404,8 @@ Line 110: {"type":"message","id":"c7700854","parentId":"bfae3a6e","timestamp":"2
 
 ---
 
-### 问题 #183
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7917,9 +1426,8 @@ Line 111: {"type":"message","id":"cfe59a8d","parentId":"c7700854","timestamp":"2
 
 ---
 
-### 问题 #199
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7940,9 +1448,8 @@ Line 8: {"type":"message","id":"5a8826d1","parentId":"e3a92224","timestamp":"202
 
 ---
 
-### 问题 #200
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7963,9 +1470,8 @@ Line 9: {"type":"message","id":"2bbe1930","parentId":"5a8826d1","timestamp":"202
 
 ---
 
-### 问题 #201
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -7986,9 +1492,8 @@ Line 10: {"type":"message","id":"99ad071e","parentId":"2bbe1930","timestamp":"20
 
 ---
 
-### 问题 #213
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8009,9 +1514,8 @@ Line 126: {"type":"custom","customType":"openclaw:prompt-error","data":{"timesta
 
 ---
 
-### 问题 #217
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
 - **错误信息**: ```
@@ -8029,9 +1533,8 @@ Line 103: {"type":"message","id":"c6126f96","parentId":"4e2ded31","timestamp":"2
 
 ---
 
-### 问题 #231
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8052,9 +1555,8 @@ Line 28: {"type":"message","id":"70bde3dc","parentId":"361c1c90","timestamp":"20
 
 ---
 
-### 问题 #258
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8075,9 +1577,8 @@ Line 9: {"type":"message","id":"e3c56fc0","parentId":"cc605b68","timestamp":"202
 
 ---
 
-### 问题 #264
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8098,9 +1599,8 @@ Line 10: {"type":"message","id":"d66c0a80","parentId":"fc66aff2","timestamp":"20
 
 ---
 
-### 问题 #265
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8121,9 +1621,8 @@ Line 13: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #270
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8144,9 +1643,8 @@ Line 14: {"type":"message","id":"db338817","parentId":"5cbe2b2b","timestamp":"20
 
 ---
 
-### 问题 #274
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8167,9 +1665,8 @@ Line 10: {"type":"message","id":"fc187902","parentId":"956b258e","timestamp":"20
 
 ---
 
-### 问题 #275
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8190,9 +1687,8 @@ Line 11: {"type":"message","id":"6e19d7ca","parentId":"fc187902","timestamp":"20
 
 ---
 
-### 问题 #276
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8213,9 +1709,8 @@ Line 12: {"type":"message","id":"0400e19e","parentId":"6e19d7ca","timestamp":"20
 
 ---
 
-### 问题 #277
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8236,9 +1731,8 @@ Line 13: {"type":"message","id":"27c5611e","parentId":"0400e19e","timestamp":"20
 
 ---
 
-### 问题 #290
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8259,9 +1753,8 @@ Line 10: {"type":"message","id":"a869563e","parentId":"fe6df0dd","timestamp":"20
 
 ---
 
-### 问题 #291
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8282,9 +1775,8 @@ Line 11: {"type":"message","id":"48de6156","parentId":"a869563e","timestamp":"20
 
 ---
 
-### 问题 #292
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8305,9 +1797,8 @@ Line 12: {"type":"message","id":"66ffe8c8","parentId":"48de6156","timestamp":"20
 
 ---
 
-### 问题 #293
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8328,9 +1819,8 @@ Line 13: {"type":"message","id":"c2270da2","parentId":"66ffe8c8","timestamp":"20
 
 ---
 
-### 问题 #294
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8351,9 +1841,8 @@ Line 14: {"type":"message","id":"7ff774b8","parentId":"c2270da2","timestamp":"20
 
 ---
 
-### 问题 #295
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8374,9 +1863,8 @@ Line 15: {"type":"message","id":"b8a93ec6","parentId":"7ff774b8","timestamp":"20
 
 ---
 
-### 问题 #296
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8397,9 +1885,8 @@ Line 16: {"type":"message","id":"07d3b64f","parentId":"b8a93ec6","timestamp":"20
 
 ---
 
-### 问题 #297
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8420,9 +1907,8 @@ Line 17: {"type":"message","id":"303d8b62","parentId":"07d3b64f","timestamp":"20
 
 ---
 
-### 问题 #299
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8443,9 +1929,8 @@ Line 10: {"type":"message","id":"5e05f1c9","parentId":"023567c0","timestamp":"20
 
 ---
 
-### 问题 #301
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8466,9 +1951,8 @@ Line 10: {"type":"message","id":"daae028e","parentId":"ad45585e","timestamp":"20
 
 ---
 
-### 问题 #302
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8489,9 +1973,8 @@ Line 11: {"type":"message","id":"fb051286","parentId":"daae028e","timestamp":"20
 
 ---
 
-### 问题 #303
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8512,9 +1995,8 @@ Line 12: {"type":"message","id":"0d2e361d","parentId":"fb051286","timestamp":"20
 
 ---
 
-### 问题 #304
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8535,9 +2017,8 @@ Line 13: {"type":"message","id":"7dba3ad2","parentId":"0d2e361d","timestamp":"20
 
 ---
 
-### 问题 #305
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8558,9 +2039,8 @@ Line 14: {"type":"message","id":"b41029c9","parentId":"7dba3ad2","timestamp":"20
 
 ---
 
-### 问题 #306
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8581,9 +2061,8 @@ Line 15: {"type":"message","id":"1b83af94","parentId":"b41029c9","timestamp":"20
 
 ---
 
-### 问题 #307
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8604,9 +2083,8 @@ Line 16: {"type":"message","id":"a213b397","parentId":"1b83af94","timestamp":"20
 
 ---
 
-### 问题 #308
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8627,9 +2105,8 @@ Line 17: {"type":"message","id":"a0b0c6f6","parentId":"a213b397","timestamp":"20
 
 ---
 
-### 问题 #309
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8650,9 +2127,8 @@ Line 22: {"type":"message","id":"09da37e4","parentId":"f59354cc","timestamp":"20
 
 ---
 
-### 问题 #310
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8673,9 +2149,8 @@ Line 25: {"type":"message","id":"2c47d86e","parentId":"310de116","timestamp":"20
 
 ---
 
-### 问题 #311
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8696,9 +2171,8 @@ Line 26: {"type":"message","id":"d37c9bbc","parentId":"2c47d86e","timestamp":"20
 
 ---
 
-### 问题 #312
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8719,9 +2193,8 @@ Line 29: {"type":"message","id":"5c401739","parentId":"1d0227d7","timestamp":"20
 
 ---
 
-### 问题 #313
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8742,9 +2215,8 @@ Line 30: {"type":"message","id":"d0731721","parentId":"5c401739","timestamp":"20
 
 ---
 
-### 问题 #314
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8765,9 +2237,8 @@ Line 33: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #317
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8788,9 +2259,8 @@ Line 72: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #319
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8811,9 +2281,8 @@ Line 108: {"type":"message","id":"5506fb9c","parentId":"662908ca","timestamp":"2
 
 ---
 
-### 问题 #320
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8834,9 +2303,8 @@ Line 109: {"type":"message","id":"9f3b8507","parentId":"5506fb9c","timestamp":"2
 
 ---
 
-### 问题 #321
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8857,9 +2325,8 @@ Line 110: {"type":"message","id":"038616c6","parentId":"9f3b8507","timestamp":"2
 
 ---
 
-### 问题 #322
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8880,9 +2347,8 @@ Line 111: {"type":"message","id":"a881957d","parentId":"038616c6","timestamp":"2
 
 ---
 
-### 问题 #323
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8903,9 +2369,8 @@ Line 112: {"type":"message","id":"7ec44c8f","parentId":"a881957d","timestamp":"2
 
 ---
 
-### 问题 #324
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8926,9 +2391,8 @@ Line 122: {"type":"message","id":"6472a714","parentId":"dd457e8d","timestamp":"2
 
 ---
 
-### 问题 #349
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8949,9 +2413,8 @@ Line 10: {"type":"message","id":"4a4c51ab","parentId":"81f2ad60","timestamp":"20
 
 ---
 
-### 问题 #350
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8972,9 +2435,8 @@ Line 11: {"type":"message","id":"15f4e33c","parentId":"4a4c51ab","timestamp":"20
 
 ---
 
-### 问题 #351
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -8995,9 +2457,8 @@ Line 12: {"type":"message","id":"a2dbf9de","parentId":"15f4e33c","timestamp":"20
 
 ---
 
-### 问题 #352
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9018,9 +2479,8 @@ Line 15: {"type":"message","id":"14749f94","parentId":"ce854d47","timestamp":"20
 
 ---
 
-### 问题 #353
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9041,9 +2501,8 @@ Line 16: {"type":"message","id":"0f430c6b","parentId":"14749f94","timestamp":"20
 
 ---
 
-### 问题 #354
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9064,9 +2523,8 @@ Line 17: {"type":"message","id":"4ada4207","parentId":"0f430c6b","timestamp":"20
 
 ---
 
-### 问题 #355
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9087,9 +2545,8 @@ Line 20: {"type":"message","id":"a764ec5b","parentId":"1f07395f","timestamp":"20
 
 ---
 
-### 问题 #356
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9110,9 +2567,8 @@ Line 21: {"type":"message","id":"4de379c7","parentId":"a764ec5b","timestamp":"20
 
 ---
 
-### 问题 #357
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9133,9 +2589,8 @@ Line 22: {"type":"message","id":"78f7f2ca","parentId":"4de379c7","timestamp":"20
 
 ---
 
-### 问题 #358
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9156,9 +2611,8 @@ Line 25: {"type":"message","id":"8766a9f1","parentId":"5c178814","timestamp":"20
 
 ---
 
-### 问题 #359
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9179,9 +2633,8 @@ Line 26: {"type":"message","id":"8cfb1128","parentId":"8766a9f1","timestamp":"20
 
 ---
 
-### 问题 #360
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9202,9 +2655,8 @@ Line 27: {"type":"message","id":"6ee7d178","parentId":"8cfb1128","timestamp":"20
 
 ---
 
-### 问题 #361
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9225,9 +2677,8 @@ Line 30: {"type":"message","id":"991aa1a1","parentId":"de87e00d","timestamp":"20
 
 ---
 
-### 问题 #362
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9248,9 +2699,8 @@ Line 31: {"type":"message","id":"f89d33b2","parentId":"991aa1a1","timestamp":"20
 
 ---
 
-### 问题 #363
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9271,9 +2721,8 @@ Line 32: {"type":"message","id":"68692816","parentId":"f89d33b2","timestamp":"20
 
 ---
 
-### 问题 #364
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9294,9 +2743,8 @@ Line 35: {"type":"message","id":"107feddd","parentId":"ab5d3db6","timestamp":"20
 
 ---
 
-### 问题 #365
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9317,9 +2765,8 @@ Line 36: {"type":"message","id":"e2f8a04a","parentId":"107feddd","timestamp":"20
 
 ---
 
-### 问题 #366
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9340,9 +2787,8 @@ Line 37: {"type":"message","id":"6f47f8cf","parentId":"e2f8a04a","timestamp":"20
 
 ---
 
-### 问题 #367
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9363,9 +2809,8 @@ Line 40: {"type":"message","id":"773cf696","parentId":"a23c21dd","timestamp":"20
 
 ---
 
-### 问题 #368
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9386,9 +2831,8 @@ Line 47: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #371
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9409,9 +2853,8 @@ Line 44: {"type":"message","id":"41b2104d","parentId":"bdd0537a","timestamp":"20
 
 ---
 
-### 问题 #372
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9432,9 +2875,8 @@ Line 83: {"type":"message","id":"85109f34","parentId":"7c9043ab","timestamp":"20
 
 ---
 
-### 问题 #373
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9455,9 +2897,8 @@ Line 84: {"type":"message","id":"a0f357d9","parentId":"85109f34","timestamp":"20
 
 ---
 
-### 问题 #384
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9478,9 +2919,8 @@ Line 10: {"type":"message","id":"c5e38864","parentId":"2bacf681","timestamp":"20
 
 ---
 
-### 问题 #385
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9501,9 +2941,8 @@ Line 11: {"type":"message","id":"3eafb8fc","parentId":"c5e38864","timestamp":"20
 
 ---
 
-### 问题 #386
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9524,9 +2963,8 @@ Line 12: {"type":"message","id":"5cd32c4d","parentId":"3eafb8fc","timestamp":"20
 
 ---
 
-### 问题 #387
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9547,9 +2985,8 @@ Line 13: {"type":"message","id":"4be4a802","parentId":"5cd32c4d","timestamp":"20
 
 ---
 
-### 问题 #388
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9570,9 +3007,8 @@ Line 16: {"type":"message","id":"79dc1a1e","parentId":"927701d6","timestamp":"20
 
 ---
 
-### 问题 #389
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9593,9 +3029,8 @@ Line 17: {"type":"message","id":"f49aabc5","parentId":"79dc1a1e","timestamp":"20
 
 ---
 
-### 问题 #390
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9616,9 +3051,8 @@ Line 18: {"type":"message","id":"3cbf7808","parentId":"f49aabc5","timestamp":"20
 
 ---
 
-### 问题 #391
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9639,9 +3073,8 @@ Line 21: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #394
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9662,9 +3095,8 @@ Line 10: {"type":"message","id":"8e5a1de0","parentId":"dadc59fd","timestamp":"20
 
 ---
 
-### 问题 #395
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9685,9 +3117,8 @@ Line 11: {"type":"message","id":"2837f502","parentId":"8e5a1de0","timestamp":"20
 
 ---
 
-### 问题 #396
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9708,9 +3139,8 @@ Line 12: {"type":"message","id":"60b9fcad","parentId":"2837f502","timestamp":"20
 
 ---
 
-### 问题 #397
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9731,9 +3161,8 @@ Line 15: {"type":"message","id":"3dec348f","parentId":"c6a4265b","timestamp":"20
 
 ---
 
-### 问题 #398
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9754,9 +3183,8 @@ Line 16: {"type":"message","id":"b96e9a8a","parentId":"3dec348f","timestamp":"20
 
 ---
 
-### 问题 #399
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9777,9 +3205,8 @@ Line 17: {"type":"message","id":"fee27abf","parentId":"b96e9a8a","timestamp":"20
 
 ---
 
-### 问题 #400
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9800,9 +3227,8 @@ Line 20: {"type":"message","id":"0f862935","parentId":"964ff673","timestamp":"20
 
 ---
 
-### 问题 #401
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9823,9 +3249,8 @@ Line 21: {"type":"message","id":"aaaae082","parentId":"0f862935","timestamp":"20
 
 ---
 
-### 问题 #402
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9846,9 +3271,8 @@ Line 22: {"type":"message","id":"1515b682","parentId":"aaaae082","timestamp":"20
 
 ---
 
-### 问题 #403
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9869,9 +3293,8 @@ Line 25: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #406
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9892,9 +3315,8 @@ Line 10: {"type":"message","id":"dc1e7634","parentId":"dcf62b59","timestamp":"20
 
 ---
 
-### 问题 #407
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9915,9 +3337,8 @@ Line 11: {"type":"message","id":"8677dbe4","parentId":"dc1e7634","timestamp":"20
 
 ---
 
-### 问题 #408
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9938,9 +3359,8 @@ Line 12: {"type":"message","id":"484e7484","parentId":"8677dbe4","timestamp":"20
 
 ---
 
-### 问题 #409
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9961,9 +3381,8 @@ Line 15: {"type":"message","id":"79071b17","parentId":"fb399695","timestamp":"20
 
 ---
 
-### 问题 #410
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -9984,9 +3403,8 @@ Line 16: {"type":"message","id":"32270f87","parentId":"79071b17","timestamp":"20
 
 ---
 
-### 问题 #411
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10007,9 +3425,8 @@ Line 17: {"type":"message","id":"108e0d0e","parentId":"32270f87","timestamp":"20
 
 ---
 
-### 问题 #412
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10030,9 +3447,8 @@ Line 20: {"type":"message","id":"0eb6089a","parentId":"a733c4fe","timestamp":"20
 
 ---
 
-### 问题 #413
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10053,9 +3469,8 @@ Line 21: {"type":"message","id":"a2ee558a","parentId":"0eb6089a","timestamp":"20
 
 ---
 
-### 问题 #414
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10076,9 +3491,8 @@ Line 22: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #417
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10099,9 +3513,8 @@ Line 18: {"type":"message","id":"e3e583b1","parentId":"ee5f7653","timestamp":"20
 
 ---
 
-### 问题 #418
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10122,9 +3535,8 @@ Line 19: {"type":"message","id":"4f20876c","parentId":"e3e583b1","timestamp":"20
 
 ---
 
-### 问题 #419
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10145,9 +3557,8 @@ Line 20: {"type":"message","id":"c8b70d23","parentId":"4f20876c","timestamp":"20
 
 ---
 
-### 问题 #420
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10168,9 +3579,8 @@ Line 21: {"type":"message","id":"913b3e48","parentId":"c8b70d23","timestamp":"20
 
 ---
 
-### 问题 #421
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10191,9 +3601,8 @@ Line 24: {"type":"message","id":"d08f6a77","parentId":"691daafd","timestamp":"20
 
 ---
 
-### 问题 #422
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10214,9 +3623,8 @@ Line 25: {"type":"message","id":"8a115ccb","parentId":"d08f6a77","timestamp":"20
 
 ---
 
-### 问题 #423
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10237,9 +3645,8 @@ Line 26: {"type":"message","id":"cb49e239","parentId":"8a115ccb","timestamp":"20
 
 ---
 
-### 问题 #424
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10260,9 +3667,8 @@ Line 27: {"type":"message","id":"9c39a23d","parentId":"cb49e239","timestamp":"20
 
 ---
 
-### 问题 #425
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10283,9 +3689,8 @@ Line 34: {"type":"message","id":"9e957227","parentId":"2862f4e9","timestamp":"20
 
 ---
 
-### 问题 #426
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10306,9 +3711,8 @@ Line 35: {"type":"message","id":"d3255d28","parentId":"9e957227","timestamp":"20
 
 ---
 
-### 问题 #427
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10329,9 +3733,8 @@ Line 36: {"type":"message","id":"5cb9543a","parentId":"d3255d28","timestamp":"20
 
 ---
 
-### 问题 #428
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10352,9 +3755,8 @@ Line 37: {"type":"message","id":"626fce98","parentId":"5cb9543a","timestamp":"20
 
 ---
 
-### 问题 #429
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10375,9 +3777,8 @@ Line 40: {"type":"message","id":"3599cbf8","parentId":"fb834963","timestamp":"20
 
 ---
 
-### 问题 #430
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10398,9 +3799,8 @@ Line 41: {"type":"message","id":"607a0c82","parentId":"3599cbf8","timestamp":"20
 
 ---
 
-### 问题 #431
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10421,9 +3821,8 @@ Line 42: {"type":"message","id":"510fe162","parentId":"607a0c82","timestamp":"20
 
 ---
 
-### 问题 #432
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10444,9 +3843,8 @@ Line 43: {"type":"message","id":"18c5701a","parentId":"510fe162","timestamp":"20
 
 ---
 
-### 问题 #433
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10467,9 +3865,8 @@ Line 46: {"type":"message","id":"989da349","parentId":"6d2ab77c","timestamp":"20
 
 ---
 
-### 问题 #434
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10490,9 +3887,8 @@ Line 12: {"type":"message","id":"097a7422","parentId":"d6630590","timestamp":"20
 
 ---
 
-### 问题 #435
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10513,9 +3909,8 @@ Line 13: {"type":"message","id":"41441d13","parentId":"097a7422","timestamp":"20
 
 ---
 
-### 问题 #436
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10536,9 +3931,8 @@ Line 14: {"type":"message","id":"2bf0efc1","parentId":"41441d13","timestamp":"20
 
 ---
 
-### 问题 #437
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10559,9 +3953,8 @@ Line 17: {"type":"message","id":"9aa814d9","parentId":"152f99e1","timestamp":"20
 
 ---
 
-### 问题 #438
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10582,9 +3975,8 @@ Line 18: {"type":"message","id":"f0eb8f3f","parentId":"9aa814d9","timestamp":"20
 
 ---
 
-### 问题 #439
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10605,9 +3997,8 @@ Line 19: {"type":"message","id":"d6d294be","parentId":"f0eb8f3f","timestamp":"20
 
 ---
 
-### 问题 #440
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10628,9 +4019,8 @@ Line 22: {"type":"message","id":"f157de8b","parentId":"c8767838","timestamp":"20
 
 ---
 
-### 问题 #441
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10651,9 +4041,8 @@ Line 23: {"type":"message","id":"7fbc9af3","parentId":"f157de8b","timestamp":"20
 
 ---
 
-### 问题 #442
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10674,9 +4063,8 @@ Line 24: {"type":"message","id":"fb1854d4","parentId":"7fbc9af3","timestamp":"20
 
 ---
 
-### 问题 #443
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10697,9 +4085,8 @@ Line 25: {"type":"message","id":"8148fb4a","parentId":"fb1854d4","timestamp":"20
 
 ---
 
-### 问题 #444
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10720,9 +4107,8 @@ Line 26: {"type":"message","id":"c99aee30","parentId":"8148fb4a","timestamp":"20
 
 ---
 
-### 问题 #445
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10743,9 +4129,8 @@ Line 29: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #448
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10766,9 +4151,8 @@ Line 78: {"type":"message","id":"ab922649","parentId":"9debc2b4","timestamp":"20
 
 ---
 
-### 问题 #449
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10789,9 +4173,8 @@ Line 79: {"type":"message","id":"9a90e52b","parentId":"ab922649","timestamp":"20
 
 ---
 
-### 问题 #452
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10812,9 +4195,8 @@ Line 10: {"type":"message","id":"4d1a0c0e","parentId":"f450091d","timestamp":"20
 
 ---
 
-### 问题 #453
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10835,9 +4217,8 @@ Line 11: {"type":"message","id":"723d0efd","parentId":"4d1a0c0e","timestamp":"20
 
 ---
 
-### 问题 #454
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10858,9 +4239,8 @@ Line 12: {"type":"message","id":"d54c023a","parentId":"723d0efd","timestamp":"20
 
 ---
 
-### 问题 #455
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10881,9 +4261,8 @@ Line 15: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #459
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10904,9 +4283,8 @@ Line 10: {"type":"message","id":"842abf25","parentId":"dd833b41","timestamp":"20
 
 ---
 
-### 问题 #460
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10927,9 +4305,8 @@ Line 11: {"type":"message","id":"6875405f","parentId":"842abf25","timestamp":"20
 
 ---
 
-### 问题 #461
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10950,9 +4327,8 @@ Line 12: {"type":"message","id":"15bb70fb","parentId":"6875405f","timestamp":"20
 
 ---
 
-### 问题 #462
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10973,9 +4349,8 @@ Line 15: {"type":"message","id":"0a79ba4d","parentId":"be9dc85b","timestamp":"20
 
 ---
 
-### 问题 #463
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -10996,9 +4371,8 @@ Line 16: {"type":"message","id":"51d41b9f","parentId":"0a79ba4d","timestamp":"20
 
 ---
 
-### 问题 #464
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11019,9 +4393,8 @@ Line 17: {"type":"message","id":"0f75c4b2","parentId":"51d41b9f","timestamp":"20
 
 ---
 
-### 问题 #465
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11042,9 +4415,8 @@ Line 20: {"type":"message","id":"a04202bd","parentId":"860f137e","timestamp":"20
 
 ---
 
-### 问题 #466
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11065,9 +4437,8 @@ Line 21: {"type":"message","id":"0120f2ce","parentId":"a04202bd","timestamp":"20
 
 ---
 
-### 问题 #467
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11088,9 +4459,8 @@ Line 30: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #470
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11111,9 +4481,8 @@ Line 8: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp
 
 ---
 
-### 问题 #477
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11134,9 +4503,8 @@ Line 10: {"type":"message","id":"1682679a","parentId":"bcbc9a7f","timestamp":"20
 
 ---
 
-### 问题 #478
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11157,9 +4525,8 @@ Line 11: {"type":"message","id":"1339dce3","parentId":"1682679a","timestamp":"20
 
 ---
 
-### 问题 #479
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11180,9 +4547,8 @@ Line 12: {"type":"message","id":"4580d9c4","parentId":"1339dce3","timestamp":"20
 
 ---
 
-### 问题 #480
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11203,9 +4569,8 @@ Line 13: {"type":"message","id":"484c6e4e","parentId":"4580d9c4","timestamp":"20
 
 ---
 
-### 问题 #481
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11226,9 +4591,8 @@ Line 14: {"type":"message","id":"1959f0f2","parentId":"484c6e4e","timestamp":"20
 
 ---
 
-### 问题 #482
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11249,9 +4613,8 @@ Line 17: {"type":"message","id":"6ab448df","parentId":"08b211f4","timestamp":"20
 
 ---
 
-### 问题 #483
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11272,9 +4635,8 @@ Line 18: {"type":"message","id":"45617a05","parentId":"6ab448df","timestamp":"20
 
 ---
 
-### 问题 #484
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11295,9 +4657,8 @@ Line 19: {"type":"message","id":"492a3d1c","parentId":"45617a05","timestamp":"20
 
 ---
 
-### 问题 #485
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11318,9 +4679,8 @@ Line 20: {"type":"message","id":"99b4830f","parentId":"492a3d1c","timestamp":"20
 
 ---
 
-### 问题 #486
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11341,9 +4701,8 @@ Line 23: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #489
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11364,9 +4723,8 @@ Line 10: {"type":"message","id":"cf396ca1","parentId":"93e82709","timestamp":"20
 
 ---
 
-### 问题 #490
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11387,9 +4745,8 @@ Line 11: {"type":"message","id":"d7a73dca","parentId":"cf396ca1","timestamp":"20
 
 ---
 
-### 问题 #491
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11410,9 +4767,8 @@ Line 12: {"type":"message","id":"59abb822","parentId":"d7a73dca","timestamp":"20
 
 ---
 
-### 问题 #492
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11433,9 +4789,8 @@ Line 13: {"type":"message","id":"dfa4db94","parentId":"59abb822","timestamp":"20
 
 ---
 
-### 问题 #493
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11456,9 +4811,8 @@ Line 16: {"type":"message","id":"049819ea","parentId":"da5e1a91","timestamp":"20
 
 ---
 
-### 问题 #494
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11479,9 +4833,8 @@ Line 17: {"type":"message","id":"80cf7966","parentId":"049819ea","timestamp":"20
 
 ---
 
-### 问题 #495
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11502,9 +4855,8 @@ Line 18: {"type":"message","id":"1f138511","parentId":"80cf7966","timestamp":"20
 
 ---
 
-### 问题 #496
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11525,9 +4877,8 @@ Line 19: {"type":"message","id":"ca68062e","parentId":"1f138511","timestamp":"20
 
 ---
 
-### 问题 #497
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11548,9 +4899,8 @@ Line 20: {"type":"message","id":"c771d201","parentId":"ca68062e","timestamp":"20
 
 ---
 
-### 问题 #503
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11571,9 +4921,8 @@ Line 10: {"type":"message","id":"7d658bec","parentId":"1f4a94d9","timestamp":"20
 
 ---
 
-### 问题 #504
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11594,9 +4943,8 @@ Line 11: {"type":"message","id":"886803ee","parentId":"7d658bec","timestamp":"20
 
 ---
 
-### 问题 #505
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11617,9 +4965,8 @@ Line 32: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #508
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11640,9 +4987,8 @@ Line 14: {"type":"message","id":"9be2776f","parentId":"b80f8e8c","timestamp":"20
 
 ---
 
-### 问题 #509
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11663,9 +5009,8 @@ Line 15: {"type":"message","id":"a8b5042a","parentId":"9be2776f","timestamp":"20
 
 ---
 
-### 问题 #510
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11686,9 +5031,8 @@ Line 16: {"type":"message","id":"be36e50b","parentId":"a8b5042a","timestamp":"20
 
 ---
 
-### 问题 #511
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11709,9 +5053,8 @@ Line 19: {"type":"message","id":"1e3ff881","parentId":"7041223e","timestamp":"20
 
 ---
 
-### 问题 #512
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11732,9 +5075,8 @@ Line 20: {"type":"message","id":"a28830f0","parentId":"1e3ff881","timestamp":"20
 
 ---
 
-### 问题 #513
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11755,9 +5097,8 @@ Line 21: {"type":"message","id":"af61a2e3","parentId":"a28830f0","timestamp":"20
 
 ---
 
-### 问题 #514
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11778,9 +5119,8 @@ Line 24: {"type":"message","id":"dba719aa","parentId":"69371edb","timestamp":"20
 
 ---
 
-### 问题 #515
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11801,9 +5141,8 @@ Line 27: {"type":"message","id":"23d36ef7","parentId":"a8dec6db","timestamp":"20
 
 ---
 
-### 问题 #516
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11824,9 +5163,8 @@ Line 28: {"type":"message","id":"3fc0af1b","parentId":"23d36ef7","timestamp":"20
 
 ---
 
-### 问题 #517
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11847,9 +5185,8 @@ Line 29: {"type":"message","id":"bcea41d1","parentId":"3fc0af1b","timestamp":"20
 
 ---
 
-### 问题 #518
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11870,9 +5207,8 @@ Line 32: {"type":"message","id":"70ebf180","parentId":"a482cb08","timestamp":"20
 
 ---
 
-### 问题 #519
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11893,9 +5229,8 @@ Line 33: {"type":"message","id":"79c8da20","parentId":"70ebf180","timestamp":"20
 
 ---
 
-### 问题 #520
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11916,9 +5251,8 @@ Line 34: {"type":"message","id":"523f1172","parentId":"79c8da20","timestamp":"20
 
 ---
 
-### 问题 #521
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11939,9 +5273,8 @@ Line 37: {"type":"message","id":"660b61a9","parentId":"339cbaa5","timestamp":"20
 
 ---
 
-### 问题 #522
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11962,9 +5295,8 @@ Line 38: {"type":"message","id":"0e1c0b2a","parentId":"660b61a9","timestamp":"20
 
 ---
 
-### 问题 #523
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -11985,9 +5317,8 @@ Line 39: {"type":"message","id":"abd12589","parentId":"0e1c0b2a","timestamp":"20
 
 ---
 
-### 问题 #524
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12008,9 +5339,8 @@ Line 42: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #527
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12031,9 +5361,8 @@ Line 8: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp
 
 ---
 
-### 问题 #530
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12054,9 +5383,8 @@ Line 10: {"type":"message","id":"5c93f5e5","parentId":"9758afab","timestamp":"20
 
 ---
 
-### 问题 #531
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12077,9 +5405,8 @@ Line 11: {"type":"message","id":"efa771c6","parentId":"5c93f5e5","timestamp":"20
 
 ---
 
-### 问题 #532
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12100,9 +5427,8 @@ Line 14: {"type":"message","id":"38156694","parentId":"4663eb15","timestamp":"20
 
 ---
 
-### 问题 #533
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12123,9 +5449,8 @@ Line 15: {"type":"message","id":"4b36e77d","parentId":"38156694","timestamp":"20
 
 ---
 
-### 问题 #534
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12146,9 +5471,8 @@ Line 18: {"type":"message","id":"c29a8105","parentId":"724391bf","timestamp":"20
 
 ---
 
-### 问题 #535
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12169,9 +5493,8 @@ Line 19: {"type":"message","id":"c50cee16","parentId":"c29a8105","timestamp":"20
 
 ---
 
-### 问题 #536
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12192,9 +5515,8 @@ Line 20: {"type":"message","id":"2b5b65ed","parentId":"c50cee16","timestamp":"20
 
 ---
 
-### 问题 #537
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12215,9 +5537,8 @@ Line 27: {"type":"message","id":"bb52f19d","parentId":"01c5da53","timestamp":"20
 
 ---
 
-### 问题 #538
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12238,9 +5559,8 @@ Line 30: {"type":"message","id":"84b1d624","parentId":"94c2e212","timestamp":"20
 
 ---
 
-### 问题 #539
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12261,9 +5581,8 @@ Line 31: {"type":"message","id":"0ca3bc8c","parentId":"84b1d624","timestamp":"20
 
 ---
 
-### 问题 #540
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12284,9 +5603,8 @@ Line 32: {"type":"message","id":"5533a590","parentId":"0ca3bc8c","timestamp":"20
 
 ---
 
-### 问题 #541
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12307,9 +5625,8 @@ Line 35: {"type":"message","id":"8fa4b618","parentId":"b1d91248","timestamp":"20
 
 ---
 
-### 问题 #542
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12330,9 +5647,8 @@ Line 38: {"type":"message","id":"e18d2ea3","parentId":"7e8d168b","timestamp":"20
 
 ---
 
-### 问题 #543
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12353,9 +5669,8 @@ Line 39: {"type":"message","id":"901c44fb","parentId":"e18d2ea3","timestamp":"20
 
 ---
 
-### 问题 #544
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"undefined"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12376,9 +5691,8 @@ Line 40: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestam
 
 ---
 
-### 问题 #547
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12399,9 +5713,8 @@ Line 8: {"type":"message","id":"aa183603","parentId":"4363692d","timestamp":"202
 
 ---
 
-### 问题 #548
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12422,9 +5735,8 @@ Line 20: {"type":"message","id":"37f5fd3d","parentId":"6b72fe27","timestamp":"20
 
 ---
 
-### 问题 #549
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12445,9 +5757,8 @@ Line 21: {"type":"message","id":"6fb34409","parentId":"37f5fd3d","timestamp":"20
 
 ---
 
-### 问题 #550
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12468,9 +5779,8 @@ Line 22: {"type":"message","id":"d1bfb2b5","parentId":"6fb34409","timestamp":"20
 
 ---
 
-### 问题 #551
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12491,9 +5801,8 @@ Line 23: {"type":"message","id":"58ef0320","parentId":"d1bfb2b5","timestamp":"20
 
 ---
 
-### 问题 #552
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12514,9 +5823,8 @@ Line 26: {"type":"message","id":"172a9096","parentId":"87e843ff","timestamp":"20
 
 ---
 
-### 问题 #553
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12537,9 +5845,8 @@ Line 27: {"type":"message","id":"b4672b28","parentId":"172a9096","timestamp":"20
 
 ---
 
-### 问题 #554
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12560,9 +5867,8 @@ Line 28: {"type":"message","id":"d7254a9d","parentId":"b4672b28","timestamp":"20
 
 ---
 
-### 问题 #555
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12583,9 +5889,8 @@ Line 29: {"type":"message","id":"04f6399a","parentId":"d7254a9d","timestamp":"20
 
 ---
 
-### 问题 #556
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12606,9 +5911,8 @@ Line 36: {"type":"message","id":"eb2effa6","parentId":"efe09b2f","timestamp":"20
 
 ---
 
-### 问题 #557
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12629,9 +5933,8 @@ Line 37: {"type":"message","id":"0cecce6c","parentId":"eb2effa6","timestamp":"20
 
 ---
 
-### 问题 #559
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12652,9 +5955,8 @@ Line 12: {"type":"message","id":"8736c2b6","parentId":"1842aff7","timestamp":"20
 
 ---
 
-### 问题 #560
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12675,9 +5977,8 @@ Line 13: {"type":"message","id":"0bd8e0d7","parentId":"8736c2b6","timestamp":"20
 
 ---
 
-### 问题 #561
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12698,9 +5999,8 @@ Line 14: {"type":"message","id":"b4dc90bb","parentId":"0bd8e0d7","timestamp":"20
 
 ---
 
-### 问题 #562
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12721,9 +6021,8 @@ Line 15: {"type":"message","id":"48c30c9c","parentId":"b4dc90bb","timestamp":"20
 
 ---
 
-### 问题 #563
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12744,9 +6043,8 @@ Line 16: {"type":"message","id":"f11fe439","parentId":"48c30c9c","timestamp":"20
 
 ---
 
-### 问题 #564
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12767,9 +6065,8 @@ Line 17: {"type":"message","id":"eb5aa7e8","parentId":"f11fe439","timestamp":"20
 
 ---
 
-### 问题 #565
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12790,9 +6087,8 @@ Line 18: {"type":"message","id":"e6ad6df6","parentId":"eb5aa7e8","timestamp":"20
 
 ---
 
-### 问题 #566
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12813,9 +6109,8 @@ Line 19: {"type":"message","id":"f01ff80b","parentId":"e6ad6df6","timestamp":"20
 
 ---
 
-### 问题 #567
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12836,9 +6131,8 @@ Line 157: {"type":"message","id":"028a65c3","parentId":"214931af","timestamp":"2
 
 ---
 
-### 问题 #568
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12859,9 +6153,8 @@ Line 158: {"type":"message","id":"ef3477e9","parentId":"028a65c3","timestamp":"2
 
 ---
 
-### 问题 #569
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12882,9 +6175,8 @@ Line 159: {"type":"message","id":"c71f94a7","parentId":"ef3477e9","timestamp":"2
 
 ---
 
-### 问题 #570
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12905,9 +6197,8 @@ Line 160: {"type":"message","id":"56256594","parentId":"c71f94a7","timestamp":"2
 
 ---
 
-### 问题 #571
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12928,9 +6219,8 @@ Line 161: {"type":"message","id":"4d1a2aed","parentId":"56256594","timestamp":"2
 
 ---
 
-### 问题 #572
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12951,9 +6241,8 @@ Line 162: {"type":"message","id":"5d357aeb","parentId":"4d1a2aed","timestamp":"2
 
 ---
 
-### 问题 #573
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12974,9 +6263,8 @@ Line 163: {"type":"message","id":"8127c41a","parentId":"5d357aeb","timestamp":"2
 
 ---
 
-### 问题 #574
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -12997,9 +6285,8 @@ Line 164: {"type":"message","id":"651309b4","parentId":"8127c41a","timestamp":"2
 
 ---
 
-### 问题 #575
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13020,9 +6307,8 @@ Line 165: {"type":"message","id":"3ceea055","parentId":"651309b4","timestamp":"2
 
 ---
 
-### 问题 #580
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13043,9 +6329,8 @@ Line 10: {"type":"message","id":"7ab57ceb","parentId":"1e34b765","timestamp":"20
 
 ---
 
-### 问题 #582
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13066,9 +6351,8 @@ Line 16: {"type":"message","id":"490191cf","parentId":"fafd3f9e","timestamp":"20
 
 ---
 
-### 问题 #583
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13089,9 +6373,8 @@ Line 17: {"type":"message","id":"2f952f5a","parentId":"490191cf","timestamp":"20
 
 ---
 
-### 问题 #584
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13112,9 +6395,8 @@ Line 18: {"type":"message","id":"99f36ea5","parentId":"2f952f5a","timestamp":"20
 
 ---
 
-### 问题 #585
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13135,9 +6417,8 @@ Line 12: {"type":"message","id":"091f95d0","parentId":"ef88303c","timestamp":"20
 
 ---
 
-### 问题 #586
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13158,9 +6439,8 @@ Line 13: {"type":"message","id":"57bdb61f","parentId":"091f95d0","timestamp":"20
 
 ---
 
-### 问题 #587
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13181,9 +6461,8 @@ Line 14: {"type":"message","id":"06264d7e","parentId":"57bdb61f","timestamp":"20
 
 ---
 
-### 问题 #588
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13204,9 +6483,8 @@ Line 15: {"type":"message","id":"ad48eda2","parentId":"06264d7e","timestamp":"20
 
 ---
 
-### 问题 #589
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13227,9 +6505,8 @@ Line 8: {"type":"message","id":"e5d3aaf6","parentId":"48f8e82a","timestamp":"202
 
 ---
 
-### 问题 #590
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13250,9 +6527,8 @@ Line 9: {"type":"message","id":"6abdff9e","parentId":"e5d3aaf6","timestamp":"202
 
 ---
 
-### 问题 #591
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13273,9 +6549,8 @@ Line 10: {"type":"message","id":"825e3d7b","parentId":"6abdff9e","timestamp":"20
 
 ---
 
-### 问题 #592
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13296,9 +6571,8 @@ Line 11: {"type":"message","id":"d2fdf325","parentId":"825e3d7b","timestamp":"20
 
 ---
 
-### 问题 #593
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13319,9 +6593,8 @@ Line 12: {"type":"message","id":"95294a3d","parentId":"ed6bf7f2","timestamp":"20
 
 ---
 
-### 问题 #594
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13342,9 +6615,8 @@ Line 12: {"type":"message","id":"ab7e6187","parentId":"09a26299","timestamp":"20
 
 ---
 
-### 问题 #595
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13365,9 +6637,8 @@ Line 12: {"type":"message","id":"2cf5f620","parentId":"1c4cc752","timestamp":"20
 
 ---
 
-### 问题 #596
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13388,9 +6659,8 @@ Line 13: {"type":"message","id":"8047ec6c","parentId":"2cf5f620","timestamp":"20
 
 ---
 
-### 问题 #597
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13411,9 +6681,8 @@ Line 14: {"type":"message","id":"e15edc13","parentId":"8047ec6c","timestamp":"20
 
 ---
 
-### 问题 #598
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13434,9 +6703,8 @@ Line 15: {"type":"message","id":"5dba653f","parentId":"e15edc13","timestamp":"20
 
 ---
 
-### 问题 #599
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13457,9 +6725,8 @@ Line 24: {"type":"message","id":"6f932991","parentId":"b3280ebd","timestamp":"20
 
 ---
 
-### 问题 #600
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13480,9 +6747,8 @@ Line 25: {"type":"message","id":"fd54a018","parentId":"6f932991","timestamp":"20
 
 ---
 
-### 问题 #601
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13503,9 +6769,8 @@ Line 26: {"type":"message","id":"24b61a43","parentId":"fd54a018","timestamp":"20
 
 ---
 
-### 问题 #602
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13526,9 +6791,8 @@ Line 27: {"type":"message","id":"fcd1a619","parentId":"24b61a43","timestamp":"20
 
 ---
 
-### 问题 #603
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13549,9 +6813,8 @@ Line 36: {"type":"message","id":"30c24031","parentId":"55237902","timestamp":"20
 
 ---
 
-### 问题 #604
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13572,9 +6835,8 @@ Line 37: {"type":"message","id":"65c8060b","parentId":"30c24031","timestamp":"20
 
 ---
 
-### 问题 #605
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13595,9 +6857,8 @@ Line 38: {"type":"message","id":"41edba3f","parentId":"65c8060b","timestamp":"20
 
 ---
 
-### 问题 #606
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13618,9 +6879,8 @@ Line 39: {"type":"message","id":"b8df3721","parentId":"41edba3f","timestamp":"20
 
 ---
 
-### 问题 #607
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13641,9 +6901,8 @@ Line 12: {"type":"message","id":"c61eef17","parentId":"f63e3869","timestamp":"20
 
 ---
 
-### 问题 #608
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13664,9 +6923,8 @@ Line 13: {"type":"message","id":"c58651f5","parentId":"c61eef17","timestamp":"20
 
 ---
 
-### 问题 #609
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13687,9 +6945,8 @@ Line 14: {"type":"message","id":"9ae5750a","parentId":"c58651f5","timestamp":"20
 
 ---
 
-### 问题 #610
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13710,9 +6967,8 @@ Line 15: {"type":"message","id":"fac156aa","parentId":"9ae5750a","timestamp":"20
 
 ---
 
-### 问题 #611
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13733,9 +6989,8 @@ Line 22: {"type":"message","id":"e158e57a","parentId":"8aefb98d","timestamp":"20
 
 ---
 
-### 问题 #612
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13756,9 +7011,8 @@ Line 23: {"type":"message","id":"6432a7b4","parentId":"e158e57a","timestamp":"20
 
 ---
 
-### 问题 #613
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13779,9 +7033,8 @@ Line 24: {"type":"message","id":"973d2724","parentId":"6432a7b4","timestamp":"20
 
 ---
 
-### 问题 #614
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13802,9 +7055,8 @@ Line 25: {"type":"message","id":"59656157","parentId":"973d2724","timestamp":"20
 
 ---
 
-### 问题 #615
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13825,9 +7077,8 @@ Line 34: {"type":"message","id":"f994876d","parentId":"60a2a8e3","timestamp":"20
 
 ---
 
-### 问题 #616
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13848,9 +7099,8 @@ Line 35: {"type":"message","id":"0db48a52","parentId":"f994876d","timestamp":"20
 
 ---
 
-### 问题 #617
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13871,9 +7121,8 @@ Line 36: {"type":"message","id":"566e50c2","parentId":"0db48a52","timestamp":"20
 
 ---
 
-### 问题 #618
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13894,9 +7143,8 @@ Line 37: {"type":"message","id":"0a5a6018","parentId":"566e50c2","timestamp":"20
 
 ---
 
-### 问题 #619
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13917,9 +7165,8 @@ Line 18: {"type":"message","id":"8ce3af7e","parentId":"25757321","timestamp":"20
 
 ---
 
-### 问题 #620
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13940,9 +7187,8 @@ Line 19: {"type":"message","id":"b4c88d63","parentId":"8ce3af7e","timestamp":"20
 
 ---
 
-### 问题 #621
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13963,9 +7209,8 @@ Line 20: {"type":"message","id":"30a20e06","parentId":"b4c88d63","timestamp":"20
 
 ---
 
-### 问题 #622
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -13986,9 +7231,8 @@ Line 29: {"type":"message","id":"cc555386","parentId":"058e53a5","timestamp":"20
 
 ---
 
-### 问题 #623
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14009,9 +7253,8 @@ Line 30: {"type":"message","id":"302bdc9e","parentId":"cc555386","timestamp":"20
 
 ---
 
-### 问题 #624
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14032,9 +7275,8 @@ Line 31: {"type":"message","id":"95486b39","parentId":"302bdc9e","timestamp":"20
 
 ---
 
-### 问题 #625
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14055,9 +7297,8 @@ Line 40: {"type":"message","id":"fe115335","parentId":"bc09b462","timestamp":"20
 
 ---
 
-### 问题 #626
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14078,9 +7319,8 @@ Line 41: {"type":"message","id":"5062a37c","parentId":"fe115335","timestamp":"20
 
 ---
 
-### 问题 #627
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14101,9 +7341,8 @@ Line 42: {"type":"message","id":"ebda4c76","parentId":"5062a37c","timestamp":"20
 
 ---
 
-### 问题 #628
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14124,9 +7363,8 @@ Line 51: {"type":"message","id":"154a6ba4","parentId":"43918403","timestamp":"20
 
 ---
 
-### 问题 #629
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14147,9 +7385,8 @@ Line 52: {"type":"message","id":"d9cd0f8a","parentId":"154a6ba4","timestamp":"20
 
 ---
 
-### 问题 #630
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14170,9 +7407,8 @@ Line 53: {"type":"message","id":"81384853","parentId":"d9cd0f8a","timestamp":"20
 
 ---
 
-### 问题 #632
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14193,9 +7429,8 @@ Line 8: {"type":"message","id":"42c89145","parentId":"3320a00e","timestamp":"202
 
 ---
 
-### 问题 #633
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14216,9 +7451,8 @@ Line 9: {"type":"message","id":"ca40fe92","parentId":"42c89145","timestamp":"202
 
 ---
 
-### 问题 #634
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14239,9 +7473,8 @@ Line 18: {"type":"message","id":"d7889c46","parentId":"29ee63a5","timestamp":"20
 
 ---
 
-### 问题 #635
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14262,9 +7495,8 @@ Line 41: {"type":"message","id":"5c398e88","parentId":"b494591d","timestamp":"20
 
 ---
 
-### 问题 #636
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14285,9 +7517,8 @@ Line 62: {"type":"message","id":"c935b5c4","parentId":"47352ffc","timestamp":"20
 
 ---
 
-### 问题 #637
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14308,9 +7539,8 @@ Line 65: {"type":"message","id":"d3a2511f","parentId":"4e7b2f09","timestamp":"20
 
 ---
 
-### 问题 #638
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14331,9 +7561,8 @@ Line 68: {"type":"message","id":"8d0ccf6f","parentId":"200d06b0","timestamp":"20
 
 ---
 
-### 问题 #639
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14354,9 +7583,8 @@ Line 8: {"type":"message","id":"f91da8b8","parentId":"5418b341","timestamp":"202
 
 ---
 
-### 问题 #640
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14377,9 +7605,8 @@ Line 9: {"type":"message","id":"98301b34","parentId":"f91da8b8","timestamp":"202
 
 ---
 
-### 问题 #641
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14400,9 +7627,8 @@ Line 10: {"type":"message","id":"2fb355a8","parentId":"98301b34","timestamp":"20
 
 ---
 
-### 问题 #642
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14423,9 +7649,8 @@ Line 25: {"type":"message","id":"c252663e","parentId":"d728d637","timestamp":"20
 
 ---
 
-### 问题 #643
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14446,9 +7671,8 @@ Line 28: {"type":"message","id":"ba1de6c0","parentId":"e8d611c2","timestamp":"20
 
 ---
 
-### 问题 #644
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14469,9 +7693,8 @@ Line 29: {"type":"message","id":"34109674","parentId":"ba1de6c0","timestamp":"20
 
 ---
 
-### 问题 #645
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14492,9 +7715,8 @@ Line 64: {"type":"message","id":"c893b66f","parentId":"e771527b","timestamp":"20
 
 ---
 
-### 问题 #651
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14515,9 +7737,8 @@ Line 8: {"type":"message","id":"320b5fe1","parentId":"0c067ec3","timestamp":"202
 
 ---
 
-### 问题 #652
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14538,9 +7759,8 @@ Line 9: {"type":"message","id":"f7a57505","parentId":"320b5fe1","timestamp":"202
 
 ---
 
-### 问题 #653
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14561,9 +7781,8 @@ Line 10: {"type":"message","id":"233a0f15","parentId":"f7a57505","timestamp":"20
 
 ---
 
-### 问题 #654
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14584,9 +7803,8 @@ Line 11: {"type":"message","id":"226e75ce","parentId":"233a0f15","timestamp":"20
 
 ---
 
-### 问题 #655
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14607,9 +7825,8 @@ Line 24: {"type":"message","id":"4c963429","parentId":"2e0845bc","timestamp":"20
 
 ---
 
-### 问题 #656
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14630,9 +7847,8 @@ Line 37: {"type":"message","id":"2edc7e90","parentId":"42431967","timestamp":"20
 
 ---
 
-### 问题 #657
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14653,9 +7869,8 @@ Line 44: {"type":"message","id":"d6307e9f","parentId":"4f834734","timestamp":"20
 
 ---
 
-### 问题 #658
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14676,9 +7891,8 @@ Line 38: {"type":"message","id":"faa5312d","parentId":"7bc1a8bc","timestamp":"20
 
 ---
 
-### 问题 #659
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14699,9 +7913,8 @@ Line 39: {"type":"message","id":"36ac9142","parentId":"faa5312d","timestamp":"20
 
 ---
 
-### 问题 #665
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14722,9 +7935,8 @@ Line 8: {"type":"message","id":"eef84935","parentId":"35d2228f","timestamp":"202
 
 ---
 
-### 问题 #666
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14745,9 +7957,8 @@ Line 9: {"type":"message","id":"2decc98b","parentId":"eef84935","timestamp":"202
 
 ---
 
-### 问题 #667
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14768,9 +7979,8 @@ Line 12: {"type":"message","id":"d2a98f54","parentId":"9a6210aa","timestamp":"20
 
 ---
 
-### 问题 #668
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14791,9 +8001,8 @@ Line 13: {"type":"message","id":"2be160f2","parentId":"d2a98f54","timestamp":"20
 
 ---
 
-### 问题 #669
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14814,9 +8023,8 @@ Line 14: {"type":"message","id":"a221b54d","parentId":"2be160f2","timestamp":"20
 
 ---
 
-### 问题 #670
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14837,9 +8045,8 @@ Line 27: {"type":"message","id":"7931b7c7","parentId":"b88847b5","timestamp":"20
 
 ---
 
-### 问题 #671
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14860,9 +8067,8 @@ Line 28: {"type":"message","id":"fc9b300c","parentId":"7931b7c7","timestamp":"20
 
 ---
 
-### 问题 #672
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14883,9 +8089,8 @@ Line 29: {"type":"message","id":"8a38e678","parentId":"fc9b300c","timestamp":"20
 
 ---
 
-### 问题 #673
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14906,9 +8111,8 @@ Line 38: {"type":"message","id":"26f52f6b","parentId":"c40806b9","timestamp":"20
 
 ---
 
-### 问题 #674
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14929,9 +8133,8 @@ Line 39: {"type":"message","id":"26a96f92","parentId":"26f52f6b","timestamp":"20
 
 ---
 
-### 问题 #675
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14952,9 +8155,8 @@ Line 40: {"type":"message","id":"a0c1f261","parentId":"26a96f92","timestamp":"20
 
 ---
 
-### 问题 #676
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14975,9 +8177,8 @@ Line 49: {"type":"message","id":"27ab64ba","parentId":"bb00e8c7","timestamp":"20
 
 ---
 
-### 问题 #677
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -14998,9 +8199,8 @@ Line 50: {"type":"message","id":"1a96a7a2","parentId":"27ab64ba","timestamp":"20
 
 ---
 
-### 问题 #678
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15021,9 +8221,8 @@ Line 51: {"type":"message","id":"772c3eff","parentId":"1a96a7a2","timestamp":"20
 
 ---
 
-### 问题 #679
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15044,9 +8243,8 @@ Line 58: {"type":"message","id":"313686d3","parentId":"68e0281a","timestamp":"20
 
 ---
 
-### 问题 #680
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15067,9 +8265,8 @@ Line 59: {"type":"message","id":"83fb7ac1","parentId":"313686d3","timestamp":"20
 
 ---
 
-### 问题 #681
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15090,9 +8287,8 @@ Line 60: {"type":"message","id":"741cc5b5","parentId":"83fb7ac1","timestamp":"20
 
 ---
 
-### 问题 #682
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15113,9 +8309,8 @@ Line 68: {"type":"message","id":"a974290d","parentId":"c727746a","timestamp":"20
 
 ---
 
-### 问题 #683
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15136,9 +8331,8 @@ Line 69: {"type":"message","id":"5d8f5e0e","parentId":"a974290d","timestamp":"20
 
 ---
 
-### 问题 #684
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15159,9 +8353,8 @@ Line 70: {"type":"message","id":"20308cf0","parentId":"5d8f5e0e","timestamp":"20
 
 ---
 
-### 问题 #685
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15182,9 +8375,8 @@ Line 83: {"type":"message","id":"2e048ea2","parentId":"7dbc9b52","timestamp":"20
 
 ---
 
-### 问题 #686
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15205,9 +8397,8 @@ Line 84: {"type":"message","id":"7f86963f","parentId":"2e048ea2","timestamp":"20
 
 ---
 
-### 问题 #687
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15228,9 +8419,8 @@ Line 85: {"type":"message","id":"5c544cba","parentId":"7f86963f","timestamp":"20
 
 ---
 
-### 问题 #688
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15251,9 +8441,8 @@ Line 100: {"type":"message","id":"959f6fbb","parentId":"dc6b97fb","timestamp":"2
 
 ---
 
-### 问题 #689
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15274,9 +8463,8 @@ Line 101: {"type":"message","id":"17949793","parentId":"959f6fbb","timestamp":"2
 
 ---
 
-### 问题 #690
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15297,9 +8485,8 @@ Line 102: {"type":"message","id":"811348fa","parentId":"17949793","timestamp":"2
 
 ---
 
-### 问题 #691
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15320,9 +8507,8 @@ Line 118: {"type":"message","id":"f74e5106","parentId":"d3b2f1ad","timestamp":"2
 
 ---
 
-### 问题 #692
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15343,9 +8529,8 @@ Line 119: {"type":"message","id":"9a5e086a","parentId":"f74e5106","timestamp":"2
 
 ---
 
-### 问题 #693
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15366,9 +8551,8 @@ Line 120: {"type":"message","id":"4f676749","parentId":"9a5e086a","timestamp":"2
 
 ---
 
-### 问题 #695
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15389,9 +8573,8 @@ Line 144: {"type":"message","id":"113aa1af","parentId":"2d742163","timestamp":"2
 
 ---
 
-### 问题 #696
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15412,9 +8595,8 @@ Line 145: {"type":"message","id":"98ded299","parentId":"113aa1af","timestamp":"2
 
 ---
 
-### 问题 #697
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15435,9 +8617,8 @@ Line 146: {"type":"message","id":"4f794e67","parentId":"98ded299","timestamp":"2
 
 ---
 
-### 问题 #702
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15458,9 +8639,8 @@ Line 8: {"type":"message","id":"2be3a81e","parentId":"c55a82bd","timestamp":"202
 
 ---
 
-### 问题 #703
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15481,9 +8661,8 @@ Line 9: {"type":"message","id":"38a0d4c8","parentId":"2be3a81e","timestamp":"202
 
 ---
 
-### 问题 #704
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15504,9 +8683,8 @@ Line 10: {"type":"message","id":"d73f152b","parentId":"38a0d4c8","timestamp":"20
 
 ---
 
-### 问题 #705
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15527,9 +8705,8 @@ Line 11: {"type":"message","id":"82e6a5fb","parentId":"d73f152b","timestamp":"20
 
 ---
 
-### 问题 #706
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15550,9 +8727,8 @@ Line 12: {"type":"message","id":"3c79606c","parentId":"7f923bad","timestamp":"20
 
 ---
 
-### 问题 #707
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15573,9 +8749,8 @@ Line 8: {"type":"message","id":"54207ed4","parentId":"30eaa80c","timestamp":"202
 
 ---
 
-### 问题 #708
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15596,9 +8771,8 @@ Line 8: {"type":"message","id":"de00c992","parentId":"bc74b1a5","timestamp":"202
 
 ---
 
-### 问题 #709
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15619,9 +8793,8 @@ Line 9: {"type":"message","id":"9a1cdfa0","parentId":"de00c992","timestamp":"202
 
 ---
 
-### 问题 #710
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15642,9 +8815,8 @@ Line 10: {"type":"message","id":"b4b10f3a","parentId":"9a1cdfa0","timestamp":"20
 
 ---
 
-### 问题 #711
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15665,9 +8837,8 @@ Line 11: {"type":"message","id":"0e136616","parentId":"b4b10f3a","timestamp":"20
 
 ---
 
-### 问题 #712
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15688,9 +8859,8 @@ Line 16: {"type":"message","id":"ddaf45fe","parentId":"cb90fecb","timestamp":"20
 
 ---
 
-### 问题 #713
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15711,9 +8881,8 @@ Line 17: {"type":"message","id":"201447e3","parentId":"ddaf45fe","timestamp":"20
 
 ---
 
-### 问题 #714
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15734,9 +8903,8 @@ Line 18: {"type":"message","id":"1297cc07","parentId":"201447e3","timestamp":"20
 
 ---
 
-### 问题 #715
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15757,9 +8925,8 @@ Line 8: {"type":"message","id":"18efc509","parentId":"6f501922","timestamp":"202
 
 ---
 
-### 问题 #716
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15780,9 +8947,8 @@ Line 9: {"type":"message","id":"7958b553","parentId":"18efc509","timestamp":"202
 
 ---
 
-### 问题 #717
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15803,9 +8969,8 @@ Line 10: {"type":"message","id":"e5eb0e55","parentId":"7958b553","timestamp":"20
 
 ---
 
-### 问题 #718
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15826,9 +8991,8 @@ Line 11: {"type":"message","id":"6b5b4e23","parentId":"e5eb0e55","timestamp":"20
 
 ---
 
-### 问题 #719
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15849,9 +9013,8 @@ Line 42: {"type":"message","id":"a07cba69","parentId":"dc8f06f9","timestamp":"20
 
 ---
 
-### 问题 #721
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15872,9 +9035,8 @@ Line 178: {"type":"message","id":"4a91b8f5","parentId":"3b721994","timestamp":"2
 
 ---
 
-### 问题 #722
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15895,9 +9057,8 @@ Line 179: {"type":"message","id":"5217f0a7","parentId":"4a91b8f5","timestamp":"2
 
 ---
 
-### 问题 #723
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15918,9 +9079,8 @@ Line 180: {"type":"message","id":"e47b57e8","parentId":"5217f0a7","timestamp":"2
 
 ---
 
-### 问题 #725
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15941,9 +9101,8 @@ Line 12: {"type":"message","id":"0890c2af","parentId":"13e121d6","timestamp":"20
 
 ---
 
-### 问题 #726
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15964,9 +9123,8 @@ Line 13: {"type":"message","id":"20436883","parentId":"0890c2af","timestamp":"20
 
 ---
 
-### 问题 #727
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -15987,9 +9145,8 @@ Line 14: {"type":"message","id":"1776061c","parentId":"20436883","timestamp":"20
 
 ---
 
-### 问题 #728
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16010,9 +9167,8 @@ Line 15: {"type":"message","id":"dede601d","parentId":"1776061c","timestamp":"20
 
 ---
 
-### 问题 #729
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16033,9 +9189,8 @@ Line 8: {"type":"message","id":"be5ac8d5","parentId":"bb9a8302","timestamp":"202
 
 ---
 
-### 问题 #730
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16056,9 +9211,8 @@ Line 9: {"type":"message","id":"3c297701","parentId":"be5ac8d5","timestamp":"202
 
 ---
 
-### 问题 #731
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16079,9 +9233,8 @@ Line 10: {"type":"message","id":"fd4bc5db","parentId":"3c297701","timestamp":"20
 
 ---
 
-### 问题 #732
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16102,9 +9255,8 @@ Line 11: {"type":"message","id":"4a5af5eb","parentId":"fd4bc5db","timestamp":"20
 
 ---
 
-### 问题 #733
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16125,9 +9277,8 @@ Line 12: {"type":"message","id":"cb1ab42e","parentId":"d42dbe94","timestamp":"20
 
 ---
 
-### 问题 #734
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16148,9 +9299,8 @@ Line 13: {"type":"message","id":"d8058f00","parentId":"cb1ab42e","timestamp":"20
 
 ---
 
-### 问题 #735
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16171,9 +9321,8 @@ Line 9: {"type":"message","id":"76679a37","parentId":"6b798ba9","timestamp":"202
 
 ---
 
-### 问题 #736
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16194,9 +9343,8 @@ Line 10: {"type":"message","id":"d8af6b69","parentId":"76679a37","timestamp":"20
 
 ---
 
-### 问题 #737
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16217,9 +9365,8 @@ Line 11: {"type":"message","id":"fdf690ac","parentId":"d8af6b69","timestamp":"20
 
 ---
 
-### 问题 #738
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16240,9 +9387,8 @@ Line 12: {"type":"message","id":"bf4e725c","parentId":"fdf690ac","timestamp":"20
 
 ---
 
-### 问题 #740
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16263,9 +9409,8 @@ Line 12: {"type":"message","id":"3ece2f3e","parentId":"e60b2bcb","timestamp":"20
 
 ---
 
-### 问题 #741
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16286,9 +9431,8 @@ Line 13: {"type":"message","id":"321083ae","parentId":"3ece2f3e","timestamp":"20
 
 ---
 
-### 问题 #742
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16309,9 +9453,8 @@ Line 14: {"type":"message","id":"bf1f74e1","parentId":"321083ae","timestamp":"20
 
 ---
 
-### 问题 #743
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16332,9 +9475,8 @@ Line 15: {"type":"message","id":"7ae0224a","parentId":"bf1f74e1","timestamp":"20
 
 ---
 
-### 问题 #744
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16355,9 +9497,8 @@ Line 16: {"type":"message","id":"feda6a50","parentId":"7ae0224a","timestamp":"20
 
 ---
 
-### 问题 #745
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16378,9 +9519,8 @@ Line 53: {"type":"message","id":"330bf7fd","parentId":"39c49f71","timestamp":"20
 
 ---
 
-### 问题 #747
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16401,9 +9541,8 @@ Line 8: {"type":"message","id":"74ac81a3","parentId":"00603f56","timestamp":"202
 
 ---
 
-### 问题 #748
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16424,9 +9563,8 @@ Line 12: {"type":"message","id":"1cec553a","parentId":"4fae6d9e","timestamp":"20
 
 ---
 
-### 问题 #749
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16447,9 +9585,8 @@ Line 13: {"type":"message","id":"9f5dea6b","parentId":"1cec553a","timestamp":"20
 
 ---
 
-### 问题 #750
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16470,9 +9607,8 @@ Line 14: {"type":"message","id":"24a07f33","parentId":"9f5dea6b","timestamp":"20
 
 ---
 
-### 问题 #751
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16493,9 +9629,8 @@ Line 15: {"type":"message","id":"c454d094","parentId":"24a07f33","timestamp":"20
 
 ---
 
-### 问题 #752
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16516,9 +9651,8 @@ Line 24: {"type":"message","id":"7287bb8d","parentId":"073b4922","timestamp":"20
 
 ---
 
-### 问题 #753
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16539,9 +9673,8 @@ Line 25: {"type":"message","id":"d3232dca","parentId":"7287bb8d","timestamp":"20
 
 ---
 
-### 问题 #754
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16562,9 +9695,8 @@ Line 26: {"type":"message","id":"af787eb0","parentId":"d3232dca","timestamp":"20
 
 ---
 
-### 问题 #755
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16585,9 +9717,8 @@ Line 27: {"type":"message","id":"6fb18874","parentId":"af787eb0","timestamp":"20
 
 ---
 
-### 问题 #756
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16608,9 +9739,8 @@ Line 16: {"type":"message","id":"937a0876","parentId":"c60e9c73","timestamp":"20
 
 ---
 
-### 问题 #757
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16631,9 +9761,8 @@ Line 17: {"type":"message","id":"a78a6784","parentId":"937a0876","timestamp":"20
 
 ---
 
-### 问题 #758
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16654,9 +9783,8 @@ Line 18: {"type":"message","id":"17650897","parentId":"a78a6784","timestamp":"20
 
 ---
 
-### 问题 #759
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16677,9 +9805,8 @@ Line 19: {"type":"message","id":"80bc7237","parentId":"17650897","timestamp":"20
 
 ---
 
-### 问题 #760
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16700,9 +9827,8 @@ Line 8: {"type":"message","id":"7bf22980","parentId":"483e2313","timestamp":"202
 
 ---
 
-### 问题 #761
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16723,9 +9849,8 @@ Line 9: {"type":"message","id":"3085e0fd","parentId":"7bf22980","timestamp":"202
 
 ---
 
-### 问题 #762
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16746,9 +9871,8 @@ Line 10: {"type":"message","id":"b42d6aa0","parentId":"3085e0fd","timestamp":"20
 
 ---
 
-### 问题 #763
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16769,9 +9893,8 @@ Line 11: {"type":"message","id":"aecb300d","parentId":"b42d6aa0","timestamp":"20
 
 ---
 
-### 问题 #764
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16792,9 +9915,8 @@ Line 20: {"type":"message","id":"59bf2886","parentId":"cd3d5c7c","timestamp":"20
 
 ---
 
-### 问题 #765
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16815,9 +9937,8 @@ Line 21: {"type":"message","id":"a347439a","parentId":"59bf2886","timestamp":"20
 
 ---
 
-### 问题 #766
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16838,9 +9959,8 @@ Line 22: {"type":"message","id":"8edeaaed","parentId":"a347439a","timestamp":"20
 
 ---
 
-### 问题 #767
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16861,9 +9981,8 @@ Line 31: {"type":"message","id":"500297c0","parentId":"ca216e12","timestamp":"20
 
 ---
 
-### 问题 #768
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16884,9 +10003,8 @@ Line 32: {"type":"message","id":"00aa6783","parentId":"500297c0","timestamp":"20
 
 ---
 
-### 问题 #769
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16907,9 +10025,8 @@ Line 33: {"type":"message","id":"a0e94746","parentId":"00aa6783","timestamp":"20
 
 ---
 
-### 问题 #770
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16930,9 +10047,8 @@ Line 42: {"type":"message","id":"24a2cc21","parentId":"3a8e2fe0","timestamp":"20
 
 ---
 
-### 问题 #771
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16953,9 +10069,8 @@ Line 43: {"type":"message","id":"6820db3e","parentId":"24a2cc21","timestamp":"20
 
 ---
 
-### 问题 #772
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16976,9 +10091,8 @@ Line 44: {"type":"message","id":"9ee446f8","parentId":"6820db3e","timestamp":"20
 
 ---
 
-### 问题 #773
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -16999,9 +10113,8 @@ Line 53: {"type":"message","id":"23abe62a","parentId":"d96fad3e","timestamp":"20
 
 ---
 
-### 问题 #774
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17022,9 +10135,8 @@ Line 54: {"type":"message","id":"748deca0","parentId":"23abe62a","timestamp":"20
 
 ---
 
-### 问题 #775
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17045,9 +10157,8 @@ Line 55: {"type":"message","id":"717c4737","parentId":"748deca0","timestamp":"20
 
 ---
 
-### 问题 #776
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17068,9 +10179,8 @@ Line 64: {"type":"message","id":"eb7ea9a9","parentId":"2e37508d","timestamp":"20
 
 ---
 
-### 问题 #777
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17091,9 +10201,8 @@ Line 65: {"type":"message","id":"9fdf155e","parentId":"eb7ea9a9","timestamp":"20
 
 ---
 
-### 问题 #778
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17114,9 +10223,8 @@ Line 66: {"type":"message","id":"04c544ad","parentId":"9fdf155e","timestamp":"20
 
 ---
 
-### 问题 #779
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17137,9 +10245,8 @@ Line 75: {"type":"message","id":"6408eeb4","parentId":"5012c387","timestamp":"20
 
 ---
 
-### 问题 #780
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17160,9 +10267,8 @@ Line 76: {"type":"message","id":"61201312","parentId":"6408eeb4","timestamp":"20
 
 ---
 
-### 问题 #781
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17183,9 +10289,8 @@ Line 77: {"type":"message","id":"ad49d7c8","parentId":"61201312","timestamp":"20
 
 ---
 
-### 问题 #782
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17206,9 +10311,8 @@ Line 86: {"type":"message","id":"317156b0","parentId":"6bb5d7ee","timestamp":"20
 
 ---
 
-### 问题 #783
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17229,9 +10333,8 @@ Line 87: {"type":"message","id":"36a656b4","parentId":"317156b0","timestamp":"20
 
 ---
 
-### 问题 #784
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17252,9 +10355,8 @@ Line 88: {"type":"message","id":"532aa2f6","parentId":"36a656b4","timestamp":"20
 
 ---
 
-### 问题 #785
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17275,9 +10377,8 @@ Line 98: {"type":"message","id":"536c1ad8","parentId":"5a3ee099","timestamp":"20
 
 ---
 
-### 问题 #786
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17298,9 +10399,8 @@ Line 99: {"type":"message","id":"19b7e8bf","parentId":"536c1ad8","timestamp":"20
 
 ---
 
-### 问题 #787
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17321,9 +10421,8 @@ Line 100: {"type":"message","id":"ebb880ee","parentId":"19b7e8bf","timestamp":"2
 
 ---
 
-### 问题 #788
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17344,9 +10443,8 @@ Line 109: {"type":"message","id":"c1ff0bd8","parentId":"4f3a6cb2","timestamp":"2
 
 ---
 
-### 问题 #789
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17367,9 +10465,8 @@ Line 110: {"type":"message","id":"61d1029c","parentId":"c1ff0bd8","timestamp":"2
 
 ---
 
-### 问题 #790
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17390,9 +10487,8 @@ Line 111: {"type":"message","id":"89c59189","parentId":"61d1029c","timestamp":"2
 
 ---
 
-### 问题 #791
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17413,9 +10509,8 @@ Line 126: {"type":"message","id":"237c405d","parentId":"b9cbedf8","timestamp":"2
 
 ---
 
-### 问题 #792
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17436,9 +10531,8 @@ Line 127: {"type":"message","id":"d7ca8e36","parentId":"237c405d","timestamp":"2
 
 ---
 
-### 问题 #793
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17459,9 +10553,8 @@ Line 128: {"type":"message","id":"adfd8b98","parentId":"d7ca8e36","timestamp":"2
 
 ---
 
-### 问题 #795
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17482,9 +10575,8 @@ Line 3: {"type":"message","id":"b101c7db","parentId":"56500443","timestamp":"202
 
 ---
 
-### 问题 #796
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17505,9 +10597,8 @@ Line 4: {"type":"message","id":"ae7fca8b","parentId":"b101c7db","timestamp":"202
 
 ---
 
-### 问题 #797
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17528,9 +10619,8 @@ Line 12: {"type":"message","id":"dec111e4","parentId":"7e2750bb","timestamp":"20
 
 ---
 
-### 问题 #798
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17551,9 +10641,8 @@ Line 13: {"type":"message","id":"679efb4b","parentId":"dec111e4","timestamp":"20
 
 ---
 
-### 问题 #799
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17574,9 +10663,8 @@ Line 14: {"type":"message","id":"c12d3444","parentId":"679efb4b","timestamp":"20
 
 ---
 
-### 问题 #800
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17597,9 +10685,8 @@ Line 15: {"type":"message","id":"c7845043","parentId":"c12d3444","timestamp":"20
 
 ---
 
-### 问题 #801
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17620,9 +10707,8 @@ Line 24: {"type":"message","id":"cbae1aa8","parentId":"cd6e594a","timestamp":"20
 
 ---
 
-### 问题 #802
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17643,9 +10729,8 @@ Line 25: {"type":"message","id":"33920b00","parentId":"cbae1aa8","timestamp":"20
 
 ---
 
-### 问题 #803
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17666,9 +10751,8 @@ Line 26: {"type":"message","id":"a31efdde","parentId":"33920b00","timestamp":"20
 
 ---
 
-### 问题 #804
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17689,9 +10773,8 @@ Line 27: {"type":"message","id":"8a01015b","parentId":"a31efdde","timestamp":"20
 
 ---
 
-### 问题 #806
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17712,9 +10795,8 @@ Line 12: {"type":"message","id":"da5ec462","parentId":"761b194c","timestamp":"20
 
 ---
 
-### 问题 #807
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17735,9 +10817,8 @@ Line 13: {"type":"message","id":"96316df0","parentId":"da5ec462","timestamp":"20
 
 ---
 
-### 问题 #808
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17758,9 +10839,8 @@ Line 14: {"type":"message","id":"e98cc717","parentId":"96316df0","timestamp":"20
 
 ---
 
-### 问题 #809
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17781,9 +10861,8 @@ Line 29: {"type":"message","id":"21b53356","parentId":"85445807","timestamp":"20
 
 ---
 
-### 问题 #810
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17804,9 +10883,8 @@ Line 30: {"type":"message","id":"22de5c53","parentId":"21b53356","timestamp":"20
 
 ---
 
-### 问题 #811
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17827,9 +10905,8 @@ Line 31: {"type":"message","id":"bbd5d714","parentId":"22de5c53","timestamp":"20
 
 ---
 
-### 问题 #812
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17850,9 +10927,8 @@ Line 12: {"type":"message","id":"578fff53","parentId":"dbf221c5","timestamp":"20
 
 ---
 
-### 问题 #813
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17873,9 +10949,8 @@ Line 13: {"type":"message","id":"8da2c62f","parentId":"578fff53","timestamp":"20
 
 ---
 
-### 问题 #814
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17896,9 +10971,8 @@ Line 14: {"type":"message","id":"3097321c","parentId":"8da2c62f","timestamp":"20
 
 ---
 
-### 问题 #815
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17919,9 +10993,8 @@ Line 15: {"type":"message","id":"0d6a7d9f","parentId":"3097321c","timestamp":"20
 
 ---
 
-### 问题 #816
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17942,9 +11015,8 @@ Line 24: {"type":"message","id":"3717364c","parentId":"c3dbdbdd","timestamp":"20
 
 ---
 
-### 问题 #817
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17965,9 +11037,8 @@ Line 25: {"type":"message","id":"1b3d2130","parentId":"3717364c","timestamp":"20
 
 ---
 
-### 问题 #818
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -17988,9 +11059,8 @@ Line 26: {"type":"message","id":"8d3c0e00","parentId":"1b3d2130","timestamp":"20
 
 ---
 
-### 问题 #819
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18011,9 +11081,8 @@ Line 39: {"type":"message","id":"5af9e6af","parentId":"6c9c19e6","timestamp":"20
 
 ---
 
-### 问题 #820
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18034,9 +11103,8 @@ Line 40: {"type":"message","id":"625193bc","parentId":"5af9e6af","timestamp":"20
 
 ---
 
-### 问题 #821
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18057,9 +11125,8 @@ Line 41: {"type":"message","id":"2afc9d34","parentId":"625193bc","timestamp":"20
 
 ---
 
-### 问题 #826
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18080,9 +11147,8 @@ Line 11: {"type":"message","id":"ef7eae5e","parentId":"762f8a85","timestamp":"20
 
 ---
 
-### 问题 #827
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18103,9 +11169,8 @@ Line 12: {"type":"message","id":"6b2bb9bb","parentId":"ef7eae5e","timestamp":"20
 
 ---
 
-### 问题 #828
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18126,9 +11191,8 @@ Line 13: {"type":"message","id":"9eec65d6","parentId":"6b2bb9bb","timestamp":"20
 
 ---
 
-### 问题 #829
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18149,9 +11213,8 @@ Line 14: {"type":"message","id":"cfaab29d","parentId":"9eec65d6","timestamp":"20
 
 ---
 
-### 问题 #842
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18172,9 +11235,8 @@ Line 9: {"type":"message","id":"a3b6e457","parentId":"a9a07cf0","timestamp":"202
 
 ---
 
-### 问题 #843
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18195,9 +11257,8 @@ Line 12: {"type":"message","id":"549a3ddc","parentId":"6f986128","timestamp":"20
 
 ---
 
-### 问题 #844
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18218,9 +11279,8 @@ Line 19: {"type":"message","id":"b302c1f4","parentId":"3def519d","timestamp":"20
 
 ---
 
-### 问题 #845
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18241,9 +11301,8 @@ Line 20: {"type":"message","id":"ca46020e","parentId":"b302c1f4","timestamp":"20
 
 ---
 
-### 问题 #846
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18264,9 +11323,8 @@ Line 21: {"type":"message","id":"19186e15","parentId":"ca46020e","timestamp":"20
 
 ---
 
-### 问题 #847
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18287,9 +11345,8 @@ Line 22: {"type":"message","id":"1f89b78e","parentId":"19186e15","timestamp":"20
 
 ---
 
-### 问题 #850
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18310,9 +11367,8 @@ Line 25: {"type":"message","id":"02997f40","parentId":"4baef71d","timestamp":"20
 
 ---
 
-### 问题 #851
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18333,9 +11389,8 @@ Line 26: {"type":"message","id":"17f6302e","parentId":"02997f40","timestamp":"20
 
 ---
 
-### 问题 #852
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18356,9 +11411,8 @@ Line 27: {"type":"message","id":"c520a308","parentId":"17f6302e","timestamp":"20
 
 ---
 
-### 问题 #853
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18379,9 +11433,8 @@ Line 28: {"type":"message","id":"053cb9fe","parentId":"c520a308","timestamp":"20
 
 ---
 
-### 问题 #856
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18402,9 +11455,8 @@ Line 9: {"type":"message","id":"e0772581","parentId":"99d39886","timestamp":"202
 
 ---
 
-### 问题 #857
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18425,9 +11477,8 @@ Line 10: {"type":"message","id":"1d6c2d8d","parentId":"e0772581","timestamp":"20
 
 ---
 
-### 问题 #858
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18448,9 +11499,8 @@ Line 11: {"type":"message","id":"4dbe833a","parentId":"1d6c2d8d","timestamp":"20
 
 ---
 
-### 问题 #859
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18471,9 +11521,8 @@ Line 12: {"type":"message","id":"b24aa17d","parentId":"4dbe833a","timestamp":"20
 
 ---
 
-### 问题 #860
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18494,9 +11543,8 @@ Line 13: {"type":"message","id":"8a56229f","parentId":"b24aa17d","timestamp":"20
 
 ---
 
-### 问题 #861
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18517,9 +11565,8 @@ Line 14: {"type":"message","id":"4a6c2f8e","parentId":"8a56229f","timestamp":"20
 
 ---
 
-### 问题 #862
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18540,9 +11587,8 @@ Line 15: {"type":"message","id":"aad29a15","parentId":"4a6c2f8e","timestamp":"20
 
 ---
 
-### 问题 #863
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18563,9 +11609,8 @@ Line 16: {"type":"message","id":"2f420c94","parentId":"aad29a15","timestamp":"20
 
 ---
 
-### 问题 #864
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18586,9 +11631,8 @@ Line 17: {"type":"message","id":"9b7729f6","parentId":"2f420c94","timestamp":"20
 
 ---
 
-### 问题 #865
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18609,9 +11653,8 @@ Line 18: {"type":"message","id":"1c393bab","parentId":"9b7729f6","timestamp":"20
 
 ---
 
-### 问题 #866
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18632,9 +11675,8 @@ Line 19: {"type":"message","id":"dedb2dd2","parentId":"1c393bab","timestamp":"20
 
 ---
 
-### 问题 #867
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18655,9 +11697,8 @@ Line 20: {"type":"message","id":"7264d74c","parentId":"dedb2dd2","timestamp":"20
 
 ---
 
-### 问题 #870
+### 问题
 
-- **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
@@ -18675,6 +11716,6097 @@ Line 8: {"type":"message","id":"c7fc645f","parentId":"ace8a5d5","timestamp":"202
 - **Session ID**: `b1798bba-74d1-4be3-bfb2-c81c07c7ef88`
 - **行号**: 7
 - **时间戳**: 2026-04-13T02:08:12.424Z
+
+---
+
+## abnormal_stop - 异常停止 (168)
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54128 input tokens (16384 > 65536 - 54128). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
+- **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
+- **行号**: 104
+- **时间戳**: 2026-04-13T07:42:15.621Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54307 input tokens (16384 > 65536 - 54307). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
+- **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
+- **行号**: 107
+- **时间戳**: 2026-04-13T07:42:35.973Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 57458 input tokens (16384 > 65536 - 57458). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\46ab4208-374c-4215-853c-5c7987c2e791.jsonl.reset.2026-04-13T07-49-48.941Z`
+- **Session ID**: `46ab4208-374c-4215-853c-5c7987c2e791`
+- **行号**: 26
+- **时间戳**: 2026-04-13T07:49:36.027Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54129 input tokens (16384 > 65536 - 54129). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\7b971aed-e825-456c-a609-bdb2463e6ccc.jsonl.reset.2026-04-13T07-46-28.872Z`
+- **Session ID**: `7b971aed-e825-456c-a609-bdb2463e6ccc`
+- **行号**: 32
+- **时间戳**: 2026-04-13T07:46:19.684Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50183 input tokens (16384 > 65536 - 50183). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\c4803ea6-54cc-4d56-a500-bc98653190ca.jsonl.reset.2026-04-14T13-49-35.396Z`
+- **Session ID**: `c4803ea6-54cc-4d56-a500-bc98653190ca`
+- **行号**: 50
+- **时间戳**: 2026-04-14T13:49:25.880Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59325 input tokens (16384 > 65536 - 59325). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
+- **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
+- **行号**: 68
+- **时间戳**: 2026-04-14T13:43:38.018Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59431 input tokens (16384 > 65536 - 59431). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
+- **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
+- **行号**: 71
+- **时间戳**: 2026-04-14T13:43:50.101Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
+- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
+- **行号**: 68
+- **时间戳**: 2026-04-13T08:22:43.126Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
+- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
+- **行号**: 72
+- **时间戳**: 2026-04-13T08:24:02.174Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52189 input tokens (16384 > 65536 - 52189). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
+- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
+- **行号**: 102
+- **时间戳**: 2026-04-15T09:11:33.012Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52195 input tokens (16384 > 65536 - 52195). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
+- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
+- **行号**: 105
+- **时间戳**: 2026-04-15T09:31:33.448Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52317 input tokens (16384 > 65536 - 52317). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
+- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
+- **行号**: 108
+- **时间戳**: 2026-04-16T01:12:45.945Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52617 input tokens (16384 > 65536 - 52617). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
+- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
+- **行号**: 111
+- **时间戳**: 2026-04-16T01:12:48.085Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52738 input tokens (16384 > 65536 - 52738). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
+- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
+- **行号**: 114
+- **时间戳**: 2026-04-16T01:12:49.844Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52859 input tokens (16384 > 65536 - 52859). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
+- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
+- **行号**: 117
+- **时间戳**: 2026-04-16T01:12:51.724Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49443 input tokens (16384 > 65536 - 49443). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\17d2ff9a-4d20-443e-b885-f02f99596d0e.jsonl.reset.2026-04-15T04-48-17.449Z`
+- **Session ID**: `17d2ff9a-4d20-443e-b885-f02f99596d0e`
+- **行号**: 32
+- **时间戳**: 2026-04-15T04:36:21.682Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49667 input tokens (16384 > 65536 - 49667). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\17d2ff9a-4d20-443e-b885-f02f99596d0e.jsonl.reset.2026-04-15T04-48-17.449Z`
+- **Session ID**: `17d2ff9a-4d20-443e-b885-f02f99596d0e`
+- **行号**: 35
+- **时间戳**: 2026-04-15T04:45:40.725Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54822 input tokens (16384 > 65536 - 54822). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
+- **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
+- **行号**: 38
+- **时间戳**: 2026-04-03T06:22:54.912Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54850 input tokens (16384 > 65536 - 54850). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
+- **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
+- **行号**: 40
+- **时间戳**: 2026-04-03T06:50:47.415Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54920 input tokens (16384 > 65536 - 54920). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
+- **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
+- **行号**: 42
+- **时间戳**: 2026-04-03T07:18:27.370Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 85605 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85605)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
+- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
+- **行号**: 18
+- **时间戳**: 2026-04-15T05:07:14.548Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 85773 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85773)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
+- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
+- **行号**: 21
+- **时间戳**: 2026-04-15T05:08:18.269Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 85836 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85836)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
+- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
+- **行号**: 24
+- **时间戳**: 2026-04-15T05:08:28.536Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
+- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
+- **行号**: 28
+- **时间戳**: 2026-04-15T05:08:30.684Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 85322 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85322)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a4bcb8af-0927-4f3f-934b-fb7f1f625da2.jsonl.reset.2026-04-15T05-09-44.243Z`
+- **Session ID**: `a4bcb8af-0927-4f3f-934b-fb7f1f625da2`
+- **行号**: 18
+- **时间戳**: 2026-04-15T05:09:39.058Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57546 input tokens (8192 > 65536 - 57546). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
+- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
+- **行号**: 249
+- **时间戳**: 2026-03-30T11:59:24.310Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58049 input tokens (8192 > 65536 - 58049). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
+- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
+- **行号**: 251
+- **时间戳**: 2026-03-30T12:00:40.495Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57568 input tokens (8192 > 65536 - 57568). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
+- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
+- **行号**: 269
+- **时间戳**: 2026-03-30T12:02:07.765Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58542 input tokens (8192 > 65536 - 58542). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
+- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
+- **行号**: 271
+- **时间戳**: 2026-03-30T12:36:21.160Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58834 input tokens (8192 > 65536 - 58834). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
+- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
+- **行号**: 273
+- **时间戳**: 2026-03-30T12:36:21.617Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 34
+- **时间戳**: 2026-04-10T09:08:28.972Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 38
+- **时间戳**: 2026-04-10T09:08:46.305Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 {'error': '/chat/completions: Invalid model name passed in model=AIAPLLM-vision-nothink. Call `/v1/models` to view available models for your key.'}
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
+- **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
+- **行号**: 40
+- **时间戳**: 2026-04-13T06:13:30.457Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 {'error': '/chat/completions: Invalid model name passed in model=AIAPLLM-vision-nothink. Call `/v1/models` to view available models for your key.'}
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
+- **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
+- **行号**: 42
+- **时间戳**: 2026-04-13T06:14:13.557Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
+- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
+- **行号**: 54
+- **时间戳**: 2026-04-09T06:41:31.238Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
+- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
+- **行号**: 113
+- **时间戳**: 2026-03-30T03:40:38.194Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
+- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
+- **行号**: 122
+- **时间戳**: 2026-03-26T02:20:53.522Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
+- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
+- **行号**: 40
+- **时间戳**: 2026-04-02T08:42:17.933Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 6
+- **时间戳**: 2026-03-25T05:25:08.052Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 7
+- **时间戳**: 2026-03-25T05:25:11.504Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 8
+- **时间戳**: 2026-03-25T05:25:16.991Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 9
+- **时间戳**: 2026-03-25T05:25:26.271Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 11
+- **时间戳**: 2026-03-25T05:25:49.595Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 12
+- **时间戳**: 2026-03-25T05:25:53.195Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 13
+- **时间戳**: 2026-03-25T05:25:58.663Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 14
+- **时间戳**: 2026-03-25T05:26:08.147Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57554 input tokens (8192 > 65536 - 57554). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 244
+- **时间戳**: 2026-03-26T01:53:01.595Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57852 input tokens (8192 > 65536 - 57852). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 246
+- **时间戳**: 2026-03-26T02:00:40.558Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58165 input tokens (8192 > 65536 - 58165). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 248
+- **时间戳**: 2026-03-26T02:01:46.469Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57910 input tokens (8192 > 65536 - 57910). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
+- **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
+- **行号**: 250
+- **时间戳**: 2026-03-26T02:01:46.893Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 108
+- **时间戳**: 2026-04-01T02:43:56.096Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 344
+- **时间戳**: 2026-04-01T02:54:31.651Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 371
+- **时间戳**: 2026-04-01T03:01:54.287Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 71
+- **时间戳**: 2026-03-30T05:54:53.469Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 81
+- **时间戳**: 2026-03-30T05:56:06.817Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 101
+- **时间戳**: 2026-03-30T05:56:35.474Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 217
+- **时间戳**: 2026-03-30T06:24:16.702Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
+- **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
+- **行号**: 42
+- **时间戳**: 2026-04-13T07:25:01.706Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 99103 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99103)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\0a3d3e95-5bff-462a-9ef4-cc86be37d0e9.jsonl.reset.2026-04-14T08-03-10.977Z`
+- **Session ID**: `0a3d3e95-5bff-462a-9ef4-cc86be37d0e9`
+- **行号**: 12
+- **时间戳**: 2026-04-14T07:56:14.963Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50053 input tokens (16384 > 65536 - 50053). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
+- **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
+- **行号**: 116
+- **时间戳**: 2026-04-03T09:15:16.986Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50321 input tokens (16384 > 65536 - 50321). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
+- **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
+- **行号**: 118
+- **时间戳**: 2026-04-03T09:17:19.445Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50589 input tokens (16384 > 65536 - 50589). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
+- **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
+- **行号**: 120
+- **时间戳**: 2026-04-03T09:32:46.406Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
+- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
+- **行号**: 70
+- **时间戳**: 2026-04-07T07:11:07.267Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50038 input tokens (16384 > 65536 - 50038). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\3054f47d-9495-49fc-8621-094decd75ed5.jsonl.reset.2026-04-11T13-18-03.510Z`
+- **Session ID**: `3054f47d-9495-49fc-8621-094decd75ed5`
+- **行号**: 94
+- **时间戳**: 2026-04-11T13:17:34.816Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
+- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
+- **行号**: 14
+- **时间戳**: 2026-04-07T07:11:42.779Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 98636 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=98636)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\3d57363f-2801-4839-9f62-3a83486176a2.jsonl.reset.2026-04-14T07-30-17.046Z`
+- **Session ID**: `3d57363f-2801-4839-9f62-3a83486176a2`
+- **行号**: 12
+- **时间戳**: 2026-04-14T07:29:57.228Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 137445 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=137445)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\4c785688-835b-4c1c-8aaf-d21b38146873.jsonl.reset.2026-04-14T05-42-06.587Z`
+- **Session ID**: `4c785688-835b-4c1c-8aaf-d21b38146873`
+- **行号**: 74
+- **时间戳**: 2026-04-11T13:25:46.909Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 93196 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93196)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\57655182-1fa9-4dca-aafc-f16e69319ef6.jsonl`
+- **Session ID**: `57655182-1fa9-4dca-aafc-f16e69319ef6`
+- **行号**: 8
+- **时间戳**: 2026-04-14T07:18:49.508Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
+- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
+- **行号**: 58
+- **时间戳**: 2026-04-09T10:10:55.094Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 92360 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92360)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9ccfae6c-1ba2-4215-b07c-f16eebaee938.jsonl`
+- **Session ID**: `9ccfae6c-1ba2-4215-b07c-f16eebaee938`
+- **行号**: 8
+- **时间戳**: 2026-04-14T07:05:53.732Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 94948 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=94948)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\a022d143-025f-48f2-b75f-2c21ba0750d7.jsonl.reset.2026-04-14T07-28-25.256Z`
+- **Session ID**: `b2331c11-96c5-41c7-ac67-515700ec2e19`
+- **行号**: 8
+- **时间戳**: 2026-04-14T07:26:22.974Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 99703 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99703)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\a022d143-025f-48f2-b75f-2c21ba0750d7.jsonl.reset.2026-04-14T07-28-25.256Z`
+- **Session ID**: `b2331c11-96c5-41c7-ac67-515700ec2e19`
+- **行号**: 11
+- **时间戳**: 2026-04-14T07:28:16.070Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
+- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
+- **行号**: 94
+- **时间戳**: 2026-04-03T06:23:38.196Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 73149 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73149)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
+- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
+- **行号**: 144
+- **时间戳**: 2026-04-03T06:45:38.126Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 73204 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73204)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
+- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
+- **行号**: 146
+- **时间戳**: 2026-04-03T07:01:02.066Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 73462 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73462)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
+- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
+- **行号**: 148
+- **时间戳**: 2026-04-03T07:13:44.537Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
+- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
+- **行号**: 56
+- **时间戳**: 2026-04-09T09:47:03.579Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 92483 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92483)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\f15427eb-5cbe-4649-b5e5-ff97dbf69934.jsonl`
+- **Session ID**: `f15427eb-5cbe-4649-b5e5-ff97dbf69934`
+- **行号**: 8
+- **时间戳**: 2026-04-14T07:06:12.385Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49879 input tokens (16384 > 65536 - 49879). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\01fccd16-4957-41b5-827d-1b9ab1383fa0.jsonl.reset.2026-04-15T05-47-20.402Z`
+- **Session ID**: `01fccd16-4957-41b5-827d-1b9ab1383fa0`
+- **行号**: 57
+- **时间戳**: 2026-04-15T05:47:11.354Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49551 input tokens (16384 > 65536 - 49551). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\0d695f54-31ca-411d-aafc-f993d82f10cb.jsonl.reset.2026-04-15T06-17-41.113Z`
+- **Session ID**: `0d695f54-31ca-411d-aafc-f993d82f10cb`
+- **行号**: 28
+- **时间戳**: 2026-04-15T06:16:05.863Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 85041 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85041)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\1ac21cbc-b486-40a3-8dc0-0dc3a52c1e91.jsonl.reset.2026-04-13T05-57-43.669Z`
+- **Session ID**: `1ac21cbc-b486-40a3-8dc0-0dc3a52c1e91`
+- **行号**: 10
+- **时间戳**: 2026-04-13T05:50:43.036Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52253 input tokens (16384 > 65536 - 52253). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\1b8fdaa0-0c61-4dc0-af9f-3d2e3ccb0c84.jsonl.reset.2026-04-15T05-56-35.850Z`
+- **Session ID**: `1b8fdaa0-0c61-4dc0-af9f-3d2e3ccb0c84`
+- **行号**: 50
+- **时间戳**: 2026-04-15T05:50:03.251Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50614 input tokens (16384 > 65536 - 50614). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\34931b7e-4dfd-4801-a704-0f7c938ec0a6.jsonl.reset.2026-04-15T06-15-16.128Z`
+- **Session ID**: `34931b7e-4dfd-4801-a704-0f7c938ec0a6`
+- **行号**: 18
+- **时间戳**: 2026-04-15T06:14:35.345Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50771 input tokens (16384 > 65536 - 50771). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\34931b7e-4dfd-4801-a704-0f7c938ec0a6.jsonl.reset.2026-04-15T06-15-16.128Z`
+- **Session ID**: `34931b7e-4dfd-4801-a704-0f7c938ec0a6`
+- **行号**: 21
+- **时间戳**: 2026-04-15T06:15:09.150Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
+- **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
+- **行号**: 104
+- **时间戳**: 2026-04-11T09:51:30.557Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49306 input tokens (16384 > 65536 - 49306). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\3929f5b4-46c5-4300-97b7-7394f1b3a843.jsonl.reset.2026-04-15T05-48-59.434Z`
+- **Session ID**: `3929f5b4-46c5-4300-97b7-7394f1b3a843`
+- **行号**: 24
+- **时间戳**: 2026-04-15T05:48:54.676Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
+- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
+- **行号**: 22
+- **时间戳**: 2026-04-15T06:21:12.328Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 85682 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85682)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\56bc2a9d-74c5-4168-a298-e607bd80f4f7.jsonl.reset.2026-04-13T06-04-55.489Z`
+- **Session ID**: `56bc2a9d-74c5-4168-a298-e607bd80f4f7`
+- **行号**: 10
+- **时间戳**: 2026-04-13T06:03:55.659Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 85893 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85893)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\56bc2a9d-74c5-4168-a298-e607bd80f4f7.jsonl.reset.2026-04-13T06-04-55.489Z`
+- **Session ID**: `56bc2a9d-74c5-4168-a298-e607bd80f4f7`
+- **行号**: 13
+- **时间戳**: 2026-04-13T06:04:42.640Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 6
+- **时间戳**: 2026-04-09T07:24:42.625Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 7
+- **时间戳**: 2026-04-09T07:24:46.096Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 8
+- **时间戳**: 2026-04-09T07:24:51.468Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 9
+- **时间戳**: 2026-04-09T07:25:00.963Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 11
+- **时间戳**: 2026-04-09T07:25:30.815Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 12
+- **时间戳**: 2026-04-09T07:25:34.362Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 13
+- **时间戳**: 2026-04-09T07:25:39.790Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
+```
+- **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
+- **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
+- **行号**: 14
+- **时间戳**: 2026-04-09T07:25:49.289Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51784 input tokens (16384 > 65536 - 51784). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\8e991737-22bf-448e-8bbe-c62186c39811.jsonl`
+- **Session ID**: `8e991737-22bf-448e-8bbe-c62186c39811`
+- **行号**: 40
+- **时间戳**: 2026-04-15T06:24:52.873Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
+- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
+- **行号**: 22
+- **时间戳**: 2026-04-15T05:47:54.533Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64677 input tokens (16384 > 65536 - 64677). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9bbcbd94-84a2-49f0-adb3-382e5a64bda9.jsonl.reset.2026-04-15T05-15-43.580Z`
+- **Session ID**: `9bbcbd94-84a2-49f0-adb3-382e5a64bda9`
+- **行号**: 10
+- **时间戳**: 2026-04-15T05:15:23.071Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
+- **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
+- **行号**: 14
+- **时间戳**: 2026-04-15T06:06:53.116Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49373 input tokens (16384 > 65536 - 49373). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a3229da1-206f-4681-9a0a-dd00816ea472.jsonl.reset.2026-04-15T06-23-43.304Z`
+- **Session ID**: `a3229da1-206f-4681-9a0a-dd00816ea472`
+- **行号**: 42
+- **时间戳**: 2026-04-15T06:23:17.708Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
+- **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
+- **行号**: 23
+- **时间戳**: 2026-04-15T05:57:24.022Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 284596 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=284596)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\bb86d4f5-81b5-4207-b8fd-6c447aea9b59.jsonl.reset.2026-04-13T05-49-51.030Z`
+- **Session ID**: `bb86d4f5-81b5-4207-b8fd-6c447aea9b59`
+- **行号**: 14
+- **时间戳**: 2026-04-13T05:49:35.149Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49349 input tokens (16384 > 65536 - 49349). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\bed1b9e5-93b7-4584-b13f-feabc4b6b05d.jsonl.reset.2026-04-15T06-21-53.908Z`
+- **Session ID**: `bed1b9e5-93b7-4584-b13f-feabc4b6b05d`
+- **行号**: 22
+- **时间戳**: 2026-04-15T06:21:50.609Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64170 input tokens (16384 > 65536 - 64170). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
+- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
+- **行号**: 10
+- **时间戳**: 2026-04-15T05:15:50.271Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64329 input tokens (16384 > 65536 - 64329). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
+- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
+- **行号**: 13
+- **时间戳**: 2026-04-15T05:17:31.594Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64391 input tokens (16384 > 65536 - 64391). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
+- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
+- **行号**: 16
+- **时间戳**: 2026-04-15T05:17:56.401Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64453 input tokens (16384 > 65536 - 64453). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
+- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
+- **行号**: 19
+- **时间戳**: 2026-04-15T05:17:58.646Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64515 input tokens (16384 > 65536 - 64515). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
+- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
+- **行号**: 22
+- **时间戳**: 2026-04-15T05:18:00.910Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64577 input tokens (16384 > 65536 - 64577). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
+- **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
+- **行号**: 25
+- **时间戳**: 2026-04-15T05:18:02.611Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
+- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
+- **行号**: 22
+- **时间戳**: 2026-04-15T06:07:28.878Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 111407 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=111407)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\eebb13c4-9aea-4158-a939-d8a67d302e68.jsonl.reset.2026-04-15T05-58-15.968Z`
+- **Session ID**: `eebb13c4-9aea-4158-a939-d8a67d302e68`
+- **行号**: 22
+- **时间戳**: 2026-04-15T05:58:05.483Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 153331 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=153331)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\fe19ff77-0e5e-4a00-ad34-4f5bdd7df7c3.jsonl.reset.2026-04-13T05-50-23.534Z`
+- **Session ID**: `fe19ff77-0e5e-4a00-ad34-4f5bdd7df7c3`
+- **行号**: 11
+- **时间戳**: 2026-04-13T05:50:03.002Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51191 input tokens (16384 > 65536 - 51191). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 113
+- **时间戳**: 2026-04-14T09:04:07.147Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49625 input tokens (16384 > 65536 - 49625). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 149
+- **时间戳**: 2026-04-14T09:11:40.120Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49635 input tokens (16384 > 65536 - 49635). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 152
+- **时间戳**: 2026-04-14T09:11:41.959Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50137 input tokens (16384 > 65536 - 50137). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 155
+- **时间戳**: 2026-04-14T09:11:43.993Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51119 input tokens (16384 > 65536 - 51119). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 158
+- **时间戳**: 2026-04-14T09:11:46.324Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51677 input tokens (16384 > 65536 - 51677). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 161
+- **时间戳**: 2026-04-14T09:11:48.360Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52235 input tokens (16384 > 65536 - 52235). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 164
+- **时间戳**: 2026-04-14T09:11:51.942Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51945 input tokens (16384 > 65536 - 51945). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 167
+- **时间戳**: 2026-04-14T09:11:53.787Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52954 input tokens (16384 > 65536 - 52954). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 170
+- **时间戳**: 2026-04-14T09:11:56.038Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53315 input tokens (16384 > 65536 - 53315). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 173
+- **时间戳**: 2026-04-14T09:11:58.063Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53676 input tokens (16384 > 65536 - 53676). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 176
+- **时间戳**: 2026-04-14T09:12:00.091Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53166 input tokens (16384 > 65536 - 53166). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 179
+- **时间戳**: 2026-04-14T09:12:02.226Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54424 input tokens (16384 > 65536 - 54424). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 182
+- **时间戳**: 2026-04-14T09:12:04.694Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54798 input tokens (16384 > 65536 - 54798). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 185
+- **时间戳**: 2026-04-14T09:12:06.970Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55172 input tokens (16384 > 65536 - 55172). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 188
+- **时间戳**: 2026-04-14T09:12:09.210Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54355 input tokens (16384 > 65536 - 54355). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 191
+- **时间戳**: 2026-04-14T09:20:57.903Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55606 input tokens (16384 > 65536 - 55606). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 194
+- **时间戳**: 2026-04-14T09:21:00.619Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55737 input tokens (16384 > 65536 - 55737). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 197
+- **时间戳**: 2026-04-14T09:21:02.413Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55868 input tokens (16384 > 65536 - 55868). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 200
+- **时间戳**: 2026-04-14T09:21:04.194Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49196 input tokens (16384 > 65536 - 49196). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\1f52a892-ec2c-43f4-a681-117ad1d2347f.jsonl.reset.2026-04-15T07-33-34.422Z`
+- **Session ID**: `1f52a892-ec2c-43f4-a681-117ad1d2347f`
+- **行号**: 72
+- **时间戳**: 2026-04-15T07:33:11.959Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51023 input tokens (16384 > 65536 - 51023). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\441e8f2d-1bb7-44cc-b7d4-42a152401e7b.jsonl.reset.2026-04-15T07-21-15.065Z`
+- **Session ID**: `441e8f2d-1bb7-44cc-b7d4-42a152401e7b`
+- **行号**: 119
+- **时间戳**: 2026-04-15T07:19:41.327Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51117 input tokens (16384 > 65536 - 51117). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\441e8f2d-1bb7-44cc-b7d4-42a152401e7b.jsonl.reset.2026-04-15T07-21-15.065Z`
+- **Session ID**: `441e8f2d-1bb7-44cc-b7d4-42a152401e7b`
+- **行号**: 122
+- **时间戳**: 2026-04-15T07:21:06.036Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 100
+- **时间戳**: 2026-04-15T09:08:50.382Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 110
+- **时间戳**: 2026-04-15T09:09:37.377Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51908 input tokens (16384 > 65536 - 51908). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ac6fd251-fdd1-4b14-aefa-7aef9b5364b3.jsonl.reset.2026-04-15T01-12-21.164Z`
+- **Session ID**: `ac6fd251-fdd1-4b14-aefa-7aef9b5364b3`
+- **行号**: 80
+- **时间戳**: 2026-04-15T01:11:24.983Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51774 input tokens (16384 > 65536 - 51774). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ac6fd251-fdd1-4b14-aefa-7aef9b5364b3.jsonl.reset.2026-04-15T01-12-21.164Z`
+- **Session ID**: `ac6fd251-fdd1-4b14-aefa-7aef9b5364b3`
+- **行号**: 83
+- **时间戳**: 2026-04-15T01:12:04.651Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51032 input tokens (16384 > 65536 - 51032). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b1544dc1-80ec-4318-80eb-cb1c433cd1e2.jsonl.reset.2026-04-14T06-11-31.069Z`
+- **Session ID**: `b1544dc1-80ec-4318-80eb-cb1c433cd1e2`
+- **行号**: 140
+- **时间戳**: 2026-04-14T06:11:15.067Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
+- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
+- **行号**: 32
+- **时间戳**: 2026-04-15T01:19:35.790Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49295 input tokens (16384 > 65536 - 49295). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
+- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
+- **行号**: 134
+- **时间戳**: 2026-04-15T09:56:38.011Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49239 input tokens (16384 > 65536 - 49239). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ea170d88-f848-4950-b1bb-039e1340f07f.jsonl.reset.2026-04-15T07-50-22.851Z`
+- **Session ID**: `ea170d88-f848-4950-b1bb-039e1340f07f`
+- **行号**: 36
+- **时间戳**: 2026-04-15T07:50:03.170Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53947 input tokens (16384 > 65536 - 53947). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\452b6522-ab61-4cb5-9e12-993c22302827.jsonl`
+- **Session ID**: `452b6522-ab61-4cb5-9e12-993c22302827`
+- **行号**: 38
+- **时间戳**: 2026-04-07T02:07:42.220Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
+- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
+- **行号**: 211
+- **时间戳**: 2026-03-31T09:58:21.528Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 84033 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=84033)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\03e9ea66-6f41-4a6d-a639-21be7cb52768.jsonl.reset.2026-04-14T08-04-13.586Z`
+- **Session ID**: `03e9ea66-6f41-4a6d-a639-21be7cb52768`
+- **行号**: 13
+- **时间戳**: 2026-04-14T06:39:41.102Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
+- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
+- **行号**: 69
+- **时间戳**: 2026-04-09T09:29:11.693Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
+- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
+- **行号**: 40
+- **时间戳**: 2026-04-03T02:18:28.170Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 63202 input tokens (16384 > 65536 - 63202). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\587d2128-7fa3-43df-a083-eddf93414d0a.jsonl.reset.2026-04-15T06-55-26.318Z`
+- **Session ID**: `587d2128-7fa3-43df-a083-eddf93414d0a`
+- **行号**: 10
+- **时间戳**: 2026-04-14T08:50:51.572Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57883 input tokens (8192 > 65536 - 57883). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
+- **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
+- **行号**: 121
+- **时间戳**: 2026-03-31T09:25:55.791Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58180 input tokens (8192 > 65536 - 58180). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
+- **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
+- **行号**: 123
+- **时间戳**: 2026-03-31T09:26:11.341Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58297 input tokens (8192 > 65536 - 58297). (parameter=max_tokens, value=8192)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
+- **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
+- **行号**: 125
+- **时间戳**: 2026-03-31T09:26:11.662Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 60318 input tokens (16384 > 65536 - 60318). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\0dcd285c-6703-44d3-a494-d22ebb0521d9.jsonl.reset.2026-04-15T05-13-50.598Z`
+- **Session ID**: `0dcd285c-6703-44d3-a494-d22ebb0521d9`
+- **行号**: 115
+- **时间戳**: 2026-04-15T05:13:41.143Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49567 input tokens (16384 > 65536 - 49567). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
+- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
+- **行号**: 47
+- **时间戳**: 2026-04-15T05:18:00.407Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49886 input tokens (16384 > 65536 - 49886). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
+- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
+- **行号**: 50
+- **时间戳**: 2026-04-15T06:36:34.609Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 38
+- **时间戳**: 2026-04-15T01:44:18.906Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49813 input tokens (16384 > 65536 - 49813). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 118
+- **时间戳**: 2026-04-15T01:56:58.502Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49935 input tokens (16384 > 65536 - 49935). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 121
+- **时间戳**: 2026-04-15T01:58:42.863Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50012 input tokens (16384 > 65536 - 50012). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 124
+- **时间戳**: 2026-04-15T01:59:10.369Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50089 input tokens (16384 > 65536 - 50089). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 127
+- **时间戳**: 2026-04-15T01:59:14.608Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50166 input tokens (16384 > 65536 - 50166). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 130
+- **时间戳**: 2026-04-15T01:59:17.769Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50243 input tokens (16384 > 65536 - 50243). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 133
+- **时间戳**: 2026-04-15T01:59:19.899Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50041 input tokens (16384 > 65536 - 50041). (parameter=max_tokens, value=16384)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
+- **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
+- **行号**: 57
+- **时间戳**: 2026-04-15T03:07:27.918Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 71540 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=71540)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
+- **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
+- **行号**: 47
+- **时间戳**: 2026-04-15T03:15:42.644Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 112206 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=112206)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
+- **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
+- **行号**: 55
+- **时间戳**: 2026-04-15T03:11:10.014Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: error
+- **错误信息**: ```
+400 This model's maximum context length is 65536 tokens. However, your request has 93398 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93398)
+```
+- **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
+- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\8a7a7bbf-e23c-4c9c-bee2-e3b0d0f793dd.jsonl`
+- **Session ID**: `8a7a7bbf-e23c-4c9c-bee2-e3b0d0f793dd`
+- **行号**: 38
+- **时间戳**: 2026-04-13T02:18:17.058Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 检测到异常停止原因: aborted
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
+- **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
+- **行号**: 14
+- **时间戳**: 2026-04-13T06:39:29.927Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+## modelErrors - 模型API错误 (105)
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
+- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
+- **行号**: 67
+- **时间戳**: 2026-04-13T08:22:43.124Z
+- **Run ID**: `bc2b3f7b-2fae-4774-92b5-a36dc673385d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
+- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
+- **行号**: 68
+- **时间戳**: 2026-04-13T08:22:43.126Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
+- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
+- **行号**: 71
+- **时间戳**: 2026-04-13T08:24:02.172Z
+- **Run ID**: `2e6ad39f-3981-4dfa-9e0e-8454d3961af2`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
+- **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
+- **行号**: 72
+- **时间戳**: 2026-04-13T08:24:02.174Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\0ee5ff89-79d5-41f8-a93f-49146d0f3722.jsonl`
+- **Session ID**: `0ee5ff89-79d5-41f8-a93f-49146d0f3722`
+- **行号**: 114
+- **时间戳**: 2026-04-13T10:51:00.469Z
+- **Run ID**: `b8a86d98-7887-4263-90d8-d5e5c0153909`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\c2dadcbe-f4b0-472d-aafe-122d0e670ede.jsonl`
+- **Session ID**: `c2dadcbe-f4b0-472d-aafe-122d0e670ede`
+- **行号**: 130
+- **时间戳**: 2026-04-13T10:24:08.008Z
+- **Run ID**: `aba0cdf6-68d5-4842-a735-b4adad95ff4c`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
+- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
+- **行号**: 27
+- **时间戳**: 2026-04-15T05:08:30.682Z
+- **Run ID**: `req_1776229706650_j0xc69j36`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
+- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
+- **行号**: 28
+- **时间戳**: 2026-04-15T05:08:30.684Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
+- **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
+- **行号**: 22
+- **时间戳**: 2026-04-15T07:33:33.231Z
+- **Run ID**: `bb3c513f-d87e-448f-8014-614e40c21906`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\fe368a91-4216-43d0-9bf1-dfa1cceed4bc.jsonl`
+- **Session ID**: `fe368a91-4216-43d0-9bf1-dfa1cceed4bc`
+- **行号**: 18
+- **时间戳**: 2026-04-15T05:12:10.967Z
+- **Run ID**: `0da67fde-8212-48e1-aaec-2bf06e64800d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
+- **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
+- **行号**: 130
+- **时间戳**: 2026-03-30T11:04:56.556Z
+- **Run ID**: `req_1774868684378_4e84zalrb`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 33
+- **时间戳**: 2026-04-10T09:08:28.968Z
+- **Run ID**: `req_1775812023148_3ayoeq04t`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 34
+- **时间戳**: 2026-04-10T09:08:28.972Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 37
+- **时间戳**: 2026-04-10T09:08:46.303Z
+- **Run ID**: `req_1775812118772_bkabwdnw5`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 38
+- **时间戳**: 2026-04-10T09:08:46.305Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\4f250dc6-3ebe-4fff-90ba-3497bbb9fe07.jsonl`
+- **Session ID**: `4f250dc6-3ebe-4fff-90ba-3497bbb9fe07`
+- **行号**: 23
+- **时间戳**: 2026-04-16T01:17:52.673Z
+- **Run ID**: `req_1776302087795_5cms510hh`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\39028978-7dfa-4c83-ac08-4a49ed087310.jsonl`
+- **Session ID**: `39028978-7dfa-4c83-ac08-4a49ed087310`
+- **行号**: 10
+- **时间戳**: 2026-04-13T08:14:46.326Z
+- **Run ID**: `237cc3e6-bd84-4004-8086-704bedb2fe42`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
+- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
+- **行号**: 52
+- **时间戳**: 2026-04-09T06:41:16.119Z
+- **Run ID**: `req_1775716725543_m18wr8518`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
+- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
+- **行号**: 54
+- **时间戳**: 2026-04-09T06:41:31.238Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
+- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
+- **行号**: 111
+- **时间戳**: 2026-03-30T03:40:11.343Z
+- **Run ID**: `edf572b2-a915-4059-a27f-6745b6e04c39`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
+- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
+- **行号**: 113
+- **时间戳**: 2026-03-30T03:40:38.194Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
+- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
+- **行号**: 120
+- **时间戳**: 2026-03-26T02:20:53.491Z
+- **Run ID**: `3d4c95e1-f63a-437a-9645-06016f7c1da5`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
+- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
+- **行号**: 122
+- **时间戳**: 2026-03-26T02:20:53.522Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
+- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
+- **行号**: 39
+- **时间戳**: 2026-04-02T08:42:17.929Z
+- **Run ID**: `c523f071-01fd-46d5-898a-0dc6341a26c6`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
+- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
+- **行号**: 40
+- **时间戳**: 2026-04-02T08:42:17.933Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 106
+- **时间戳**: 2026-04-01T02:43:52.136Z
+- **Run ID**: `76c21deb-60b4-4916-bb75-2d72fe5c1ff1`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 108
+- **时间戳**: 2026-04-01T02:43:56.096Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 342
+- **时间戳**: 2026-04-01T02:54:23.024Z
+- **Run ID**: `6b28e2b8-4841-4edc-ad5f-7517d8f399cf`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 344
+- **时间戳**: 2026-04-01T02:54:31.651Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 370
+- **时间戳**: 2026-04-01T03:01:54.284Z
+- **Run ID**: `6682af54-bbd4-48c4-bb2e-27b0554db7cf`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 371
+- **时间戳**: 2026-04-01T03:01:54.287Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 69
+- **时间戳**: 2026-03-30T05:54:50.710Z
+- **Run ID**: `56245caf-ce14-4ee7-836c-e7883b7183da`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 71
+- **时间戳**: 2026-03-30T05:54:53.469Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 79
+- **时间戳**: 2026-03-30T05:55:51.111Z
+- **Run ID**: `73292f13-7427-4b3b-931d-da52baf4244f`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 81
+- **时间戳**: 2026-03-30T05:56:06.817Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 99
+- **时间戳**: 2026-03-30T05:56:35.466Z
+- **Run ID**: `bdd37d46-3f0c-48a5-b251-c1636c556cb9`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 101
+- **时间戳**: 2026-03-30T05:56:35.474Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 117
+- **时间戳**: 2026-03-30T05:57:34.817Z
+- **Run ID**: `4b3b8adc-ea97-4940-9a9a-67fd54c64c50`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 170
+- **时间戳**: 2026-03-30T06:07:01.599Z
+- **Run ID**: `85f51477-671f-4958-a9da-faf0f893d786`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 215
+- **时间戳**: 2026-03-30T06:24:16.689Z
+- **Run ID**: `0ed7e5d5-d854-4611-b848-71ef56b31517`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 217
+- **时间戳**: 2026-03-30T06:24:16.702Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\df4171e6-52bd-4d19-9055-8efff9620296.jsonl.reset.2026-03-30T01-28-17.541Z`
+- **Session ID**: `df4171e6-52bd-4d19-9055-8efff9620296`
+- **行号**: 236
+- **时间戳**: 2026-03-27T09:00:10.975Z
+- **Run ID**: `e8da8dd9-9f40-4fa9-a388-26e13def0508`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
+- **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
+- **行号**: 41
+- **时间戳**: 2026-04-13T07:25:01.704Z
+- **Run ID**: `req_1776065045265_p6z61fkxg`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
+- **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
+- **行号**: 42
+- **时间戳**: 2026-04-13T07:25:01.706Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
+- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
+- **行号**: 69
+- **时间戳**: 2026-04-07T07:11:07.260Z
+- **Run ID**: `req_1775545808679_tx8wy3sew`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
+- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
+- **行号**: 70
+- **时间戳**: 2026-04-07T07:11:07.267Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
+- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
+- **行号**: 12
+- **时间戳**: 2026-04-07T07:11:42.771Z
+- **Run ID**: `req_1775545891636_7a58lcldo`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
+- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
+- **行号**: 14
+- **时间戳**: 2026-04-07T07:11:42.779Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
+- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
+- **行号**: 57
+- **时间戳**: 2026-04-09T10:10:55.092Z
+- **Run ID**: `req_1775729397229_nsdf9td21`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
+- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
+- **行号**: 58
+- **时间戳**: 2026-04-09T10:10:55.094Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9a0af35c-6303-4ae7-a932-54396b74e799.jsonl`
+- **Session ID**: `9a0af35c-6303-4ae7-a932-54396b74e799`
+- **行号**: 126
+- **时间戳**: 2026-04-14T07:18:07.476Z
+- **Run ID**: `010bceeb-4f2b-4b81-acf0-7a01daee7b26`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
+- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
+- **行号**: 93
+- **时间戳**: 2026-04-03T06:23:38.193Z
+- **Run ID**: `req_1775197362262_n7z2xlxi6`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
+- **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
+- **行号**: 94
+- **时间戳**: 2026-04-03T06:23:38.196Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
+- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
+- **行号**: 54
+- **时间戳**: 2026-04-09T09:47:03.568Z
+- **Run ID**: `req_1775727951508_exkphp00l`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
+- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
+- **行号**: 56
+- **时间戳**: 2026-04-09T09:47:03.579Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
+- **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
+- **行号**: 103
+- **时间戳**: 2026-04-11T09:51:30.555Z
+- **Run ID**: `req_1775901082274_t7sd6ovl8`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
+- **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
+- **行号**: 104
+- **时间戳**: 2026-04-11T09:51:30.557Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
+- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
+- **行号**: 21
+- **时间戳**: 2026-04-15T06:21:12.325Z
+- **Run ID**: `req_1776234050173_vtyvi7p8j`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
+- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
+- **行号**: 22
+- **时间戳**: 2026-04-15T06:21:12.328Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
+- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
+- **行号**: 21
+- **时间戳**: 2026-04-15T05:47:54.532Z
+- **Run ID**: `req_1776232051300_0n8mzo724`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
+- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
+- **行号**: 22
+- **时间戳**: 2026-04-15T05:47:54.533Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
+- **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
+- **行号**: 13
+- **时间戳**: 2026-04-15T06:06:53.114Z
+- **Run ID**: `req_1776233210265_a31w4bwuk`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
+- **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
+- **行号**: 14
+- **时间戳**: 2026-04-15T06:06:53.116Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
+- **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
+- **行号**: 22
+- **时间戳**: 2026-04-15T05:57:24.020Z
+- **Run ID**: `req_1776232632769_h7o0huel8`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
+- **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
+- **行号**: 23
+- **时间戳**: 2026-04-15T05:57:24.022Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
+- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
+- **行号**: 20
+- **时间戳**: 2026-04-15T06:07:28.869Z
+- **Run ID**: `req_1776233230386_gay17jumu`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
+- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
+- **行号**: 22
+- **时间戳**: 2026-04-15T06:07:28.878Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0b6f9e7d-6192-44d8-b925-2c94cc74d371.jsonl`
+- **Session ID**: `0b6f9e7d-6192-44d8-b925-2c94cc74d371`
+- **行号**: 33
+- **时间戳**: 2026-04-14T09:06:02.548Z
+- **Run ID**: `bd352a63-b3a1-40de-ad85-384f60bb7a9a`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 72
+- **时间戳**: 2026-04-14T06:25:22.297Z
+- **Run ID**: `req_1776147850337_tyub0lfc0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 74
+- **时间戳**: 2026-04-14T06:42:55.899Z
+- **Run ID**: `req_1776148910958_kbpe7zfuk`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3.jsonl`
+- **Session ID**: `3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3`
+- **行号**: 47
+- **时间戳**: 2026-04-14T09:06:15.144Z
+- **Run ID**: `574deee7-91d2-4251-8ab6-348eb9cadac3`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 99
+- **时间戳**: 2026-04-15T09:08:50.380Z
+- **Run ID**: `req_1776244120064_g2qco6dmc`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 100
+- **时间戳**: 2026-04-15T09:08:50.382Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 109
+- **时间戳**: 2026-04-15T09:09:37.375Z
+- **Run ID**: `req_1776244152817_a0f7rzzdh`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 110
+- **时间戳**: 2026-04-15T09:09:37.377Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\495e09f3-443a-40ad-b26f-edc30ebcf118.jsonl`
+- **Session ID**: `495e09f3-443a-40ad-b26f-edc30ebcf118`
+- **行号**: 21
+- **时间戳**: 2026-04-14T09:31:41.107Z
+- **Run ID**: `25f6a0f7-6100-45bf-a238-3c1bde61470d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\66a18763-dcc3-4f3f-8838-88ce893158a4.jsonl`
+- **Session ID**: `66a18763-dcc3-4f3f-8838-88ce893158a4`
+- **行号**: 25
+- **时间戳**: 2026-04-14T09:05:50.615Z
+- **Run ID**: `a68d9714-a191-40b6-9d65-30d26303535a`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\8011363c-3210-4c83-a4d6-13c03b465220.jsonl`
+- **Session ID**: `8011363c-3210-4c83-a4d6-13c03b465220`
+- **行号**: 22
+- **时间戳**: 2026-04-14T09:07:39.822Z
+- **Run ID**: `421add1e-43ff-4965-894d-176cf2f736d0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\a5d510bb-1b47-4314-9446-1732cc207874.jsonl`
+- **Session ID**: `a5d510bb-1b47-4314-9446-1732cc207874`
+- **行号**: 29
+- **时间戳**: 2026-04-14T09:27:15.603Z
+- **Run ID**: `27ca7b27-88b7-4ee2-8d53-d0c795bfe759`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\acee90b3-b877-42fd-abeb-3700b4b5fd57.jsonl`
+- **Session ID**: `acee90b3-b877-42fd-abeb-3700b4b5fd57`
+- **行号**: 15
+- **时间戳**: 2026-04-14T09:07:51.000Z
+- **Run ID**: `c4c8ea24-93a8-431a-aa6f-3f891ee544d9`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
+- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
+- **行号**: 30
+- **时间戳**: 2026-04-14T09:05:53.879Z
+- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
+- **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
+- **行号**: 8
+- **时间戳**: 2026-04-15T09:20:51.687Z
+- **Run ID**: `bbae6408-de89-479f-90f0-235dd832faed`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
+- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
+- **行号**: 30
+- **时间戳**: 2026-04-15T01:19:35.582Z
+- **Run ID**: `req_1776215954739_uc52acp0g`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted.
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
+- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
+- **行号**: 32
+- **时间戳**: 2026-04-15T01:19:35.790Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d66da86c-8415-45d4-b226-3f67b20e6c72.jsonl`
+- **Session ID**: `d66da86c-8415-45d4-b226-3f67b20e6c72`
+- **行号**: 23
+- **时间戳**: 2026-04-14T09:05:45.740Z
+- **Run ID**: `4020997d-ba23-4765-be3d-419acf130ddc`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
+- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
+- **行号**: 52
+- **时间戳**: 2026-04-15T09:23:20.623Z
+- **Run ID**: `announce:v1:agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc:766d9b83-aada-4e2e-9b95-75c228b3b61d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\efe3c556-5c92-4323-b1dc-9d80cadd71fb.jsonl`
+- **Session ID**: `efe3c556-5c92-4323-b1dc-9d80cadd71fb`
+- **行号**: 32
+- **时间戳**: 2026-04-14T09:33:04.696Z
+- **Run ID**: `68d03430-23ec-4958-b0fa-9b1f2fe9325e`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
+- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
+- **行号**: 42
+- **时间戳**: 2026-04-14T09:30:17.499Z
+- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
+- **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
+- **行号**: 8
+- **时间戳**: 2026-04-15T09:22:18.505Z
+- **Run ID**: `766d9b83-aada-4e2e-9b95-75c228b3b61d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\fe866c45-f880-4daa-b46e-4db9ee164372.jsonl`
+- **Session ID**: `fe866c45-f880-4daa-b46e-4db9ee164372`
+- **行号**: 40
+- **时间戳**: 2026-04-14T09:06:10.791Z
+- **Run ID**: `62ca17d5-cbc7-45a4-a5ea-7d5faeeb11d0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
+- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
+- **行号**: 210
+- **时间戳**: 2026-03-31T09:58:21.524Z
+- **Run ID**: `128a6d2b-ffc6-404c-b8c6-3b5d674aed8c`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
+- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
+- **行号**: 211
+- **时间戳**: 2026-03-31T09:58:21.528Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\54355af5-ac92-4baf-a0df-42f72ff7c497.jsonl`
+- **Session ID**: `d4678ca9-d333-45fc-b9d5-9197b9cf2cea`
+- **行号**: 5
+- **时间戳**: 2026-04-03T06:35:02.235Z
+- **Run ID**: `req_1775197972491_55uwzwguf`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
+- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
+- **行号**: 68
+- **时间戳**: 2026-04-09T09:29:11.690Z
+- **Run ID**: `req_1775726937907_oe3qac1sp`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
+- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
+- **行号**: 69
+- **时间戳**: 2026-04-09T09:29:11.693Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
+- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
+- **行号**: 71
+- **时间戳**: 2026-04-09T09:29:14.866Z
+- **Run ID**: `req_1775726937907_oe3qac1sp`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
+- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
+- **行号**: 39
+- **时间戳**: 2026-04-03T02:18:28.166Z
+- **Run ID**: `req_1775182602904_zhmn94rhg`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
+- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
+- **行号**: 40
+- **时间戳**: 2026-04-03T02:18:28.170Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\a209aa52-f716-47c0-bd66-d9644415ee6c.jsonl.reset.2026-03-31T06-12-09.312Z`
+- **Session ID**: `a209aa52-f716-47c0-bd66-d9644415ee6c`
+- **行号**: 109
+- **时间戳**: 2026-03-30T11:00:07.773Z
+- **Run ID**: `req_1774868397791_fk4kjs6zw`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl`
+- **Session ID**: `b5018140-32f9-4102-879a-7853821a47d1`
+- **行号**: 5
+- **时间戳**: 2026-04-02T09:27:20.261Z
+- **Run ID**: `req_1775122020273_g1x9hzjom`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\0dcd285c-6703-44d3-a494-d22ebb0521d9.jsonl.reset.2026-04-15T05-13-50.598Z`
+- **Session ID**: `0dcd285c-6703-44d3-a494-d22ebb0521d9`
+- **行号**: 39
+- **时间戳**: 2026-04-15T05:08:43.564Z
+- **Run ID**: `68a1ff56-5d0c-41a9-ace1-af5ab4aeb27f`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 37
+- **时间戳**: 2026-04-15T01:44:18.902Z
+- **Run ID**: `f73d774c-9773-48ae-a324-5d1e18eddad4`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
+- **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
+- **行号**: 38
+- **时间戳**: 2026-04-15T01:44:18.906Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+This operation was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
+- **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
+- **行号**: 13
+- **时间戳**: 2026-04-13T06:39:29.925Z
+- **Run ID**: `req_1776062364436_7dn2kii3m`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 在message事件中检测到模型API错误
+- **错误信息**: ```
+Request was aborted
+```
+- **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
+- **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
+- **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
+- **行号**: 14
+- **时间戳**: 2026-04-13T06:39:29.927Z
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+## flow_integrity_missing_tool_result - 工具调用后无执行结果 (29)
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "user"
+
+--- 错误行内容 ---
+Line 34: {"type":"message","id":"08719293","parentId":"152e5424","timestamp":"2026-04-10T09:08:28.972Z","message":{"role":"assistant","content":[{"type":"text","text":"返回了 \"Bad Request\"，可能是中文字符需要 URL 编码。让我进行 URL 编码后重试：\n\n"},{"type":"toolCall","id":"call_b0ce18ac3c1f4f30b7631c49","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"
+
+--- 下一行内容 ---
+Line 35: {"type":"message","id":"c59f0816","parentId":"08719293","timestamp":"2026-04-10T09:08:39.665Z","message":{"role":"user","content":[{"type":"text","text":"System: [2026-04-10 17:07:40 GMT+8] Exec failed (faint-ot, code 127) :: sh: 1: jq: not found\nSystem: [2026-04-10 17:08:10 GMT+8] Exec completed (fresh-da, code 0) :: -- 0 0 0 0 0 0 0 0 0 --:--:-- 0:00:09 --:--:-- 0* ipv4 connect timeout after 9992ms, move on! * Failed to connect to km.clic port 80 after 10001 ms: Timeout was reached 0 0 0 0 0 
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 34
+- **时间戳**: 2026-04-10T09:08:28.972Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "user"
+
+--- 错误行内容 ---
+Line 38: {"type":"message","id":"71d78ce8","parentId":"f33fc347","timestamp":"2026-04-10T09:08:46.305Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 contact-book Skill\n\n刚才查询时遇到了\"Bad Request\"错误，可能是因为中文参数需要 URL 编码。让我重新尝试，对\"张凯磊\"进行 URL 编码：\n\n"},{"type":"toolCall","id":"call_e5188db4d2294baeb21508bf","name":"exec","arguments":{"command":"curl -s -H \"env: cabp-platform-dev\" \"http://10.38.223.128:19211/cabp/cabp-platform/jw/web/json/plugin/com.chinalife.yunque.AddressLis
+
+--- 下一行内容 ---
+Line 39: {"type":"message","id":"aa1d6325","parentId":"71d78ce8","timestamp":"2026-04-10T09:08:53.745Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Fri 2026-04-10 17:08 GMT+8] 当前版本"}],"timestamp":1775812133741}}
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
+- **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
+- **行号**: 38
+- **时间戳**: 2026-04-10T09:08:46.305Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "undefined"
+
+--- 错误行内容 ---
+Line 22: {"type":"message","id":"079eec30","parentId":"1fb22ccf","timestamp":"2026-04-16T01:14:48.756Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_b8b75be9f4da4870889566fb","name":"memory_search","arguments":{"query":"龙虾项目 时间 计划 开始 结束"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":19652,"output":35,"cacheRead":0,"cacheWrite":0,"totalTokens":19687,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}
+
+--- 下一行内容 ---
+Line 23: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776302272673,"runId":"req_1776302087795_5cms510hh","sessionId":"4f250dc6-3ebe-4fff-90ba-3497bbb9fe07","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"This operation was aborted"},"id":"5eb2ca71","parentId":"079eec30","timestamp":"2026-04-16T01:17:52.673Z"}
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\4f250dc6-3ebe-4fff-90ba-3497bbb9fe07.jsonl`
+- **Session ID**: `4f250dc6-3ebe-4fff-90ba-3497bbb9fe07`
+- **行号**: 22
+- **时间戳**: 2026-04-16T01:14:48.756Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 50: {"type":"message","id":"ec099416","parentId":"b5154f52","timestamp":"2026-04-09T06:41:01.229Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_178f85f57f79476fb5b65738","name":"process","arguments":{"action":"poll","sessionId":"good-pine","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":23457,"output":56,"cacheRead":0,"cacheWrite":0,"totalTokens":23513,"cost":{"input":0,"output":0,"cacheRead":0,"c
+
+--- 下一行内容 ---
+Line 51: {"type":"message","id":"9117e9be","parentId":"ec099416","timestamp":"2026-04-09T06:41:16.115Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来该私有源虽然可访问，但可能没有 `requests` 包的特定版本，或者需要添加 `--trusted-host` 参数来忽略安全警告。让我尝试显式添加信任主机参数：太好了！`requests` 包已成功安装。现在让我们再次运行保险问答客户端："}],"timestamp":1775716876112,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"api":"openai-respons
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
+- **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
+- **行号**: 50
+- **时间戳**: 2026-04-09T06:41:01.229Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 109: {"type":"message","id":"961a72d8","parentId":"a7bc7276","timestamp":"2026-03-30T03:40:08.186Z","message":{"role":"assistant","content":[{"type":"text","text":"安装过程似乎还在进行中。让我再等待一下：\n\n"},{"type":"toolCall","id":"call_aebb4cdf8f3f4464aa0ec01d","name":"process","arguments":{"action":"poll","sessionId":"sharp-falcon","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":31311,"output":68,"cacheRead":0,"cacheWrite":0,"totalTokens
+
+--- 下一行内容 ---
+Line 110: {"type":"message","id":"03d23230","parentId":"961a72d8","timestamp":"2026-03-30T03:40:11.340Z","message":{"role":"assistant","content":[{"type":"text","text":"安装过程似乎还在进行中。让我再等待一下："}],"timestamp":1774842011335,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"api":"openai-responses","provider":"openclaw","model":"gateway-injected","idempotencyKey":"edf572b2-a915-4059-a27f-6745b6e04c
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
+- **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
+- **行号**: 109
+- **时间戳**: 2026-03-30T03:40:08.186Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 118: {"type":"message","id":"4225785c","parentId":"da1e53ac","timestamp":"2026-03-26T02:20:48.216Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来下载被中断了。让我再试一次：\n\n"},{"type":"toolCall","id":"call_29ca2853b30d48279db2ed9c","name":"exec","arguments":{"command":"openclaw plugins install clawhub 2>&1","timeout":120}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":36969,"output":62,"cacheRead":0,"cacheWrite":0,"totalTokens"
+
+--- 下一行内容 ---
+Line 119: {"type":"message","id":"95c64be8","parentId":"4225785c","timestamp":"2026-03-26T02:20:53.488Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我现在帮你运行这三条命令来安装 `humanizer` 技能：看起来 `clawhub` 命令没有安装或者不在系统路径中。让我检查一下是否有其他安装方式：我看到 `openclaw` 命令存在，但 `clawhub` 似乎没有安装。让我检查一下是否有 `clawhub` 作为 npm 包或者需要单独安装：看起来 `clawhub` 工具还没有安装。根据 OpenClaw 的文档，`clawhub` 可能是一个需要单独安装的 CLI 工具。\n\n让我尝试另一种方法 - 直接从 ClawHub 注册表下载技能文件：好的，注册表需要认证。让我检查一下是否有认证信息或者另一种安装方式：让我查看完整的配置文件，看看是否有 `clawhub` 相关的配置：配置文件里没有 `cl
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
+- **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
+- **行号**: 118
+- **时间戳**: 2026-03-26T02:20:48.216Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "user"
+
+--- 错误行内容 ---
+Line 40: {"type":"message","id":"58a1236b","parentId":"abfebe5a","timestamp":"2026-04-02T08:42:17.933Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_baf48146d09143a7bc4c872f","name":"process","arguments":{"action":"poll","sessionId":"quick-crustacean"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"tota
+
+--- 下一行内容 ---
+Line 41: {"type":"message","id":"b0e1b765","parentId":"58a1236b","timestamp":"2026-04-02T08:42:45.231Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
+- **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
+- **行号**: 40
+- **时间戳**: 2026-04-02T08:42:17.933Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 104: {"type":"message","id":"54641f07","parentId":"f6216d1b","timestamp":"2026-04-01T02:43:46.086Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_bc56123d2f074babbfe13d3c","name":"process","arguments":{"action":"poll","sessionId":"fresh-ember","timeout":10000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":31487,"output":56,"cacheRead":0,"cacheWrite":0,"totalTokens":31543,"cost":{"input":0,"output":0,"cacheRead":0,
+
+--- 下一行内容 ---
+Line 105: {"type":"message","id":"cc68268a","parentId":"54641f07","timestamp":"2026-04-01T02:43:52.130Z","message":{"role":"assistant","content":[{"type":"text","text":"向导已启动！现在需要交互式输入。让我查看一下当前状态：向导正在询问是否创建配置文件。让我输入 `Y` 确认：看起来输入了但还没响应。让我等待一下再查看：可能需要回车确认。让我发送一个回车：让我尝试发送回车键符：看起来输入被重复了。让我先停止这个进程，然后重新以正确的方式启动：进程已终止。让我重新启动向导，这次使用更干净的方式："}],"timestamp":1775011432126,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWri
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 104
+- **时间戳**: 2026-04-01T02:43:46.086Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 340: {"type":"message","id":"50f5cff9","parentId":"50b78c3c","timestamp":"2026-04-01T02:54:21.635Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_e24c164239994f92a025051d","name":"process","arguments":{"action":"poll","sessionId":"delta-nexus","timeout":10000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":46219,"output":56,"cacheRead":0,"cacheWrite":0,"totalTokens":46275,"cost":{"input":0,"output":0,"cacheRead":0,
+
+--- 下一行内容 ---
+Line 341: {"type":"message","id":"a061e972","parentId":"50f5cff9","timestamp":"2026-04-01T02:54:23.021Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我来帮你配置这个企业邮箱账户。根据你提供的信息，我将手动创建配置文件。让我修正配置文件格式：需要添加 `email` 字段：让我检查一下配置是否正确，可能需要创建 maildir 目录：让我用 debug 模式查看具体错误：看起来配置可能需要调整。让我查看一下 Himalaya 的正确配置格式，可能需要使用不同的结构：让我查看配置示例：让我尝试查看官方示例或重新检查配置格式。根据错误信息，可能需要使用 `default_account` 设置：让我查看正确的配置格式，看起来应该是扁平结构：让我查看 himalaya 的文档或示例配置。根据错误信息，配置文件的根级别应该包含 `accounts` 数组或对象。让我尝试另一种格式：让我查看 himalaya 的示例配置或官
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
+- **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
+- **行号**: 340
+- **时间戳**: 2026-04-01T02:54:21.635Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "undefined"
+
+--- 错误行内容 ---
+Line 68: {"type":"message","id":"d73bb0e8","parentId":"6972bb91","timestamp":"2026-03-30T05:54:23.459Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_191683eff2924c2495dc1505","name":"process","arguments":{"action":"poll","sessionId":"faint-claw","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":34826,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":34883,"cost":{"input":0,"output":0,"cacheRead":0,"
+
+--- 下一行内容 ---
+Line 69: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1774850090709,"runId":"56245caf-ce14-4ee7-836c-e7883b7183da","sessionId":"9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"aborted"},"id":"425533ef","parentId":"d73bb0e8","timestamp":"2026-03-30T05:54:50.710Z"}
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 68
+- **时间戳**: 2026-03-30T05:54:23.459Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 77: {"type":"message","id":"110b9026","parentId":"a1a12141","timestamp":"2026-03-30T05:55:36.808Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_b78fa0e89b9e4e3689b52e93","name":"process","arguments":{"action":"poll","sessionId":"nimble-rook","timeout":30000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":35434,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":35491,"cost":{"input":0,"output":0,"cacheRead":0,
+
+--- 下一行内容 ---
+Line 78: {"type":"message","id":"129fc4eb","parentId":"110b9026","timestamp":"2026-03-30T05:55:51.109Z","message":{"role":"assistant","content":[{"type":"text","text":"命令正在运行中，让我继续等待并检查结果：安装失败，原因是无法访问 npm 注册表（`registry.npmjs.org`）。这可能是因为：\n\n1. **网络限制**：Kubernetes 集群内部可能无法访问外部 npm 注册表\n2. **代理问题**：可能需要配置 npm 代理\n\n不过，`clawhub` 应该使用我们刚设置的内部 `CLAWHUB_REGISTRY` 地址。让我检查一下 clawhub CLI 是否正确使用了这个环境变量，或者尝试直接使用内部地址："}],"timestamp":1774850151105,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cach
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 77
+- **时间戳**: 2026-03-30T05:55:36.808Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 97: {"type":"message","id":"ed1ac085","parentId":"dffa56c7","timestamp":"2026-03-30T05:56:34.101Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_5b24e389792c48b9b090be47","name":"exec","arguments":{"command":"openclaw skills list"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":32338,"output":30,"cacheRead":0,"cacheWrite":0,"totalTokens":32368,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"
+
+--- 下一行内容 ---
+Line 98: {"type":"message","id":"4be3a10a","parentId":"ed1ac085","timestamp":"2026-03-30T05:56:35.462Z","message":{"role":"assistant","content":[{"type":"text","text":"我可以执行 `clawhub` 命令，但遇到了网络问题。\n\n**当前情况：**\n- ✅ 命令可以执行\n- ❌ 无法连接到 npm 注册表 (`registry.npmjs.org`)\n- ❌ 也无法从内部 ClawHub 注册表下载技能\n\n**问题原因：**\n这个 Kubernetes 环境似乎无法访问外部网络（npm registry），可能也没有正确配置内部 ClawHub 服务的访问。\n\n**可能的解决方案：**\n1. **检查网络连通性** - 测试能否 ping 通 `10.38.149.60`\n2. **配置 npm 代理** - 如果集群需要代理访问外部网络\n3. **手动安装技能** - 如果你有技能的本地副本\n\n让我先测试一下
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 97
+- **时间戳**: 2026-03-30T05:56:34.101Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 115: {"type":"message","id":"53e58948","parentId":"6b2e854f","timestamp":"2026-03-30T05:57:32.202Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_5951ee3e83f14fe5bb765bd8","name":"process","arguments":{"action":"poll","sessionId":"salty-mist","timeout":45000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":35575,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":35632,"cost":{"input":0,"output":0,"cacheRead":0,"
+
+--- 下一行内容 ---
+Line 116: {"type":"message","id":"b87f2b58","parentId":"53e58948","timestamp":"2026-03-30T05:57:34.814Z","message":{"role":"assistant","content":[{"type":"text","text":"明白了，只能用 `clawhub install pdf` 命令。问题在于 `npx clawhub` 试图从外部 npm 下载，而不是使用内部注册表。\n\n让我尝试直接调用内部 ClawHub 的 CLI 工具（如果已安装在容器内），或者配置 npm 使用内部代理：让我检查是否有全局安装的 clawhub：看来 `clawhub` CLI 没有全局安装，`npx` 尝试从外部 npm 下载但失败了。\n\n**问题分析：**\n- 内部 ClawHub 服务 (`http://10.38.149.60`) 是可访问的\n- 但 `npx clawhub` 试图从 `registry.npmjs.org` 下载，而外部网络不可达\n- 需要一种方式让 `clawhub` 
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 115
+- **时间戳**: 2026-03-30T05:57:32.202Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"undefined"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "undefined"
+
+--- 错误行内容 ---
+Line 169: {"type":"message","id":"d842aabb","parentId":"f693791f","timestamp":"2026-03-30T06:06:38.708Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_8f1238614bfc47bc967be02e","name":"process","arguments":{"action":"poll","sessionId":"briny-shoal","timeout":90000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":40664,"output":58,"cacheRead":0,"cacheWrite":0,"totalTokens":40722,"cost":{"input":0,"output":0,"cacheRead":0,
+
+--- 下一行内容 ---
+Line 170: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1774850821599,"runId":"85f51477-671f-4958-a9da-faf0f893d786","sessionId":"9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"aborted"},"id":"d0903c21","parentId":"d842aabb","timestamp":"2026-03-30T06:07:01.599Z"}
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 169
+- **时间戳**: 2026-03-30T06:06:38.708Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 213: {"type":"message","id":"b339531e","parentId":"6ac21509","timestamp":"2026-03-30T06:24:09.617Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来 Gateway 重启后，之前全局安装的 `clawhub` 丢失了（可能是因为使用了临时环境或不同的 npm 配置）。让我重新安装 `clawhub`：\n\n"},{"type":"toolCall","id":"call_349c43926c89487486ab8eae","name":"exec","arguments":{"command":"npm install -g clawhub"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":43123,"output":69,"cacheRe
+
+--- 下一行内容 ---
+Line 214: {"type":"message","id":"00de27c6","parentId":"b339531e","timestamp":"2026-03-30T06:24:16.685Z","message":{"role":"assistant","content":[{"type":"text","text":"`clawhub` 命令未找到。这可能是因为 Gateway 重启后，全局安装的 `clawhub` 不在当前环境的 `PATH` 中，或者需要重新加载环境变量。\n\n让我尝试几种方法：看起来 Gateway 重启后，之前全局安装的 `clawhub` 丢失了（可能是因为使用了临时环境或不同的 npm 配置）。让我重新安装 `clawhub`："}],"timestamp":1774851856678,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
+- **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
+- **行号**: 213
+- **时间戳**: 2026-03-30T06:24:09.617Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 234: {"type":"message","id":"a6f751e2","parentId":"7ade871a","timestamp":"2026-03-27T09:00:04.188Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_c7072ebce6c4432ab66fee7f","name":"process","arguments":{"action":"poll","sessionId":"fast-ocean","timeout":300000}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":44179,"output":57,"cacheRead":0,"cacheWrite":0,"totalTokens":44236,"cost":{"input":0,"output":0,"cacheRead":0,
+
+--- 下一行内容 ---
+Line 235: {"type":"message","id":"63aa604c","parentId":"a6f751e2","timestamp":"2026-03-27T09:00:10.967Z","message":{"role":"assistant","content":[{"type":"text","text":"让我再等待一下并检查状态：安装过程似乎还在进行中。让我再等待更长时间：安装过程似乎卡住了或者非常慢。让我检查一下是否有任何输出或者进程状态：进程已经运行了 5 分 29 秒。npm 安装全局包可能需要较长时间，特别是如果要下载依赖。让我继续等待：npm 安装似乎还在进行中，但没有输出。让我再等待一段时间："}],"timestamp":1774602010916,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"tota
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\df4171e6-52bd-4d19-9055-8efff9620296.jsonl.reset.2026-03-30T01-28-17.541Z`
+- **Session ID**: `df4171e6-52bd-4d19-9055-8efff9620296`
+- **行号**: 234
+- **时间戳**: 2026-03-27T09:00:04.188Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
+- **错误信息**: ```
+Expected toolResult after toolCall, but reached end of file
+
+--- 错误行内容 ---
+Line 30: {"type":"message","id":"fe5b8dee","parentId":"3bb82aa3","timestamp":"2026-04-03T05:57:05.661Z","message":{"role":"assistant","content":[{"type":"text","text":"我看到技能列表中没有 `contact-book` 技能。让我通过 clawhub 搜索一下是否有这个技能：\n\n"},{"type":"toolCall","id":"call_6bfbda0f2bc04a118e2f14d2","name":"exec","arguments":{"command":"npx clawhub search contact-book 2>/dev/null | head -30"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":20481,"output":65,"c
+
+```
+- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
+- **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\c0ba4ea8-18e2-408e-bb43-5804fe01b725.jsonl.deleted.2026-04-03T06-57-15.640Z`
+- **Session ID**: `c0ba4ea8-18e2-408e-bb43-5804fe01b725`
+- **行号**: 30
+- **时间戳**: 2026-04-03T05:57:05.661Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
+- **错误信息**: ```
+Expected toolResult after toolCall, but reached end of file
+
+--- 错误行内容 ---
+Line 70: {"type":"message","id":"5e775a88","parentId":"b285a2cf","timestamp":"2026-04-07T07:11:07.267Z","message":{"role":"assistant","content":[{"type":"text","text":"由于网络限制无法安装依赖，让我采用替代方案：我先创建一个简单的文本文件作为占位，然后手动创建一个最小化的 PPTX 文件结构（PPTX 本质是 ZIP 格式的 XML 文件）。或者，我可以询问用户是否可以使用现有的 PPTX 文件进行上传测试。\n\n不过，考虑到任务是演示上传功能，让我尝试创建一个最小化的 PPTX 文件。PPTX 文件实际上是 ZIP 压缩包，包含 XML 文件。让我用 shell 命令创建一个最简单的 PPTX：\n\n"},{"type":"toolCall","id":"call_17c583a22f05424a98bb60c7","name":"exec","arguments":{}}],"api":"openai-completions","
+
+```
+- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
+- **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
+- **行号**: 70
+- **时间戳**: 2026-04-07T07:11:07.267Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 10: {"type":"message","id":"b5c527d4","parentId":"7e58b1bb","timestamp":"2026-04-07T07:11:37.274Z","message":{"role":"assistant","content":[{"type":"text","text":"文档已创建成功！现在我将使用 km-operation-prod 技能将其上传到 km.clic 平台。\n\n## 🛠️ 正在使用 km-operation-prod Skill\n\n"},{"type":"toolCall","id":"call_005c24e5e8b74e75bc659d29","name":"exec","arguments":{"command":"curl -X POST \"http://km.clic/api/files/upload\" \\\n  -H \"Content-Type: multipart/form-data\" \\\n  -F \"file=@/home/node/.openclaw/workspace/teste
+
+--- 下一行内容 ---
+Line 11: {"type":"message","id":"830452f1","parentId":"b5c527d4","timestamp":"2026-04-07T07:11:42.769Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 docx Skill\n好的，任健鑫！我先帮你创建一个简单的 Word 文档，命名为 `testest123123123123.docx`，然后上传到你的知识管理平台。文档已创建成功！现在我将使用 km-operation-prod 技能将其上传到 km.clic 平台。\n\n## 🛠️ 正在使用 km-operation-prod Skill"}],"timestamp":1775545902768,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
+- **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
+- **行号**: 10
+- **时间戳**: 2026-04-07T07:11:37.274Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "user"
+
+--- 错误行内容 ---
+Line 58: {"type":"message","id":"40dc2a42","parentId":"4e5ca0ff","timestamp":"2026-04-09T10:10:55.094Z","message":{"role":"assistant","content":[{"type":"text","text":"我看到图片已经被读取了。根据技能的设计，当图片被读取后，系统应该能够通过内部的多模态大模型来分析内容。\n\n让我尝试直接通过 Python 脚本在本地执行 API 调用（因为 `requests` 可能已经通过其他方式可用，或者我们可以尝试使用 `urllib`）：\n\n"},{"type":"toolCall","id":"call_5a022c314b3a4980b3455021","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"out
+
+--- 下一行内容 ---
+Line 59: {"type":"message","id":"65186e84","parentId":"40dc2a42","timestamp":"2026-04-09T10:11:02.823Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Thu 2026-04-09 18:11 GMT+8] http://nxtest.clic/repository/pypi-group/simple/ 用这个镜像源 安装requests"}],"timestamp":1775729462818}}
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
+- **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
+- **行号**: 58
+- **时间戳**: 2026-04-09T10:10:55.094Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 52: {"type":"message","id":"b8d51b9a","parentId":"b66ade63","timestamp":"2026-04-09T09:46:55.607Z","message":{"role":"assistant","content":[{"type":"text","text":"现在让我用生产环境重新运行图片分析：\n\n"},{"type":"toolCall","id":"call_207d3180699a4956a24bbbe8","name":"exec","arguments":{"command":"node /home/node/.openclaw/workspace/skills/understand-image/understand-image.js /home/node/.openclaw/workspace/2026-04-09/image-1772760276779.png \"提取这张图片中的所有文字内容并描述图片\""}}],"api":"openai-completions","provider":"my-qwen-p
+
+--- 下一行内容 ---
+Line 53: {"type":"message","id":"eea0341f","parentId":"b8d51b9a","timestamp":"2026-04-09T09:47:03.558Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 understand-image Skill\n\n让我读取这个技能的详细使用说明，然后正确调用它来处理你的图片。好的，我现在了解了 `understand-image` 技能的使用方法。这个技能需要通过命令行或代码调用来分析图片。让我直接在命令行中调用这个技能来分析你的图片：让我尝试更直接的命令格式：命令正在运行中，让我等待一下结果：看起来测试环境的 API 服务器无法连接（超时了）。让我尝试切换到生产环境，或者检查配置：测试环境服务器超时了。让我尝试切换到生产环境再试一次：现在让我用生产环境重新运行图片分析："}],"timestamp":1775728023554,"stopReason":"stop","usage":{"input":0,"
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
+- **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
+- **行号**: 52
+- **时间戳**: 2026-04-09T09:46:55.607Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
+- **错误信息**: ```
+Expected toolResult after toolCall, but reached end of file
+
+--- 错误行内容 ---
+Line 22: {"type":"message","id":"089b3d1d","parentId":"2ac6baa4","timestamp":"2026-04-15T06:21:12.328Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我已经读取了文档内容。现在让我创建一个子代理来帮您制作一份精美的PPT汇报：\n\n"},{"type":"toolCall","id":"call_7d48f26768b74588abbe61d5","name":"sessions_spawn","arguments":{"label":"SJE馨孕宝PPT制作","mode":"run","runtime":"subagent"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheW
+
+```
+- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
+- **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
+- **行号**: 22
+- **时间戳**: 2026-04-15T06:21:12.328Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
+- **错误信息**: ```
+Expected toolResult after toolCall, but reached end of file
+
+--- 错误行内容 ---
+Line 22: {"type":"message","id":"a13e13dd","parentId":"47f485de","timestamp":"2026-04-15T05:47:54.533Z","message":{"role":"assistant","content":[{"type":"text","text":"文件确实存在。让我使用绝对路径来读取。\n\n"},{"type":"toolCall","id":"call_b71683ec49fe483abc081435","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"tota
+
+```
+- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
+- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
+- **行号**: 22
+- **时间戳**: 2026-04-15T05:47:54.533Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 18: {"type":"message","id":"36bc2a63","parentId":"48d91a2f","timestamp":"2026-04-15T06:07:28.729Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来文档内容是二进制格式，直接读取显示的是乱码。让我尝试使用 `anthropics-xlsx` 技能来读取这个 Word 文档，或者使用 Python 来解析它。\n\n"},{"type":"toolCall","id":"call_5e6779926ea04d98b804ed25","name":"exec","arguments":{"command":"cd /home/node/.openclaw/workspace/2026-04-15 && python3 -c \"\nfrom docx import Document\nimport json\n\ndoc = Document('SHU心无忧.docx')\ntext_content = []\nfo
+
+--- 下一行内容 ---
+Line 19: {"type":"message","id":"6fbe2c67","parentId":"36bc2a63","timestamp":"2026-04-15T06:07:28.864Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来系统提示需要配对节点才能使用 ACP 模式的 ppt-master 技能。让我先检查一下可用的技能列表，看看是否有其他替代方案。看来当前环境下 ACP 模式的 agent 不可用。让我尝试使用 subagent 模式来调用 ppt-master 技能。看起来系统需要节点配对才能启动子代理。让我先读取一下文档内容，然后使用本地的 pptx 技能来手动创建 PT。看起来文档内容是二进制格式，直接读取显示的是乱码。让我尝试使用 `anthropics-xlsx` 技能来读取这个 Word 文档，或者使用 Python 来解析它。"}],"timestamp":1776233248861,"stopReason":"stop","usage":{"input":0,"outp
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
+- **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
+- **行号**: 18
+- **时间戳**: 2026-04-15T06:07:28.729Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "user"
+
+--- 错误行内容 ---
+Line 100: {"type":"message","id":"8817786f","parentId":"19bc695d","timestamp":"2026-04-15T09:08:50.382Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_b29bef332ede41ebaa6f9bca","name":"edit","arguments":{"file":"/home/node/.openclaw/workspace/skills/devcdoc-query/SKILL.md"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,
+
+--- 下一行内容 ---
+Line 101: {"type":"message","id":"e3ce8dea","parentId":"8817786f","timestamp":"2026-04-15T09:09:13.190Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 17:09 GMT+8] 不是更改devcdoc-query和devcdoc-upload"}],"timestamp":1776244153180}}
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 100
+- **时间戳**: 2026-04-15T09:08:50.382Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "user"
+
+--- 错误行内容 ---
+Line 110: {"type":"message","id":"1493dd29","parentId":"1393a5bb","timestamp":"2026-04-15T09:09:37.377Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_afdf6207c62143dfbde8f9d3","name":"exec","arguments":{"command":"cd /home/node/.openclaw/workspace/svn-workspace && svn diff env_config.json"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output
+
+--- 下一行内容 ---
+Line 111: {"type":"message","id":"560df41b","parentId":"1493dd29","timestamp":"2026-04-15T09:10:01.296Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 17:10 GMT+8] 你现在执行svn的更新和上传是否使用技能？"}],"timestamp":1776244201287}}
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
+- **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
+- **行号**: 110
+- **时间戳**: 2026-04-15T09:09:37.377Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "assistant"
+
+--- 错误行内容 ---
+Line 28: {"type":"message","id":"71b273cf","parentId":"9f796414","timestamp":"2026-04-15T01:19:26.649Z","message":{"role":"assistant","content":[{"type":"text","text":"提交信息编码问题。让我用英文提交信息重试：\n\n"},{"type":"toolCall","id":"call_c840b3cb31794c5e9a3b5928","name":"exec","arguments":{"command":"cd /home/node/.openclaw/workspace/svn-workspace && svn commit -m \"Add CICD CI directory exception handling analysis report\"","pty":true}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-visi
+
+--- 下一行内容 ---
+Line 29: {"type":"message","id":"50b60623","parentId":"71b273cf","timestamp":"2026-04-15T01:19:35.561Z","message":{"role":"assistant","content":[{"type":"text","text":"当前工作区不是 Git 仓库。不过根据 MEMORY.md 的记录，我们有一个 SVN 交换区可以用来上传文件。让我先检查一下 `.claw` 目录是否存在，然后将其提交到 SVN：文件已存在。现在让我将其上传到 SVN 交换区：让我先检查 SVN 工作区状态：目录已经存在但未被跟踪。让我重新添加并提交：提交信息编码问题。让我用英文提交信息重试："}],"timestamp":1776215975560,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
+- **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
+- **行号**: 28
+- **时间戳**: 2026-04-15T01:19:26.649Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用工具后的下一条消息角色是"user"，而非预期的toolResult
+- **错误信息**: ```
+Expected "toolResult" after "toolCall", but got "user"
+
+--- 错误行内容 ---
+Line 211: {"type":"message","id":"602ad070","parentId":"258bc99a","timestamp":"2026-03-31T09:58:21.528Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我来使用 `py-executor` 技能创建一个名为 `test.docx` 的 Word 文档，内容写入 \"123\"：\n\n"},{"type":"toolCall","id":"call_480949ba5e9a4c8b85b8ec34","name":"write","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input"
+
+--- 下一行内容 ---
+Line 212: {"type":"message","id":"0c9bce49","parentId":"602ad070","timestamp":"2026-03-31T10:00:02.773Z","message":{"role":"user","content":[{"type":"text","text":"If nothing important to store, reply with NO_REPLY. Otherwise, write notes to memory/2026-03-31.md and ALWAYS reply with NO_REPLY.\n\nStore durable memories only in memory/2026-03-31.md (create memory/ if needed).\n\nIf memory/2026-03-31.md already exists, APPEND new content only and do not overwrite existing entries.\n\nTreat workspace bootstr
+
+```
+- **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
+- **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
+- **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
+- **行号**: 211
+- **时间戳**: 2026-03-31T09:58:21.528Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
+- **错误信息**: ```
+Expected toolResult after toolCall, but reached end of file
+
+--- 错误行内容 ---
+Line 40: {"type":"message","id":"932b47a6","parentId":"ed2bd7ef","timestamp":"2026-04-03T02:18:28.170Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_bbabc70b90d642da9f89e299","name":"exec","arguments":{}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"stopReason":"aborted","timestamp":1775182
+
+```
+- **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
+- **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
+- **行号**: 40
+- **时间戳**: 2026-04-03T02:18:28.170Z
+
+---
+
+## timeoutErrors - 超时错误 (23)
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\0ee5ff89-79d5-41f8-a93f-49146d0f3722.jsonl`
+- **Session ID**: `0ee5ff89-79d5-41f8-a93f-49146d0f3722`
+- **行号**: 114
+- **时间戳**: 2026-04-13T10:51:00.469Z
+- **Run ID**: `b8a86d98-7887-4263-90d8-d5e5c0153909`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\c2dadcbe-f4b0-472d-aafe-122d0e670ede.jsonl`
+- **Session ID**: `c2dadcbe-f4b0-472d-aafe-122d0e670ede`
+- **行号**: 130
+- **时间戳**: 2026-04-13T10:24:08.008Z
+- **Run ID**: `aba0cdf6-68d5-4842-a735-b4adad95ff4c`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
+- **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
+- **行号**: 22
+- **时间戳**: 2026-04-15T07:33:33.231Z
+- **Run ID**: `bb3c513f-d87e-448f-8014-614e40c21906`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\fe368a91-4216-43d0-9bf1-dfa1cceed4bc.jsonl`
+- **Session ID**: `fe368a91-4216-43d0-9bf1-dfa1cceed4bc`
+- **行号**: 18
+- **时间戳**: 2026-04-15T05:12:10.967Z
+- **Run ID**: `0da67fde-8212-48e1-aaec-2bf06e64800d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\39028978-7dfa-4c83-ac08-4a49ed087310.jsonl`
+- **Session ID**: `39028978-7dfa-4c83-ac08-4a49ed087310`
+- **行号**: 10
+- **时间戳**: 2026-04-13T08:14:46.326Z
+- **Run ID**: `237cc3e6-bd84-4004-8086-704bedb2fe42`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9a0af35c-6303-4ae7-a932-54396b74e799.jsonl`
+- **Session ID**: `9a0af35c-6303-4ae7-a932-54396b74e799`
+- **行号**: 126
+- **时间戳**: 2026-04-14T07:18:07.476Z
+- **Run ID**: `010bceeb-4f2b-4b81-acf0-7a01daee7b26`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0b6f9e7d-6192-44d8-b925-2c94cc74d371.jsonl`
+- **Session ID**: `0b6f9e7d-6192-44d8-b925-2c94cc74d371`
+- **行号**: 33
+- **时间戳**: 2026-04-14T09:06:02.548Z
+- **Run ID**: `bd352a63-b3a1-40de-ad85-384f60bb7a9a`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 72
+- **时间戳**: 2026-04-14T06:25:22.297Z
+- **Run ID**: `req_1776147850337_tyub0lfc0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 74
+- **时间戳**: 2026-04-14T06:42:55.899Z
+- **Run ID**: `req_1776148910958_kbpe7zfuk`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3.jsonl`
+- **Session ID**: `3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3`
+- **行号**: 47
+- **时间戳**: 2026-04-14T09:06:15.144Z
+- **Run ID**: `574deee7-91d2-4251-8ab6-348eb9cadac3`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\495e09f3-443a-40ad-b26f-edc30ebcf118.jsonl`
+- **Session ID**: `495e09f3-443a-40ad-b26f-edc30ebcf118`
+- **行号**: 21
+- **时间戳**: 2026-04-14T09:31:41.107Z
+- **Run ID**: `25f6a0f7-6100-45bf-a238-3c1bde61470d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\66a18763-dcc3-4f3f-8838-88ce893158a4.jsonl`
+- **Session ID**: `66a18763-dcc3-4f3f-8838-88ce893158a4`
+- **行号**: 25
+- **时间戳**: 2026-04-14T09:05:50.615Z
+- **Run ID**: `a68d9714-a191-40b6-9d65-30d26303535a`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\8011363c-3210-4c83-a4d6-13c03b465220.jsonl`
+- **Session ID**: `8011363c-3210-4c83-a4d6-13c03b465220`
+- **行号**: 22
+- **时间戳**: 2026-04-14T09:07:39.822Z
+- **Run ID**: `421add1e-43ff-4965-894d-176cf2f736d0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\a5d510bb-1b47-4314-9446-1732cc207874.jsonl`
+- **Session ID**: `a5d510bb-1b47-4314-9446-1732cc207874`
+- **行号**: 29
+- **时间戳**: 2026-04-14T09:27:15.603Z
+- **Run ID**: `27ca7b27-88b7-4ee2-8d53-d0c795bfe759`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\acee90b3-b877-42fd-abeb-3700b4b5fd57.jsonl`
+- **Session ID**: `acee90b3-b877-42fd-abeb-3700b4b5fd57`
+- **行号**: 15
+- **时间戳**: 2026-04-14T09:07:51.000Z
+- **Run ID**: `c4c8ea24-93a8-431a-aa6f-3f891ee544d9`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
+- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
+- **行号**: 30
+- **时间戳**: 2026-04-14T09:05:53.879Z
+- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
+- **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
+- **行号**: 8
+- **时间戳**: 2026-04-15T09:20:51.687Z
+- **Run ID**: `bbae6408-de89-479f-90f0-235dd832faed`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d66da86c-8415-45d4-b226-3f67b20e6c72.jsonl`
+- **Session ID**: `d66da86c-8415-45d4-b226-3f67b20e6c72`
+- **行号**: 23
+- **时间戳**: 2026-04-14T09:05:45.740Z
+- **Run ID**: `4020997d-ba23-4765-be3d-419acf130ddc`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
+- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
+- **行号**: 52
+- **时间戳**: 2026-04-15T09:23:20.623Z
+- **Run ID**: `announce:v1:agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc:766d9b83-aada-4e2e-9b95-75c228b3b61d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\efe3c556-5c92-4323-b1dc-9d80cadd71fb.jsonl`
+- **Session ID**: `efe3c556-5c92-4323-b1dc-9d80cadd71fb`
+- **行号**: 32
+- **时间戳**: 2026-04-14T09:33:04.696Z
+- **Run ID**: `68d03430-23ec-4958-b0fa-9b1f2fe9325e`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
+- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
+- **行号**: 42
+- **时间戳**: 2026-04-14T09:30:17.499Z
+- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
+- **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
+- **行号**: 8
+- **时间戳**: 2026-04-15T09:22:18.505Z
+- **Run ID**: `766d9b83-aada-4e2e-9b95-75c228b3b61d`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题
+
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\fe866c45-f880-4daa-b46e-4db9ee164372.jsonl`
+- **Session ID**: `fe866c45-f880-4daa-b46e-4db9ee164372`
+- **行号**: 40
+- **时间戳**: 2026-04-14T09:06:10.791Z
+- **Run ID**: `62ca17d5-cbc7-45a4-a5ea-7d5faeeb11d0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+## flow_integrity_no_reply - 用户提问后无回复 (16)
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "undefined"
+
+--- 错误行内容 ---
+Line 26: {"type":"message","id":"c3392c7b","parentId":"870e422e","timestamp":"2026-04-15T05:08:30.526Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 13:08 GMT+8] 需要怎么办"}],"timestamp":1776229710522}}
+
+--- 下一行内容 ---
+Line 27: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776229710682,"runId":"req_1776229706650_j0xc69j36","sessionId":"a002ae1e-4ba1-4f81-901c-478c09b1502f","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"This operation was aborted"},"id":"4d0e3df8","parentId":"c3392c7b","timestamp":"2026-04-15T05:08:30.682Z"}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
+- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
+- **行号**: 26
+- **时间戳**: 2026-04-15T05:08:30.526Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 7: {"type":"message","id":"34d68000","parentId":"93389adb","timestamp":"2026-04-15T05:47:31.592Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 13:47 GMT+8] 刚刚我把SHU心无忧.docx放到了./2026-04-15目录下。我的需求是： 分析word中的内容，提炼并总结，最终产生一个ppt汇报，使用我刚刚上传的skills"}],"timestamp":1776232051589}}
+
+--- 下一行内容 ---
+Line 8: {"type":"message","id":"cc605b68","parentId":"34d68000","timestamp":"2026-04-15T05:47:32.843Z","message":{"role":"toolResult","toolCallId":"call_303b45e7d0af4b4089f3bf8e","toolName":"pptx","content":[{"type":"text","text":"Tool pptx not found"}],"details":{},"isError":true,"timestamp":1776232052840}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
+- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
+- **行号**: 7
+- **时间戳**: 2026-04-15T05:47:31.592Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "undefined"
+
+--- 错误行内容 ---
+Line 73: {"type":"message","id":"968ec36f","parentId":"8903060c","timestamp":"2026-04-14T06:41:51.306Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Tue 2026-04-14 14:41 GMT+8] 分析的如何？"}],"timestamp":1776148911300}}
+
+--- 下一行内容 ---
+Line 74: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776148975899,"runId":"req_1776148910958_kbpe7zfuk","sessionId":"0f678300-9756-4ea9-b283-9cf231eaba5f","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"LLM idle timeout (60s): no response from model"},"id":"4d43191e","parentId":"968ec36f","timestamp":"2026-04-14T06:42:55.899Z"}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 73
+- **时间戳**: 2026-04-14T06:41:51.306Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "undefined"
+
+--- 错误行内容 ---
+Line 51: {"type":"message","id":"17b7226b","parentId":"b650e4c9","timestamp":"2026-04-15T09:22:19.183Z","message":{"role":"user","content":[{"type":"text","text":"[Wed 2026-04-15 17:22 GMT+8] <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\nOpenClaw runtime context (internal):\nThis context is runtime-generated, not user-authored. Keep internal details private.\n\n[Internal task completion event]\nsource: subagent\nsession_key: agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc\nsession_id: f2d7f49d-9571-4cc
+
+--- 下一行内容 ---
+Line 52: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776245000623,"runId":"announce:v1:agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc:766d9b83-aada-4e2e-9b95-75c228b3b61d","sessionId":"db704d36-95c4-4926-a7eb-e9799a26cc6a","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"LLM idle timeout (60s): no response from model"},"id":"7f3ccaae","parentId":"17b7226b","timestamp":"2026-04-15T09:23:20.623Z"}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
+- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
+- **行号**: 51
+- **时间戳**: 2026-04-15T09:22:19.183Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"2026-04-09T09:29:14.877Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Thu 2026-04-09 09:28 UTC] 使用技contact-book技能； 我的通讯录电话是多少"}],"timestamp":1775726954865}}
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
+- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
+- **行号**: 72
+- **时间戳**: 2026-04-09T09:29:14.877Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 126: {"type":"message","id":"3c4a82a7","parentId":"f36496ed","timestamp":"2026-04-02T08:49:41.849Z","message":{"role":"user","content":[{"type":"text","text":"System: [2026-04-02 08:49:06 UTC] [Post-compaction context refresh]\nSystem: \nSystem: Session was just compacted. The conversation summary above is a hint, NOT a substitute for your startup sequence. Execute your Session Startup sequence now — read the required files before responding to the user.\nSystem: \nSystem: Critical rules from AGENTS.
+
+--- 下一行内容 ---
+Line 127: {"type":"message","id":"770661a5","parentId":"3c4a82a7","timestamp":"2026-04-02T08:49:44.185Z","message":{"role":"toolResult","toolCallId":"call_918e18952809411f9caaf68c","toolName":"weather","content":[{"type":"text","text":"Tool weather not found"}],"details":{},"isError":true,"timestamp":1775119784166}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
+- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
+- **行号**: 126
+- **时间戳**: 2026-04-02T08:49:41.849Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2026-04-02T08:56:03.465Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
+- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
+- **行号**: 148
+- **时间戳**: 2026-04-02T08:56:03.465Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"2026-04-02T15:05:05.579Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\9fd7e156-e3a7-496e-89e3-84e8611ab65a.jsonl.reset.2026-04-02T15-05-05.957Z`
+- **Session ID**: `9fd7e156-e3a7-496e-89e3-84e8611ab65a`
+- **行号**: 84
+- **时间戳**: 2026-04-02T15:05:05.579Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"2026-04-02T09:27:00.471Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl.reset.2026-04-02T09-27-03.259Z`
+- **Session ID**: `c5c862a7-da7a-4e74-ad62-5c3afec2c9e2`
+- **行号**: 59
+- **时间戳**: 2026-04-02T09:27:00.471Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 11: {"type":"message","id":"7821a954","parentId":"5753a2fe","timestamp":"2026-03-25T08:24:57.664Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Wed 2026-03-25 08:24 UTC] 帮我创建一个skill 功能是读取若干个excel文件 根据excel的构成 和处理 excel的具体需求 生成nodejs代码 执行后处理excel"}],"timestamp":1774427097659}}
+
+--- 下一行内容 ---
+Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"2026-03-25T08:24:58.566Z","message":{"role":"toolResult","toolCallId":"call_9e2a906cccd44542bdccc5a0","toolName":"skill-creator","content":[{"type":"text","text":"Tool skill-creator not found"}],"details":{},"isError":true,"timestamp":1774427098557}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\e680e881-9873-444c-bd8b-2f6742248e45.jsonl.reset.2026-03-28T04-14-20.084Z`
+- **Session ID**: `e680e881-9873-444c-bd8b-2f6742248e45`
+- **行号**: 11
+- **时间戳**: 2026-03-25T08:24:57.664Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"2026-04-03T07:05:13.013Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Fri 2026-04-03 07:05 UTC] 是。"}],"timestamp":1775199913009}}
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\f3456e19-3ffe-4e41-9bad-cc80f8083c91.jsonl.reset.2026-04-03T07-05-16.658Z`
+- **Session ID**: `f3456e19-3ffe-4e41-9bad-cc80f8083c91`
+- **行号**: 29
+- **时间戳**: 2026-04-03T07:05:13.013Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 9: {"type":"message","id":"50fa9702","parentId":"e7fa7a8a","timestamp":"2026-04-15T08:37:09.355Z","message":{"role":"user","content":[{"type":"text","text":"Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.\nWhen reading HEARTBEAT.md, use workspace file /home/node/.openclaw/workspace/HEARTBEAT.md (exact case). Do not read docs/heartbeat.md.\nCurrent time: Wednesday, April 15th, 2
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\52c52422-bc70-4b32-b797-b01f0285619d.jsonl`
+- **Session ID**: `52c52422-bc70-4b32-b797-b01f0285619d`
+- **行号**: 9
+- **时间戳**: 2026-04-15T08:37:09.355Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 9: {"type":"message","id":"af72a086","parentId":"d27eec57","timestamp":"2026-04-15T05:15:31.762Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 13:15 GMT+8] k8s-xc-02/xjsyy-cluster-xc-04 分析这个集群的异常pod 本次允许你使用kubectl"}],"timestamp":1776230131758}}
+
+--- 下一行内容 ---
+Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"2026-04-15T05:15:33.066Z","message":{"role":"toolResult","toolCallId":"call_9899960148154855a4a2ef11","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776230133062}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
+- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
+- **行号**: 9
+- **时间戳**: 2026-04-15T05:15:31.762Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 7: {"type":"message","id":"e25c2201","parentId":"44f0a4fa","timestamp":"2026-04-15T02:00:33.324Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 10:00 GMT+8] 查看下 包含aiap的pod"}],"timestamp":1776218433320}}
+
+--- 下一行内容 ---
+Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"2026-04-15T02:00:36.599Z","message":{"role":"toolResult","toolCallId":"call_dfbb1b44df024fb389c9f07d","toolName":"k8s_pilot","content":[{"type":"text","text":"Tool k8s_pilot not found"}],"details":{},"isError":true,"timestamp":1776218436596}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
+- **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
+- **行号**: 7
+- **时间戳**: 2026-04-15T02:00:33.324Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 23: {"type":"message","id":"b9a12180","parentId":"6e4ea368","timestamp":"2026-04-15T03:15:17.410Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:15 GMT+8] 重新加载下kube-polot 工具"}],"timestamp":1776222917405}}
+
+--- 下一行内容 ---
+Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"2026-04-15T03:15:17.925Z","message":{"role":"toolResult","toolCallId":"call_921848a820714f22af405c82","toolName":"skills-installer","content":[{"type":"text","text":"Tool skills-installer not found"}],"details":{},"isError":true,"timestamp":1776222917921}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
+- **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
+- **行号**: 23
+- **时间戳**: 2026-04-15T03:15:17.410Z
+
+---
+
+### 问题
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 7: {"type":"message","id":"848d45fc","parentId":"f16c9f9f","timestamp":"2026-04-15T03:07:48.450Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:07 GMT+8] 帮我统计下所有包含sidecar的pod 中sidecar 的资源占用情况 按照集群汇总给我"}],"timestamp":1776222468443}}
+
+--- 下一行内容 ---
+Line 8: {"type":"message","id":"99d39886","parentId":"848d45fc","timestamp":"2026-04-15T03:07:51.348Z","message":{"role":"toolResult","toolCallId":"call_6601b8b04bf34c02acfd3187","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776222471344}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
+- **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
+- **行号**: 7
+- **时间戳**: 2026-04-15T03:07:48.450Z
 
 ---
 

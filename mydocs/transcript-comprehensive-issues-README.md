@@ -51,27 +51,19 @@
 
 ## 📊 当前统计结果
 
-**扫描文件数**: 484个JSONL文件（包括`.jsonl`和`.jsonl.reset.*`等变体）  
-**总问题数**: 846个
+**扫描文件数**: 482个JSONL文件（包括`.jsonl`和`.jsonl.reset.*`等变体）  
+**总问题数**: 873个
 
 ### 问题类型分布
 
 | 问题类型 | 数量 | 占比 | 说明 |
 |---------|------|------|------|
-| flow_integrity_missing_final_answer | 532 | 62.9% | 工具执行后无最终回复 |
-| abnormal_stop | 168 | 19.9% | 异常停止 |
-| modelErrors | 69 | 8.2% | 模型API错误 |
-| flow_integrity_missing_tool_result | 29 | 3.4% | 工具调用后无执行结果 |
-| timeoutErrors | 23 | 2.7% | 超时错误 |
-| flow_integrity_no_reply | 16 | 1.9% | 用户提问后无回复 |
-| permissionErrors | 5 | 0.6% | 权限错误 |
-| rateLimitErrors | 4 | 0.5% | 速率限制错误 |
-
-### 严重程度分布
-
-- **🔴 高优先级 (HIGH)**: 314个 (37.1%)
-- **🟡 中优先级 (MEDIUM)**: 532个 (62.9%)
-- **🟢 低优先级 (LOW)**: 0个 (0%)
+| flow_integrity_missing_final_answer | 532 | 61.0% | 工具执行后无最终回复 |
+| abnormal_stop | 168 | 19.2% | 异常停止 |
+| modelErrors | 105 | 12.0% | 模型API错误 |
+| flow_integrity_missing_tool_result | 29 | 3.3% | 工具调用后无执行结果 |
+| timeoutErrors | 23 | 2.6% | 超时错误 |
+| flow_integrity_no_reply | 16 | 1.8% | 用户提问后无回复 |
 
 ---
 
@@ -100,7 +92,7 @@
 
 **特点**:
 - ✅ 一个问题一条记录
-- ✅ 即使是同类型的问题也分开记录
+- ✅ 按问题类型分组，便于批量分析
 - ✅ 包含完整的上下文信息（流程完整性错误会提取错误行和下一行的内容）
 - ✅ 便于追踪和定位问题
 
@@ -115,13 +107,15 @@
 - 各类型问题分布
 - 严重程度分布
 
-### 2. 优先处理高优先级问题
+### 2. 按问题类型查看
 
-滚动到"🔴 高优先级问题"部分，这些问题需要优先关注和解决：
-- 对话流程中断（user无回复、toolCall无结果等）
-- 模型API错误
-- 超时错误
-- 异常停止
+报告按问题类型分组，每个类型包含所有相关问题：
+- `flow_integrity_missing_final_answer` - 工具执行后无最终回复
+- `abnormal_stop` - 异常停止
+- `modelErrors` - 模型API错误
+- `flow_integrity_missing_tool_result` - 工具调用后无执行结果
+- `timeoutErrors` - 超时错误
+- `flow_integrity_no_reply` - 用户提问后无回复
 
 ### 3. 定位具体问题
 
@@ -214,12 +208,13 @@ bun scripts/detect-all-transcript-issues.ts /path/to/your/transcripts
 
 ## ❓ 常见问题
 
-### Q1: 为什么有些问题是中优先级而不是高优先级？
+### Q1: 为什么报告不按优先级分类？
 
-A: `flow_integrity_missing_final_answer`被标记为中优先级，因为：
-- 可能是多轮工具调用的中间状态
-- 不一定是真正的错误，可能是正常的对话流程
-- 需要人工判断是否确实缺少最终答案
+A: 按问题类型分类更有利于：
+- 批量分析同一类问题的根本原因
+- 针对性地制定修复策略
+- 避免优先级判断的主观性
+- 更清晰地看到各类问题的分布情况
 
 ### Q2: 如何验证检测结果的准确性？
 

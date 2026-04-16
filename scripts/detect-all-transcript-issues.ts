@@ -592,11 +592,6 @@ function generateMarkdownReport(allIssues: Issue[]): string {
   const stats = {
     total: allIssues.length,
     byType: {} as Record<string, number>,
-    bySeverity: {
-      HIGH: allIssues.filter(i => i.severity === 'HIGH').length,
-      MEDIUM: allIssues.filter(i => i.severity === 'MEDIUM').length,
-      LOW: allIssues.filter(i => i.severity === 'LOW').length,
-    },
   };
   
   for (const issue of allIssues) {
@@ -604,10 +599,7 @@ function generateMarkdownReport(allIssues: Issue[]): string {
   }
   
   markdown += '## 📊 统计概览\n\n';
-  markdown += `- **总问题数**: ${stats.total}\n`;
-  markdown += `- **高优先级**: ${stats.bySeverity.HIGH}\n`;
-  markdown += `- **中优先级**: ${stats.bySeverity.MEDIUM}\n`;
-  markdown += `- **低优先级**: ${stats.bySeverity.LOW}\n\n`;
+  markdown += `- **总问题数**: ${stats.total}\n\n`;
   
   markdown += '### 问题类型分布\n\n';
   markdown += '| 问题类型 | 数量 | 说明 |\n';
@@ -634,29 +626,39 @@ function generateMarkdownReport(allIssues: Issue[]): string {
   
   markdown += '\n---\n\n';
   
-  // 按严重程度分组输出详细问题
-  const groupedBySeverity = {
-    HIGH: allIssues.filter(i => i.severity === 'HIGH'),
-    MEDIUM: allIssues.filter(i => i.severity === 'MEDIUM'),
-    LOW: allIssues.filter(i => i.severity === 'LOW'),
+  // 按问题类型分组输出详细问题
+  const groupedByType = {} as Record<string, Issue[]>;
+  for (const issue of allIssues) {
+    if (!groupedByType[issue.errorType]) {
+      groupedByType[issue.errorType] = [];
+    }
+    groupedByType[issue.errorType].push(issue);
+  }
+  
+  const typeDescriptionsLong: Record<string, string> = {
+    flow_integrity_no_reply: '用户提问后无回复',
+    flow_integrity_missing_tool_result: '工具调用后无执行结果',
+    flow_integrity_missing_final_answer: '工具执行后无最终回复',
+    modelErrors: '模型API错误',
+    timeoutErrors: '超时错误',
+    rateLimitErrors: '速率限制错误',
+    toolErrors: '工具执行错误',
+    permissionErrors: '权限错误',
+    parsingErrors: '解析错误',
+    networkErrors: '网络错误',
+    abnormal_stop: '异常停止',
   };
   
-  for (const [severity, issues] of Object.entries(groupedBySeverity)) {
-    if (issues.length === 0) continue;
-    
-    const severityIcon = severity === 'HIGH' ? '🔴' : severity === 'MEDIUM' ? '🟡' : '🟢';
-    const severityLabel = severity === 'HIGH' ? '高优先级' : severity === 'MEDIUM' ? '中优先级' : '低优先级';
-    
-    markdown += `## ${severityIcon} ${severityLabel}问题 (${issues.length})\n\n`;
+  // 按问题数量降序排列
+  const sortedTypes = Object.entries(groupedByType).sort((a, b) => b[1].length - a[1].length);
+  
+  for (const [errorType, issues] of sortedTypes) {
+    const typeDesc = typeDescriptionsLong[errorType] || errorType;
+    markdown += `## ${errorType} - ${typeDesc} (${issues.length})\n\n`;
     
     for (const issue of issues) {
-      markdown += `### 问题 #${allIssues.indexOf(issue) + 1}\n\n`;
-      markdown += `- **错误类型**: \`${issue.errorType}\`\n`;
-      
-      if (issue.eventType) {
-        markdown += `- **事件类型**: \`${issue.eventType}\`\n`;
-      }
-      
+      markdown += `### 问题\n\n`;
+      markdown += `- **事件类型**: \`${issue.eventType}\`\n`;
       markdown += `- **描述**: ${issue.description}\n`;
       markdown += `- **错误信息**: \`\`\`\n${issue.errorMessage}\n\`\`\`\n`;
       markdown += `- **原因分析**: ${issue.causeAnalysis}\n`;
