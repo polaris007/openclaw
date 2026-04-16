@@ -49,24 +49,24 @@
 ## 📊 当前统计结果
 
 **扫描文件数**: 183个JSONL文件  
-**总问题数**: 345个
+**总问题数**: 341个
 
 ### 问题类型分布
 
 | 问题类型 | 数量 | 占比 | 说明 |
 |---------|------|------|------|
-| flow_integrity_missing_final_answer | 211 | 61.2% | 工具执行后无最终回复 |
-| abnormal_stop | 78 | 22.6% | 异常停止 |
-| modelErrors | 30 | 8.7% | 模型API错误 |
-| timeoutErrors | 22 | 6.4% | 超时错误 |
+| flow_integrity_missing_final_answer | 207 | 60.7% | 工具执行后无最终回复 |
+| abnormal_stop | 78 | 22.9% | 异常停止 |
+| modelErrors | 30 | 8.8% | 模型API错误 |
+| timeoutErrors | 22 | 6.5% | 超时错误 |
 | flow_integrity_no_reply | 2 | 0.6% | 用户提问后无回复 |
 | flow_integrity_missing_tool_result | 1 | 0.3% | 工具调用后无执行结果 |
 | permissionErrors | 1 | 0.3% | 权限错误 |
 
 ### 严重程度分布
 
-- **🔴 高优先级 (HIGH)**: 134个 (38.8%)
-- **🟡 中优先级 (MEDIUM)**: 211个 (61.2%)
+- **🔴 高优先级 (HIGH)**: 134个 (39.3%)
+- **🟡 中优先级 (MEDIUM)**: 207个 (60.7%)
 - **🟢 低优先级 (LOW)**: 0个 (0%)
 
 ---
@@ -157,6 +157,7 @@ bun scripts/detect-all-transcript-issues.ts
 ### 关键优化
 
 - **排除误报**: 只对`role: "assistant"`的消息且**仅检查errorMessage字段**进行错误模式匹配，避免将content中的命令行参数、代码注释等文本误判为错误
+- **特殊规则**: 跳过`sessions_yield`工具结果的流程完整性检测（该工具用于异步任务，不需要立即返回最终答案）
 - **准确提取Session ID**: 从JSONL文件的第一个`session`事件中提取，而非依赖文件名
 - **去重机制**: 每个事件只匹配一次错误类型，避免重复报告
 

@@ -1,19 +1,19 @@
 # OpenClaw Session Transcript 综合问题检测报告
 
-**生成时间**: 2026-04-16T09:12:26.999Z
+**生成时间**: 2026-04-16T09:33:00.874Z
 
 ## 📊 统计概览
 
-- **总问题数**: 345
+- **总问题数**: 341
 - **高优先级**: 134
-- **中优先级**: 211
+- **中优先级**: 207
 - **低优先级**: 0
 
 ### 问题类型分布
 
 | 问题类型 | 数量 | 说明 |
 |---------|------|------|
-| flow_integrity_missing_final_answer | 211 | 工具执行后无最终回复 |
+| flow_integrity_missing_final_answer | 207 | 工具执行后无最终回复 |
 | abnormal_stop | 78 | 异常停止 |
 | modelErrors | 30 | 模型API错误 |
 | timeoutErrors | 22 | 超时错误 |
@@ -137,7 +137,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #11
+### 问题 #10
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -155,7 +155,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #12
+### 问题 #11
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -173,7 +173,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #13
+### 问题 #12
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -191,7 +191,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #14
+### 问题 #13
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -209,7 +209,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #15
+### 问题 #14
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -227,7 +227,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #16
+### 问题 #15
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -245,7 +245,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #18
+### 问题 #17
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -264,7 +264,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #19
+### 问题 #18
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -283,7 +283,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #20
+### 问题 #19
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -301,7 +301,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #21
+### 问题 #20
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -319,7 +319,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #22
+### 问题 #21
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -337,27 +337,27 @@ LLM idle timeout (60s): no response from model
 
 ---
 
+### 问题 #23
+
+- **错误类型**: `modelErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
+- **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
+- **行号**: 22
+- **时间戳**: 2026-04-15T07:33:33.231Z
+- **Run ID**: `bb3c513f-d87e-448f-8014-614e40c21906`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
 ### 问题 #24
 
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
-- **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
-- **行号**: 22
-- **时间戳**: 2026-04-15T07:33:33.231Z
-- **Run ID**: `bb3c513f-d87e-448f-8014-614e40c21906`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #25
-
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -375,7 +375,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #28
+### 问题 #26
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -394,7 +394,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #29
+### 问题 #27
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -413,7 +413,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #36
+### 问题 #34
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -432,7 +432,7 @@ aborted
 
 ---
 
-### 问题 #37
+### 问题 #35
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -450,7 +450,7 @@ aborted
 
 ---
 
-### 问题 #38
+### 问题 #36
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -468,7 +468,7 @@ aborted
 
 ---
 
-### 问题 #39
+### 问题 #37
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -486,7 +486,7 @@ aborted
 
 ---
 
-### 问题 #40
+### 问题 #38
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -504,7 +504,7 @@ aborted
 
 ---
 
-### 问题 #41
+### 问题 #39
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -522,7 +522,7 @@ aborted
 
 ---
 
-### 问题 #42
+### 问题 #40
 
 - **错误类型**: `flow_integrity_missing_tool_result`
 - **事件类型**: `message`
@@ -538,7 +538,7 @@ Expected "toolResult" after "toolCall", but got "undefined"
 
 ---
 
-### 问题 #43
+### 问题 #41
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -557,7 +557,7 @@ This operation was aborted
 
 ---
 
-### 问题 #45
+### 问题 #43
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -576,7 +576,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #46
+### 问题 #44
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -595,7 +595,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #49
+### 问题 #45
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -613,7 +613,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #50
+### 问题 #46
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -631,7 +631,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #55
+### 问题 #51
 
 - **错误类型**: `permissionErrors`
 - **事件类型**: `model-snapshot`
@@ -648,7 +648,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #56
+### 问题 #52
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -666,7 +666,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #57
+### 问题 #53
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -684,7 +684,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #58
+### 问题 #54
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -702,7 +702,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #59
+### 问题 #55
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -720,7 +720,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #60
+### 问题 #56
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -738,7 +738,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #61
+### 问题 #57
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -756,7 +756,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #62
+### 问题 #58
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -774,7 +774,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #63
+### 问题 #59
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -792,7 +792,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #64
+### 问题 #60
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -810,7 +810,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #65
+### 问题 #61
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -828,7 +828,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #66
+### 问题 #62
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -846,7 +846,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #67
+### 问题 #63
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -864,7 +864,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #68
+### 问题 #64
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -882,7 +882,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #69
+### 问题 #65
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -900,7 +900,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #70
+### 问题 #66
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -918,7 +918,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #71
+### 问题 #67
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -936,7 +936,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #73
+### 问题 #69
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -955,7 +955,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #74
+### 问题 #70
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -974,7 +974,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #75
+### 问题 #71
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -992,7 +992,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #76
+### 问题 #72
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1011,7 +1011,7 @@ aborted
 
 ---
 
-### 问题 #77
+### 问题 #73
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1029,7 +1029,7 @@ Request was aborted
 
 ---
 
-### 问题 #78
+### 问题 #74
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1047,7 +1047,7 @@ Request was aborted
 
 ---
 
-### 问题 #79
+### 问题 #75
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1065,7 +1065,7 @@ Request was aborted
 
 ---
 
-### 问题 #80
+### 问题 #76
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1083,7 +1083,7 @@ Request was aborted
 
 ---
 
-### 问题 #81
+### 问题 #77
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1101,7 +1101,7 @@ Request was aborted
 
 ---
 
-### 问题 #82
+### 问题 #78
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1119,7 +1119,7 @@ Request was aborted
 
 ---
 
-### 问题 #83
+### 问题 #79
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1137,7 +1137,7 @@ Request was aborted
 
 ---
 
-### 问题 #84
+### 问题 #80
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1155,7 +1155,7 @@ Request was aborted
 
 ---
 
-### 问题 #85
+### 问题 #81
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1173,7 +1173,7 @@ Request was aborted
 
 ---
 
-### 问题 #86
+### 问题 #82
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1191,7 +1191,7 @@ Request was aborted
 
 ---
 
-### 问题 #87
+### 问题 #83
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1209,7 +1209,7 @@ Request was aborted
 
 ---
 
-### 问题 #88
+### 问题 #84
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1227,7 +1227,7 @@ Request was aborted
 
 ---
 
-### 问题 #103
+### 问题 #99
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1246,7 +1246,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #104
+### 问题 #100
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1265,7 +1265,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #106
+### 问题 #102
 
 - **错误类型**: `flow_integrity_no_reply`
 - **事件类型**: `message`
@@ -1281,83 +1281,83 @@ Expected "assistant" after "user", but got "undefined"
 
 ---
 
+### 问题 #109
+
+- **错误类型**: `modelErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 72
+- **时间戳**: 2026-04-14T06:25:22.297Z
+- **Run ID**: `req_1776147850337_tyub0lfc0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #110
+
+- **错误类型**: `timeoutErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 72
+- **时间戳**: 2026-04-14T06:25:22.297Z
+- **Run ID**: `req_1776147850337_tyub0lfc0`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #111
+
+- **错误类型**: `modelErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 74
+- **时间戳**: 2026-04-14T06:42:55.899Z
+- **Run ID**: `req_1776148910958_kbpe7zfuk`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #112
+
+- **错误类型**: `timeoutErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
+- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
+- **行号**: 74
+- **时间戳**: 2026-04-14T06:42:55.899Z
+- **Run ID**: `req_1776148910958_kbpe7zfuk`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
 ### 问题 #113
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 72
-- **时间戳**: 2026-04-14T06:25:22.297Z
-- **Run ID**: `req_1776147850337_tyub0lfc0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #114
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 72
-- **时间戳**: 2026-04-14T06:25:22.297Z
-- **Run ID**: `req_1776147850337_tyub0lfc0`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #115
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 74
-- **时间戳**: 2026-04-14T06:42:55.899Z
-- **Run ID**: `req_1776148910958_kbpe7zfuk`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #116
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 74
-- **时间戳**: 2026-04-14T06:42:55.899Z
-- **Run ID**: `req_1776148910958_kbpe7zfuk`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #117
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1375,7 +1375,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #118
+### 问题 #114
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1393,7 +1393,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #119
+### 问题 #115
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1411,7 +1411,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #120
+### 问题 #116
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1429,7 +1429,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #121
+### 问题 #117
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1447,7 +1447,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #122
+### 问题 #118
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1465,7 +1465,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #123
+### 问题 #119
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1483,7 +1483,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #124
+### 问题 #120
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1501,7 +1501,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #125
+### 问题 #121
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1519,7 +1519,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #126
+### 问题 #122
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1537,7 +1537,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #127
+### 问题 #123
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1555,7 +1555,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #128
+### 问题 #124
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1573,7 +1573,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #129
+### 问题 #125
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1591,7 +1591,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #130
+### 问题 #126
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1609,7 +1609,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #131
+### 问题 #127
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1627,7 +1627,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #132
+### 问题 #128
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1645,7 +1645,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #133
+### 问题 #129
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1663,7 +1663,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #134
+### 问题 #130
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1681,7 +1681,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #135
+### 问题 #131
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -1699,7 +1699,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #156
+### 问题 #152
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1718,7 +1718,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #157
+### 问题 #153
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1737,7 +1737,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #166
+### 问题 #162
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1756,7 +1756,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #167
+### 问题 #163
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1775,7 +1775,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #178
+### 问题 #174
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1794,7 +1794,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #179
+### 问题 #175
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1813,7 +1813,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #189
+### 问题 #185
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1832,7 +1832,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #190
+### 问题 #186
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1851,7 +1851,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #220
+### 问题 #216
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1870,7 +1870,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #221
+### 问题 #217
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1889,7 +1889,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #226
+### 问题 #222
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1908,7 +1908,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #227
+### 问题 #223
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -1922,6 +1922,63 @@ LLM idle timeout (60s): no response from model
 - **行号**: 15
 - **时间戳**: 2026-04-14T09:07:51.000Z
 - **Run ID**: `c4c8ea24-93a8-431a-aa6f-3f891ee544d9`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #233
+
+- **错误类型**: `modelErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
+- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
+- **行号**: 30
+- **时间戳**: 2026-04-14T09:05:53.879Z
+- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #234
+
+- **错误类型**: `timeoutErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
+- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
+- **行号**: 30
+- **时间戳**: 2026-04-14T09:05:53.879Z
+- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #236
+
+- **错误类型**: `modelErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
+- **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
+- **行号**: 8
+- **时间戳**: 2026-04-15T09:20:51.687Z
+- **Run ID**: `bbae6408-de89-479f-90f0-235dd832faed`
 - **Provider**: `my-qwen-provider`
 - **Model**: `AIAPLLM-vision-nothink`
 
@@ -1929,63 +1986,6 @@ LLM idle timeout (60s): no response from model
 
 ### 问题 #237
 
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
-- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
-- **行号**: 30
-- **时间戳**: 2026-04-14T09:05:53.879Z
-- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #238
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
-- **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
-- **行号**: 30
-- **时间戳**: 2026-04-14T09:05:53.879Z
-- **Run ID**: `f05dfe06-c8f8-4a25-b16e-01468e47c033`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #240
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
-- **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
-- **行号**: 8
-- **时间戳**: 2026-04-15T09:20:51.687Z
-- **Run ID**: `bbae6408-de89-479f-90f0-235dd832faed`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #241
-
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -2003,7 +2003,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #252
+### 问题 #248
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2022,7 +2022,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #253
+### 问题 #249
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2041,7 +2041,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #266
+### 问题 #262
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2060,7 +2060,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #267
+### 问题 #263
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2074,6 +2074,63 @@ LLM idle timeout (60s): no response from model
 - **行号**: 32
 - **时间戳**: 2026-04-14T09:33:04.696Z
 - **Run ID**: `68d03430-23ec-4958-b0fa-9b1f2fe9325e`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #281
+
+- **错误类型**: `modelErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
+- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
+- **行号**: 42
+- **时间戳**: 2026-04-14T09:30:17.499Z
+- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #282
+
+- **错误类型**: `timeoutErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到超时错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
+- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
+- **行号**: 42
+- **时间戳**: 2026-04-14T09:30:17.499Z
+- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
+- **Provider**: `my-qwen-provider`
+- **Model**: `AIAPLLM-vision-nothink`
+
+---
+
+### 问题 #284
+
+- **错误类型**: `modelErrors`
+- **事件类型**: `openclaw:prompt-error`
+- **描述**: 检测到模型API错误事件
+- **错误信息**: ```
+LLM idle timeout (60s): no response from model
+```
+- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
+- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
+- **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
+- **行号**: 8
+- **时间戳**: 2026-04-15T09:22:18.505Z
+- **Run ID**: `766d9b83-aada-4e2e-9b95-75c228b3b61d`
 - **Provider**: `my-qwen-provider`
 - **Model**: `AIAPLLM-vision-nothink`
 
@@ -2081,63 +2138,6 @@ LLM idle timeout (60s): no response from model
 
 ### 问题 #285
 
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
-- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
-- **行号**: 42
-- **时间戳**: 2026-04-14T09:30:17.499Z
-- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #286
-
-- **错误类型**: `timeoutErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到超时错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
-- **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
-- **行号**: 42
-- **时间戳**: 2026-04-14T09:30:17.499Z
-- **Run ID**: `a169213c-b705-4a42-8164-7f40fc703801`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #288
-
-- **错误类型**: `modelErrors`
-- **事件类型**: `openclaw:prompt-error`
-- **描述**: 检测到模型API错误事件
-- **错误信息**: ```
-LLM idle timeout (60s): no response from model
-```
-- **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
-- **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
-- **行号**: 8
-- **时间戳**: 2026-04-15T09:22:18.505Z
-- **Run ID**: `766d9b83-aada-4e2e-9b95-75c228b3b61d`
-- **Provider**: `my-qwen-provider`
-- **Model**: `AIAPLLM-vision-nothink`
-
----
-
-### 问题 #289
-
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
@@ -2155,7 +2155,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #305
+### 问题 #301
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2174,7 +2174,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #306
+### 问题 #302
 
 - **错误类型**: `timeoutErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2193,7 +2193,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #317
+### 问题 #313
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2211,7 +2211,7 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-### 问题 #318
+### 问题 #314
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2230,7 +2230,7 @@ aborted
 
 ---
 
-### 问题 #321
+### 问题 #317
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2248,7 +2248,7 @@ aborted
 
 ---
 
-### 问题 #322
+### 问题 #318
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2266,7 +2266,7 @@ aborted
 
 ---
 
-### 问题 #323
+### 问题 #319
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2284,7 +2284,7 @@ aborted
 
 ---
 
-### 问题 #332
+### 问题 #328
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2303,7 +2303,7 @@ aborted
 
 ---
 
-### 问题 #335
+### 问题 #331
 
 - **错误类型**: `flow_integrity_no_reply`
 - **事件类型**: `message`
@@ -2319,7 +2319,7 @@ Expected assistant message after user message, but reached end of file
 
 ---
 
-### 问题 #336
+### 问题 #332
 
 - **错误类型**: `modelErrors`
 - **事件类型**: `openclaw:prompt-error`
@@ -2338,7 +2338,7 @@ This operation was aborted
 
 ---
 
-### 问题 #337
+### 问题 #333
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2356,7 +2356,7 @@ Request was aborted
 
 ---
 
-### 问题 #338
+### 问题 #334
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2374,7 +2374,7 @@ Request was aborted
 
 ---
 
-### 问题 #339
+### 问题 #335
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2392,7 +2392,7 @@ Request was aborted
 
 ---
 
-### 问题 #340
+### 问题 #336
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2410,7 +2410,7 @@ Request was aborted
 
 ---
 
-### 问题 #341
+### 问题 #337
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2428,7 +2428,7 @@ Request was aborted
 
 ---
 
-### 问题 #342
+### 问题 #338
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2446,7 +2446,7 @@ Request was aborted
 
 ---
 
-### 问题 #343
+### 问题 #339
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2464,7 +2464,7 @@ Request was aborted
 
 ---
 
-### 问题 #344
+### 问题 #340
 
 - **错误类型**: `abnormal_stop`
 - **事件类型**: `message`
@@ -2482,7 +2482,7 @@ Request was aborted
 
 ---
 
-## 🟡 中优先级问题 (211)
+## 🟡 中优先级问题 (207)
 
 ### 问题 #1
 
@@ -2532,23 +2532,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #10
-
-- **错误类型**: `flow_integrity_missing_final_answer`
-- **事件类型**: `message`
-- **描述**: 工具执行完成后的下一条消息角色是"user"，而非预期的assistant最终回复
-- **错误信息**: ```
-Expected "assistant" after "toolResult", but got "user"
-```
-- **原因分析**: 可能的原因：1) Assistant未能正确处理工具结果；2) 触发了新的用户输入打断流程；3) 消息顺序异常；4) 多轮工具调用中间状态
-- **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
-- **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
-- **行号**: 13
-- **时间戳**: 2026-04-13T09:49:20.976Z
-
----
-
-### 问题 #17
+### 问题 #16
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2564,7 +2548,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #23
+### 问题 #22
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2580,23 +2564,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #26
-
-- **错误类型**: `flow_integrity_missing_final_answer`
-- **事件类型**: `message`
-- **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after toolResult, but reached end of file
-```
-- **原因分析**: 可能的原因：1) Assistant在处理工具结果时出错；2) 会话被意外终止；3) 工具结果过于复杂导致无法生成回复；4) 系统资源耗尽
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\fd456231-44de-481c-a5e3-d7c1d501701c.jsonl`
-- **Session ID**: `fd456231-44de-481c-a5e3-d7c1d501701c`
-- **行号**: 95
-- **时间戳**: 2026-04-15T05:23:13.654Z
-
----
-
-### 问题 #27
+### 问题 #25
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2612,7 +2580,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #30
+### 问题 #28
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2628,7 +2596,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #31
+### 问题 #29
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2644,7 +2612,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #32
+### 问题 #30
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2660,7 +2628,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #33
+### 问题 #31
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2676,7 +2644,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #34
+### 问题 #32
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2692,7 +2660,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #35
+### 问题 #33
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2708,7 +2676,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #44
+### 问题 #42
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2728,38 +2696,6 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
-- **描述**: 工具执行完成后的下一条消息角色是"user"，而非预期的assistant最终回复
-- **错误信息**: ```
-Expected "assistant" after "toolResult", but got "user"
-```
-- **原因分析**: 可能的原因：1) Assistant未能正确处理工具结果；2) 触发了新的用户输入打断流程；3) 消息顺序异常；4) 多轮工具调用中间状态
-- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
-- **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
-- **行号**: 79
-- **时间戳**: 2026-04-13T08:13:34.469Z
-
----
-
-### 问题 #48
-
-- **错误类型**: `flow_integrity_missing_final_answer`
-- **事件类型**: `message`
-- **描述**: 工具执行完成后的下一条消息角色是"user"，而非预期的assistant最终回复
-- **错误信息**: ```
-Expected "assistant" after "toolResult", but got "user"
-```
-- **原因分析**: 可能的原因：1) Assistant未能正确处理工具结果；2) 触发了新的用户输入打断流程；3) 消息顺序异常；4) 多轮工具调用中间状态
-- **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
-- **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
-- **行号**: 87
-- **时间戳**: 2026-04-13T08:15:08.593Z
-
----
-
-### 问题 #51
-
-- **错误类型**: `flow_integrity_missing_final_answer`
-- **事件类型**: `message`
 - **描述**: 工具执行完成后的下一条消息角色是"toolResult"，而非预期的assistant最终回复
 - **错误信息**: ```
 Expected "assistant" after "toolResult", but got "toolResult"
@@ -2772,7 +2708,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #52
+### 问题 #48
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2788,7 +2724,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #53
+### 问题 #49
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2804,7 +2740,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #54
+### 问题 #50
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2820,7 +2756,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #72
+### 问题 #68
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2836,7 +2772,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #89
+### 问题 #85
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2852,7 +2788,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #90
+### 问题 #86
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2868,7 +2804,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #91
+### 问题 #87
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2884,7 +2820,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #92
+### 问题 #88
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2900,7 +2836,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #93
+### 问题 #89
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2916,7 +2852,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #94
+### 问题 #90
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2932,7 +2868,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #95
+### 问题 #91
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2948,7 +2884,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #96
+### 问题 #92
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2964,7 +2900,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #97
+### 问题 #93
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2980,7 +2916,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #98
+### 问题 #94
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -2996,7 +2932,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #99
+### 问题 #95
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3012,7 +2948,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #100
+### 问题 #96
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3028,7 +2964,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #101
+### 问题 #97
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3044,7 +2980,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #102
+### 问题 #98
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3060,7 +2996,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #105
+### 问题 #101
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3076,7 +3012,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #107
+### 问题 #103
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3092,7 +3028,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #108
+### 问题 #104
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3108,7 +3044,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #109
+### 问题 #105
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3124,7 +3060,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #110
+### 问题 #106
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3140,7 +3076,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #111
+### 问题 #107
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3156,7 +3092,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #112
+### 问题 #108
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3172,7 +3108,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #136
+### 问题 #132
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3188,7 +3124,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #137
+### 问题 #133
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3204,7 +3140,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #138
+### 问题 #134
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3220,7 +3156,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #139
+### 问题 #135
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3236,7 +3172,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #140
+### 问题 #136
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3252,7 +3188,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #141
+### 问题 #137
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3268,7 +3204,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #142
+### 问题 #138
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3284,7 +3220,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #143
+### 问题 #139
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3300,7 +3236,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #144
+### 问题 #140
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3316,7 +3252,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #145
+### 问题 #141
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3332,7 +3268,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #146
+### 问题 #142
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3348,7 +3284,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #147
+### 问题 #143
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3364,7 +3300,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #148
+### 问题 #144
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3380,7 +3316,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #149
+### 问题 #145
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3396,7 +3332,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #150
+### 问题 #146
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3412,7 +3348,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #151
+### 问题 #147
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3428,7 +3364,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #152
+### 问题 #148
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3444,7 +3380,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #153
+### 问题 #149
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3460,7 +3396,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #154
+### 问题 #150
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3476,7 +3412,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #155
+### 问题 #151
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3492,7 +3428,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #158
+### 问题 #154
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3508,7 +3444,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #159
+### 问题 #155
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3524,7 +3460,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #160
+### 问题 #156
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3540,7 +3476,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #161
+### 问题 #157
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3556,7 +3492,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #162
+### 问题 #158
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3572,7 +3508,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #163
+### 问题 #159
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3588,7 +3524,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #164
+### 问题 #160
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3604,7 +3540,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #165
+### 问题 #161
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3620,7 +3556,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #168
+### 问题 #164
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3636,7 +3572,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #169
+### 问题 #165
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3652,7 +3588,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #170
+### 问题 #166
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3668,7 +3604,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #171
+### 问题 #167
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3684,7 +3620,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #172
+### 问题 #168
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3700,7 +3636,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #173
+### 问题 #169
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3716,7 +3652,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #174
+### 问题 #170
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3732,7 +3668,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #175
+### 问题 #171
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3748,7 +3684,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #176
+### 问题 #172
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3764,7 +3700,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #177
+### 问题 #173
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3780,7 +3716,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #180
+### 问题 #176
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3796,7 +3732,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #181
+### 问题 #177
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3812,7 +3748,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #182
+### 问题 #178
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3828,7 +3764,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #183
+### 问题 #179
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3844,7 +3780,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #184
+### 问题 #180
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3860,7 +3796,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #185
+### 问题 #181
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3876,7 +3812,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #186
+### 问题 #182
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3892,7 +3828,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #187
+### 问题 #183
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3908,7 +3844,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #188
+### 问题 #184
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3924,7 +3860,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #191
+### 问题 #187
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3940,7 +3876,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #192
+### 问题 #188
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3956,7 +3892,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #193
+### 问题 #189
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3972,7 +3908,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #194
+### 问题 #190
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -3988,7 +3924,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #195
+### 问题 #191
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4004,7 +3940,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #196
+### 问题 #192
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4020,7 +3956,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #197
+### 问题 #193
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4036,7 +3972,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #198
+### 问题 #194
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4052,7 +3988,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #199
+### 问题 #195
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4068,7 +4004,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #200
+### 问题 #196
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4084,7 +4020,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #201
+### 问题 #197
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4100,7 +4036,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #202
+### 问题 #198
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4116,7 +4052,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #203
+### 问题 #199
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4132,7 +4068,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #204
+### 问题 #200
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4148,7 +4084,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #205
+### 问题 #201
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4164,7 +4100,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #206
+### 问题 #202
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4180,7 +4116,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #207
+### 问题 #203
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4196,7 +4132,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #208
+### 问题 #204
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4212,7 +4148,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #209
+### 问题 #205
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4228,7 +4164,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #210
+### 问题 #206
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4244,7 +4180,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #211
+### 问题 #207
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4260,7 +4196,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #212
+### 问题 #208
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4276,7 +4212,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #213
+### 问题 #209
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4292,7 +4228,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #214
+### 问题 #210
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4308,7 +4244,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #215
+### 问题 #211
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4324,7 +4260,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #216
+### 问题 #212
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4340,7 +4276,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #217
+### 问题 #213
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4356,7 +4292,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #218
+### 问题 #214
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4372,7 +4308,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #219
+### 问题 #215
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4388,7 +4324,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #222
+### 问题 #218
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4404,7 +4340,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #223
+### 问题 #219
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4420,7 +4356,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #224
+### 问题 #220
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4436,7 +4372,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #225
+### 问题 #221
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4452,7 +4388,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #228
+### 问题 #224
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4468,7 +4404,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #229
+### 问题 #225
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4484,7 +4420,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #230
+### 问题 #226
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4500,7 +4436,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #231
+### 问题 #227
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4516,7 +4452,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #232
+### 问题 #228
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4532,7 +4468,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #233
+### 问题 #229
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4548,7 +4484,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #234
+### 问题 #230
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4564,7 +4500,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #235
+### 问题 #231
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4580,7 +4516,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #236
+### 问题 #232
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4596,7 +4532,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #239
+### 问题 #235
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4612,7 +4548,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #242
+### 问题 #238
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4628,7 +4564,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #243
+### 问题 #239
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4644,7 +4580,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #244
+### 问题 #240
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4660,7 +4596,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #245
+### 问题 #241
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4676,7 +4612,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #246
+### 问题 #242
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4692,7 +4628,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #247
+### 问题 #243
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4708,7 +4644,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #248
+### 问题 #244
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4724,7 +4660,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #249
+### 问题 #245
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4740,7 +4676,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #250
+### 问题 #246
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4756,7 +4692,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #251
+### 问题 #247
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4772,7 +4708,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #254
+### 问题 #250
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4788,7 +4724,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #255
+### 问题 #251
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4804,7 +4740,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #256
+### 问题 #252
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4820,7 +4756,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #257
+### 问题 #253
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4836,7 +4772,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #258
+### 问题 #254
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4852,7 +4788,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #259
+### 问题 #255
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4868,7 +4804,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #260
+### 问题 #256
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4884,7 +4820,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #261
+### 问题 #257
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4900,7 +4836,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #262
+### 问题 #258
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4916,7 +4852,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #263
+### 问题 #259
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4932,7 +4868,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #264
+### 问题 #260
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4948,7 +4884,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #265
+### 问题 #261
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4964,7 +4900,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #268
+### 问题 #264
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4980,7 +4916,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #269
+### 问题 #265
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -4996,7 +4932,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #270
+### 问题 #266
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5012,7 +4948,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #271
+### 问题 #267
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5028,7 +4964,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #272
+### 问题 #268
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5044,7 +4980,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #273
+### 问题 #269
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5060,7 +4996,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #274
+### 问题 #270
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5076,7 +5012,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #275
+### 问题 #271
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5092,7 +5028,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #276
+### 问题 #272
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5108,7 +5044,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #277
+### 问题 #273
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5124,7 +5060,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #278
+### 问题 #274
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5140,7 +5076,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #279
+### 问题 #275
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5156,7 +5092,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #280
+### 问题 #276
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5172,7 +5108,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #281
+### 问题 #277
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5188,7 +5124,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #282
+### 问题 #278
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5204,7 +5140,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #283
+### 问题 #279
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5220,7 +5156,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #284
+### 问题 #280
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5236,7 +5172,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #287
+### 问题 #283
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5252,7 +5188,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #290
+### 问题 #286
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5268,7 +5204,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #291
+### 问题 #287
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5284,7 +5220,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #292
+### 问题 #288
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5300,7 +5236,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #293
+### 问题 #289
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5316,7 +5252,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #294
+### 问题 #290
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5332,7 +5268,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #295
+### 问题 #291
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5348,7 +5284,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #296
+### 问题 #292
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5364,7 +5300,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #297
+### 问题 #293
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5380,7 +5316,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #298
+### 问题 #294
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5396,7 +5332,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #299
+### 问题 #295
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5412,7 +5348,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #300
+### 问题 #296
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5428,7 +5364,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #301
+### 问题 #297
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5444,7 +5380,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #302
+### 问题 #298
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5460,7 +5396,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #303
+### 问题 #299
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5476,7 +5412,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #304
+### 问题 #300
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5492,7 +5428,7 @@ Expected "assistant" after "toolResult", but got "undefined"
 
 ---
 
-### 问题 #307
+### 问题 #303
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5508,7 +5444,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #308
+### 问题 #304
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5524,7 +5460,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #309
+### 问题 #305
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5540,7 +5476,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #310
+### 问题 #306
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5556,7 +5492,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #311
+### 问题 #307
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5572,7 +5508,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #312
+### 问题 #308
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5588,7 +5524,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #313
+### 问题 #309
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5604,7 +5540,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #314
+### 问题 #310
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5620,7 +5556,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #315
+### 问题 #311
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5636,7 +5572,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #316
+### 问题 #312
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5652,7 +5588,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #319
+### 问题 #315
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5668,7 +5604,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #320
+### 问题 #316
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5684,7 +5620,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #324
+### 问题 #320
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5700,7 +5636,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #325
+### 问题 #321
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5716,7 +5652,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #326
+### 问题 #322
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5732,7 +5668,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #327
+### 问题 #323
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5748,7 +5684,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #328
+### 问题 #324
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5764,7 +5700,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #329
+### 问题 #325
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5780,7 +5716,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #330
+### 问题 #326
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5796,7 +5732,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #331
+### 问题 #327
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5812,7 +5748,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #333
+### 问题 #329
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5828,7 +5764,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #334
+### 问题 #330
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`
@@ -5844,7 +5780,7 @@ Expected "assistant" after "toolResult", but got "toolResult"
 
 ---
 
-### 问题 #345
+### 问题 #341
 
 - **错误类型**: `flow_integrity_missing_final_answer`
 - **事件类型**: `message`

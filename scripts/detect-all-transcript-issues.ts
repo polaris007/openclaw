@@ -48,6 +48,7 @@ interface MessageEvent {
     api?: string;
     provider?: string;
     model?: string;
+    toolName?: string; // toolResult消息中的工具名称
   };
   customType?: string;
   data?: any;
@@ -292,6 +293,13 @@ function detectFlowIntegrity(
     
     // 规则3: toolResult后面必须要有assistant
     if (current.event.message?.role === 'toolResult') {
+      // 特殊规则：跳过sessions_yield工具结果的检测
+      const toolName = current.event.message.toolName;
+      
+      if (toolName === 'sessions_yield') {
+        continue; // 跳过sessions_yield的检测
+      }
+      
       if (!next) {
         issues.push({
           id: generateId(),
