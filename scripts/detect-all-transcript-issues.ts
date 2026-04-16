@@ -106,7 +106,7 @@ const errorPatterns = {
     /permission.*denied/i,
     /access.*denied/i,
     /forbidden/i,
-    /403/i,
+    /\b403\b/i,  // 使用单词边界，避免匹配时间戳或其他数字序列中的403
     /unauthorized/i,
     /auth.*error/i,
   ],
