@@ -72,6 +72,7 @@ const errorPatterns = {
     /api.*error/i,
     /LLM.*timeout/i,
     /operation.*aborted/i,
+    /\baborted\b/i,  // 捕获单独的"aborted"错误（如请求被中止）
     /prompt.*error/i,
     /request.*failed/i,
     /inference.*error/i,
@@ -89,7 +90,7 @@ const errorPatterns = {
   ],
   rateLimitErrors: [
     /rate.*limit/i,
-    /429/i,
+    /\b429\b/i,  // 使用单词边界，避免匹配UUID或时间戳中的数字序列
     /too.*many.*requests/i,
     /quota.*exceeded/i,
     /throttl/i,
