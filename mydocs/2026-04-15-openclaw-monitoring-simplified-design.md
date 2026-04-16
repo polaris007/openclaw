@@ -100,10 +100,11 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
    - **备用方式**：检测文件大小缩小超过 10%（用于兜底，防止遗漏）
    - 如果检测到新的 compaction，触发全量重扫
 4. **流式扫描**：逐行解析 JSONL 文件，提取消息元数据并聚合为 Turn
-5. **不解析 Token 统计**：Token、成本等数据通过定时任务轮询 Gateway `sessions.list` API 获取（见 3.2.5 节）
-6. 聚合 Turn 结构（消息数、时间范围、Skill 使用等）到 session_turn 表
-7. **清理无效数据**：如果检测到 compaction，删除该 session 未完成的 Turn 记录
-8. 更新 last_message_id 和 compaction_count 记录
+5. **不解析 Token 统计**：Token、成本等数据通过 Gateway `sessions.list` API + 增量快照机制获取（见 3.2.5 节）
+6. **解析 Skill 和 Model 信息**：从 tool call 记录和 message usage 字段提取
+7. 聚合 Turn 结构（消息数、时间范围、Skill 使用、Model 使用等）到 session_turn 表
+8. **清理无效数据**：如果检测到 compaction，删除该 session 未完成的 Turn 记录
+9. 更新 last_message_id 和 compaction_count 记录
 
 **Session 文件路径规则**：
 - **NFS 挂载根目录**：通过配置项 `monitoring.session.scan.nfs-mount-path` 指定
@@ -269,20 +270,46 @@ OpenClaw 的 Session Compaction 分为两个阶段：
 - `agents[0].heartbeat.everyMs` → 可用于计算下次预期心跳
 - **注意**: 实际返回中**没有** `version`, `nodeId`, `memory.rss` 等字段
 
-**Token 统计数据获取**：
-- **不从 Session Log 解析**：Token、成本等统计数据通过定时任务轮询 Gateway 获取
-- **RPC 方法**: 通过 WebSocket 调用 `sessions.list` 方法
-- **返回字段**:
-  - `inputTokens`: 输入 Token 数
-  - `outputTokens`: 输出 Token 数
-  - `totalTokens`: 总 Token 数
-  - `estimatedCostUsd`: 预估成本（美元）
-  - `contextTokens`: 上下文 Token 数
-  - `modelProvider`: 模型提供商
-  - `model`: 模型 ID
-  - `updatedAt`: 更新时间戳（用于时间桶对齐）
-  - `key`: Session Key（格式：`agent:{agentId}:{channel}:{type}:{id}`，可提取 channel 和 agentId）
-  - `deliveryContext`: 包含 `channel`, `to`, `accountId`, `threadId`
+**Token 统计数据获取策略（混合方案）**：
+
+**核心原则**：采用 Gateway API + Session Log 解析的混合方案，发挥各自优势
+
+**分工说明**：
+- **Token/Cost/Model 统计**：通过 Gateway `sessions.list` API 轮询获取增量数据（权威数据源）
+- **Skill/Turn 统计**：从 `dashboard_session_turn` 表聚合（Session Log 解析结果）
+- **Turn 级别 Token 分摊**：当 Session Log 解析失败时，按比例从 Gateway API 数据分摊
+
+**Gateway sessions.list API 返回字段**：
+```json
+{
+  "key": "agent:user123:discord:direct:abc123",
+  "sessionId": "sess_abc123",              // Session ID，可用于关联
+  "updatedAt": 1713123400000,               // 更新时间戳
+  "inputTokens": 1200,                      // 输入 Token 数（Session 累计值）
+  "outputTokens": 800,                      // 输出 Token 数（Session 累计值）
+  "totalTokens": 2000,                      // 总 Token 数（Session 累计值）
+  "estimatedCostUsd": 0.035,                // 预估成本（美元，Session 累计值）
+  "contextTokens": 1500,                    // 上下文 Token 数
+  "modelProvider": "anthropic",             // 模型提供商
+  "model": "sonnet-4.6",                    // 模型 ID
+  "deliveryContext": {                      // 投递上下文
+    "channel": "discord",
+    "to": "user123",
+    "accountId": "default",
+    "threadId": "thread_xyz"
+  },
+  "status": "done",                         // Session 状态：running/done/failed/killed/timeout
+  "startedAt": 1713120000000,               // Session 开始时间
+  "endedAt": 1713123400000,                 // Session 结束时间
+  "runtimeMs": 3400                         // 运行时长（毫秒）
+}
+```
+
+**⚠️ 重要说明**：
+1. `sessions.list` 返回的 Token 数据是 **Session 级别的累计值**，不是 Turn 级别的增量
+2. 同一 Session 多次轮询时，`totalTokens` 会持续增长
+3. 需要通过维护快照表计算增量，才能用于时间序列分析
+4. **不包含** Skill 调用信息，Skill 数据只能从 Session Log 解析
 
 **Gateway WebSocket 客户端设计**：
 - **连接模式**：短连接（Short-lived Connection），每次调用后立即关闭
@@ -441,6 +468,7 @@ CREATE TABLE IF NOT EXISTS openclaw_instances (
 CREATE TABLE `dashboard_session_turn` (
   `turn_id` VARCHAR(128) NOT NULL COMMENT 'Turn 唯一标识（session_id + first_message_id）',
   `session_id` VARCHAR(128) NOT NULL COMMENT '会话 ID',
+  `session_key` VARCHAR(256) NOT NULL COMMENT 'Session Key（用于关联 Gateway API 数据）',
   `instance_id` VARCHAR(128) NOT NULL COMMENT '实例 ID',
   `user_id` VARCHAR(128) DEFAULT NULL COMMENT '用户 ID',
   `channel` VARCHAR(64) DEFAULT NULL COMMENT '渠道类型',
@@ -455,17 +483,18 @@ CREATE TABLE `dashboard_session_turn` (
   `tool_call_count` INT NOT NULL DEFAULT 0 COMMENT '工具调用次数',
   `total_duration_ms` BIGINT DEFAULT 0 COMMENT '总耗时（毫秒）',
   `ai_duration_ms` BIGINT DEFAULT 0 COMMENT 'AI 响应总耗时（毫秒）',
-  `input_tokens` INT DEFAULT 0 COMMENT '输入 Token 数（从 Gateway sessions.list 获取）',
-  `output_tokens` INT DEFAULT 0 COMMENT '输出 Token 数（从 Gateway sessions.list 获取）',
-  `total_tokens` INT DEFAULT 0 COMMENT '总 Token 数（从 Gateway sessions.list 获取）',
-  `estimated_cost_cents` INT DEFAULT 0 COMMENT '预估成本（美分，从 Gateway sessions.list 获取）',
-  `skill_ids` TEXT COMMENT '使用的 Skill ID 列表（JSON 数组）',
-  `model_ids` TEXT COMMENT '使用的模型 ID 列表（JSON 数组，从 Gateway sessions.list 获取）',
+  `input_tokens` INT DEFAULT 0 COMMENT '输入 Token 数（优先从 Log 解析，缺失时从 Gateway 分摊）',
+  `output_tokens` INT DEFAULT 0 COMMENT '输出 Token 数（优先从 Log 解析，缺失时从 Gateway 分摊）',
+  `total_tokens` INT DEFAULT 0 COMMENT '总 Token 数（优先从 Log 解析，缺失时从 Gateway 分摊）',
+  `estimated_cost_cents` INT DEFAULT 0 COMMENT '预估成本（美分，优先从 Log 解析，缺失时从 Gateway 分摊）',
+  `skill_ids` TEXT COMMENT '使用的 Skill ID 列表（JSON 数组，从 Session Log 解析）',
+  `model_ids` TEXT COMMENT '使用的模型 ID 列表（JSON 数组，从 Session Log 解析）',
   `user_input_preview` VARCHAR(500) DEFAULT NULL COMMENT '用户输入预览（前500字符）',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`turn_id`),
   KEY `idx_session_id` (`session_id`),
+  KEY `idx_session_key` (`session_key`),
   KEY `idx_instance_id` (`instance_id`),
   KEY `idx_user_id` (`user_id`),
   KEY `idx_start_time` (`start_time`),
@@ -594,9 +623,36 @@ CREATE TABLE `dashboard_stats_daily` (
 
 **数据更新策略**：
 
-**策略 A：Gateway Token 数据轮询**（每 5 分钟执行一次）
+**Gateway Token 数据轮询任务（每 5 分钟执行）**：
+
+**设计思路**：维护 Session 级别的 Token 快照，通过对比前后两次轮询的差值计算增量
+
 ```java
-// 从 Gateway sessions.list API 获取 Token 统计数据
+/**
+ * Session Token 快照表 - 用于计算增量
+ */
+CREATE TABLE dashboard_session_token_snapshot (
+    session_key VARCHAR(256) NOT NULL COMMENT 'Session Key（主键）',
+    instance_id VARCHAR(128) NOT NULL COMMENT '实例 ID',
+    
+    -- 上次轮询时的累计值
+    last_input_tokens BIGINT DEFAULT 0,
+    last_output_tokens BIGINT DEFAULT 0,
+    last_total_tokens BIGINT DEFAULT 0,
+    last_estimated_cost_cents BIGINT DEFAULT 0,
+    
+    -- 元数据
+    last_snapshot_time DATETIME NOT NULL COMMENT '上次快照时间',
+    session_updated_at BIGINT COMMENT 'Session 的 updatedAt 时间戳',
+    
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    PRIMARY KEY (session_key),
+    KEY idx_instance_id (instance_id),
+    KEY idx_last_snapshot_time (last_snapshot_time)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 @Scheduled(cron = "0 */5 * * * ?") // 每 5 分钟执行
 public void pollGatewayTokenStats() {
     LocalDateTime currentHour = LocalDateTime.now().withMinute(0).withSecond(0);
@@ -607,12 +663,80 @@ public void pollGatewayTokenStats() {
             // 1. 调用 Gateway sessions.list API
             List<GatewaySessionRow> sessions = gatewayClient.fetchAllSessions(instance);
             
-            // 2. 按维度聚合 Token/Cost/Model 数据
-            Map<String, TokenAggregation> aggregations = aggregateTokenStats(sessions, currentHour, instance.getUid());
-            
-            // 3. 写入统计表（使用 INSERT ... ON DUPLICATE KEY UPDATE 实现幂等性）
-            for (Map.Entry<String, TokenAggregation> entry : aggregations.entrySet()) {
-                statsRepository.upsertHourlyTokenStats(entry.getValue());
+            for (GatewaySessionRow session : sessions) {
+                // 2. 获取上次快照
+                TokenSnapshot lastSnapshot = snapshotRepository.findBySessionKey(session.getKey());
+                
+                // 3. 计算增量
+                long deltaInput = session.getInputTokens() - 
+                    (lastSnapshot != null ? lastSnapshot.getLastInputTokens() : 0);
+                long deltaOutput = session.getOutputTokens() - 
+                    (lastSnapshot != null ? lastSnapshot.getLastOutputTokens() : 0);
+                long deltaTotal = session.getTotalTokens() - 
+                    (lastSnapshot != null ? lastSnapshot.getLastTotalTokens() : 0);
+                long deltaCost = convertToCents(session.getEstimatedCostUsd()) - 
+                    (lastSnapshot != null ? lastSnapshot.getLastEstimatedCostCents() : 0);
+                
+                // 4. 处理边界情况
+                if (deltaTotal < 0) {
+                    // Session 重置（例如用户清空对话历史）
+                    log.warn("检测到 Session Token 计数重置: key={}, old={}, new={}", 
+                        session.getKey(), 
+                        lastSnapshot != null ? lastSnapshot.getLastTotalTokens() : 0,
+                        session.getTotalTokens());
+                    continue; // 跳过本次，等待下次正常增长
+                }
+                
+                if (deltaTotal == 0) {
+                    // 无新增 Token，跳过
+                    continue;
+                }
+                
+                // 5. 提取维度信息
+                String agentId = extractAgentIdFromKey(session.getKey());
+                String channel = extractChannelFromKey(session.getKey());
+                String model = session.getModelProvider() + "/" + session.getModel();
+                
+                // 6. 写入小时统计表（使用 INSERT ... ON DUPLICATE KEY UPDATE）
+                statsRepository.upsertHourlyTokenStats(
+                    currentHour,
+                    "global", "all",
+                    deltaInput, deltaOutput, deltaTotal, deltaCost
+                );
+                
+                statsRepository.upsertHourlyTokenStats(
+                    currentHour,
+                    "user", instance.getUid(),
+                    deltaInput, deltaOutput, deltaTotal, deltaCost
+                );
+                
+                if (channel != null) {
+                    statsRepository.upsertHourlyTokenStats(
+                        currentHour,
+                        "channel", channel,
+                        deltaInput, deltaOutput, deltaTotal, deltaCost
+                    );
+                }
+                
+                if (model != null) {
+                    statsRepository.upsertHourlyTokenStats(
+                        currentHour,
+                        "model", model,
+                        deltaInput, deltaOutput, deltaTotal, deltaCost
+                    );
+                }
+                
+                // 7. 更新快照
+                snapshotRepository.upsert(new TokenSnapshot(
+                    session.getKey(),
+                    instance.getInstanceId(),
+                    session.getInputTokens(),
+                    session.getOutputTokens(),
+                    session.getTotalTokens(),
+                    convertToCents(session.getEstimatedCostUsd()),
+                    LocalDateTime.now(),
+                    session.getUpdatedAt()
+                ));
             }
             
             log.info("Gateway Token 数据同步完成: instance={}, uid={}, sessions={}", 
@@ -624,89 +748,7 @@ public void pollGatewayTokenStats() {
 }
 ```
 
-**关键逻辑说明**：
 
-**1. User-Instance 多对一关系处理**：
-- 一个用户（`uid`）可能对应多个 OpenClaw 实例（例如：手机、电脑、平板各一个）
-- `sessions.list` 返回的是单个实例的数据，需要按 `uid` 聚合
-- 聚合逻辑：
-  ```java
-  private Map<String, TokenAggregation> aggregateTokenStats(
-          List<GatewaySessionRow> sessions, 
-          LocalDateTime bucketTime,
-          String uid) {
-      
-      Map<String, TokenAggregation> aggregations = new HashMap<>();
-      
-      for (GatewaySessionRow session : sessions) {
-          // 提取维度键值
-          String agentId = extractAgentIdFromKey(session.getKey()); // user 维度
-          String channel = extractChannelFromKey(session.getKey()); // channel 维度
-          String model = session.getModelProvider() + "/" + session.getModel(); // model 维度
-          
-          // Global 维度
-          aggregations.computeIfAbsent("global", k -> new TokenAggregation())
-              .accumulate(session, bucketTime, "global", "all");
-          
-          // User 维度（按 uid 聚合所有实例）
-          aggregations.computeIfAbsent("user:" + uid, k -> new TokenAggregation())
-              .accumulate(session, bucketTime, "user", uid);
-          
-          // Channel 维度
-          if (channel != null) {
-              aggregations.computeIfAbsent("channel:" + channel, k -> new TokenAggregation())
-                  .accumulate(session, bucketTime, "channel", channel);
-          }
-          
-          // Model 维度
-          if (model != null) {
-              aggregations.computeIfAbsent("model:" + model, k -> new TokenAggregation())
-                  .accumulate(session, bucketTime, "model", model);
-          }
-      }
-      
-      return aggregations;
-  }
-  ```
-
-**2. 时间桶对齐算法**：
-- 使用 `LocalDateTime.now().withMinute(0).withSecond(0)` 将当前时间对齐到小时桶
-- 例如：10:23 → 10:00, 10:59 → 10:00
-- 确保同一小时内的多次轮询都写入同一个时间桶
-
-**3. 幂等性保证**：
-- 使用 `INSERT ... ON DUPLICATE KEY UPDATE` 语句
-- 主键：`(bucket_time, dimension_type, dimension_key)`
-- 如果同一时间桶的数据已存在，则更新而非插入
-- 避免重复累加：
-  ```sql
-  INSERT INTO dashboard_stats_hourly 
-    (bucket_time, dimension_type, dimension_key, total_tokens, ...)
-  VALUES 
-    ('2026-04-15 10:00:00', 'user', 'user123', 5000, ...)
-  ON DUPLICATE KEY UPDATE
-    total_tokens = VALUES(total_tokens),  -- 覆盖而非累加
-    estimated_cost_cents = VALUES(estimated_cost_cents),
-    updated_at = NOW();
-  ```
-
-**4. Session Key 解析规则**：
-- 格式：`agent:{agentId}:{channel}:{type}:{id}`
-- 示例：`agent:user123:discord:direct:abc123`
-- 提取方法：
-  ```java
-  private String extractAgentIdFromKey(String key) {
-      // agent:user123:discord:direct:abc123 → user123
-      String[] parts = key.split(":");
-      return parts.length >= 2 ? parts[1] : null;
-  }
-  
-  private String extractChannelFromKey(String key) {
-      // agent:user123:discord:direct:abc123 → discord
-      String[] parts = key.split(":");
-      return parts.length >= 3 ? parts[2] : null;
-  }
-  ```
 
 **策略 B：Session Turn 数据聚合**（每小时第 30 分钟执行）
 ```java
@@ -731,13 +773,64 @@ public void refreshDailyStatsFromTurns() {
 **数据来源分工**：
 | 统计维度 | 数据来源 | 更新频率 | 说明 |
 |---------|---------|---------|------|
-| Token 消耗 | Gateway sessions.list | 每 5 分钟 | 权威数据源，准确度高 |
-| Cost 成本 | Gateway sessions.list | 每 5 分钟 | 基于 Token 计算 |
-| Model 使用 | Gateway sessions.list | 每 5 分钟 | 包含 modelProvider + model |
+| Token 消耗 | Gateway sessions.list + 增量快照 | 每 5 分钟 | 权威数据源，通过快照计算增量 |
+| Cost 成本 | Gateway sessions.list + 增量快照 | 每 5 分钟 | 基于 Token 计算 |
+| Model 使用 | Gateway sessions.list + 增量快照 | 每 5 分钟 | 包含 modelProvider + model |
 | Skill 调用 | dashboard_session_turn | 每小时 | 从 Session Log 解析 |
 | Turn 数量 | dashboard_session_turn | 每小时 | 从 Session Log 解析 |
-| Channel 分布 | dashboard_session_turn | 每小时 | 从 Session Key 提取 |
-| User 维度 | 混合 | 每小时 | Token 来自 Gateway，其他来自 Session Log |
+| Channel 分布 | 混合 | 每小时 | Token 来自 Gateway，其他来自 Session Log |
+| User 维度 | 混合 | 每小时 | Token 来自 Gateway，Skill/Turn 来自 Session Log |
+
+**Turn 级别 Token 分摊策略（可选优化）**：
+
+当 Session Log 解析失败或消息缺少 usage 字段时，可按比例从 Gateway API 的 Session 级别数据分摊到各个 Turn：
+
+```java
+/**
+ * 如果 Turn 级别的 Token 数据缺失，从 Gateway API 的 Session 级别数据按比例分摊
+ */
+private void distributeSessionTokensToTurns(String sessionKey, List<TurnAggregate> turns) {
+    // 1. 从 Gateway 获取 Session 级别的 Token 总数
+    GatewaySessionRow session = gatewayClient.getSessionByKey(sessionKey);
+    if (session == null || session.getTotalTokens() == null) {
+        return; // 无法分摊，保持为 0
+    }
+    
+    int sessionTotalTokens = session.getTotalTokens();
+    
+    // 2. 检查是否已有 Turn 级别的 Token 数据
+    int existingTurnTokens = turns.stream()
+        .mapToInt(t -> t.getTotalTokens() != null ? t.getTotalTokens() : 0)
+        .sum();
+    
+    // 3. 如果已有数据且接近 Session 总数，说明 Log 解析成功，不需要分摊
+    if (existingTurnTokens > 0 && Math.abs(existingTurnTokens - sessionTotalTokens) < 100) {
+        log.debug("Turn 级别 Token 数据完整，无需分摊: sessionKey={}", sessionKey);
+        return;
+    }
+    
+    // 4. 按消息数比例分摊
+    int totalMessages = turns.stream().mapToInt(TurnAggregate::getMessageCount).sum();
+    if (totalMessages == 0) {
+        return;
+    }
+    
+    for (TurnAggregate turn : turns) {
+        if (turn.getTotalTokens() == null || turn.getTotalTokens() == 0) {
+            // 按比例分摊
+            double ratio = (double) turn.getMessageCount() / totalMessages;
+            turn.setTotalTokens((int) (sessionTotalTokens * ratio));
+            turn.setInputTokens((int) (session.getInputTokens() * ratio));
+            turn.setOutputTokens((int) (session.getOutputTokens() * ratio));
+            turn.setEstimatedCostCents((int) (convertToCents(session.getEstimatedCostUsd()) * ratio));
+        }
+    }
+    
+    log.info("Token 分摊完成: sessionKey={}, sessionTotal={}, distributed={}", 
+        sessionKey, sessionTotalTokens, 
+        turns.stream().mapToInt(TurnAggregate::getTotalTokens).sum());
+}
+```
 
 #### 3.2.6 dashboard_stats_hourly（每小时趋势统计表）
 
@@ -2671,20 +2764,36 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
 ### 7.4 运营统计优化
 
 1. **预聚合策略**: 
-   - Gateway Token 数据：每 5 分钟轮询 `sessions.list` API，实时更新统计表
-   - Session Turn 数据：Session 扫描任务完成后，立即触发统计数据聚合
+   - **Gateway Token 数据**：每 5 分钟轮询 `sessions.list` API，通过增量快照计算差值，实时更新统计表
+   - **Session Turn 数据**：Session 扫描任务完成后，立即触发统计数据聚合
    - 将明细数据（`dashboard_session_turn`）聚合到统计表（`dashboard_stats_daily`, `dashboard_stats_hourly`）
    - 前端接口直接查询预聚合表，避免实时计算
-2. **多维度支持**: 
+   
+2. **混合数据源优势**：
+   - **准确性**：Token/Cost 使用 Gateway API 权威值，避免 Session Log 解析的边界情况
+   - **完整性**：Skill/Turn 使用 Session Log 解析，保证功能完整性
+   - **实时性**：Token 数据 5 分钟延迟，Skill/Turn 数据 1 小时延迟
+   - **可校验**：两套数据源可以互相验证，及时发现数据异常
+   
+3. **增量快照机制**：
+   - 维护 `dashboard_session_token_snapshot` 表记录每个 Session 上次轮询的 Token 值
+   - 每次轮询时计算差值（delta = current - last），只写入增量部分
+   - 处理边界情况：Session 重置、长时间未更新、负增量等
+   - 使用 `INSERT ... ON DUPLICATE KEY UPDATE` 实现幂等性
+   
+4. **Turn 级别 Token 分摊**（可选优化）：
+   - 当 Session Log 解析失败或消息缺少 usage 字段时，按比例从 Gateway API 数据分摊
+   - 按消息数比例分配：`turnTokens = sessionTokens * (turnMessages / totalMessages)`
+   - 作为 fallback 机制，保证数据完整性
+   
+5. **多维度支持**: 
    - global: 全局汇总
    - user: 按用户维度
    - skill: 按技能维度
    - channel: 按渠道维度
    - model: 按模型维度
-3. **增量更新**: 
-   - 使用 `INSERT ... ON DUPLICATE KEY UPDATE` 实现幂等性
-   - 同一天的数据多次聚合不会重复累加
-4. **查询性能**: 
+   
+6. **查询性能**: 
    - 无预聚合：每次查询需扫描数万条 Turn 记录，耗时秒级
    - 有预聚合：直接读取几十条聚合记录，耗时毫秒级
    - 性能提升 **100-1000 倍**
@@ -2761,8 +2870,52 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
    ```
    - **Gateway 连接失败处理**：
      - 单个实例连接失败不影响其他实例
-     - 连续失败 3 次后标记该实例为“Token 同步异常”，发送告警
+     - 连续失败 3 次后标记该实例为"Token 同步异常"，发送告警
      - 下次定时任务会自动重试
+   
+   - **数据一致性校验**（新增）：每天凌晨 3 点执行
+   ```java
+   /**
+    * 校验 Gateway API 数据与 Session Log 解析数据的一致性
+    */
+   @Scheduled(cron = "0 0 3 * * ?") // 每天凌晨 3 点执行
+   public void validateDataConsistency() {
+       LocalDate yesterday = LocalDate.now().minusDays(1);
+       
+       // 1. 获取昨天所有活跃 Session 的 Gateway 累计值
+       List<TokenSnapshot> snapshots = snapshotRepository.findByLastSnapshotDate(yesterday);
+       
+       for (TokenSnapshot snapshot : snapshots) {
+           // 2. 从 dashboard_session_turn 表聚合同一 Session 的 Token 总数
+           long turnTotalTokens = turnRepository.sumTotalTokensBySessionKey(
+               snapshot.getSessionKey(), yesterday
+           );
+           
+           // 3. 计算差异率
+           long gatewayTotal = snapshot.getLastTotalTokens();
+           if (gatewayTotal == 0) {
+               continue; // 跳过无数据的 Session
+           }
+           
+           double diffRate = Math.abs((double)(gatewayTotal - turnTotalTokens) / gatewayTotal);
+           
+           // 4. 如果差异超过 5%，记录告警
+           if (diffRate > 0.05) {
+               log.error("数据不一致: sessionKey={}, gateway={}, turn={}, diff={:.2f}%",
+                   snapshot.getSessionKey(), gatewayTotal, turnTotalTokens, diffRate * 100);
+               
+               alertService.sendAlert("数据一致性告警",
+                   String.format("Session %s 的 Token 数据差异 %.2f%% (Gateway=%d, Turn=%d)",
+                       snapshot.getSessionKey(), diffRate * 100, gatewayTotal, turnTotalTokens));
+               
+               // 5. 标记该 Session 的数据为可疑
+               turnRepository.markAsSuspicious(snapshot.getSessionKey(), yesterday);
+           }
+       }
+       
+       log.info("数据一致性校验完成: date={}, checked={}", yesterday, snapshots.size());
+   }
+   ```
 
 ### 7.5 异常恢复与容错
 
@@ -2795,6 +2948,7 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
 ### 9.2 参考资料
 - [OpenClaw 源码](https://github.com/openclaw/openclaw)
 - [Session Log 格式说明](./2026-04-14-openclaw-monitoring-design.md)
+- [Session Log 数据文件](./test/openclaw-logs)
 - [API 接口文档](./API接口文档.md)
 - [openclaw_instances 数据](./openclaw-instances_sample-data.txt)
 
@@ -2809,4 +2963,4 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
 | v1.2 | 2026-04-15 | OpenClaw Team | 完善 Session 文件扫描逻辑，路径配置化，支持 NFS 多实例隔离 |
 | v1.3 | 2026-04-15 | OpenClaw Team | 修复 Session 扫描串行瓶颈、Turn 聚合完整性、Token 实时同步策略、Compaction 检测优化、事务边界、异常恢复机制、文档格式问题 |
 | v1.4 | 2026-04-15 | OpenClaw Team | 新增预聚合统计表设计（`dashboard_stats_daily`, `dashboard_stats_hourly`），补充前端运营大盘接口实现逻辑 |
-| v1.5 | 2026-04-15 | OpenClaw Team | **混合数据源架构**：Token/Cost/Model 统计从 Gateway sessions.list API 轮询获取，Skill/Turn 统计从 Session Log 解析；补充 dashboard_stats_hourly 独立更新策略、历史数据回填机制、失败重试与监控
+| v1.5 | 2026-04-15 | OpenClaw Team | **混合数据源架构（方案B+）**：Token/Cost/Model 统计采用 Gateway sessions.list API + 增量快照机制，Skill/Turn 统计从 Session Log 解析；新增 dashboard_session_token_snapshot 表维护快照状态；补充 Turn 级别 Token 分摊策略作为 fallback；修正 sessions.list API 返回字段说明；添加数据一致性校验机制 |
