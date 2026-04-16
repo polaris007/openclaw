@@ -48,25 +48,26 @@
 
 ## 📊 当前统计结果
 
-**扫描文件数**: 183个JSONL文件  
-**总问题数**: 341个
+**扫描文件数**: 484个JSONL文件（包括`.jsonl`和`.jsonl.reset.*`等变体）  
+**总问题数**: 846个
 
 ### 问题类型分布
 
 | 问题类型 | 数量 | 占比 | 说明 |
 |---------|------|------|------|
-| flow_integrity_missing_final_answer | 207 | 60.7% | 工具执行后无最终回复 |
-| abnormal_stop | 78 | 22.9% | 异常停止 |
-| modelErrors | 30 | 8.8% | 模型API错误 |
-| timeoutErrors | 22 | 6.5% | 超时错误 |
-| flow_integrity_no_reply | 2 | 0.6% | 用户提问后无回复 |
-| flow_integrity_missing_tool_result | 1 | 0.3% | 工具调用后无执行结果 |
-| permissionErrors | 1 | 0.3% | 权限错误 |
+| flow_integrity_missing_final_answer | 532 | 62.9% | 工具执行后无最终回复 |
+| abnormal_stop | 168 | 19.9% | 异常停止 |
+| modelErrors | 69 | 8.2% | 模型API错误 |
+| flow_integrity_missing_tool_result | 29 | 3.4% | 工具调用后无执行结果 |
+| timeoutErrors | 23 | 2.7% | 超时错误 |
+| flow_integrity_no_reply | 16 | 1.9% | 用户提问后无回复 |
+| permissionErrors | 5 | 0.6% | 权限错误 |
+| rateLimitErrors | 4 | 0.5% | 速率限制错误 |
 
 ### 严重程度分布
 
-- **🔴 高优先级 (HIGH)**: 134个 (39.3%)
-- **🟡 中优先级 (MEDIUM)**: 207个 (60.7%)
+- **🔴 高优先级 (HIGH)**: 314个 (37.1%)
+- **🟡 中优先级 (MEDIUM)**: 532个 (62.9%)
 - **🟢 低优先级 (LOW)**: 0个 (0%)
 
 ---
@@ -158,6 +159,7 @@ bun scripts/detect-all-transcript-issues.ts
 
 - **排除误报**: 只对`role: "assistant"`的消息且**仅检查errorMessage字段**进行错误模式匹配，避免将content中的命令行参数、代码注释等文本误判为错误
 - **特殊规则**: 跳过`sessions_yield`工具结果的流程完整性检测（该工具用于异步任务，不需要立即返回最终答案）
+- **全面扫描**: 检测所有包含`.jsonl`的文件名（包括`.jsonl.reset.*`等Reset归档文件），确保不遗漏任何会话日志
 - **准确提取Session ID**: 从JSONL文件的第一个`session`事件中提取，而非依赖文件名
 - **去重机制**: 每个事件只匹配一次错误类型，避免重复报告
 
