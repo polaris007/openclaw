@@ -16,6 +16,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const iconv = require('iconv-lite');
 
 // ==================== 错误模式定义 ====================
 
@@ -90,6 +92,87 @@ const errorTypeNames = {
   parsingErrors: '解析错误',
   networkErrors: '网络错误',
 };
+
+// ==================== 账户映射功能 ====================
+
+/**
+ * 从 accounts.csv 加载工号到人员信息的映射
+ * @param {string} scriptDir - 脚本所在目录
+ * @returns {Object|null} - {sha512_hash: {name, employee_id, department}} 或 null
+ */
+function loadAccountsMapping(scriptDir) {
+  const csvPath = path.join(scriptDir, 'accounts.csv');
+  if (!fs.existsSync(csvPath)) {
+    return null;
+  }
+  
+  console.log('📋 检测到 accounts.csv，正在加载账户映射...');
+  const mapping = {};
+  
+  try {
+    // 读取原始字节并解码 GBK 编码
+    const buffer = fs.readFileSync(csvPath);
+    const content = iconv.decode(buffer, 'gbk');
+    const lines = content.split('\n').map(line => line.trim()).filter(line => line);
+    
+    // 跳过表头
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i];
+      // 简单 CSV 解析（假设没有引号和逗号）
+      const parts = line.split(',');
+      if (parts.length < 4) continue;
+      
+      const employeeId = parts[2].trim(); // 第三列是工号
+      const name = parts[1].trim(); // 第二列是姓名
+      const department = parts[3].trim(); // 第四列是部门
+      
+      if (!employeeId) continue;
+      
+      // 计算工号的 SHA512 哈希
+      const hashValue = crypto.createHash('sha512').update(employeeId).digest('hex');
+      
+      mapping[hashValue] = {
+        name,
+        employee_id: employeeId,
+        department,
+      };
+    }
+    
+    console.log(`✅ 成功加载 ${Object.keys(mapping).length} 个账户映射\n`);
+    return mapping;
+  } catch (e) {
+    console.error(`⚠️ 加载 accounts.csv 失败: ${e.message}\n`);
+    return null;
+  }
+}
+
+/**
+ * 从文件路径中提取员工信息
+ * @param {string} filePath - transcript 文件路径
+ * @param {Object} accountsMapping - 账户映射字典
+ * @returns {Object|null} - {name, employee_id, department} 或 null
+ */
+function extractEmployeeFromPath(filePath, accountsMapping) {
+  if (!accountsMapping) return null;
+  
+  // 规范化路径
+  const normalizedPath = path.normalize(filePath);
+  
+  // 查找 "agents" 目录的前一级目录名（即 SHA512 哈希值）
+  const parts = normalizedPath.split(path.sep);
+  const agentsIndex = parts.indexOf('agents');
+  
+  if (agentsIndex > 0) {
+    const hashValue = parts[agentsIndex - 1];
+    
+    // 在映射中查找
+    if (hashValue in accountsMapping) {
+      return accountsMapping[hashValue];
+    }
+  }
+  
+  return null;
+}
 
 // ==================== 辅助函数 ====================
 
@@ -539,10 +622,13 @@ function detectAbnormalStops(messages, filePath, sessionId) {
 /**
  * 分析单个transcript文件
  */
-function analyzeTranscript(filePath) {
+function analyzeTranscript(filePath, accountsMapping = null) {
   const allIssues = [];
   let conversationTurns = 0; // 真实对话轮数
   let problematicTurns = 0; // 有问题的对话轮数
+  
+  // 提取员工信息
+  const employeeInfo = extractEmployeeFromPath(filePath, accountsMapping);
   
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -595,6 +681,13 @@ function analyzeTranscript(filePath) {
     
     allIssues.push(...flowIssues, ...knownErrorIssues, ...abnormalStopIssues);
     
+    // 将员工信息添加到每个问题中
+    if (employeeInfo) {
+      for (const issue of allIssues) {
+        issue.employee = employeeInfo;
+      }
+    }
+    
     // 统计有问题的对话轮数（存在任何类型问题的轮次）
     const problematicTurnSet = new Set();
     for (const issue of allIssues) {
@@ -607,7 +700,7 @@ function analyzeTranscript(filePath) {
     console.error(`Error analyzing ${filePath}:`, error);
   }
   
-  return { issues: allIssues, conversationTurns, problematicTurns };
+  return { issues: allIssues, conversationTurns, problematicTurns, employee: employeeInfo };
 }
 
 /**
@@ -727,6 +820,14 @@ function generateMarkdownReport(allIssues, totalConversationTurns, totalProblema
       markdown += `- **事件类型**: \`${issue.eventType}\`\n`;
       markdown += `- **描述**: ${issue.description}\n`;
       
+      // 添加员工信息（如果有）
+      if (issue.employee) {
+        const emp = issue.employee;
+        markdown += `- **姓名**: ${emp.name}\n`;
+        markdown += `- **工号**: ${emp.employee_id}\n`;
+        markdown += `- **部门**: ${emp.department}\n`;
+      }
+      
       // 对于flow_integrity类型，添加用户输入
       if (issue.userInput && (
         issue.errorType === 'flow_integrity_no_reply' ||
@@ -793,13 +894,16 @@ async function main() {
   const jsonlFiles = findJsonlFiles(transcriptDir);
   console.log(`找到 ${jsonlFiles.length} 个JSONL文件\n`);
   
+  // 加载账户映射
+  const accountsMapping = loadAccountsMapping(__dirname);
+  
   const allIssues = [];
   let totalConversationTurns = 0; // 总对话轮数
   let totalProblematicTurns = 0; // 总有问题轮数
   
   for (let i = 0; i < jsonlFiles.length; i++) {
     const file = jsonlFiles[i];
-    const result = analyzeTranscript(file);
+    const result = analyzeTranscript(file, accountsMapping);
     allIssues.push(...result.issues);
     totalConversationTurns += result.conversationTurns;
     totalProblematicTurns += result.problematicTurns;

@@ -21,6 +21,8 @@ import sys
 import re
 import json
 import random
+import csv
+import hashlib
 from datetime import datetime
 
 # Python 2.7 兼容性处理
@@ -111,6 +113,98 @@ ERROR_TYPE_NAMES = {
     'parsingErrors': '解析错误',
     'networkErrors': '网络错误',
 }
+
+# ==================== 账户映射功能 ====================
+
+
+def load_accounts_mapping(script_dir):
+    """
+    从 accounts.csv 加载工号到人员信息的映射
+    
+    Returns:
+        dict: {sha512_hash: {'name': str, 'employee_id': str, 'department': str}}
+    """
+    csv_path = os.path.join(script_dir, 'accounts.csv')
+    if not os.path.exists(csv_path):
+        return None
+    
+    print('📋 检测到 accounts.csv，正在加载账户映射...')
+    mapping = {}
+    
+    try:
+        with open(csv_path, 'rb') as f:
+            reader = csv.reader(f)
+            header = next(reader)  # 跳过表头
+            
+            for row in reader:
+                if len(row) < 4:
+                    continue
+                
+                # CSV格式：序号,姓名,工号,部门,机构号
+                employee_id = row[2].strip()  # 第三列是工号
+                
+                # 解码 GBK 编码的中文
+                try:
+                    name = row[1].decode('gbk').strip()  # 第二列是姓名
+                    department = row[3].decode('gbk').strip()  # 第四列是部门
+                except:
+                    # 如果解码失败，使用原始值
+                    name = row[1].strip()
+                    department = row[3].strip()
+                
+                if not employee_id:
+                    continue
+                
+                # 计算工号的 SHA512 哈希
+                hash_value = hashlib.sha512(employee_id.encode('utf-8')).hexdigest()
+                
+                mapping[hash_value] = {
+                    'name': name,
+                    'employee_id': employee_id,
+                    'department': department,
+                }
+        
+        print('✅ 成功加载 %d 个账户映射\n' % len(mapping))
+        return mapping
+    except Exception as e:
+        print('⚠️ 加载 accounts.csv 失败: %s\n' % str(e))
+        return None
+
+
+def extract_employee_from_path(file_path, accounts_mapping):
+    """
+    从文件路径中提取员工信息
+    
+    Args:
+        file_path: transcript 文件路径
+        accounts_mapping: 账户映射字典
+    
+    Returns:
+        dict or None: {'name': str, 'employee_id': str, 'department': str} 或 None
+    """
+    if not accounts_mapping:
+        return None
+    
+    # 规范化路径
+    normalized_path = os.path.normpath(file_path)
+    
+    # 查找 "agents" 目录的前一级目录名（即 SHA512 哈希值）
+    parts = normalized_path.replace('\\', '/').split('/')
+    
+    # 找到 "agents" 的索引
+    try:
+        agents_index = parts.index('agents')
+        if agents_index > 0:
+            hash_value = parts[agents_index - 1]
+            
+            # 在映射中查找
+            if hash_value in accounts_mapping:
+                return accounts_mapping[hash_value]
+    except ValueError:
+        pass
+    
+    return None
+
 
 # ==================== 辅助函数 ====================
 
@@ -555,11 +649,14 @@ def detect_abnormal_stops(messages, file_path, session_id):
     return issues
 
 
-def analyze_transcript(file_path):
+def analyze_transcript(file_path, accounts_mapping=None):
     """分析单个transcript文件"""
     all_issues = []
     conversation_turns = 0  # 真实对话轮数
     problematic_turns = 0   # 有问题的对话轮数
+    
+    # 提取员工信息
+    employee_info = extract_employee_from_path(file_path, accounts_mapping)
     
     try:
         # Windows 长路径支持：添加 \\?\ 前缀
@@ -622,6 +719,11 @@ def analyze_transcript(file_path):
         all_issues.extend(known_error_issues)
         all_issues.extend(abnormal_stop_issues)
 
+        # 将员工信息添加到每个问题中
+        if employee_info:
+            for issue in all_issues:
+                issue['employee'] = employee_info
+
         # 统计有问题的对话轮数（存在任何类型问题的轮次）
         problematic_turn_set = set()
         for issue in all_issues:
@@ -632,7 +734,12 @@ def analyze_transcript(file_path):
     except Exception as e:
         print('Error analyzing %s: %s' % (file_path, str(e)))
 
-    return {'issues': all_issues, 'conversationTurns': conversation_turns, 'problematicTurns': problematic_turns}
+    return {
+        'issues': all_issues,
+        'conversationTurns': conversation_turns,
+        'problematicTurns': problematic_turns,
+        'employee': employee_info,
+    }
 
 
 def find_jsonl_files(dir_path):
@@ -747,6 +854,13 @@ def generate_markdown_report(all_issues, total_conversation_turns, total_problem
             markdown += '- **事件类型**: `%s`\n' % issue['eventType']
             markdown += '- **描述**: %s\n' % issue['description']
 
+            # 添加员工信息（如果有）
+            if issue.get('employee'):
+                emp = issue['employee']
+                markdown += '- **姓名**: %s\n' % emp['name']
+                markdown += '- **工号**: %s\n' % emp['employee_id']
+                markdown += '- **部门**: %s\n' % emp['department']
+
             # 对于flow_integrity类型，添加用户输入
             if issue.get('userInput') and issue['errorType'] in [
                 'flow_integrity_no_reply',
@@ -808,12 +922,16 @@ def main():
     jsonl_files = find_jsonl_files(transcript_dir)
     print('找到 %d 个JSONL文件\n' % len(jsonl_files))
 
+    # 加载账户映射
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    accounts_mapping = load_accounts_mapping(script_dir)
+
     all_issues = []
     total_conversation_turns = 0  # 总对话轮数
     total_problematic_turns = 0   # 总有问题轮数
 
     for i, file_path in enumerate(jsonl_files):
-        result = analyze_transcript(file_path)
+        result = analyze_transcript(file_path, accounts_mapping)
         all_issues.extend(result['issues'])
         total_conversation_turns += result['conversationTurns']
         total_problematic_turns += result['problematicTurns']

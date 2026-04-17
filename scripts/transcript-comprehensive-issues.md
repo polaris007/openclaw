@@ -1,6 +1,6 @@
 # OpenClaw Session Transcript 综合问题检测报告
 
-**生成时间**: 2026-04-17T05:07:42.990000Z
+**生成时间**: 2026-04-17T05:50:16.204000Z
 
 ## 📊 统计概览
 
@@ -28,12 +28,15 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 牛伟峰
+- **工号**: 18100732
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54128 input tokens (16384 > 65536 - 54128). (parameter=max_tokens, value=16384)
 ````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
 - **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
 - **行号**: 104
 - **时间戳**: 2026-04-13T07:42:15.621Z
@@ -46,12 +49,15 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 牛伟峰
+- **工号**: 18100732
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54307 input tokens (16384 > 65536 - 54307). (parameter=max_tokens, value=16384)
 ````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
 - **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
 - **行号**: 107
 - **时间戳**: 2026-04-13T07:42:35.973Z
@@ -64,12 +70,15 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 牛伟峰
+- **工号**: 18100732
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 57458 input tokens (16384 > 65536 - 57458). (parameter=max_tokens, value=16384)
 ````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\46ab4208-374c-4215-853c-5c7987c2e791.jsonl.reset.2026-04-13T07-49-48.941Z`
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\46ab4208-374c-4215-853c-5c7987c2e791.jsonl.reset.2026-04-13T07-49-48.941Z`
 - **Session ID**: `46ab4208-374c-4215-853c-5c7987c2e791`
 - **行号**: 26
 - **时间戳**: 2026-04-13T07:49:36.027Z
@@ -82,12 +91,15 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 牛伟峰
+- **工号**: 18100732
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54129 input tokens (16384 > 65536 - 54129). (parameter=max_tokens, value=16384)
 ````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\7b971aed-e825-456c-a609-bdb2463e6ccc.jsonl.reset.2026-04-13T07-46-28.872Z`
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\7b971aed-e825-456c-a609-bdb2463e6ccc.jsonl.reset.2026-04-13T07-46-28.872Z`
 - **Session ID**: `7b971aed-e825-456c-a609-bdb2463e6ccc`
 - **行号**: 32
 - **时间戳**: 2026-04-13T07:46:19.684Z
@@ -100,12 +112,15 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 牛伟峰
+- **工号**: 18100732
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50183 input tokens (16384 > 65536 - 50183). (parameter=max_tokens, value=16384)
 ````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\c4803ea6-54cc-4d56-a500-bc98653190ca.jsonl.reset.2026-04-14T13-49-35.396Z`
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\c4803ea6-54cc-4d56-a500-bc98653190ca.jsonl.reset.2026-04-14T13-49-35.396Z`
 - **Session ID**: `c4803ea6-54cc-4d56-a500-bc98653190ca`
 - **行号**: 50
 - **时间戳**: 2026-04-14T13:49:25.880Z
@@ -118,12 +133,15 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 牛伟峰
+- **工号**: 18100732
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59325 input tokens (16384 > 65536 - 59325). (parameter=max_tokens, value=16384)
 ````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
 - **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
 - **行号**: 68
 - **时间戳**: 2026-04-14T13:43:38.018Z
@@ -136,12 +154,15 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 牛伟峰
+- **工号**: 18100732
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59431 input tokens (16384 > 65536 - 59431). (parameter=max_tokens, value=16384)
 ````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
-- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
+- **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a06a47c7fdc26656446b63d7e17dc09d94203abb2c92d6bcf41c33f56705d20342347e3b18cfae39e7a2940bae5fb6ca5293e374cbceee772548768613\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
 - **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
 - **行号**: 71
 - **时间戳**: 2026-04-14T13:43:50.101Z
@@ -478,6 +499,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 刘海青
+- **工号**: 18100072
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57546 input tokens (8192 > 65536 - 57546). (parameter=max_tokens, value=8192)
@@ -496,6 +520,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 刘海青
+- **工号**: 18100072
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58049 input tokens (8192 > 65536 - 58049). (parameter=max_tokens, value=8192)
@@ -514,6 +541,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 刘海青
+- **工号**: 18100072
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57568 input tokens (8192 > 65536 - 57568). (parameter=max_tokens, value=8192)
@@ -532,6 +562,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 刘海青
+- **工号**: 18100072
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58542 input tokens (8192 > 65536 - 58542). (parameter=max_tokens, value=8192)
@@ -550,6 +583,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 刘海青
+- **工号**: 18100072
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58834 input tokens (8192 > 65536 - 58834). (parameter=max_tokens, value=8192)
@@ -568,6 +604,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 张凯磊
+- **工号**: 18100293
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -586,6 +625,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 张凯磊
+- **工号**: 18100293
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -640,6 +682,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 蓝启嵩
+- **工号**: 18101108
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -1072,6 +1117,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 99103 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99103)
@@ -1090,6 +1138,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50053 input tokens (16384 > 65536 - 50053). (parameter=max_tokens, value=16384)
@@ -1108,6 +1159,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50321 input tokens (16384 > 65536 - 50321). (parameter=max_tokens, value=16384)
@@ -1126,6 +1180,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50589 input tokens (16384 > 65536 - 50589). (parameter=max_tokens, value=16384)
@@ -1144,6 +1201,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1162,6 +1222,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50038 input tokens (16384 > 65536 - 50038). (parameter=max_tokens, value=16384)
@@ -1180,6 +1243,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -1198,6 +1264,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 98636 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=98636)
@@ -1216,6 +1285,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 137445 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=137445)
@@ -1234,6 +1306,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 93196 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93196)
@@ -1252,6 +1327,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1270,6 +1348,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 92360 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92360)
@@ -1288,6 +1369,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 94948 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=94948)
@@ -1306,6 +1390,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 99703 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99703)
@@ -1324,6 +1411,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1342,6 +1432,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 73149 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73149)
@@ -1360,6 +1453,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 73204 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73204)
@@ -1378,6 +1474,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 73462 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73462)
@@ -1396,6 +1495,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -1414,6 +1516,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 92483 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92483)
@@ -1432,6 +1537,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49879 input tokens (16384 > 65536 - 49879). (parameter=max_tokens, value=16384)
@@ -1450,6 +1558,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49551 input tokens (16384 > 65536 - 49551). (parameter=max_tokens, value=16384)
@@ -1468,6 +1579,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 85041 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85041)
@@ -1486,6 +1600,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52253 input tokens (16384 > 65536 - 52253). (parameter=max_tokens, value=16384)
@@ -1504,6 +1621,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50614 input tokens (16384 > 65536 - 50614). (parameter=max_tokens, value=16384)
@@ -1522,6 +1642,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50771 input tokens (16384 > 65536 - 50771). (parameter=max_tokens, value=16384)
@@ -1540,6 +1663,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1558,6 +1684,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49306 input tokens (16384 > 65536 - 49306). (parameter=max_tokens, value=16384)
@@ -1576,6 +1705,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1594,6 +1726,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 85682 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85682)
@@ -1612,6 +1747,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 85893 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85893)
@@ -1630,6 +1768,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1648,6 +1789,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1666,6 +1810,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1684,6 +1831,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1702,6 +1852,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1720,6 +1873,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1738,6 +1894,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1756,6 +1915,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
@@ -1774,6 +1936,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51784 input tokens (16384 > 65536 - 51784). (parameter=max_tokens, value=16384)
@@ -1792,6 +1957,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1810,6 +1978,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64677 input tokens (16384 > 65536 - 64677). (parameter=max_tokens, value=16384)
@@ -1828,6 +1999,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1846,6 +2020,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49373 input tokens (16384 > 65536 - 49373). (parameter=max_tokens, value=16384)
@@ -1864,6 +2041,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -1882,6 +2062,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 284596 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=284596)
@@ -1900,6 +2083,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49349 input tokens (16384 > 65536 - 49349). (parameter=max_tokens, value=16384)
@@ -1918,6 +2104,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64170 input tokens (16384 > 65536 - 64170). (parameter=max_tokens, value=16384)
@@ -1936,6 +2125,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64329 input tokens (16384 > 65536 - 64329). (parameter=max_tokens, value=16384)
@@ -1954,6 +2146,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64391 input tokens (16384 > 65536 - 64391). (parameter=max_tokens, value=16384)
@@ -1972,6 +2167,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64453 input tokens (16384 > 65536 - 64453). (parameter=max_tokens, value=16384)
@@ -1990,6 +2188,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64515 input tokens (16384 > 65536 - 64515). (parameter=max_tokens, value=16384)
@@ -2008,6 +2209,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64577 input tokens (16384 > 65536 - 64577). (parameter=max_tokens, value=16384)
@@ -2026,6 +2230,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -2044,6 +2251,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 111407 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=111407)
@@ -2062,6 +2272,9 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 153331 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=153331)
@@ -2656,6 +2869,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 84033 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=84033)
@@ -2674,6 +2890,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -2692,6 +2911,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -2710,6 +2932,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 63202 input tokens (16384 > 65536 - 63202). (parameter=max_tokens, value=16384)
@@ -2728,6 +2953,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57883 input tokens (8192 > 65536 - 57883). (parameter=max_tokens, value=8192)
@@ -2746,6 +2974,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58180 input tokens (8192 > 65536 - 58180). (parameter=max_tokens, value=8192)
@@ -2764,6 +2995,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58297 input tokens (8192 > 65536 - 58297). (parameter=max_tokens, value=8192)
@@ -3016,6 +3250,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
+- **姓名**: 李一鸣
+- **工号**: 18100937
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 400 This model's maximum context length is 65536 tokens. However, your request has 93398 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93398)
@@ -3034,6 +3271,9 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
+- **姓名**: 李一鸣
+- **工号**: 18100937
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -3241,6 +3481,9 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 刘海青
+- **工号**: 18100072
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -3260,6 +3503,9 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 张凯磊
+- **工号**: 18100293
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -3279,6 +3525,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 张凯磊
+- **工号**: 18100293
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -3297,6 +3546,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 张凯磊
+- **工号**: 18100293
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -3316,6 +3568,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 张凯磊
+- **工号**: 18100293
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -3334,6 +3589,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 张凯磊
+- **工号**: 18100293
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -3372,6 +3630,9 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 蓝启嵩
+- **工号**: 18101108
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -3391,6 +3652,9 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 蓝启嵩
+- **工号**: 18101108
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -3873,6 +4137,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -3892,6 +4159,9 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -3910,6 +4180,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -3929,6 +4202,9 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -3947,6 +4223,9 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -3966,6 +4245,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -3984,6 +4266,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 LLM idle timeout (60s): no response from model
@@ -4003,6 +4288,9 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -4022,6 +4310,9 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4040,6 +4331,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4059,6 +4353,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -4077,6 +4374,9 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4096,6 +4396,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4114,6 +4417,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4133,6 +4439,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4151,6 +4460,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4170,6 +4482,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4188,6 +4503,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4207,6 +4525,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4225,6 +4546,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4244,6 +4568,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4262,6 +4589,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4281,6 +4611,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted.
@@ -4770,6 +5103,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -4789,6 +5125,9 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4808,6 +5147,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4826,6 +5168,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4845,6 +5190,9 @@ This operation was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -4864,6 +5212,9 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -4882,6 +5233,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -4901,6 +5255,9 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 aborted
@@ -4976,6 +5333,9 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
+- **姓名**: 李一鸣
+- **工号**: 18100937
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 This operation was aborted
@@ -4995,6 +5355,9 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
+- **姓名**: 李一鸣
+- **工号**: 18100937
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 Request was aborted
@@ -5110,6 +5473,9 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **错误信息**: 
 ````
 LLM idle timeout (60s): no response from model
@@ -5454,6 +5820,9 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **姓名**: 蓝启嵩
+- **工号**: 18101108
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -5786,6 +6155,9 @@ Line 30: {"timestamp": "2026-04-03T05:57:05.661Z", "message": {"timestamp": 1775
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -5818,6 +6190,9 @@ Line 11: {"timestamp": "2026-04-07T07:11:42.769Z", "message": {"idempotencyKey":
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -5850,6 +6225,9 @@ Line 53: {"timestamp": "2026-04-09T09:47:03.558Z", "message": {"idempotencyKey":
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -5916,6 +6294,9 @@ Line 29: {"timestamp": "2026-04-15T01:19:35.561Z", "message": {"idempotencyKey":
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **姓名**: 程缤瑶
+- **工号**: 18101151
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -5948,6 +6329,9 @@ Line 8: {"timestamp": "2026-04-15T05:47:32.843Z", "message": {"timestamp": 17762
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -5977,6 +6361,9 @@ Line 72: {"timestamp": "2026-04-09T09:29:14.877Z", "message": {"content": [{"tex
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **用户输入**: `Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS....`
 - **错误信息**: 
 ````
@@ -5998,6 +6385,9 @@ Line 148: {"timestamp": "2026-04-02T08:56:03.465Z", "message": {"content": [{"te
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **用户输入**: `Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS....`
 - **错误信息**: 
 ````
@@ -6019,6 +6409,9 @@ Line 84: {"timestamp": "2026-04-02T15:05:05.579Z", "message": {"content": [{"tex
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **用户输入**: `Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS....`
 - **错误信息**: 
 ````
@@ -6040,6 +6433,9 @@ Line 59: {"timestamp": "2026-04-02T09:27:00.471Z", "message": {"content": [{"tex
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -6072,6 +6468,9 @@ Line 12: {"timestamp": "2026-03-25T08:24:58.566Z", "message": {"timestamp": 1774
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
+- **姓名**: 曹睿
+- **工号**: 18100774
+- **部门**: 研发中心
 - **用户输入**: `Sender (untrusted metadata):
 \`\`\`json
 {
@@ -6256,6 +6655,9 @@ Line 19: {"timestamp": "2026-04-15T05:12:50.453Z", "message": {"timestamp": 1776
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
+- **姓名**: 任健鑫
+- **工号**: 18101138
+- **部门**: 研发中心
 - **用户输入**: `[Tue 2026-04-14 15:18 GMT+8] <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>
 OpenClaw runtime context (internal):
 This context is runtime-generated, not user-authored. Keep internal details private.

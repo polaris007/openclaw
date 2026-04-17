@@ -16,6 +16,8 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import * as crypto from 'crypto';
+import * as iconv from 'iconv-lite';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,12 +40,14 @@ interface Issue {
   model?: string;
   userInput?: string; // 用户输入内容
   severity: 'HIGH' | 'MEDIUM' | 'LOW';
+  employee?: EmployeeInfo; // 员工信息
 }
 
 interface AnalysisResult {
   issues: Issue[];
   conversationTurns: number; // 真实对话轮数（排除系统消息）
   problematicTurns: number; // 有问题的对话轮数（存在flow_integrity问题）
+  employee?: EmployeeInfo | null; // 员工信息
 }
 
 interface MessageEvent {
@@ -144,6 +148,83 @@ const errorTypeNames: Record<string, string> = {
   parsingErrors: '解析错误',
   networkErrors: '网络错误',
 };
+
+// ==================== 账户映射功能 ====================
+
+interface EmployeeInfo {
+  name: string;
+  employee_id: string;
+  department: string;
+}
+
+/**
+ * 从 accounts.csv 加载工号到人员信息的映射
+ */
+function loadAccountsMapping(scriptDir: string): Record<string, EmployeeInfo> | null {
+  const csvPath = path.join(scriptDir, 'accounts.csv');
+  if (!fs.existsSync(csvPath)) {
+    return null;
+  }
+  
+  console.log('📋 检测到 accounts.csv，正在加载账户映射...');
+  const mapping: Record<string, EmployeeInfo> = {};
+  
+  try {
+    // 读取原始字节并解码 GBK 编码
+    const buffer = fs.readFileSync(csvPath);
+    const content = iconv.decode(buffer, 'gbk');
+    const lines = content.split('\n').map(line => line.trim()).filter(line => line);
+    
+    // 跳过表头
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i];
+      const parts = line.split(',');
+      if (parts.length < 4) continue;
+      
+      const employeeId = parts[2].trim();
+      const name = parts[1].trim();
+      const department = parts[3].trim();
+      
+      if (!employeeId) continue;
+      
+      const hashValue = crypto.createHash('sha512').update(employeeId).digest('hex');
+      
+      mapping[hashValue] = {
+        name,
+        employee_id: employeeId,
+        department,
+      };
+    }
+    
+    console.log(`✅ 成功加载 ${Object.keys(mapping).length} 个账户映射\n`);
+    return mapping;
+  } catch (e) {
+    const error = e as Error;
+    console.error(`⚠️ 加载 accounts.csv 失败: ${error.message}\n`);
+    return null;
+  }
+}
+
+/**
+ * 从文件路径中提取员工信息
+ */
+function extractEmployeeFromPath(filePath: string, accountsMapping: Record<string, EmployeeInfo> | null): EmployeeInfo | null {
+  if (!accountsMapping) return null;
+  
+  const normalizedPath = path.normalize(filePath);
+  const parts = normalizedPath.split(path.sep);
+  const agentsIndex = parts.indexOf('agents');
+  
+  if (agentsIndex > 0) {
+    const hashValue = parts[agentsIndex - 1];
+    
+    if (hashValue in accountsMapping) {
+      return accountsMapping[hashValue];
+    }
+  }
+  
+  return null;
+}
 
 // ==================== 辅助函数 ====================
 
@@ -627,10 +708,13 @@ function isSystemGeneratedUserMessage(content: string): boolean {
 /**
  * 分析单个transcript文件
  */
-function analyzeTranscript(filePath: string): AnalysisResult {
+function analyzeTranscript(filePath: string, accountsMapping: Record<string, EmployeeInfo> | null = null): AnalysisResult {
   const allIssues: Issue[] = [];
   let conversationTurns = 0; // 真实对话轮数
   let problematicTurns = 0; // 有问题的对话轮数
+  
+  // 提取员工信息
+  const employeeInfo = extractEmployeeFromPath(filePath, accountsMapping);
   
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -683,6 +767,13 @@ function analyzeTranscript(filePath: string): AnalysisResult {
     
     allIssues.push(...flowIssues, ...knownErrorIssues, ...abnormalStopIssues);
     
+    // 将员工信息添加到每个问题中
+    if (employeeInfo) {
+      for (const issue of allIssues) {
+        issue.employee = employeeInfo;
+      }
+    }
+    
     // 统计有问题的对话轮数（存在任何类型问题的轮次）
     const problematicTurnSet = new Set<number>();
     for (const issue of allIssues) {
@@ -695,7 +786,7 @@ function analyzeTranscript(filePath: string): AnalysisResult {
     console.error(`Error analyzing ${filePath}:`, error);
   }
   
-  return { issues: allIssues, conversationTurns, problematicTurns };
+  return { issues: allIssues, conversationTurns, problematicTurns, employee: employeeInfo };
 }
 
 /**
@@ -816,6 +907,14 @@ function generateMarkdownReport(allIssues: Issue[], totalConversationTurns: numb
       markdown += `- **事件类型**: \`${issue.eventType}\`\n`;
       markdown += `- **描述**: ${issue.description}\n`;
       
+      // 添加员工信息（如果有）
+      if (issue.employee) {
+        const emp = issue.employee;
+        markdown += `- **姓名**: ${emp.name}\n`;
+        markdown += `- **工号**: ${emp.employee_id}\n`;
+        markdown += `- **部门**: ${emp.department}\n`;
+      }
+      
       // 对于flow_integrity类型，添加用户输入
       if (issue.userInput && (
         issue.errorType === 'flow_integrity_no_reply' ||
@@ -885,13 +984,16 @@ async function main() {
   const jsonlFiles = findJsonlFiles(transcriptDir);
   console.log(`找到 ${jsonlFiles.length} 个JSONL文件\n`);
   
+  // 加载账户映射
+  const accountsMapping = loadAccountsMapping(__dirname);
+  
   const allIssues: Issue[] = [];
   let totalConversationTurns = 0; // 总对话轮数
   let totalProblematicTurns = 0; // 总有问题轮数
   
   for (let i = 0; i < jsonlFiles.length; i++) {
     const file = jsonlFiles[i];
-    const result = analyzeTranscript(file);
+    const result = analyzeTranscript(file, accountsMapping);
     allIssues.push(...result.issues);
     totalConversationTurns += result.conversationTurns;
     totalProblematicTurns += result.problematicTurns;
