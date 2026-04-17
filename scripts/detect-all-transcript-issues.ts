@@ -273,6 +273,17 @@ function detectFlowIntegrity(
     
     // 规则2: toolCall后面必须要有toolResult
     if (current.event.message?.role === 'assistant' && hasToolCall(current.event)) {
+      // 特殊规则1：如果assistant消息被aborted或error，说明toolCall未执行，跳过检测
+      const stopReason = current.event.message.stopReason;
+      if (stopReason === 'aborted' || stopReason === 'error') {
+        continue; // 跳过，这是正常的中止场景
+      }
+      
+      // 特殊规则2：如果下一条是openclaw:prompt-error等错误事件，说明toolCall被中止，跳过避免重复统计
+      if (next && next.event.type === 'custom' && next.event.customType?.includes('prompt-error')) {
+        continue; // 这个错误会在detectKnownErrors中被统计为modelErrors
+      }
+      
       if (!next) {
         const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
@@ -333,6 +344,12 @@ function detectFlowIntegrity(
           severity: 'MEDIUM',
         });
       } else if (next.event.message?.role !== 'assistant' && next.event.message?.role !== 'toolResult') {
+        // 特殊规则：如果下一条是openclaw:prompt-error等错误事件，说明已经被detectKnownErrors捕获，跳过避免重复统计
+        if (next.event.type === 'custom' && next.event.customType?.includes('prompt-error')) {
+          // 跳过，这个错误会在detectKnownErrors中被统计为modelErrors或timeoutErrors
+          continue;
+        }
+        
         // toolResult后面既不是assistant也不是另一个toolResult，说明流程异常
         const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({

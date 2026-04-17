@@ -164,6 +164,10 @@ bun scripts/detect-all-transcript-issues.ts /path/to/your/transcripts
 - **特殊规则**: 
   - 跳过`sessions_yield`工具结果的流程完整性检测（该工具用于异步任务提交，不需要立即返回最终答案）
   - **支持并行工具调用**：多个连续的 `toolResult` 后面跟着一个 `assistant` 是正常的中间状态，不会被标记为问题。只有当 `toolResult` 后面既不是 `assistant` 也不是另一个 `toolResult` 时才会报错
+  - **避免重复统计**：如果 `toolResult` 后面是 `openclaw:prompt-error` 等错误事件，跳过流程完整性检测，因为这些错误已经在 `detectKnownErrors` 中被统计为 `modelErrors` 或 `timeoutErrors`
+  - **跳过中止的toolCall**：
+    - 如果 assistant 消息的 `stopReason` 是 `aborted` 或 `error`，说明 toolCall 未执行，跳过 toolResult 检测
+    - 如果 toolCall 后的下一条消息是 `openclaw:prompt-error` 等错误事件，说明 toolCall 被中止，跳过检测以避免与 `detectKnownErrors` 重复统计
 - **全面扫描**: 检测所有包含`.jsonl`的文件名（包括`.jsonl.reset.*`等Reset归档文件），确保不遗漏任何会话日志
 - **准确提取Session ID**: 从JSONL文件的第一个`session`事件中提取，而非依赖文件名
 - **去重机制**: 每个事件只匹配一次错误类型，避免重复报告
