@@ -40,6 +40,11 @@ interface Issue {
   severity: 'HIGH' | 'MEDIUM' | 'LOW';
 }
 
+interface AnalysisResult {
+  issues: Issue[];
+  conversationTurns: number; // 真实对话轮数（排除系统消息）
+}
+
 interface MessageEvent {
   type: string;
   id?: string;
@@ -237,6 +242,12 @@ function detectFlowIntegrity(
     
     // 规则1: user后面必须要有assistant
     if (current.event.message?.role === 'user') {
+      // 跳过系统生成的user消息（如会话启动提示）
+      const userContent = extractTextFromMessage(current.event.message);
+      if (isSystemGeneratedUserMessage(userContent)) {
+        continue; // 忽略系统消息，不进行检测
+      }
+      
       if (!next) {
         // user是最后一条消息
         const contextInfo = extractContextInfo(current.lineNum, messages);
@@ -598,10 +609,26 @@ function extractTextFromMessage(message: any): string {
 }
 
 /**
+ * 判断user消息是否为系统生成（而非真实用户输入）
+ */
+function isSystemGeneratedUserMessage(content: string): boolean {
+  const systemPatterns = [
+    /A new session was started via \/new or \/reset/i,
+    /Run your Session Startup sequence/i,
+    /Read HEARTBEAT\.md if it exists/i,
+    /<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>/i,
+    /^System:\s*\[/i,  // 系统状态消息
+  ];
+  
+  return systemPatterns.some(pattern => pattern.test(content));
+}
+
+/**
  * 分析单个transcript文件
  */
-function analyzeTranscript(filePath: string): Issue[] {
+function analyzeTranscript(filePath: string): AnalysisResult {
   const allIssues: Issue[] = [];
+  let conversationTurns = 0; // 真实对话轮数
   
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -633,6 +660,14 @@ function analyzeTranscript(filePath: string): Issue[] {
             lineNum: i + 1,
             event: event as MessageEvent,
           });
+          
+          // 统计真实用户消息（排除系统生成）
+          if (event.type === 'message' && event.message?.role === 'user') {
+            const userContent = extractTextFromMessage(event.message);
+            if (!isSystemGeneratedUserMessage(userContent)) {
+              conversationTurns++;
+            }
+          }
         }
       } catch (e) {
         // 跳过无效行
@@ -650,7 +685,7 @@ function analyzeTranscript(filePath: string): Issue[] {
     console.error(`Error analyzing ${filePath}:`, error);
   }
   
-  return allIssues;
+  return { issues: allIssues, conversationTurns };
 }
 
 /**
@@ -680,7 +715,7 @@ function findJsonlFiles(dir: string): string[] {
 /**
  * 生成Markdown报告
  */
-function generateMarkdownReport(allIssues: Issue[]): string {
+function generateMarkdownReport(allIssues: Issue[], totalConversationTurns: number): string {
   let markdown = '# OpenClaw Session Transcript 综合问题检测报告\n\n';
   markdown += `**生成时间**: ${new Date().toISOString()}\n\n`;
   
@@ -695,7 +730,8 @@ function generateMarkdownReport(allIssues: Issue[]): string {
   }
   
   markdown += '## 📊 统计概览\n\n';
-  markdown += `- **总问题数**: ${stats.total}\n\n`;
+  markdown += `- **总问题数**: ${stats.total}\n`;
+  markdown += `- **总对话轮数**: ${totalConversationTurns} （排除系统消息）\n\n`;
   
   markdown += '### 问题类型分布\n\n';
   markdown += '| 问题类型 | 数量 | 说明 |\n';
@@ -830,11 +866,13 @@ async function main() {
   console.log(`找到 ${jsonlFiles.length} 个JSONL文件\n`);
   
   const allIssues: Issue[] = [];
+  let totalConversationTurns = 0; // 总对话轮数
   
   for (let i = 0; i < jsonlFiles.length; i++) {
     const file = jsonlFiles[i];
-    const issues = analyzeTranscript(file);
-    allIssues.push(...issues);
+    const result = analyzeTranscript(file);
+    allIssues.push(...result.issues);
+    totalConversationTurns += result.conversationTurns;
     
     if ((i + 1) % 50 === 0) {
       console.log(`已处理 ${i + 1}/${jsonlFiles.length} 个文件，发现问题 ${allIssues.length} 个...`);
@@ -845,7 +883,7 @@ async function main() {
   
   // 生成报告到脚本所在目录
   const reportPath = path.join(__dirname, 'transcript-comprehensive-issues.md');
-  const report = generateMarkdownReport(allIssues);
+  const report = generateMarkdownReport(allIssues, totalConversationTurns);
   fs.writeFileSync(reportPath, report, 'utf-8');
   
   console.log(`📄 报告已保存到: ${reportPath}\n`);

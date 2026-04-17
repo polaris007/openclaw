@@ -178,6 +178,75 @@ function extractContextInfo(lineNum, messages) {
   }
 }
 
+/**
+ * 提取用户输入（从当前或最近的user消息中）
+ */
+function extractUserInput(currentLineNum, currentRole, messages) {
+  try {
+    const currentIndex = messages.findIndex(m => m.lineNum === currentLineNum);
+    if (currentIndex === -1) return '[无法定位当前消息]';
+    
+    // 如果当前是user消息，直接从当前消息提取
+    if (currentRole === 'user') {
+      const currentMsg = messages[currentIndex];
+      const userContent = extractTextFromMessage(currentMsg.event.message);
+      return userContent || '[user消息内容为空]';
+    }
+    
+    // 如果不是user消息，向前查找最近的user消息
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      const msg = messages[i];
+      if (msg.event.message?.role === 'user') {
+        const userContent = extractTextFromMessage(msg.event.message);
+        return userContent || '[user消息内容为空]';
+      }
+    }
+    
+    return '[未找到user消息]';
+  } catch (e) {
+    return '[提取用户输入失败]';
+  }
+}
+
+/**
+ * 从message对象中提取文本内容
+ */
+function extractTextFromMessage(message) {
+  if (!message || !message.content) return '';
+  
+  // content可能是字符串或数组
+  if (typeof message.content === 'string') {
+    return message.content;
+  }
+  
+  // content是数组时，提取所有text类型的内容
+  if (Array.isArray(message.content)) {
+    const texts = message.content
+      .filter(item => item.type === 'text')
+      .map(item => item.text)
+      .filter(Boolean);
+    
+    return texts.join('\n');
+  }
+  
+  return '';
+}
+
+/**
+ * 判断user消息是否为系统生成（而非真实用户输入）
+ */
+function isSystemGeneratedUserMessage(content) {
+  const systemPatterns = [
+    /A new session was started via \/new or \/reset/i,
+    /Run your Session Startup sequence/i,
+    /Read HEARTBEAT\.md if it exists/i,
+    /<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>/i,
+    /^System:\s*\[/i,  // 系统状态消息
+  ];
+  
+  return systemPatterns.some(pattern => pattern.test(content));
+}
+
 function hasToolCall(event) {
   if (!event.message?.content) return false;
   return event.message.content.some(block => block.type === 'toolCall');
@@ -197,8 +266,15 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
     
     // 规则1: user后面必须要有assistant
     if (current.event.message?.role === 'user') {
+      // 跳过系统生成的user消息（如会话启动提示）
+      const userContent = extractTextFromMessage(current.event.message);
+      if (isSystemGeneratedUserMessage(userContent)) {
+        continue; // 忽略系统消息，不进行检测
+      }
+      
       if (!next) {
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_no_reply',
@@ -210,6 +286,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       } else if (next.event.message?.role !== 'assistant') {
@@ -219,6 +296,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
         }
         
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_no_reply',
@@ -230,6 +308,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       }
@@ -250,6 +329,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
       
       if (!next) {
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_tool_result',
@@ -261,10 +341,12 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       } else if (next.event.message?.role !== 'toolResult') {
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_tool_result',
@@ -276,6 +358,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       }
@@ -292,6 +375,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
       if (!next) {
         // toolResult是最后一条消息，没有后续
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_final_answer',
@@ -303,6 +387,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'MEDIUM',
         });
       } else if (next.event.message?.role !== 'assistant' && next.event.message?.role !== 'toolResult') {
@@ -314,6 +399,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
         
         // toolResult后面既不是assistant也不是另一个toolResult，说明流程异常
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_final_answer',
@@ -325,6 +411,7 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'MEDIUM',
         });
       }
@@ -454,6 +541,7 @@ function detectAbnormalStops(messages, filePath, sessionId) {
  */
 function analyzeTranscript(filePath) {
   const allIssues = [];
+  let conversationTurns = 0; // 真实对话轮数
   
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -485,6 +573,14 @@ function analyzeTranscript(filePath) {
             lineNum: i + 1,
             event: event,
           });
+          
+          // 统计真实用户消息（排除系统生成）
+          if (event.type === 'message' && event.message?.role === 'user') {
+            const userContent = extractTextFromMessage(event.message);
+            if (!isSystemGeneratedUserMessage(userContent)) {
+              conversationTurns++;
+            }
+          }
         }
       } catch (e) {
         // 跳过无效行
@@ -502,7 +598,7 @@ function analyzeTranscript(filePath) {
     console.error(`Error analyzing ${filePath}:`, error);
   }
   
-  return allIssues;
+  return { issues: allIssues, conversationTurns };
 }
 
 /**
@@ -532,7 +628,7 @@ function findJsonlFiles(dir) {
 /**
  * 生成Markdown报告
  */
-function generateMarkdownReport(allIssues) {
+function generateMarkdownReport(allIssues, totalConversationTurns) {
   let markdown = '# OpenClaw Session Transcript 综合问题检测报告\n\n';
   markdown += `**生成时间**: ${new Date().toISOString()}\n\n`;
   
@@ -547,7 +643,8 @@ function generateMarkdownReport(allIssues) {
   }
   
   markdown += '## 📊 统计概览\n\n';
-  markdown += `- **总问题数**: ${stats.total}\n\n`;
+  markdown += `- **总问题数**: ${stats.total}\n`;
+  markdown += `- **总对话轮数**: ${totalConversationTurns} （排除系统消息）\n\n`;
   
   markdown += '### 问题类型分布\n\n';
   markdown += '| 问题类型 | 数量 | 说明 |\n';
@@ -610,6 +707,19 @@ function generateMarkdownReport(allIssues) {
       globalIssueNumber++;
       markdown += `- **事件类型**: \`${issue.eventType}\`\n`;
       markdown += `- **描述**: ${issue.description}\n`;
+      
+      // 对于flow_integrity类型，添加用户输入
+      if (issue.userInput && (
+        issue.errorType === 'flow_integrity_no_reply' ||
+        issue.errorType === 'flow_integrity_missing_tool_result' ||
+        issue.errorType === 'flow_integrity_missing_final_answer'
+      )) {
+        const truncatedInput = issue.userInput.length > 200 
+          ? issue.userInput.substring(0, 200) + '...' 
+          : issue.userInput;
+        markdown += `- **用户输入**: \`${truncatedInput.replace(/`/g, '\\`')}\`\n`;
+      }
+      
       markdown += `- **错误信息**: \`\`\`\n${issue.errorMessage}\n\`\`\`\n`;
       markdown += `- **原因分析**: ${issue.causeAnalysis}\n`;
       markdown += `- **文件位置**: \`${issue.filePath.replace(process.cwd() + path.sep, '')}\`\n`;
@@ -665,11 +775,13 @@ async function main() {
   console.log(`找到 ${jsonlFiles.length} 个JSONL文件\n`);
   
   const allIssues = [];
+  let totalConversationTurns = 0; // 总对话轮数
   
   for (let i = 0; i < jsonlFiles.length; i++) {
     const file = jsonlFiles[i];
-    const issues = analyzeTranscript(file);
-    allIssues.push(...issues);
+    const result = analyzeTranscript(file);
+    allIssues.push(...result.issues);
+    totalConversationTurns += result.conversationTurns;
     
     if ((i + 1) % 50 === 0) {
       console.log(`已处理 ${i + 1}/${jsonlFiles.length} 个文件，发现问题 ${allIssues.length} 个...`);
@@ -679,7 +791,7 @@ async function main() {
   console.log(`\n✅ 分析完成！共发现 ${allIssues.length} 个问题\n`);
   
   const reportPath = path.join(__dirname, 'transcript-comprehensive-issues.md');
-  const report = generateMarkdownReport(allIssues);
+  const report = generateMarkdownReport(allIssues, totalConversationTurns);
   fs.writeFileSync(reportPath, report, 'utf-8');
   
   console.log(`📄 报告已保存到: ${reportPath}\n`);

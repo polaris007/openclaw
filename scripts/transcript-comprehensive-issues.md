@@ -1,10 +1,11 @@
 # OpenClaw Session Transcript 综合问题检测报告
 
-**生成时间**: 2026-04-17T01:28:12.720Z
+**生成时间**: 2026-04-17T02:06:40.825Z
 
 ## 📊 统计概览
 
-- **总问题数**: 326
+- **总问题数**: 324
+- **总对话轮数**: 1872 （排除系统消息）
 
 ### 问题类型分布
 
@@ -14,7 +15,7 @@
 | modelErrors | 105 | 模型API错误 |
 | timeoutErrors | 23 | 超时错误 |
 | flow_integrity_missing_tool_result | 15 | 工具调用后无执行结果 |
-| flow_integrity_no_reply | 13 | 用户提问后无回复 |
+| flow_integrity_no_reply | 11 | 用户提问后无回复 |
 | flow_integrity_missing_final_answer | 2 | 工具执行后无最终回复 |
 
 ---
@@ -5596,7 +5597,7 @@ Line 29: {"type":"message","id":"50b60623","parentId":"71b273cf","timestamp":"20
 
 ---
 
-## flow_integrity_no_reply - 用户提问后无回复 (13)
+## flow_integrity_no_reply - 用户提问后无回复 (11)
 
 ### 问题 #312
 
@@ -5660,31 +5661,6 @@ Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"20
 ### 问题 #314
 
 - **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **用户输入**: `System: [2026-04-02 08:49:06 UTC] [Post-compaction context refresh]
-System: 
-System: Session was just compacted. The conversation summary above is a hint, NOT a substitute for your startup sequence. E...`
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 126: {"type":"message","id":"3c4a82a7","parentId":"f36496ed","timestamp":"2026-04-02T08:49:41.849Z","message":{"role":"user","content":[{"type":"text","text":"System: [2026-04-02 08:49:06 UTC] [Post-compaction context refresh]\nSystem: \nSystem: Session was just compacted. The conversation summary above is a hint, NOT a substitute for your startup sequence. Execute your Session Startup sequence now — read the required files before responding to the user.\nSystem: \nSystem: Critical rules from AGENTS.
-
---- 下一行内容 ---
-Line 127: {"type":"message","id":"770661a5","parentId":"3c4a82a7","timestamp":"2026-04-02T08:49:44.185Z","message":{"role":"toolResult","toolCallId":"call_918e18952809411f9caaf68c","toolName":"weather","content":[{"type":"text","text":"Tool weather not found"}],"details":{},"isError":true,"timestamp":1775119784166}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
-- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
-- **行号**: 126
-- **时间戳**: 2026-04-02T08:49:41.849Z
-
----
-
-### 问题 #315
-
-- **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
 - **用户输入**: `Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS....`
 - **错误信息**: ```
@@ -5702,7 +5678,7 @@ Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2
 
 ---
 
-### 问题 #316
+### 问题 #315
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -5722,7 +5698,7 @@ Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"20
 
 ---
 
-### 问题 #317
+### 问题 #316
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -5742,7 +5718,7 @@ Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"20
 
 ---
 
-### 问题 #318
+### 问题 #317
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -5773,7 +5749,7 @@ Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"20
 
 ---
 
-### 问题 #319
+### 问题 #318
 
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
@@ -5801,28 +5777,7 @@ Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"20
 
 ---
 
-### 问题 #320
-
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **用户输入**: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.
-When reading HEARTBEAT.md, us...`
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 9: {"type":"message","id":"50fa9702","parentId":"e7fa7a8a","timestamp":"2026-04-15T08:37:09.355Z","message":{"role":"user","content":[{"type":"text","text":"Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.\nWhen reading HEARTBEAT.md, use workspace file /home/node/.openclaw/workspace/HEARTBEAT.md (exact case). Do not read docs/heartbeat.md.\nCurrent time: Wednesday, April 15th, 2
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\52c52422-bc70-4b32-b797-b01f0285619d.jsonl`
-- **Session ID**: `52c52422-bc70-4b32-b797-b01f0285619d`
-- **行号**: 9
-- **时间戳**: 2026-04-15T08:37:09.355Z
-
----
-
-### 问题 #321
+### 问题 #319
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -5853,7 +5808,7 @@ Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"20
 
 ---
 
-### 问题 #322
+### 问题 #320
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -5884,7 +5839,7 @@ Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"202
 
 ---
 
-### 问题 #323
+### 问题 #321
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -5915,7 +5870,7 @@ Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"20
 
 ---
 
-### 问题 #324
+### 问题 #322
 
 - **事件类型**: `message`
 - **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
@@ -5948,7 +5903,7 @@ Line 8: {"type":"message","id":"99d39886","parentId":"848d45fc","timestamp":"202
 
 ## flow_integrity_missing_final_answer - 工具执行后无最终回复 (2)
 
-### 问题 #325
+### 问题 #323
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
@@ -5972,7 +5927,7 @@ Line 19: {"type":"message","id":"a23fb7fa","parentId":"cb88f7e1","timestamp":"20
 
 ---
 
-### 问题 #326
+### 问题 #324
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
