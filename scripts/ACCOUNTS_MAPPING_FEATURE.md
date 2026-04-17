@@ -138,9 +138,16 @@ npx tsx detect-all-transcript-issues.ts
    - Python 版本：自动检测并解码 GBK 编码的中文
    - Node.js/TypeScript 版本：使用 `iconv-lite` 库解码 GBK 编码
    - 如果 CSV 文件是 UTF-8 编码，所有版本都能正常处理
-2. **路径分隔符**：所有版本都正确处理 Windows (`\`) 和 Unix (`/`) 路径分隔符
-3. **哈希匹配**：只有当路径中的哈希值与 CSV 中工号的 SHA512 完全匹配时，才会显示员工信息
-4. **可选功能**：如果没有 `accounts.csv` 文件，脚本仍然可以正常运行，只是不会显示员工信息
+
+2. **Linux 环境运行**：
+   - Python 2.7 在 Linux 上可能遇到 Unicode 编码错误
+   - 脚本已自动设置 `PYTHONIOENCODING=utf-8` 环境变量
+   - 如果仍然报错，可以手动设置：`export PYTHONIOENCODING=utf-8`
+   - 或者使用：`PYTHONIOENCODING=utf-8 python detect-all-transcript-issues.py`
+
+3. **路径分隔符**：所有版本都正确处理 Windows (`\`) 和 Unix (`/`) 路径分隔符
+4. **哈希匹配**：只有当路径中的哈希值与 CSV 中工号的 SHA512 完全匹配时，才会显示员工信息
+5. **可选功能**：如果没有 `accounts.csv` 文件，脚本仍然可以正常运行，只是不会显示员工信息
 
 ## 修改的文件
 

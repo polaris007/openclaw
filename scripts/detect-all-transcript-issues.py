@@ -30,7 +30,11 @@ if sys.version_info[0] == 2:
     # 设置默认编码为 UTF-8
     reload(sys)
     sys.setdefaultencoding('utf-8')
-    
+
+    # 设置 PYTHONIOENCODING 环境变量，确保所有 I/O 使用 UTF-8
+    import os
+    os.environ['PYTHONIOENCODING'] = 'utf-8'
+
     # Windows 控制台编码修复
     if sys.platform == 'win32':
         try:
@@ -39,8 +43,42 @@ if sys.version_info[0] == 2:
             sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
         except:
             pass
+    else:
+        # Linux/Mac 环境：确保 stdout/stderr 使用 UTF-8
+        import codecs
+        if hasattr(sys.stdout, 'encoding') and sys.stdout.encoding is None:
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
+        if hasattr(sys.stderr, 'encoding') and sys.stderr.encoding is None:
+            sys.stderr = codecs.getwriter('utf-8')(sys.stderr)
+
+
+def safe_print(text):
+    """
+    安全打印 Unicode 字符串，兼容 Python 2.7 的所有平台
+
+    Args:
+        text: 要打印的文本（可以是 unicode 或 str）
+    """
+    if sys.version_info[0] == 2:
+        if isinstance(text, unicode):
+            # Unicode 字符串，编码为 UTF-8
+            try:
+                print(text.encode('utf-8'))
+            except UnicodeEncodeError:
+                # 如果编码失败，尝试忽略错误字符
+                print(text.encode('utf-8', 'ignore'))
+        else:
+            # 已经是字节字符串，直接打印
+            print(text)
+    else:
+        # Python 3 直接打印
+        print(text)
+
+    # 强制刷新缓冲区，确保 nohup 模式下能立即看到输出
+    sys.stdout.flush()
 
 # ==================== 错误模式定义 ====================
+
 
 ERROR_PATTERNS = {
     'modelErrors': [
@@ -120,29 +158,29 @@ ERROR_TYPE_NAMES = {
 def load_accounts_mapping(script_dir):
     """
     从 accounts.csv 加载工号到人员信息的映射
-    
+
     Returns:
         dict: {sha512_hash: {'name': str, 'employee_id': str, 'department': str}}
     """
     csv_path = os.path.join(script_dir, 'accounts.csv')
     if not os.path.exists(csv_path):
         return None
-    
+
     print('📋 检测到 accounts.csv，正在加载账户映射...')
     mapping = {}
-    
+
     try:
         with open(csv_path, 'rb') as f:
             reader = csv.reader(f)
             header = next(reader)  # 跳过表头
-            
+
             for row in reader:
                 if len(row) < 4:
                     continue
-                
+
                 # CSV格式：序号,姓名,工号,部门,机构号
                 employee_id = row[2].strip()  # 第三列是工号
-                
+
                 # 解码 GBK 编码的中文
                 try:
                     name = row[1].decode('gbk').strip()  # 第二列是姓名
@@ -151,19 +189,20 @@ def load_accounts_mapping(script_dir):
                     # 如果解码失败，使用原始值
                     name = row[1].strip()
                     department = row[3].strip()
-                
+
                 if not employee_id:
                     continue
-                
+
                 # 计算工号的 SHA512 哈希
-                hash_value = hashlib.sha512(employee_id.encode('utf-8')).hexdigest()
-                
+                hash_value = hashlib.sha512(
+                    employee_id.encode('utf-8')).hexdigest()
+
                 mapping[hash_value] = {
                     'name': name,
                     'employee_id': employee_id,
                     'department': department,
                 }
-        
+
         print('✅ 成功加载 %d 个账户映射\n' % len(mapping))
         return mapping
     except Exception as e:
@@ -174,35 +213,35 @@ def load_accounts_mapping(script_dir):
 def extract_employee_from_path(file_path, accounts_mapping):
     """
     从文件路径中提取员工信息
-    
+
     Args:
         file_path: transcript 文件路径
         accounts_mapping: 账户映射字典
-    
+
     Returns:
         dict or None: {'name': str, 'employee_id': str, 'department': str} 或 None
     """
     if not accounts_mapping:
         return None
-    
+
     # 规范化路径
     normalized_path = os.path.normpath(file_path)
-    
+
     # 查找 "agents" 目录的前一级目录名（即 SHA512 哈希值）
     parts = normalized_path.replace('\\', '/').split('/')
-    
+
     # 找到 "agents" 的索引
     try:
         agents_index = parts.index('agents')
         if agents_index > 0:
             hash_value = parts[agents_index - 1]
-            
+
             # 在映射中查找
             if hash_value in accounts_mapping:
                 return accounts_mapping[hash_value]
     except ValueError:
         pass
-    
+
     return None
 
 
@@ -566,6 +605,9 @@ def detect_known_errors(messages, file_path, session_id):
                     if pattern.search(custom_type) or pattern.search(data_str):
                         error_message = event.get('data', {}).get('error') or json.dumps(
                             event.get('data') or {}, ensure_ascii=False)
+                        # 提取用户输入
+                        user_input = extract_user_input(
+                            msg['lineNum'], 'assistant', messages)
                         issues.append({
                             'id': generate_id(),
                             'errorType': category,
@@ -580,6 +622,7 @@ def detect_known_errors(messages, file_path, session_id):
                             'runId': (event.get('data') or {}).get('runId'),
                             'provider': (event.get('data') or {}).get('provider'),
                             'model': (event.get('data') or {}).get('model'),
+                            'userInput': user_input,
                             'severity': 'HIGH',
                         })
                         break
@@ -596,6 +639,9 @@ def detect_known_errors(messages, file_path, session_id):
             for category, patterns in ERROR_PATTERNS.items():
                 for pattern in patterns:
                     if pattern.search(error_msg_lower):
+                        # 提取用户输入
+                        user_input = extract_user_input(
+                            msg['lineNum'], 'assistant', messages)
                         issues.append({
                             'id': generate_id(),
                             'errorType': category,
@@ -609,6 +655,7 @@ def detect_known_errors(messages, file_path, session_id):
                             'timestamp': format_timestamp(event.get('timestamp')),
                             'provider': event['message'].get('provider'),
                             'model': event['message'].get('model'),
+                            'userInput': user_input,
                             'severity': 'HIGH',
                         })
                         break
@@ -629,6 +676,9 @@ def detect_abnormal_stops(messages, file_path, session_id):
             if stop_reason not in normal_stop_reasons:
                 error_message = event['message'].get(
                     'errorMessage') or 'Unexpected stop reason: %s' % stop_reason
+                # 提取用户输入
+                user_input = extract_user_input(
+                    msg['lineNum'], 'assistant', messages)
 
                 issues.append({
                     'id': generate_id(),
@@ -643,6 +693,7 @@ def detect_abnormal_stops(messages, file_path, session_id):
                     'timestamp': format_timestamp(event.get('timestamp')),
                     'provider': event['message'].get('provider'),
                     'model': event['message'].get('model'),
+                    'userInput': user_input,
                     'severity': 'HIGH' if stop_reason in ['aborted', 'error'] else 'MEDIUM',
                 })
 
@@ -654,10 +705,10 @@ def analyze_transcript(file_path, accounts_mapping=None):
     all_issues = []
     conversation_turns = 0  # 真实对话轮数
     problematic_turns = 0   # 有问题的对话轮数
-    
+
     # 提取员工信息
     employee_info = extract_employee_from_path(file_path, accounts_mapping)
-    
+
     try:
         # Windows 长路径支持：添加 \\?\ 前缀
         if sys.platform == 'win32' and len(file_path) > 260:
@@ -667,7 +718,7 @@ def analyze_transcript(file_path, accounts_mapping=None):
             long_path = u'\\\\?\\' + file_path
         else:
             long_path = file_path
-        
+
         with open(long_path, 'r') as f:
             content = f.read()
 
@@ -744,18 +795,92 @@ def analyze_transcript(file_path, accounts_mapping=None):
 
 def find_jsonl_files(dir_path):
     """查找所有JSONL文件（匹配包含.jsonl的文件名）"""
+    import platform
+    
+    # Linux/Mac 优先使用 find 命令（速度快 5-10 倍）
+    if platform.system() != 'Windows':
+        try:
+            return _find_jsonl_files_external(dir_path)
+        except Exception as e:
+            safe_print('   ⚠️ find 命令失败，降级到 os.walk: %s' % str(e))
+    
+    # Windows 或降级使用 os.walk
+    return _find_jsonl_files_walk(dir_path)
+
+
+def _find_jsonl_files_external(dir_path):
+    """使用系统 find 命令查找文件（Linux/Mac，最快）"""
+    import subprocess
+    
+    dir_path = os.path.normpath(dir_path)
+    safe_print('🔍 正在使用 find 命令扫描目录树...')
+    
+    # 构建 find 命令
+    # -type f: 只查找文件
+    # -name '*.jsonl*': 匹配包含 .jsonl 的文件名
+    # ! -name '*.swp': 排除 .swp 文件
+    cmd = [
+        'find', dir_path, '-type', 'f',
+        '(', '-name', '*.jsonl*', ')',
+        '!', '-name', '*.swp'
+    ]
+    
+    try:
+        result = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            shell=False
+        )
+        stdout, stderr = result.communicate()
+        
+        if result.returncode == 0:
+            files = [f.strip() for f in stdout.strip().split('\n') if f.strip()]
+            safe_print('   ✅ find 命令扫描完成，找到 %d 个 JSONL 文件\n' % len(files))
+            return files
+        else:
+            raise Exception(stderr.strip())
+    except Exception as e:
+        raise e
+
+
+def _find_jsonl_files_walk(dir_path):
+    """使用 os.walk 查找文件（Windows 或降级方案）"""
     results = []
     # 规范化路径，解析 .. 等符号
     dir_path = os.path.normpath(dir_path)
     
+    safe_print('🔍 正在扫描目录树...')
+    dir_count = 0
+    file_count = 0
+    last_progress_time = 0
+    
+    import time
+    start_time = time.time()
+    
     # 使用 os.walk() 而非递归 os.listdir()，避免深层目录扫描问题
     for root, dirs, files in os.walk(dir_path):
+        dir_count += 1
+        current_time = time.time()
+        
+        # 每 0.5 秒或每 100 个目录显示一次进度
+        if dir_count % 100 == 0 or (current_time - last_progress_time) >= 0.5:
+            elapsed = current_time - start_time
+            safe_print('   已扫描 %d 个目录，找到 %d 个文件... (%.1f秒)' % (
+                dir_count, len(results), elapsed))
+            last_progress_time = current_time
+        
         for filename in files:
+            file_count += 1
             # 只处理 .jsonl 相关文件，排除 .swp 等临时文件
             if '.jsonl' in filename and not filename.endswith('.swp'):
                 # 处理所有包含 .jsonl 的文件，包括 .jsonl.reset、.jsonl.deleted 等归档文件
                 full_path = os.path.join(root, filename)
                 results.append(full_path)
+    
+    elapsed_time = time.time() - start_time
+    safe_print('   ✅ 扫描完成：共遍历 %d 个目录，%d 个文件，找到 %d 个 JSONL 文件 (%.1f秒)\n' % (
+        dir_count, file_count, len(results), elapsed_time))
     
     return results
 
@@ -861,12 +986,8 @@ def generate_markdown_report(all_issues, total_conversation_turns, total_problem
                 markdown += '- **工号**: %s\n' % emp['employee_id']
                 markdown += '- **部门**: %s\n' % emp['department']
 
-            # 对于flow_integrity类型，添加用户输入
-            if issue.get('userInput') and issue['errorType'] in [
-                'flow_integrity_no_reply',
-                'flow_integrity_missing_tool_result',
-                'flow_integrity_missing_final_answer'
-            ]:
+            # 所有类型问题都添加用户输入
+            if issue.get('userInput'):
                 user_input = issue['userInput']
                 truncated_input = user_input[:200] + \
                     '...' if len(user_input) > 200 else user_input
@@ -886,12 +1007,6 @@ def generate_markdown_report(all_issues, total_conversation_turns, total_problem
             if issue.get('runId'):
                 markdown += '- **Run ID**: `%s`\n' % issue['runId']
 
-            if issue.get('provider'):
-                markdown += '- **Provider**: `%s`\n' % issue['provider']
-
-            if issue.get('model'):
-                markdown += '- **Model**: `%s`\n' % issue['model']
-
             markdown += '\n---\n\n'
 
     return markdown
@@ -907,20 +1022,19 @@ def main():
             transcript_dir = custom_dir
         else:
             transcript_dir = os.path.join(os.getcwd(), custom_dir)
-        print('📂 使用自定义路径: %s\n' % transcript_dir)
+        safe_print('📂 使用自定义路径: %s\n' % transcript_dir)
     else:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         transcript_dir = os.path.join(
             script_dir, '..', 'logs', 'session-transcript', 'openclaw-logs')
-        print('📂 使用默认路径: %s\n' % transcript_dir)
+        safe_print('📂 使用默认路径: %s\n' % transcript_dir)
 
     if not os.path.exists(transcript_dir):
-        print('❌ Transcript directory not found: %s' % transcript_dir)
+        safe_print('❌ Transcript directory not found: %s' % transcript_dir)
         sys.exit(1)
 
-    print('🔍 开始扫描transcript文件...\n')
+    safe_print('\n🔍 开始扫描transcript文件...')
     jsonl_files = find_jsonl_files(transcript_dir)
-    print('找到 %d 个JSONL文件\n' % len(jsonl_files))
 
     # 加载账户映射
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -930,17 +1044,28 @@ def main():
     total_conversation_turns = 0  # 总对话轮数
     total_problematic_turns = 0   # 总有问题轮数
 
+    safe_print('\n🔬 开始分析文件...\n')
+    import time
+    start_time = time.time()
+    
     for i, file_path in enumerate(jsonl_files):
         result = analyze_transcript(file_path, accounts_mapping)
         all_issues.extend(result['issues'])
         total_conversation_turns += result['conversationTurns']
         total_problematic_turns += result['problematicTurns']
 
-        if (i + 1) % 50 == 0:
-            print('已处理 %d/%d 个文件，发现问题 %d 个...' %
-                  (i + 1, len(jsonl_files), len(all_issues)))
-
-    print('\n✅ 分析完成！共发现 %d 个问题\n' % len(all_issues))
+        # 每处理 10 个文件显示一次进度（更频繁）
+        if (i + 1) % 10 == 0 or (i + 1) == len(jsonl_files):
+            elapsed = time.time() - start_time
+            progress = (i + 1) / float(len(jsonl_files))
+            if progress > 0:
+                estimated_total = elapsed / progress
+                remaining = estimated_total - elapsed
+                safe_print('   进度: %d/%d (%.1f%%), 发现问题 %d 个, 预计剩余 %.0f 秒...' % (
+                    i + 1, len(jsonl_files), progress * 100, len(all_issues), remaining))
+    
+    elapsed_time = time.time() - start_time
+    safe_print('\n✅ 分析完成！共发现 %d 个问题 (耗时 %.1f 秒)\n' % (len(all_issues), elapsed_time))
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     report_path = os.path.join(
@@ -951,7 +1076,7 @@ def main():
     with open(report_path, 'w') as f:
         f.write(report)
 
-    print('📄 报告已保存到: %s\n' % report_path)
+    safe_print('📄 报告已保存到: %s\n' % report_path)
 
     # 输出统计信息
     stats = {}
@@ -959,16 +1084,19 @@ def main():
         error_type = issue['errorType']
         stats[error_type] = stats.get(error_type, 0) + 1
 
-    print('📊 问题类型统计:')
+    safe_print('📊 问题类型统计:')
     for error_type, count in sorted(stats.items(), key=lambda x: x[1], reverse=True):
-        print('  - %s: %d' % (error_type, count))
+        safe_print('  - %s: %d' % (error_type, count))
 
-    print('\n🎯 严重程度统计:')
-    print('  - HIGH: %d' %
-          sum(1 for i in all_issues if i['severity'] == 'HIGH'))
-    print('  - MEDIUM: %d' %
-          sum(1 for i in all_issues if i['severity'] == 'MEDIUM'))
-    print('  - LOW: %d' % sum(1 for i in all_issues if i['severity'] == 'LOW'))
+    safe_print('\n🎯 严重程度统计:')
+    severity_stats = {}
+    for issue in all_issues:
+        severity = issue.get('severity', 'UNKNOWN')
+        severity_stats[severity] = severity_stats.get(severity, 0) + 1
+    
+    for severity in ['HIGH', 'MEDIUM', 'LOW']:
+        if severity in severity_stats:
+            safe_print('  - %s: %d' % (severity, severity_stats[severity]))
 
 
 if __name__ == '__main__':
