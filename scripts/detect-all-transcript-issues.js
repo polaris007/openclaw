@@ -542,6 +542,7 @@ function detectAbnormalStops(messages, filePath, sessionId) {
 function analyzeTranscript(filePath) {
   const allIssues = [];
   let conversationTurns = 0; // 真实对话轮数
+  let problematicTurns = 0; // 有问题的对话轮数
   
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -594,11 +595,19 @@ function analyzeTranscript(filePath) {
     
     allIssues.push(...flowIssues, ...knownErrorIssues, ...abnormalStopIssues);
     
+    // 统计有问题的对话轮数（存在任何类型问题的轮次）
+    const problematicTurnSet = new Set();
+    for (const issue of allIssues) {
+      // 所有问题的lineNumber都对应触发该问题的消息行号
+      problematicTurnSet.add(issue.lineNumber);
+    }
+    problematicTurns = problematicTurnSet.size;
+    
   } catch (error) {
     console.error(`Error analyzing ${filePath}:`, error);
   }
   
-  return { issues: allIssues, conversationTurns };
+  return { issues: allIssues, conversationTurns, problematicTurns };
 }
 
 /**
@@ -628,7 +637,7 @@ function findJsonlFiles(dir) {
 /**
  * 生成Markdown报告
  */
-function generateMarkdownReport(allIssues, totalConversationTurns) {
+function generateMarkdownReport(allIssues, totalConversationTurns, totalProblematicTurns) {
   let markdown = '# OpenClaw Session Transcript 综合问题检测报告\n\n';
   markdown += `**生成时间**: ${new Date().toISOString()}\n\n`;
   
@@ -644,7 +653,13 @@ function generateMarkdownReport(allIssues, totalConversationTurns) {
   
   markdown += '## 📊 统计概览\n\n';
   markdown += `- **总问题数**: ${stats.total}\n`;
-  markdown += `- **总对话轮数**: ${totalConversationTurns} （排除系统消息）\n\n`;
+  markdown += `- **总对话轮数**: ${totalConversationTurns} （排除系统消息）\n`;
+  markdown += `- **有问题轮数**: ${totalProblematicTurns} （存在任何类型问题的轮次）\n`;
+  if (totalConversationTurns > 0) {
+    const problemRate = ((totalProblematicTurns / totalConversationTurns) * 100).toFixed(2);
+    markdown += `- **问题率**: ${problemRate}% （有问题轮数 / 总对话轮数）\n`;
+  }
+  markdown += '\n';
   
   markdown += '### 问题类型分布\n\n';
   markdown += '| 问题类型 | 数量 | 说明 |\n';
@@ -776,12 +791,14 @@ async function main() {
   
   const allIssues = [];
   let totalConversationTurns = 0; // 总对话轮数
+  let totalProblematicTurns = 0; // 总有问题轮数
   
   for (let i = 0; i < jsonlFiles.length; i++) {
     const file = jsonlFiles[i];
     const result = analyzeTranscript(file);
     allIssues.push(...result.issues);
     totalConversationTurns += result.conversationTurns;
+    totalProblematicTurns += result.problematicTurns;
     
     if ((i + 1) % 50 === 0) {
       console.log(`已处理 ${i + 1}/${jsonlFiles.length} 个文件，发现问题 ${allIssues.length} 个...`);
@@ -791,7 +808,7 @@ async function main() {
   console.log(`\n✅ 分析完成！共发现 ${allIssues.length} 个问题\n`);
   
   const reportPath = path.join(__dirname, 'transcript-comprehensive-issues.md');
-  const report = generateMarkdownReport(allIssues, totalConversationTurns);
+  const report = generateMarkdownReport(allIssues, totalConversationTurns, totalProblematicTurns);
   fs.writeFileSync(reportPath, report, 'utf-8');
   
   console.log(`📄 报告已保存到: ${reportPath}\n`);
