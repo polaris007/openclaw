@@ -824,7 +824,7 @@ function generateMarkdownReport(allIssues: Issue[], totalConversationTurns: numb
         markdown += `- **用户输入**: \`${truncatedInput.replace(/`/g, '\\`')}\`\n`;
       }
       
-      markdown += `- **错误信息**: \`\`\`\n${issue.errorMessage}\n\`\`\`\n`;
+      markdown += `- **错误信息**: \n\`\`\`\`\n${issue.errorMessage}\n\`\`\`\`\n`;
       markdown += `- **原因分析**: ${issue.causeAnalysis}\n`;
       markdown += `- **文件位置**: \`${issue.filePath.replace(process.cwd() + path.sep, '')}\`\n`;
       markdown += `- **Session ID**: \`${issue.sessionId}\`\n`;

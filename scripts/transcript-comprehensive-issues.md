@@ -1,6 +1,6 @@
 # OpenClaw Session Transcript 综合问题检测报告
 
-**生成时间**: 2026-04-17T02:21:12.464Z
+**生成时间**: 2026-04-17T02:43:19.864Z
 
 ## 📊 统计概览
 
@@ -28,9 +28,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54128 input tokens (16384 > 65536 - 54128). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
 - **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
@@ -45,9 +46,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54307 input tokens (16384 > 65536 - 54307). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\44b23a7e-471e-4d06-b7d3-9c354e67b2f9.jsonl.reset.2026-04-13T07-43-22.366Z`
 - **Session ID**: `44b23a7e-471e-4d06-b7d3-9c354e67b2f9`
@@ -62,9 +64,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 57458 input tokens (16384 > 65536 - 57458). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\46ab4208-374c-4215-853c-5c7987c2e791.jsonl.reset.2026-04-13T07-49-48.941Z`
 - **Session ID**: `46ab4208-374c-4215-853c-5c7987c2e791`
@@ -79,9 +82,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54129 input tokens (16384 > 65536 - 54129). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\7b971aed-e825-456c-a609-bdb2463e6ccc.jsonl.reset.2026-04-13T07-46-28.872Z`
 - **Session ID**: `7b971aed-e825-456c-a609-bdb2463e6ccc`
@@ -96,9 +100,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50183 input tokens (16384 > 65536 - 50183). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\c4803ea6-54cc-4d56-a500-bc98653190ca.jsonl.reset.2026-04-14T13-49-35.396Z`
 - **Session ID**: `c4803ea6-54cc-4d56-a500-bc98653190ca`
@@ -113,9 +118,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59325 input tokens (16384 > 65536 - 59325). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
 - **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
@@ -130,9 +136,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 59431 input tokens (16384 > 65536 - 59431). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\068ac7a\agents\main\sessions\eb05b9da-88b1-4e96-8e91-5bab2fdeb854.jsonl.reset.2026-04-14T13-43-54.534Z`
 - **Session ID**: `eb05b9da-88b1-4e96-8e91-5bab2fdeb854`
@@ -147,9 +154,10 @@
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
 - **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
@@ -164,9 +172,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
 - **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
@@ -181,9 +190,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52189 input tokens (16384 > 65536 - 52189). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
 - **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
@@ -198,9 +208,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52195 input tokens (16384 > 65536 - 52195). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
 - **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
@@ -215,9 +226,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52317 input tokens (16384 > 65536 - 52317). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
 - **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
@@ -232,9 +244,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52617 input tokens (16384 > 65536 - 52617). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
 - **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
@@ -249,9 +262,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52738 input tokens (16384 > 65536 - 52738). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
 - **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
@@ -266,9 +280,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52859 input tokens (16384 > 65536 - 52859). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\b57d8f72-a5ec-4f01-b83b-4c1f823cc564.jsonl`
 - **Session ID**: `b57d8f72-a5ec-4f01-b83b-4c1f823cc564`
@@ -283,9 +298,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49443 input tokens (16384 > 65536 - 49443). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\17d2ff9a-4d20-443e-b885-f02f99596d0e.jsonl.reset.2026-04-15T04-48-17.449Z`
 - **Session ID**: `17d2ff9a-4d20-443e-b885-f02f99596d0e`
@@ -300,9 +316,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49667 input tokens (16384 > 65536 - 49667). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\17d2ff9a-4d20-443e-b885-f02f99596d0e.jsonl.reset.2026-04-15T04-48-17.449Z`
 - **Session ID**: `17d2ff9a-4d20-443e-b885-f02f99596d0e`
@@ -317,9 +334,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54822 input tokens (16384 > 65536 - 54822). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
 - **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
@@ -334,9 +352,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54850 input tokens (16384 > 65536 - 54850). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
 - **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
@@ -351,9 +370,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54920 input tokens (16384 > 65536 - 54920). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\55b3dbad-7082-44c9-8556-9346043c798d.jsonl`
 - **Session ID**: `55b3dbad-7082-44c9-8556-9346043c798d`
@@ -368,9 +388,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 85605 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85605)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
 - **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
@@ -385,9 +406,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 85773 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85773)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
 - **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
@@ -402,9 +424,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 85836 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85836)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
 - **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
@@ -419,9 +442,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
 - **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
@@ -436,9 +460,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 85322 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85322)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a4bcb8af-0927-4f3f-934b-fb7f1f625da2.jsonl.reset.2026-04-15T05-09-44.243Z`
 - **Session ID**: `a4bcb8af-0927-4f3f-934b-fb7f1f625da2`
@@ -453,9 +478,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57546 input tokens (8192 > 65536 - 57546). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
 - **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
@@ -470,9 +496,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58049 input tokens (8192 > 65536 - 58049). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
 - **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
@@ -487,9 +514,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57568 input tokens (8192 > 65536 - 57568). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
 - **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
@@ -504,9 +532,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58542 input tokens (8192 > 65536 - 58542). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
 - **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
@@ -521,9 +550,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58834 input tokens (8192 > 65536 - 58834). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
 - **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
@@ -538,9 +568,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
 - **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
@@ -555,9 +586,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
 - **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
@@ -572,9 +604,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 {'error': '/chat/completions: Invalid model name passed in model=AIAPLLM-vision-nothink. Call `/v1/models` to view available models for your key.'}
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
 - **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
@@ -589,9 +622,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 {'error': '/chat/completions: Invalid model name passed in model=AIAPLLM-vision-nothink. Call `/v1/models` to view available models for your key.'}
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\ecf6d23a-a5ba-4838-a8bc-de4291d68a48.jsonl`
 - **Session ID**: `ecf6d23a-a5ba-4838-a8bc-de4291d68a48`
@@ -606,9 +640,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
 - **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
@@ -623,9 +658,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
 - **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
@@ -640,9 +676,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
 - **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
@@ -657,9 +694,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
 - **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
@@ -674,9 +712,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -691,9 +730,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -708,9 +748,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -725,9 +766,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -742,9 +784,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -759,9 +802,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -776,9 +820,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -793,9 +838,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -810,9 +856,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57554 input tokens (8192 > 65536 - 57554). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -827,9 +874,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57852 input tokens (8192 > 65536 - 57852). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -844,9 +892,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58165 input tokens (8192 > 65536 - 58165). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -861,9 +910,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57910 input tokens (8192 > 65536 - 57910). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\38cb43c3-64cc-47c2-8ad0-9752d31a0c95.jsonl`
 - **Session ID**: `38cb43c3-64cc-47c2-8ad0-9752d31a0c95`
@@ -878,9 +928,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -895,9 +946,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -912,9 +964,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -929,9 +982,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -946,9 +1000,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -963,9 +1018,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -980,9 +1036,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -997,9 +1054,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
 - **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
@@ -1014,9 +1072,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 99103 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99103)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\0a3d3e95-5bff-462a-9ef4-cc86be37d0e9.jsonl.reset.2026-04-14T08-03-10.977Z`
 - **Session ID**: `0a3d3e95-5bff-462a-9ef4-cc86be37d0e9`
@@ -1031,9 +1090,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50053 input tokens (16384 > 65536 - 50053). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
 - **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
@@ -1048,9 +1108,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50321 input tokens (16384 > 65536 - 50321). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
 - **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
@@ -1065,9 +1126,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50589 input tokens (16384 > 65536 - 50589). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\21c20430-e74b-4ea9-8370-5b818e07807f.jsonl`
 - **Session ID**: `21c20430-e74b-4ea9-8370-5b818e07807f`
@@ -1082,9 +1144,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
 - **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
@@ -1099,9 +1162,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50038 input tokens (16384 > 65536 - 50038). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\3054f47d-9495-49fc-8621-094decd75ed5.jsonl.reset.2026-04-11T13-18-03.510Z`
 - **Session ID**: `3054f47d-9495-49fc-8621-094decd75ed5`
@@ -1116,9 +1180,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
 - **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
@@ -1133,9 +1198,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 98636 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=98636)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\3d57363f-2801-4839-9f62-3a83486176a2.jsonl.reset.2026-04-14T07-30-17.046Z`
 - **Session ID**: `3d57363f-2801-4839-9f62-3a83486176a2`
@@ -1150,9 +1216,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 137445 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=137445)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\4c785688-835b-4c1c-8aaf-d21b38146873.jsonl.reset.2026-04-14T05-42-06.587Z`
 - **Session ID**: `4c785688-835b-4c1c-8aaf-d21b38146873`
@@ -1167,9 +1234,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 93196 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93196)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\57655182-1fa9-4dca-aafc-f16e69319ef6.jsonl`
 - **Session ID**: `57655182-1fa9-4dca-aafc-f16e69319ef6`
@@ -1184,9 +1252,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
 - **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
@@ -1201,9 +1270,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 92360 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92360)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9ccfae6c-1ba2-4215-b07c-f16eebaee938.jsonl`
 - **Session ID**: `9ccfae6c-1ba2-4215-b07c-f16eebaee938`
@@ -1218,9 +1288,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 94948 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=94948)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\a022d143-025f-48f2-b75f-2c21ba0750d7.jsonl.reset.2026-04-14T07-28-25.256Z`
 - **Session ID**: `b2331c11-96c5-41c7-ac67-515700ec2e19`
@@ -1235,9 +1306,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 99703 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=99703)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\a022d143-025f-48f2-b75f-2c21ba0750d7.jsonl.reset.2026-04-14T07-28-25.256Z`
 - **Session ID**: `b2331c11-96c5-41c7-ac67-515700ec2e19`
@@ -1252,9 +1324,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
 - **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
@@ -1269,9 +1342,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 73149 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73149)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
 - **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
@@ -1286,9 +1360,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 73204 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73204)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
 - **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
@@ -1303,9 +1378,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 73462 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=73462)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
 - **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
@@ -1320,9 +1396,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
 - **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
@@ -1337,9 +1414,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 92483 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=92483)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\f15427eb-5cbe-4649-b5e5-ff97dbf69934.jsonl`
 - **Session ID**: `f15427eb-5cbe-4649-b5e5-ff97dbf69934`
@@ -1354,9 +1432,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49879 input tokens (16384 > 65536 - 49879). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\01fccd16-4957-41b5-827d-1b9ab1383fa0.jsonl.reset.2026-04-15T05-47-20.402Z`
 - **Session ID**: `01fccd16-4957-41b5-827d-1b9ab1383fa0`
@@ -1371,9 +1450,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49551 input tokens (16384 > 65536 - 49551). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\0d695f54-31ca-411d-aafc-f993d82f10cb.jsonl.reset.2026-04-15T06-17-41.113Z`
 - **Session ID**: `0d695f54-31ca-411d-aafc-f993d82f10cb`
@@ -1388,9 +1468,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 85041 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85041)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\1ac21cbc-b486-40a3-8dc0-0dc3a52c1e91.jsonl.reset.2026-04-13T05-57-43.669Z`
 - **Session ID**: `1ac21cbc-b486-40a3-8dc0-0dc3a52c1e91`
@@ -1405,9 +1486,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52253 input tokens (16384 > 65536 - 52253). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\1b8fdaa0-0c61-4dc0-af9f-3d2e3ccb0c84.jsonl.reset.2026-04-15T05-56-35.850Z`
 - **Session ID**: `1b8fdaa0-0c61-4dc0-af9f-3d2e3ccb0c84`
@@ -1422,9 +1504,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50614 input tokens (16384 > 65536 - 50614). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\34931b7e-4dfd-4801-a704-0f7c938ec0a6.jsonl.reset.2026-04-15T06-15-16.128Z`
 - **Session ID**: `34931b7e-4dfd-4801-a704-0f7c938ec0a6`
@@ -1439,9 +1522,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50771 input tokens (16384 > 65536 - 50771). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\34931b7e-4dfd-4801-a704-0f7c938ec0a6.jsonl.reset.2026-04-15T06-15-16.128Z`
 - **Session ID**: `34931b7e-4dfd-4801-a704-0f7c938ec0a6`
@@ -1456,9 +1540,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
 - **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
@@ -1473,9 +1558,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49306 input tokens (16384 > 65536 - 49306). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\3929f5b4-46c5-4300-97b7-7394f1b3a843.jsonl.reset.2026-04-15T05-48-59.434Z`
 - **Session ID**: `3929f5b4-46c5-4300-97b7-7394f1b3a843`
@@ -1490,9 +1576,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
 - **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
@@ -1507,9 +1594,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 85682 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85682)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\56bc2a9d-74c5-4168-a298-e607bd80f4f7.jsonl.reset.2026-04-13T06-04-55.489Z`
 - **Session ID**: `56bc2a9d-74c5-4168-a298-e607bd80f4f7`
@@ -1524,9 +1612,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 85893 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=85893)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\56bc2a9d-74c5-4168-a298-e607bd80f4f7.jsonl.reset.2026-04-13T06-04-55.489Z`
 - **Session ID**: `56bc2a9d-74c5-4168-a298-e607bd80f4f7`
@@ -1541,9 +1630,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1558,9 +1648,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1575,9 +1666,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1592,9 +1684,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1609,9 +1702,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1626,9 +1720,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1643,9 +1738,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1660,9 +1756,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 503 upstream connect error or disconnect/reset before headers. reset reason: remote connection failure, transport failure reason: delayed connect error: 111
-```
+````
 - **原因分析**: 模型API调用失败，可能原因：1) API密钥无效或过期；2) 模型服务暂时不可用；3) 请求格式不正确；4) 配额已用完
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\7deed8a5-b5c1-483e-9fb8-0c8359730454.jsonl.reset.2026-04-10T00-22-25.367Z`
 - **Session ID**: `7deed8a5-b5c1-483e-9fb8-0c8359730454`
@@ -1677,9 +1774,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51784 input tokens (16384 > 65536 - 51784). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\8e991737-22bf-448e-8bbe-c62186c39811.jsonl`
 - **Session ID**: `8e991737-22bf-448e-8bbe-c62186c39811`
@@ -1694,9 +1792,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
 - **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
@@ -1711,9 +1810,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64677 input tokens (16384 > 65536 - 64677). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9bbcbd94-84a2-49f0-adb3-382e5a64bda9.jsonl.reset.2026-04-15T05-15-43.580Z`
 - **Session ID**: `9bbcbd94-84a2-49f0-adb3-382e5a64bda9`
@@ -1728,9 +1828,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
 - **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
@@ -1745,9 +1846,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49373 input tokens (16384 > 65536 - 49373). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a3229da1-206f-4681-9a0a-dd00816ea472.jsonl.reset.2026-04-15T06-23-43.304Z`
 - **Session ID**: `a3229da1-206f-4681-9a0a-dd00816ea472`
@@ -1762,9 +1864,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
 - **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
@@ -1779,9 +1882,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 284596 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=284596)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\bb86d4f5-81b5-4207-b8fd-6c447aea9b59.jsonl.reset.2026-04-13T05-49-51.030Z`
 - **Session ID**: `bb86d4f5-81b5-4207-b8fd-6c447aea9b59`
@@ -1796,9 +1900,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49349 input tokens (16384 > 65536 - 49349). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\bed1b9e5-93b7-4584-b13f-feabc4b6b05d.jsonl.reset.2026-04-15T06-21-53.908Z`
 - **Session ID**: `bed1b9e5-93b7-4584-b13f-feabc4b6b05d`
@@ -1813,9 +1918,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64170 input tokens (16384 > 65536 - 64170). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
 - **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
@@ -1830,9 +1936,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64329 input tokens (16384 > 65536 - 64329). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
 - **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
@@ -1847,9 +1954,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64391 input tokens (16384 > 65536 - 64391). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
 - **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
@@ -1864,9 +1972,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64453 input tokens (16384 > 65536 - 64453). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
 - **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
@@ -1881,9 +1990,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64515 input tokens (16384 > 65536 - 64515). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
 - **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
@@ -1898,9 +2008,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 64577 input tokens (16384 > 65536 - 64577). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e.jsonl`
 - **Session ID**: `c4600d75-8dd6-4f40-814c-a0ce5cbfbc5e`
@@ -1915,9 +2026,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
 - **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
@@ -1932,9 +2044,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 111407 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=111407)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\eebb13c4-9aea-4158-a939-d8a67d302e68.jsonl.reset.2026-04-15T05-58-15.968Z`
 - **Session ID**: `eebb13c4-9aea-4158-a939-d8a67d302e68`
@@ -1949,9 +2062,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 153331 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=153331)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\fe19ff77-0e5e-4a00-ad34-4f5bdd7df7c3.jsonl.reset.2026-04-13T05-50-23.534Z`
 - **Session ID**: `fe19ff77-0e5e-4a00-ad34-4f5bdd7df7c3`
@@ -1966,9 +2080,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51191 input tokens (16384 > 65536 - 51191). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -1983,9 +2098,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49625 input tokens (16384 > 65536 - 49625). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2000,9 +2116,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49635 input tokens (16384 > 65536 - 49635). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2017,9 +2134,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50137 input tokens (16384 > 65536 - 50137). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2034,9 +2152,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51119 input tokens (16384 > 65536 - 51119). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2051,9 +2170,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51677 input tokens (16384 > 65536 - 51677). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2068,9 +2188,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52235 input tokens (16384 > 65536 - 52235). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2085,9 +2206,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51945 input tokens (16384 > 65536 - 51945). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2102,9 +2224,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 52954 input tokens (16384 > 65536 - 52954). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2119,9 +2242,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53315 input tokens (16384 > 65536 - 53315). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2136,9 +2260,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53676 input tokens (16384 > 65536 - 53676). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2153,9 +2278,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53166 input tokens (16384 > 65536 - 53166). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2170,9 +2296,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54424 input tokens (16384 > 65536 - 54424). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2187,9 +2314,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54798 input tokens (16384 > 65536 - 54798). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2204,9 +2332,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55172 input tokens (16384 > 65536 - 55172). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2221,9 +2350,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 54355 input tokens (16384 > 65536 - 54355). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2238,9 +2368,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55606 input tokens (16384 > 65536 - 55606). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2255,9 +2386,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55737 input tokens (16384 > 65536 - 55737). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2272,9 +2404,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 55868 input tokens (16384 > 65536 - 55868). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -2289,9 +2422,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49196 input tokens (16384 > 65536 - 49196). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\1f52a892-ec2c-43f4-a681-117ad1d2347f.jsonl.reset.2026-04-15T07-33-34.422Z`
 - **Session ID**: `1f52a892-ec2c-43f4-a681-117ad1d2347f`
@@ -2306,9 +2440,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51023 input tokens (16384 > 65536 - 51023). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\441e8f2d-1bb7-44cc-b7d4-42a152401e7b.jsonl.reset.2026-04-15T07-21-15.065Z`
 - **Session ID**: `441e8f2d-1bb7-44cc-b7d4-42a152401e7b`
@@ -2323,9 +2458,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51117 input tokens (16384 > 65536 - 51117). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\441e8f2d-1bb7-44cc-b7d4-42a152401e7b.jsonl.reset.2026-04-15T07-21-15.065Z`
 - **Session ID**: `441e8f2d-1bb7-44cc-b7d4-42a152401e7b`
@@ -2340,9 +2476,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
 - **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
@@ -2357,9 +2494,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
 - **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
@@ -2374,9 +2512,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51908 input tokens (16384 > 65536 - 51908). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ac6fd251-fdd1-4b14-aefa-7aef9b5364b3.jsonl.reset.2026-04-15T01-12-21.164Z`
 - **Session ID**: `ac6fd251-fdd1-4b14-aefa-7aef9b5364b3`
@@ -2391,9 +2530,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51774 input tokens (16384 > 65536 - 51774). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ac6fd251-fdd1-4b14-aefa-7aef9b5364b3.jsonl.reset.2026-04-15T01-12-21.164Z`
 - **Session ID**: `ac6fd251-fdd1-4b14-aefa-7aef9b5364b3`
@@ -2408,9 +2548,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 51032 input tokens (16384 > 65536 - 51032). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b1544dc1-80ec-4318-80eb-cb1c433cd1e2.jsonl.reset.2026-04-14T06-11-31.069Z`
 - **Session ID**: `b1544dc1-80ec-4318-80eb-cb1c433cd1e2`
@@ -2425,9 +2566,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
 - **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
@@ -2442,9 +2584,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49295 input tokens (16384 > 65536 - 49295). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
 - **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
@@ -2459,9 +2602,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49239 input tokens (16384 > 65536 - 49239). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\ea170d88-f848-4950-b1bb-039e1340f07f.jsonl.reset.2026-04-15T07-50-22.851Z`
 - **Session ID**: `ea170d88-f848-4950-b1bb-039e1340f07f`
@@ -2476,9 +2620,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 53947 input tokens (16384 > 65536 - 53947). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\452b6522-ab61-4cb5-9e12-993c22302827.jsonl`
 - **Session ID**: `452b6522-ab61-4cb5-9e12-993c22302827`
@@ -2493,9 +2638,10 @@ Request was aborted.
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
 - **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
@@ -2510,9 +2656,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 84033 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=84033)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\03e9ea66-6f41-4a6d-a639-21be7cb52768.jsonl.reset.2026-04-14T08-04-13.586Z`
 - **Session ID**: `03e9ea66-6f41-4a6d-a639-21be7cb52768`
@@ -2527,9 +2674,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
 - **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
@@ -2544,9 +2692,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
 - **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
@@ -2561,9 +2710,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 63202 input tokens (16384 > 65536 - 63202). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\587d2128-7fa3-43df-a083-eddf93414d0a.jsonl.reset.2026-04-15T06-55-26.318Z`
 - **Session ID**: `587d2128-7fa3-43df-a083-eddf93414d0a`
@@ -2578,9 +2728,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 57883 input tokens (8192 > 65536 - 57883). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
 - **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
@@ -2595,9 +2746,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58180 input tokens (8192 > 65536 - 58180). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
 - **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
@@ -2612,9 +2764,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 8192. This model's maximum context length is 65536 tokens and your request has 58297 input tokens (8192 > 65536 - 58297). (parameter=max_tokens, value=8192)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a7e6f9d-4c43-4a9a-820e-5ba304317da6.jsonl`
 - **Session ID**: `5a7e6f9d-4c43-4a9a-820e-5ba304317da6`
@@ -2629,9 +2782,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 60318 input tokens (16384 > 65536 - 60318). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\0dcd285c-6703-44d3-a494-d22ebb0521d9.jsonl.reset.2026-04-15T05-13-50.598Z`
 - **Session ID**: `0dcd285c-6703-44d3-a494-d22ebb0521d9`
@@ -2646,9 +2800,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49567 input tokens (16384 > 65536 - 49567). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
 - **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
@@ -2663,9 +2818,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49886 input tokens (16384 > 65536 - 49886). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
 - **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
@@ -2680,9 +2836,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -2697,9 +2854,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49813 input tokens (16384 > 65536 - 49813). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -2714,9 +2872,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 49935 input tokens (16384 > 65536 - 49935). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -2731,9 +2890,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50012 input tokens (16384 > 65536 - 50012). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -2748,9 +2908,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50089 input tokens (16384 > 65536 - 50089). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -2765,9 +2926,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50166 input tokens (16384 > 65536 - 50166). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -2782,9 +2944,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50243 input tokens (16384 > 65536 - 50243). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -2799,9 +2962,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 'max_tokens' or 'max_completion_tokens' is too large: 16384. This model's maximum context length is 65536 tokens and your request has 50041 input tokens (16384 > 65536 - 50041). (parameter=max_tokens, value=16384)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
 - **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
@@ -2816,9 +2980,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 71540 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=71540)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
 - **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
@@ -2833,9 +2998,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 112206 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=112206)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
 - **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
@@ -2850,9 +3016,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: error
-- **错误信息**: ```
+- **错误信息**: 
+````
 400 This model's maximum context length is 65536 tokens. However, your request has 93398 input tokens. Please reduce the length of the input messages. (parameter=input_tokens, value=93398)
-```
+````
 - **原因分析**: 上下文长度超限，可能原因：1) 会话历史过长；2) 单次输入内容过多；3) 未正确配置max_tokens参数；4) 缺少Compaction机制导致上下文累积
 - **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\8a7a7bbf-e23c-4c9c-bee2-e3b0d0f793dd.jsonl`
 - **Session ID**: `8a7a7bbf-e23c-4c9c-bee2-e3b0d0f793dd`
@@ -2867,9 +3034,10 @@ Request was aborted
 
 - **事件类型**: `message`
 - **描述**: 检测到异常停止原因: aborted
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
 - **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
@@ -2886,9 +3054,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
 - **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
@@ -2904,9 +3073,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
 - **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
@@ -2921,9 +3091,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
 - **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
@@ -2939,9 +3110,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\0f8907022d9c7513b586d400ab3c57fb25659eee8f8b5017dd1e9cc094f4ce3a7cc87cb548522993c391f86e956c13838fbfec56464aa0879ce3c468c4aedbdc\agents\main\sessions\2b9f7ba4-e50c-4f33-bf96-85367fa6cebf.jsonl`
 - **Session ID**: `2b9f7ba4-e50c-4f33-bf96-85367fa6cebf`
@@ -2956,9 +3128,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\0ee5ff89-79d5-41f8-a93f-49146d0f3722.jsonl`
 - **Session ID**: `0ee5ff89-79d5-41f8-a93f-49146d0f3722`
@@ -2974,9 +3147,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\c2dadcbe-f4b0-472d-aafe-122d0e670ede.jsonl`
 - **Session ID**: `c2dadcbe-f4b0-472d-aafe-122d0e670ede`
@@ -2992,9 +3166,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
 - **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
@@ -3010,9 +3185,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
 - **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
@@ -3027,9 +3203,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
 - **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
@@ -3045,9 +3222,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\fe368a91-4216-43d0-9bf1-dfa1cceed4bc.jsonl`
 - **Session ID**: `fe368a91-4216-43d0-9bf1-dfa1cceed4bc`
@@ -3063,9 +3241,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\37d31ad6132bab00315c7b7adabe5b839b918500995ce145a03763c66ecc2f612ca90d021c7098f060f5f0547433161ce6af7f6899f2fc1e6f39bab40e12e65a\agents\main\sessions\0af83cd4-10a3-4966-8f3c-2b581a53bf99.jsonl`
 - **Session ID**: `0af83cd4-10a3-4966-8f3c-2b581a53bf99`
@@ -3081,9 +3260,10 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
 - **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
@@ -3099,9 +3279,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
 - **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
@@ -3116,9 +3297,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
 - **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
@@ -3134,9 +3316,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\30bc50fe-fc03-440c-91d0-825f473e21ff.jsonl.reset.2026-04-13T09-41-10.420Z`
 - **Session ID**: `30bc50fe-fc03-440c-91d0-825f473e21ff`
@@ -3151,9 +3334,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\619aa316b92e3dfc3ebb94deaebb6af6052bc3f8c9557530ddd4b1f4525e8cdcb3775f71c6fb0ac96b744c11e1c8b5accbc8b356f3d2f75bdd5b75efed4ce0c0\agents\main\sessions\4f250dc6-3ebe-4fff-90ba-3497bbb9fe07.jsonl`
 - **Session ID**: `4f250dc6-3ebe-4fff-90ba-3497bbb9fe07`
@@ -3169,9 +3353,10 @@ This operation was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\39028978-7dfa-4c83-ac08-4a49ed087310.jsonl`
 - **Session ID**: `39028978-7dfa-4c83-ac08-4a49ed087310`
@@ -3187,9 +3372,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
 - **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
@@ -3205,9 +3391,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
 - **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
@@ -3222,9 +3409,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
 - **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
@@ -3240,9 +3428,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
 - **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
@@ -3257,9 +3446,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
 - **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
@@ -3275,9 +3465,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
 - **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
@@ -3292,9 +3483,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
 - **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
@@ -3310,9 +3502,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\1fec35dc-2fae-4273-a33c-44f05cb4b9cb.jsonl.reset.2026-04-03T06-10-59.679Z`
 - **Session ID**: `1fec35dc-2fae-4273-a33c-44f05cb4b9cb`
@@ -3327,9 +3520,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -3345,9 +3539,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -3362,9 +3557,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -3380,9 +3576,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -3397,9 +3594,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -3415,9 +3613,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -3432,9 +3631,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3450,9 +3650,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3467,9 +3668,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3485,9 +3687,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3502,9 +3705,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3520,9 +3724,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3537,9 +3742,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3555,9 +3761,10 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3573,9 +3780,10 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3591,9 +3799,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -3608,9 +3817,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\df4171e6-52bd-4d19-9055-8efff9620296.jsonl.reset.2026-03-30T01-28-17.541Z`
 - **Session ID**: `df4171e6-52bd-4d19-9055-8efff9620296`
@@ -3626,9 +3836,10 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
 - **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
@@ -3644,9 +3855,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\a218bb36-c816-4db8-9100-f88817206bcb.jsonl.reset.2026-04-13T07-29-00.960Z`
 - **Session ID**: `a218bb36-c816-4db8-9100-f88817206bcb`
@@ -3661,9 +3873,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
 - **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
@@ -3679,9 +3892,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\29633dad-174f-4331-bcf5-fd6633c72472.jsonl.reset.2026-04-07T07-11-07.812Z`
 - **Session ID**: `29633dad-174f-4331-bcf5-fd6633c72472`
@@ -3696,9 +3910,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
 - **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
@@ -3714,9 +3929,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
 - **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
@@ -3731,9 +3947,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
 - **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
@@ -3749,9 +3966,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\6da170bc-3500-4982-ae05-6742622b208e.jsonl.reset.2026-04-11T13-11-20.832Z`
 - **Session ID**: `6da170bc-3500-4982-ae05-6742622b208e`
@@ -3766,9 +3984,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9a0af35c-6303-4ae7-a932-54396b74e799.jsonl`
 - **Session ID**: `9a0af35c-6303-4ae7-a932-54396b74e799`
@@ -3784,9 +4003,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
 - **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
@@ -3802,9 +4022,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\c124a8ac-1e3d-4b27-a6e6-e558938ce159.jsonl`
 - **Session ID**: `c124a8ac-1e3d-4b27-a6e6-e558938ce159`
@@ -3819,9 +4040,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
 - **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
@@ -3837,9 +4059,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
 - **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
@@ -3854,9 +4077,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
 - **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
@@ -3872,9 +4096,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\36e4c6dc-00db-4e93-88b4-4c7802cddc18.jsonl.reset.2026-04-11T10-02-02.099Z`
 - **Session ID**: `36e4c6dc-00db-4e93-88b4-4c7802cddc18`
@@ -3889,9 +4114,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
 - **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
@@ -3907,9 +4133,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\5061ad82-66c2-4b0f-a630-ad61901e15fe.jsonl.reset.2026-04-15T06-21-16.458Z`
 - **Session ID**: `5061ad82-66c2-4b0f-a630-ad61901e15fe`
@@ -3924,9 +4151,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
 - **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
@@ -3942,9 +4170,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
 - **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
@@ -3959,9 +4188,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
 - **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
@@ -3977,9 +4207,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9.jsonl.reset.2026-04-15T06-06-55.761Z`
 - **Session ID**: `9d8af3f4-0af8-4bd1-b46c-2a44b1f935d9`
@@ -3994,9 +4225,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
 - **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
@@ -4012,9 +4244,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\a5ce6223-4b97-4edb-88a0-f3884a6ebc11.jsonl.reset.2026-04-15T05-57-24.737Z`
 - **Session ID**: `a5ce6223-4b97-4edb-88a0-f3884a6ebc11`
@@ -4029,9 +4262,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
 - **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
@@ -4047,9 +4281,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
 - **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
@@ -4064,9 +4299,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0b6f9e7d-6192-44d8-b925-2c94cc74d371.jsonl`
 - **Session ID**: `0b6f9e7d-6192-44d8-b925-2c94cc74d371`
@@ -4082,9 +4318,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -4100,9 +4337,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -4118,9 +4356,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3.jsonl`
 - **Session ID**: `3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3`
@@ -4136,9 +4375,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
 - **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
@@ -4154,9 +4394,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
 - **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
@@ -4171,9 +4412,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
 - **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
@@ -4189,9 +4431,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\47abe663-a119-47ae-b90a-5286abc03808.jsonl.reset.2026-04-15T09-11-42.280Z`
 - **Session ID**: `47abe663-a119-47ae-b90a-5286abc03808`
@@ -4206,9 +4449,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\495e09f3-443a-40ad-b26f-edc30ebcf118.jsonl`
 - **Session ID**: `495e09f3-443a-40ad-b26f-edc30ebcf118`
@@ -4224,9 +4468,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\66a18763-dcc3-4f3f-8838-88ce893158a4.jsonl`
 - **Session ID**: `66a18763-dcc3-4f3f-8838-88ce893158a4`
@@ -4242,9 +4487,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\8011363c-3210-4c83-a4d6-13c03b465220.jsonl`
 - **Session ID**: `8011363c-3210-4c83-a4d6-13c03b465220`
@@ -4260,9 +4506,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\a5d510bb-1b47-4314-9446-1732cc207874.jsonl`
 - **Session ID**: `a5d510bb-1b47-4314-9446-1732cc207874`
@@ -4278,9 +4525,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\acee90b3-b877-42fd-abeb-3700b4b5fd57.jsonl`
 - **Session ID**: `acee90b3-b877-42fd-abeb-3700b4b5fd57`
@@ -4296,9 +4544,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
 - **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
@@ -4314,9 +4563,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
 - **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
@@ -4332,9 +4582,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
 - **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
@@ -4350,9 +4601,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted.
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
 - **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
@@ -4367,9 +4619,10 @@ Request was aborted.
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d66da86c-8415-45d4-b226-3f67b20e6c72.jsonl`
 - **Session ID**: `d66da86c-8415-45d4-b226-3f67b20e6c72`
@@ -4385,9 +4638,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
 - **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
@@ -4403,9 +4657,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\efe3c556-5c92-4323-b1dc-9d80cadd71fb.jsonl`
 - **Session ID**: `efe3c556-5c92-4323-b1dc-9d80cadd71fb`
@@ -4421,9 +4676,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
 - **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
@@ -4439,9 +4695,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
 - **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
@@ -4457,9 +4714,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 模型服务响应超时，可能原因：1) 网络延迟或不稳定；2) 模型服务端负载过高；3) Prompt过长导致处理时间增加；4) 前置工具执行失败导致模型等待用户输入
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\fe866c45-f880-4daa-b46e-4db9ee164372.jsonl`
 - **Session ID**: `fe866c45-f880-4daa-b46e-4db9ee164372`
@@ -4475,9 +4733,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
 - **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
@@ -4493,9 +4752,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\d29befe28f6d1a440997a29a90d297a20ea5c6b0effffb94967c082745c678e4b4efc8f29e2c81246b38e206e09c98183755650d5db5fc6f525f9d8928b67e24\agents\main\sessions\66300dc6-69c0-48a4-8a60-c981208c4752.jsonl.reset.2026-04-01T13-03-40.624Z`
 - **Session ID**: `66300dc6-69c0-48a4-8a60-c981208c4752`
@@ -4510,9 +4770,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\54355af5-ac92-4baf-a0df-42f72ff7c497.jsonl`
 - **Session ID**: `d4678ca9-d333-45fc-b9d5-9197b9cf2cea`
@@ -4528,9 +4789,10 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
 - **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
@@ -4546,9 +4808,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
 - **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
@@ -4563,9 +4826,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
 - **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
@@ -4581,9 +4845,10 @@ This operation was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
 - **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
@@ -4599,9 +4864,10 @@ aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\57ed5159-8807-4c0a-9e4c-a690def5a268.jsonl.reset.2026-04-03T02-18-52.062Z`
 - **Session ID**: `57ed5159-8807-4c0a-9e4c-a690def5a268`
@@ -4616,9 +4882,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\a209aa52-f716-47c0-bd66-d9644415ee6c.jsonl.reset.2026-03-31T06-12-09.312Z`
 - **Session ID**: `a209aa52-f716-47c0-bd66-d9644415ee6c`
@@ -4634,9 +4901,10 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl`
 - **Session ID**: `b5018140-32f9-4102-879a-7853821a47d1`
@@ -4652,9 +4920,10 @@ aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\0dcd285c-6703-44d3-a494-d22ebb0521d9.jsonl.reset.2026-04-15T05-13-50.598Z`
 - **Session ID**: `0dcd285c-6703-44d3-a494-d22ebb0521d9`
@@ -4670,9 +4939,10 @@ This operation was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -4688,9 +4958,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\8ef546cf-18a4-43a7-baec-ed0207c28996.jsonl`
 - **Session ID**: `8ef546cf-18a4-43a7-baec-ed0207c28996`
@@ -4705,9 +4976,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到模型API错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 This operation was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
 - **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
@@ -4723,9 +4995,10 @@ This operation was aborted
 
 - **事件类型**: `message`
 - **描述**: 在message事件中检测到模型API错误
-- **错误信息**: ```
+- **错误信息**: 
+````
 Request was aborted
-```
+````
 - **原因分析**: 请求被中止，可能原因：1) 用户主动取消操作；2) 系统资源限制触发中止；3) 会话超时被清理；4) 新请求到来时旧请求被取消
 - **文件位置**: `logs\session-transcript\openclaw-logs\fa65c292bbe559bed0e01c9bf4ab7206fea633ad01ff275cb3653e15b8eeb8392f5c407ef79ffee6a7cc913e6e645c52665f51d413888ea1d0a0d252182dc6a8\agents\main\sessions\eaffcc05-ae16-4ec7-8421-e9138abce035.jsonl.reset.2026-04-13T06-40-00.792Z`
 - **Session ID**: `eaffcc05-ae16-4ec7-8421-e9138abce035`
@@ -4742,9 +5015,10 @@ Request was aborted
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\0ee5ff89-79d5-41f8-a93f-49146d0f3722.jsonl`
 - **Session ID**: `0ee5ff89-79d5-41f8-a93f-49146d0f3722`
@@ -4760,9 +5034,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\13c13153a543ecba2ba0adb5b621795367f9130736913b4d3bbb5b8244184d6163cd24120cba49ff7f7a07a9b5bb27cc263a5db4d6fc3a9b80b2cf24df09952d\agents\main\sessions\c2dadcbe-f4b0-472d-aafe-122d0e670ede.jsonl`
 - **Session ID**: `c2dadcbe-f4b0-472d-aafe-122d0e670ede`
@@ -4778,9 +5053,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\f1aced44-6c24-42f6-aa51-3909db1ff629.jsonl`
 - **Session ID**: `f1aced44-6c24-42f6-aa51-3909db1ff629`
@@ -4796,9 +5072,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\fe368a91-4216-43d0-9bf1-dfa1cceed4bc.jsonl`
 - **Session ID**: `fe368a91-4216-43d0-9bf1-dfa1cceed4bc`
@@ -4814,9 +5091,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\6fca9aa611cf469e15161f2b342062f7c621c962e44d14a57ee1d61d972f9135cd6f8797feb2302283695088f655118edd65a6768f2159207fd01f575a80e207\agents\main\sessions\39028978-7dfa-4c83-ac08-4a49ed087310.jsonl`
 - **Session ID**: `39028978-7dfa-4c83-ac08-4a49ed087310`
@@ -4832,9 +5110,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\9a0af35c-6303-4ae7-a932-54396b74e799.jsonl`
 - **Session ID**: `9a0af35c-6303-4ae7-a932-54396b74e799`
@@ -4850,9 +5129,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0b6f9e7d-6192-44d8-b925-2c94cc74d371.jsonl`
 - **Session ID**: `0b6f9e7d-6192-44d8-b925-2c94cc74d371`
@@ -4868,9 +5148,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -4886,9 +5167,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
 - **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
@@ -4904,9 +5186,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3.jsonl`
 - **Session ID**: `3bf2a8e5-33de-4ef6-b677-a0ea9a3fbee3`
@@ -4922,9 +5205,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\495e09f3-443a-40ad-b26f-edc30ebcf118.jsonl`
 - **Session ID**: `495e09f3-443a-40ad-b26f-edc30ebcf118`
@@ -4940,9 +5224,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\66a18763-dcc3-4f3f-8838-88ce893158a4.jsonl`
 - **Session ID**: `66a18763-dcc3-4f3f-8838-88ce893158a4`
@@ -4958,9 +5243,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\8011363c-3210-4c83-a4d6-13c03b465220.jsonl`
 - **Session ID**: `8011363c-3210-4c83-a4d6-13c03b465220`
@@ -4976,9 +5262,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\a5d510bb-1b47-4314-9446-1732cc207874.jsonl`
 - **Session ID**: `a5d510bb-1b47-4314-9446-1732cc207874`
@@ -4994,9 +5281,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\acee90b3-b877-42fd-abeb-3700b4b5fd57.jsonl`
 - **Session ID**: `acee90b3-b877-42fd-abeb-3700b4b5fd57`
@@ -5012,9 +5300,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b622c006-2698-4967-9e4c-0a44c6c9457c.jsonl`
 - **Session ID**: `b622c006-2698-4967-9e4c-0a44c6c9457c`
@@ -5030,9 +5319,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\b7865994-0c4a-4761-ace1-c637f4fe4ab5.jsonl`
 - **Session ID**: `b7865994-0c4a-4761-ace1-c637f4fe4ab5`
@@ -5048,9 +5338,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d66da86c-8415-45d4-b226-3f67b20e6c72.jsonl`
 - **Session ID**: `d66da86c-8415-45d4-b226-3f67b20e6c72`
@@ -5066,9 +5357,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
 - **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
@@ -5084,9 +5376,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\efe3c556-5c92-4323-b1dc-9d80cadd71fb.jsonl`
 - **Session ID**: `efe3c556-5c92-4323-b1dc-9d80cadd71fb`
@@ -5102,9 +5395,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6.jsonl`
 - **Session ID**: `f21ffaa1-f08e-4c01-bf00-fc674c1ad6c6`
@@ -5120,9 +5414,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\f2d7f49d-9571-4cc1-a3de-fb002d6fb441.jsonl`
 - **Session ID**: `f2d7f49d-9571-4cc1-a3de-fb002d6fb441`
@@ -5138,9 +5433,10 @@ LLM idle timeout (60s): no response from model
 
 - **事件类型**: `openclaw:prompt-error`
 - **描述**: 检测到超时错误事件
-- **错误信息**: ```
+- **错误信息**: 
+````
 LLM idle timeout (60s): no response from model
-```
+````
 - **原因分析**: 空闲超时，可能原因：1) 用户长时间未输入；2) 工具执行时间过长；3) 网络中断导致连接保持但无数据传输
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\fe866c45-f880-4daa-b46e-4db9ee164372.jsonl`
 - **Session ID**: `fe866c45-f880-4daa-b46e-4db9ee164372`
@@ -5167,7 +5463,8 @@ LLM idle timeout (60s): no response from model
 \`\`\`
 
 [Thu 2026-04-09 14:38 GMT+8] 从这个源http://nxtest.clic/repository/pypi-group/simple/ 安装 requests包`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5176,7 +5473,7 @@ Line 50: {"type":"message","id":"ec099416","parentId":"b5154f52","timestamp":"20
 --- 下一行内容 ---
 Line 51: {"type":"message","id":"9117e9be","parentId":"ec099416","timestamp":"2026-04-09T06:41:16.115Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来该私有源虽然可访问，但可能没有 `requests` 包的特定版本，或者需要添加 `--trusted-host` 参数来忽略安全警告。让我尝试显式添加信任主机参数：太好了！`requests` 包已成功安装。现在让我们再次运行保险问答客户端："}],"timestamp":1775716876112,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"api":"openai-respons
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\71089d27a2e4e0e9082230b5fb88c1f22ca6af23edc87c81928b64a57f2dfd5d5a772d2f73ee249ea3212b9367878f472ff01f67e40f26502ebe9fa6e89c99f1\agents\main\sessions\8c2cbc7a-6952-4218-81bb-d6873382169a.jsonl.reset.2026-04-09T07-39-02.584Z`
 - **Session ID**: `8c2cbc7a-6952-4218-81bb-d6873382169a`
@@ -5198,7 +5495,8 @@ Line 51: {"type":"message","id":"9117e9be","parentId":"ec099416","timestamp":"20
 \`\`\`
 
 [Mon 2026-03-30 03:39 UTC] npm install -g /root/.openclaw/workspace/skills/clawhub-0.9.0.t...`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5207,7 +5505,7 @@ Line 109: {"type":"message","id":"961a72d8","parentId":"a7bc7276","timestamp":"2
 --- 下一行内容 ---
 Line 110: {"type":"message","id":"03d23230","parentId":"961a72d8","timestamp":"2026-03-30T03:40:11.340Z","message":{"role":"assistant","content":[{"type":"text","text":"安装过程似乎还在进行中。让我再等待一下："}],"timestamp":1774842011335,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"api":"openai-responses","provider":"openclaw","model":"gateway-injected","idempotencyKey":"edf572b2-a915-4059-a27f-6745b6e04c
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0666aaa8-84c3-4a44-91f3-391bf1cbc237.jsonl.reset.2026-03-30T05-23-52.861Z`
 - **Session ID**: `0666aaa8-84c3-4a44-91f3-391bf1cbc237`
@@ -5229,7 +5527,8 @@ Line 110: {"type":"message","id":"03d23230","parentId":"961a72d8","timestamp":"2
 \`\`\`
 
 [Thu 2026-03-26 02:16 UTC] 你帮我在终端直接运行这三行命令`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5238,7 +5537,7 @@ Line 118: {"type":"message","id":"4225785c","parentId":"da1e53ac","timestamp":"2
 --- 下一行内容 ---
 Line 119: {"type":"message","id":"95c64be8","parentId":"4225785c","timestamp":"2026-03-26T02:20:53.488Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我现在帮你运行这三条命令来安装 `humanizer` 技能：看起来 `clawhub` 命令没有安装或者不在系统路径中。让我检查一下是否有其他安装方式：我看到 `openclaw` 命令存在，但 `clawhub` 似乎没有安装。让我检查一下是否有 `clawhub` 作为 npm 包或者需要单独安装：看起来 `clawhub` 工具还没有安装。根据 OpenClaw 的文档，`clawhub` 可能是一个需要单独安装的 CLI 工具。\n\n让我尝试另一种方法 - 直接从 ClawHub 注册表下载技能文件：好的，注册表需要认证。让我检查一下是否有认证信息或者另一种安装方式：让我查看完整的配置文件，看看是否有 `clawhub` 相关的配置：配置文件里没有 `cl
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\0e1fdcba-9f15-4db0-bb96-37fe11a919a1.jsonl.reset.2026-03-26T06-21-03.755Z`
 - **Session ID**: `0e1fdcba-9f15-4db0-bb96-37fe11a919a1`
@@ -5260,7 +5559,8 @@ Line 119: {"type":"message","id":"95c64be8","parentId":"4225785c","timestamp":"2
 \`\`\`
 
 [Wed 2026-04-01 02:42 UTC] himalaya account configure main`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5269,7 +5569,7 @@ Line 104: {"type":"message","id":"54641f07","parentId":"f6216d1b","timestamp":"2
 --- 下一行内容 ---
 Line 105: {"type":"message","id":"cc68268a","parentId":"54641f07","timestamp":"2026-04-01T02:43:52.130Z","message":{"role":"assistant","content":[{"type":"text","text":"向导已启动！现在需要交互式输入。让我查看一下当前状态：向导正在询问是否创建配置文件。让我输入 `Y` 确认：看起来输入了但还没响应。让我等待一下再查看：可能需要回车确认。让我发送一个回车：让我尝试发送回车键符：看起来输入被重复了。让我先停止这个进程，然后重新以正确的方式启动：进程已终止。让我重新启动向导，这次使用更干净的方式："}],"timestamp":1775011432126,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWri
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -5296,7 +5596,8 @@ IP：10.18.48.9
 认证方式：邮箱账号+授权码
 无 ssl
  ...`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5305,7 +5606,7 @@ Line 340: {"type":"message","id":"50f5cff9","parentId":"50b78c3c","timestamp":"2
 --- 下一行内容 ---
 Line 341: {"type":"message","id":"a061e972","parentId":"50f5cff9","timestamp":"2026-04-01T02:54:23.021Z","message":{"role":"assistant","content":[{"type":"text","text":"好的，我来帮你配置这个企业邮箱账户。根据你提供的信息，我将手动创建配置文件。让我修正配置文件格式：需要添加 `email` 字段：让我检查一下配置是否正确，可能需要创建 maildir 目录：让我用 debug 模式查看具体错误：看起来配置可能需要调整。让我查看一下 Himalaya 的正确配置格式，可能需要使用不同的结构：让我查看配置示例：让我尝试查看官方示例或重新检查配置格式。根据错误信息，可能需要使用 `default_account` 设置：让我查看正确的配置格式，看起来应该是扁平结构：让我查看 himalaya 的文档或示例配置。根据错误信息，配置文件的根级别应该包含 `accounts` 数组或对象。让我尝试另一种格式：让我查看 himalaya 的示例配置或官
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\77803150-3868-42db-a652-27c92cb429b6.jsonl.reset.2026-04-01T04-31-00.301Z`
 - **Session ID**: `77803150-3868-42db-a652-27c92cb429b6`
@@ -5327,7 +5628,8 @@ Line 341: {"type":"message","id":"a061e972","parentId":"50f5cff9","timestamp":"2
 \`\`\`
 
 [Mon 2026-03-30 05:54 UTC] 执行命令clawhub install pdf`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5336,7 +5638,7 @@ Line 77: {"type":"message","id":"110b9026","parentId":"a1a12141","timestamp":"20
 --- 下一行内容 ---
 Line 78: {"type":"message","id":"129fc4eb","parentId":"110b9026","timestamp":"2026-03-30T05:55:51.109Z","message":{"role":"assistant","content":[{"type":"text","text":"命令正在运行中，让我继续等待并检查结果：安装失败，原因是无法访问 npm 注册表（`registry.npmjs.org`）。这可能是因为：\n\n1. **网络限制**：Kubernetes 集群内部可能无法访问外部 npm 注册表\n2. **代理问题**：可能需要配置 npm 代理\n\n不过，`clawhub` 应该使用我们刚设置的内部 `CLAWHUB_REGISTRY` 地址。让我检查一下 clawhub CLI 是否正确使用了这个环境变量，或者尝试直接使用内部地址："}],"timestamp":1774850151105,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cach
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -5350,7 +5652,8 @@ Line 78: {"type":"message","id":"129fc4eb","parentId":"110b9026","timestamp":"20
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
 - **用户输入**: `System: [2026-03-30 05:55:22 UTC] Exec completed (faint-cl, code 1) :: a problem related to network connectivity. npm error network In most cases you are behind a proxy or have bad network settings. n...`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5359,7 +5662,7 @@ Line 97: {"type":"message","id":"ed1ac085","parentId":"dffa56c7","timestamp":"20
 --- 下一行内容 ---
 Line 98: {"type":"message","id":"4be3a10a","parentId":"ed1ac085","timestamp":"2026-03-30T05:56:35.462Z","message":{"role":"assistant","content":[{"type":"text","text":"我可以执行 `clawhub` 命令，但遇到了网络问题。\n\n**当前情况：**\n- ✅ 命令可以执行\n- ❌ 无法连接到 npm 注册表 (`registry.npmjs.org`)\n- ❌ 也无法从内部 ClawHub 注册表下载技能\n\n**问题原因：**\n这个 Kubernetes 环境似乎无法访问外部网络（npm registry），可能也没有正确配置内部 ClawHub 服务的访问。\n\n**可能的解决方案：**\n1. **检查网络连通性** - 测试能否 ping 通 `10.38.149.60`\n2. **配置 npm 代理** - 如果集群需要代理访问外部网络\n3. **手动安装技能** - 如果你有技能的本地副本\n\n让我先测试一下
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -5373,7 +5676,8 @@ Line 98: {"type":"message","id":"4be3a10a","parentId":"ed1ac085","timestamp":"20
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
 - **用户输入**: `System: [2026-03-30 05:56:36 UTC] Exec completed (nimble-r, code 1) :: a problem related to network connectivity. npm error network In most cases you are behind a proxy or have bad network settings. n...`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5382,7 +5686,7 @@ Line 115: {"type":"message","id":"53e58948","parentId":"6b2e854f","timestamp":"2
 --- 下一行内容 ---
 Line 116: {"type":"message","id":"b87f2b58","parentId":"53e58948","timestamp":"2026-03-30T05:57:34.814Z","message":{"role":"assistant","content":[{"type":"text","text":"明白了，只能用 `clawhub install pdf` 命令。问题在于 `npx clawhub` 试图从外部 npm 下载，而不是使用内部注册表。\n\n让我尝试直接调用内部 ClawHub 的 CLI 工具（如果已安装在容器内），或者配置 npm 使用内部代理：让我检查是否有全局安装的 clawhub：看来 `clawhub` CLI 没有全局安装，`npx` 尝试从外部 npm 下载但失败了。\n\n**问题分析：**\n- 内部 ClawHub 服务 (`http://10.38.149.60`) 是可访问的\n- 但 `npx clawhub` 试图从 `registry.npmjs.org` 下载，而外部网络不可达\n- 需要一种方式让 `clawhub` 
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -5404,7 +5708,8 @@ Line 116: {"type":"message","id":"b87f2b58","parentId":"53e58948","timestamp":"2
 \`\`\`
 
 [Mon 2026-03-30 06:24 UTC] clawhub install xlsx`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5413,7 +5718,7 @@ Line 213: {"type":"message","id":"b339531e","parentId":"6ac21509","timestamp":"2
 --- 下一行内容 ---
 Line 214: {"type":"message","id":"00de27c6","parentId":"b339531e","timestamp":"2026-03-30T06:24:16.685Z","message":{"role":"assistant","content":[{"type":"text","text":"`clawhub` 命令未找到。这可能是因为 Gateway 重启后，全局安装的 `clawhub` 不在当前环境的 `PATH` 中，或者需要重新加载环境变量。\n\n让我尝试几种方法：看起来 Gateway 重启后，之前全局安装的 `clawhub` 丢失了（可能是因为使用了临时环境或不同的 npm 配置）。让我重新安装 `clawhub`："}],"timestamp":1774851856678,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc.jsonl.reset.2026-04-01T01-35-01.339Z`
 - **Session ID**: `9428ab7a-0deb-4dde-a29b-5f0a02bb4dfc`
@@ -5435,7 +5740,8 @@ Line 214: {"type":"message","id":"00de27c6","parentId":"b339531e","timestamp":"2
 \`\`\`
 
 [Fri 2026-03-27 08:50 UTC] 执行 npm install -g /root/.openclaw/workspace/skills/clawhub-0.9....`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5444,7 +5750,7 @@ Line 234: {"type":"message","id":"a6f751e2","parentId":"7ade871a","timestamp":"2
 --- 下一行内容 ---
 Line 235: {"type":"message","id":"63aa604c","parentId":"a6f751e2","timestamp":"2026-03-27T09:00:10.967Z","message":{"role":"assistant","content":[{"type":"text","text":"让我再等待一下并检查状态：安装过程似乎还在进行中。让我再等待更长时间：安装过程似乎卡住了或者非常慢。让我检查一下是否有任何输出或者进程状态：进程已经运行了 5 分 29 秒。npm 安装全局包可能需要较长时间，特别是如果要下载依赖。让我继续等待：npm 安装似乎还在进行中，但没有输出。让我再等待一段时间："}],"timestamp":1774602010916,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"tota
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\902b55f3e6f72c412522719af72c4a67a6809d8f908c19bdf409d68941942599c5f008b7a7a2170f407ad283504b75e2efdffcdd4e98826974fcaa621e929062\agents\main\sessions\df4171e6-52bd-4d19-9055-8efff9620296.jsonl.reset.2026-03-30T01-28-17.541Z`
 - **Session ID**: `df4171e6-52bd-4d19-9055-8efff9620296`
@@ -5460,13 +5766,14 @@ Line 235: {"type":"message","id":"63aa604c","parentId":"a6f751e2","timestamp":"2
 - **用户输入**: `[Fri 2026-04-03 13:56 GMT+8] [Subagent Context] You are running as a subagent (depth 1/1). Results auto-announce to your requester; do not busy-poll for status.
 
 [Subagent Task]: 使用 contact-book 技能查询联...`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected toolResult after toolCall, but reached end of file
 
 --- 错误行内容 ---
 Line 30: {"type":"message","id":"fe5b8dee","parentId":"3bb82aa3","timestamp":"2026-04-03T05:57:05.661Z","message":{"role":"assistant","content":[{"type":"text","text":"我看到技能列表中没有 `contact-book` 技能。让我通过 clawhub 搜索一下是否有这个技能：\n\n"},{"type":"toolCall","id":"call_6bfbda0f2bc04a118e2f14d2","name":"exec","arguments":{"command":"npx clawhub search contact-book 2>/dev/null | head -30"}}],"api":"openai-completions","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","usage":{"input":20481,"output":65,"c
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行超时或被中断；2) 工具执行过程中系统崩溃；3) 日志记录不完整；4) 工具异步执行但未等待结果
 - **文件位置**: `logs\session-transcript\openclaw-logs\9d287639e2d8c7c2b55b202c585e9866b75dbccb376c35075c7608aaaabedd0812819a0836104bee2563fa0ff7a1aaa240a58aa298594ccbed19e40e1ca20380\agents\main\sessions\c0ba4ea8-18e2-408e-bb43-5804fe01b725.jsonl.deleted.2026-04-03T06-57-15.640Z`
 - **Session ID**: `c0ba4ea8-18e2-408e-bb43-5804fe01b725`
@@ -5488,7 +5795,8 @@ Line 30: {"type":"message","id":"fe5b8dee","parentId":"3bb82aa3","timestamp":"20
 \`\`\`
 
 [Tue 2026-04-07 15:11 GMT+8] 使用docx技能；使用km-operation-prod技能，地址为km.clic； 随便搞一个word 命名为testest123123123123 上传`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5497,7 +5805,7 @@ Line 10: {"type":"message","id":"b5c527d4","parentId":"7e58b1bb","timestamp":"20
 --- 下一行内容 ---
 Line 11: {"type":"message","id":"830452f1","parentId":"b5c527d4","timestamp":"2026-04-07T07:11:42.769Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 docx Skill\n好的，任健鑫！我先帮你创建一个简单的 Word 文档，命名为 `testest123123123123.docx`，然后上传到你的知识管理平台。文档已创建成功！现在我将使用 km-operation-prod 技能将其上传到 km.clic 平台。\n\n## 🛠️ 正在使用 km-operation-prod Skill"}],"timestamp":1775545902768,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\376f66e9-f4d1-4c27-bff1-e59671fb0e24.jsonl.reset.2026-04-07T07-11-43.578Z`
 - **Session ID**: `376f66e9-f4d1-4c27-bff1-e59671fb0e24`
@@ -5519,7 +5827,8 @@ Line 11: {"type":"message","id":"830452f1","parentId":"b5c527d4","timestamp":"20
 \`\`\`
 
 [Thu 2026-04-09 17:45 GMT+8] 帮我使用understand-image这个技能 来处理一下`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5528,7 +5837,7 @@ Line 52: {"type":"message","id":"b8d51b9a","parentId":"b66ade63","timestamp":"20
 --- 下一行内容 ---
 Line 53: {"type":"message","id":"eea0341f","parentId":"b8d51b9a","timestamp":"2026-04-09T09:47:03.558Z","message":{"role":"assistant","content":[{"type":"text","text":"## 🛠️ 正在使用 understand-image Skill\n\n让我读取这个技能的详细使用说明，然后正确调用它来处理你的图片。好的，我现在了解了 `understand-image` 技能的使用方法。这个技能需要通过命令行或代码调用来分析图片。让我直接在命令行中调用这个技能来分析你的图片：让我尝试更直接的命令格式：命令正在运行中，让我等待一下结果：看起来测试环境的 API 服务器无法连接（超时了）。让我尝试切换到生产环境，或者检查配置：测试环境服务器超时了。让我尝试切换到生产环境再试一次：现在让我用生产环境重新运行图片分析："}],"timestamp":1775728023554,"stopReason":"stop","usage":{"input":0,"
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57.jsonl.reset.2026-04-09T10-02-01.306Z`
 - **Session ID**: `ee1ddd7c-4ad1-4fe7-9789-bd5ec3345a57`
@@ -5550,7 +5859,8 @@ Line 53: {"type":"message","id":"eea0341f","parentId":"b8d51b9a","timestamp":"20
 \`\`\`
 
 [Wed 2026-04-15 14:07 GMT+8] 开始吧`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5559,7 +5869,7 @@ Line 18: {"type":"message","id":"36bc2a63","parentId":"48d91a2f","timestamp":"20
 --- 下一行内容 ---
 Line 19: {"type":"message","id":"6fbe2c67","parentId":"36bc2a63","timestamp":"2026-04-15T06:07:28.864Z","message":{"role":"assistant","content":[{"type":"text","text":"看起来系统提示需要配对节点才能使用 ACP 模式的 ppt-master 技能。让我先检查一下可用的技能列表，看看是否有其他替代方案。看来当前环境下 ACP 模式的 agent 不可用。让我尝试使用 subagent 模式来调用 ppt-master 技能。看起来系统需要节点配对才能启动子代理。让我先读取一下文档内容，然后使用本地的 pptx 技能来手动创建 PT。看起来文档内容是二进制格式，直接读取显示的是乱码。让我尝试使用 `anthropics-xlsx` 技能来读取这个 Word 文档，或者使用 Python 来解析它。"}],"timestamp":1776233248861,"stopReason":"stop","usage":{"input":0,"outp
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\d4ae615b-6f2d-4e47-b315-1c2132c8500b.jsonl.reset.2026-04-15T06-07-32.219Z`
 - **Session ID**: `d4ae615b-6f2d-4e47-b315-1c2132c8500b`
@@ -5581,7 +5891,8 @@ Line 19: {"type":"message","id":"6fbe2c67","parentId":"36bc2a63","timestamp":"20
 \`\`\`
 
 [Wed 2026-04-15 09:19 GMT+8] 把分析结果上传下git`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "toolResult" after "toolCall", but got "assistant"
 
 --- 错误行内容 ---
@@ -5590,7 +5901,7 @@ Line 28: {"type":"message","id":"71b273cf","parentId":"9f796414","timestamp":"20
 --- 下一行内容 ---
 Line 29: {"type":"message","id":"50b60623","parentId":"71b273cf","timestamp":"2026-04-15T01:19:35.561Z","message":{"role":"assistant","content":[{"type":"text","text":"当前工作区不是 Git 仓库。不过根据 MEMORY.md 的记录，我们有一个 SVN 交换区可以用来上传文件。让我先检查一下 `.claw` 目录是否存在，然后将其提交到 SVN：文件已存在。现在让我将其上传到 SVN 交换区：让我先检查 SVN 工作区状态：目录已经存在但未被跟踪。让我重新添加并提交：提交信息编码问题。让我用英文提交信息重试："}],"timestamp":1776215975560,"stopReason":"stop","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0
 
-```
+````
 - **原因分析**: 可能的原因：1) 工具执行失败但未记录错误；2) 消息顺序错乱；3) 工具被跳过直接继续对话；4) 日志损坏或缺失
 - **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\d54e8a56-6078-477d-b6db-da98e3370fae.jsonl.reset.2026-04-15T06-48-01.316Z`
 - **Session ID**: `d54e8a56-6078-477d-b6db-da98e3370fae`
@@ -5614,7 +5925,8 @@ Line 29: {"type":"message","id":"50b60623","parentId":"71b273cf","timestamp":"20
 \`\`\`
 
 [Wed 2026-04-15 13:47 GMT+8] 刚刚我把SHU心无忧.docx放到了./2026-04-15目录下。我的需求是： 分析word中的内容，提炼并总结，最终产生一个ppt汇报，使用我刚刚上传的skills`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "assistant" after "user", but got "toolResult"
 
 --- 错误行内容 ---
@@ -5623,7 +5935,7 @@ Line 7: {"type":"message","id":"34d68000","parentId":"93389adb","timestamp":"202
 --- 下一行内容 ---
 Line 8: {"type":"message","id":"cc605b68","parentId":"34d68000","timestamp":"2026-04-15T05:47:32.843Z","message":{"role":"toolResult","toolCallId":"call_303b45e7d0af4b4089f3bf8e","toolName":"pptx","content":[{"type":"text","text":"Tool pptx not found"}],"details":{},"isError":true,"timestamp":1776232052840}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
 - **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
 - **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
@@ -5645,13 +5957,14 @@ Line 8: {"type":"message","id":"cc605b68","parentId":"34d68000","timestamp":"202
 \`\`\`
 
 [Thu 2026-04-09 09:28 UTC] 使用技contact-book技能； 我的通讯录电话是多少`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected assistant message after user message, but reached end of file
 
 --- 错误行内容 ---
 Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"2026-04-09T09:29:14.877Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Thu 2026-04-09 09:28 UTC] 使用技contact-book技能； 我的通讯录电话是多少"}],"timestamp":1775726954865}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
 - **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
@@ -5665,13 +5978,14 @@ Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"20
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
 - **用户输入**: `Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS....`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected assistant message after user message, but reached end of file
 
 --- 错误行内容 ---
 Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2026-04-02T08:56:03.465Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
 
-```
+````
 - **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
 - **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
@@ -5685,13 +5999,14 @@ Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
 - **用户输入**: `Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS....`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected assistant message after user message, but reached end of file
 
 --- 错误行内容 ---
 Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"2026-04-02T15:05:05.579Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
 
-```
+````
 - **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\9fd7e156-e3a7-496e-89e3-84e8611ab65a.jsonl.reset.2026-04-02T15-05-05.957Z`
 - **Session ID**: `9fd7e156-e3a7-496e-89e3-84e8611ab65a`
@@ -5705,13 +6020,14 @@ Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"20
 - **事件类型**: `message`
 - **描述**: 用户提问后没有任何回复（文件在此结束）
 - **用户输入**: `Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS....`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected assistant message after user message, but reached end of file
 
 --- 错误行内容 ---
 Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"2026-04-02T09:27:00.471Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
 
-```
+````
 - **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl.reset.2026-04-02T09-27-03.259Z`
 - **Session ID**: `c5c862a7-da7a-4e74-ad62-5c3afec2c9e2`
@@ -5733,7 +6049,8 @@ Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"20
 \`\`\`
 
 [Wed 2026-03-25 08:24 UTC] 帮我创建一个skill 功能是读取若干个excel文件 根据excel的构成 和处理 excel的具体需求 生成nodejs代码 执行后处理excel`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "assistant" after "user", but got "toolResult"
 
 --- 错误行内容 ---
@@ -5742,7 +6059,7 @@ Line 11: {"type":"message","id":"7821a954","parentId":"5753a2fe","timestamp":"20
 --- 下一行内容 ---
 Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"2026-03-25T08:24:58.566Z","message":{"role":"toolResult","toolCallId":"call_9e2a906cccd44542bdccc5a0","toolName":"skill-creator","content":[{"type":"text","text":"Tool skill-creator not found"}],"details":{},"isError":true,"timestamp":1774427098557}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\e680e881-9873-444c-bd8b-2f6742248e45.jsonl.reset.2026-03-28T04-14-20.084Z`
 - **Session ID**: `e680e881-9873-444c-bd8b-2f6742248e45`
@@ -5764,13 +6081,14 @@ Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"20
 \`\`\`
 
 [Fri 2026-04-03 07:05 UTC] 是。`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected assistant message after user message, but reached end of file
 
 --- 错误行内容 ---
 Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"2026-04-03T07:05:13.013Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Fri 2026-04-03 07:05 UTC] 是。"}],"timestamp":1775199913009}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
 - **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\f3456e19-3ffe-4e41-9bad-cc80f8083c91.jsonl.reset.2026-04-03T07-05-16.658Z`
 - **Session ID**: `f3456e19-3ffe-4e41-9bad-cc80f8083c91`
@@ -5792,7 +6110,8 @@ Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"20
 \`\`\`
 
 [Wed 2026-04-15 13:15 GMT+8] k8s-xc-02/xjsyy-cluster-xc-04 分析这个集群的异常pod 本次允许你使用kubectl`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "assistant" after "user", but got "toolResult"
 
 --- 错误行内容 ---
@@ -5801,7 +6120,7 @@ Line 9: {"type":"message","id":"af72a086","parentId":"d27eec57","timestamp":"202
 --- 下一行内容 ---
 Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"2026-04-15T05:15:33.066Z","message":{"role":"toolResult","toolCallId":"call_9899960148154855a4a2ef11","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776230133062}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
 - **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
@@ -5823,7 +6142,8 @@ Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"20
 \`\`\`
 
 [Wed 2026-04-15 10:00 GMT+8] 查看下 包含aiap的pod`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "assistant" after "user", but got "toolResult"
 
 --- 错误行内容 ---
@@ -5832,7 +6152,7 @@ Line 7: {"type":"message","id":"e25c2201","parentId":"44f0a4fa","timestamp":"202
 --- 下一行内容 ---
 Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"2026-04-15T02:00:36.599Z","message":{"role":"toolResult","toolCallId":"call_dfbb1b44df024fb389c9f07d","toolName":"k8s_pilot","content":[{"type":"text","text":"Tool k8s_pilot not found"}],"details":{},"isError":true,"timestamp":1776218436596}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
 - **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
@@ -5854,7 +6174,8 @@ Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"202
 \`\`\`
 
 [Wed 2026-04-15 11:15 GMT+8] 重新加载下kube-polot 工具`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "assistant" after "user", but got "toolResult"
 
 --- 错误行内容 ---
@@ -5863,7 +6184,7 @@ Line 23: {"type":"message","id":"b9a12180","parentId":"6e4ea368","timestamp":"20
 --- 下一行内容 ---
 Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"2026-04-15T03:15:17.925Z","message":{"role":"toolResult","toolCallId":"call_921848a820714f22af405c82","toolName":"skills-installer","content":[{"type":"text","text":"Tool skills-installer not found"}],"details":{},"isError":true,"timestamp":1776222917921}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
 - **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
@@ -5885,7 +6206,8 @@ Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"20
 \`\`\`
 
 [Wed 2026-04-15 11:07 GMT+8] 帮我统计下所有包含sidecar的pod 中sidecar 的资源占用情况 按照集群汇总给我`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected "assistant" after "user", but got "toolResult"
 
 --- 错误行内容 ---
@@ -5894,7 +6216,7 @@ Line 7: {"type":"message","id":"848d45fc","parentId":"f16c9f9f","timestamp":"202
 --- 下一行内容 ---
 Line 8: {"type":"message","id":"99d39886","parentId":"848d45fc","timestamp":"2026-04-15T03:07:51.348Z","message":{"role":"toolResult","toolCallId":"call_6601b8b04bf34c02acfd3187","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776222471344}}
 
-```
+````
 - **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
 - **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
 - **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
@@ -5914,13 +6236,14 @@ OpenClaw runtime context (internal):
 This context is runtime-generated, not user-authored. Keep internal details private.
 
 [Internal ...`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected assistant message after toolResult, but reached end of file
 
 --- 错误行内容 ---
 Line 19: {"type":"message","id":"a23fb7fa","parentId":"cb88f7e1","timestamp":"2026-04-15T05:12:50.453Z","message":{"role":"toolResult","toolCallId":"call_ff073c1bd5e8485a8b951d41","toolName":"exec","content":[{"type":"text","text":"检查各列内容:\n总行数: 10\n总列数: 10\n\n表头:\n列1: 消费者权益保护处工作思路：深化“大消保”工作格局，加强消费者权益保护体系建设，多措并举提升客户投诉溯源治理效能，广泛开展有中国人寿特色的金融教育，夯实管理基础，加强消保队伍专业能力建设，提升公司消保工作水平。\n列2: None\n列3: None\n列4: None\n列5: None\n列6: None\n列7: None\n列8: None\n列9: None\n列10: None\n\n\n检查一季度工作总结（列9）和二季度工作任务（列10）:\n\n行2: 工作事
 
-```
+````
 - **原因分析**: 可能的原因：1) Assistant在处理工具结果时出错；2) 会话被意外终止；3) 工具结果过于复杂导致无法生成回复；4) 系统资源耗尽
 - **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\30a5af76-2ff4-422e-bafb-bdc3a414ac9b.jsonl.reset.2026-04-15T05-13-05.576Z`
 - **Session ID**: `30a5af76-2ff4-422e-bafb-bdc3a414ac9b`
@@ -5938,13 +6261,14 @@ OpenClaw runtime context (internal):
 This context is runtime-generated, not user-authored. Keep internal details private.
 
 [Internal ...`
-- **错误信息**: ```
+- **错误信息**: 
+````
 Expected assistant message after toolResult, but reached end of file
 
 --- 错误行内容 ---
 Line 103: {"type":"message","id":"c6126f96","parentId":"4e2ded31","timestamp":"2026-04-14T07:25:34.373Z","message":{"role":"toolResult","toolCallId":"call_4c2f0b78e83c4c01af0df883","toolName":"exec","content":[{"type":"text","text":"修改后的文件验证:\n  - 知聊超级智能体优化 出现 0 次\n  - AIAP 剩余 1 次\n  - 1.38.21 出现 0 次\n  - 1.35.5 剩余 0 次\n\n包含'知聊超级智能体优化'的上下文:"}],"details":{"status":"completed","exitCode":0,"durationMs":277,"aggregated":"修改后的文件验证:\n  - 知聊超级智能体优化 出现 0 次\n  - AIAP 剩余 1 次\n  - 1.38.21 出现 0 次\n  - 1.35.5 剩余 0 次\
 
-```
+````
 - **原因分析**: 可能的原因：1) Assistant在处理工具结果时出错；2) 会话被意外终止；3) 工具结果过于复杂导致无法生成回复；4) 系统资源耗尽
 - **文件位置**: `logs\session-transcript\openclaw-logs\a793d94b6ad1c388bc785ea54e450926b729a9ed21fd7f5685e549542317b191889efa017a1d6c1cea1b952519ba7f227fe5499937e9452e032463addb26e3de\agents\main\sessions\a022d143-025f-48f2-b75f-2c21ba0750d7.jsonl.reset.2026-04-14T07-25-43.136Z`
 - **Session ID**: `a022d143-025f-48f2-b75f-2c21ba0750d7`
