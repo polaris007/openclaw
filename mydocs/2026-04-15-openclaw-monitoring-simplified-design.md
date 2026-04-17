@@ -100,7 +100,7 @@ OpenClaw 是一款企业级个人助理服务，基于开源 OpenClaw 框架进�
    - **备用方式**：检测文件大小缩小超过 10%（用于兜底，防止遗漏）
    - 如果检测到新的 compaction，触发全量重扫
 4. **流式扫描**：逐行解析 JSONL 文件，提取消息元数据并聚合为 Turn
-5. **不解析 Token 统计**：Token、成本等数据通过 Gateway `sessions.list` API + 增量快照机制获取（见 3.2.5 节）
+5. **不解析 Token 统计**：Token、成本等数据通过 Gateway `usage.cost` API 直接获取（见 3.2.5 节）
 6. **解析 Skill 和 Model 信息**：从 tool call 记录和 message usage 字段提取
 7. 聚合 Turn 结构（消息数、时间范围、Skill 使用、Model 使用等）到 session_turn 表
 8. **清理无效数据**：如果检测到 compaction，删除该 session 未完成的 Turn 记录
@@ -270,53 +270,65 @@ OpenClaw 的 Session Compaction 分为两个阶段：
 - `agents[0].heartbeat.everyMs` → 可用于计算下次预期心跳
 - **注意**: 实际返回中**没有** `version`, `nodeId`, `memory.rss` 等字段
 
-**Token 统计数据获取策略（混合方案）**：
+**Token 统计数据获取策略（统一方案）**：
 
-**核心原则**：采用 Gateway API + Session Log 解析的混合方案，发挥各自优势
+**核心原则**：所有 Token/Cost/Model 统计统一使用 Gateway `usage.cost` API，不再使用 `sessions.list`
 
 **分工说明**：
-- **Token/Cost/Model 统计**：通过 Gateway `sessions.list` API 轮询获取增量数据（权威数据源）
+- **Token/Cost/Model 统计**：通过 Gateway `usage.cost` API 按日期范围轮询获取（权威数据源）
 - **Skill/Turn 统计**：从 `dashboard_session_turn` 表聚合（Session Log 解析结果）
-- **Turn 级别 Token 分摊**：当 Session Log 解析失败时，按比例从 Gateway API 数据分摊
+- **Turn 级别 Token 分摊**：当 Session Log 解析失败时，按比例从 `usage.cost` API 数据分摊
 
-**Gateway sessions.list API 返回字段**：
+**Gateway usage.cost API 返回字段**：
 ```json
 {
-  "key": "agent:user123:discord:direct:abc123",
-  "sessionId": "sess_abc123",              // Session ID，可用于关联
-  "updatedAt": 1713123400000,               // 更新时间戳
-  "inputTokens": 1200,                      // 输入 Token 数（Session 累计值）
-  "outputTokens": 800,                      // 输出 Token 数（Session 累计值）
-  "totalTokens": 2000,                      // 总 Token 数（Session 累计值）
-  "estimatedCostUsd": 0.035,                // 预估成本（美元，Session 累计值）
-  "contextTokens": 1500,                    // 上下文 Token 数
-  "modelProvider": "anthropic",             // 模型提供商
-  "model": "sonnet-4.6",                    // 模型 ID
-  "deliveryContext": {                      // 投递上下文
-    "channel": "discord",
-    "to": "user123",
-    "accountId": "default",
-    "threadId": "thread_xyz"
-  },
-  "status": "done",                         // Session 状态：running/done/failed/killed/timeout
-  "startedAt": 1713120000000,               // Session 开始时间
-  "endedAt": 1713123400000,                 // Session 结束时间
-  "runtimeMs": 3400                         // 运行时长（毫秒）
+  "updatedAt": 1713123456789,       // 数据更新时间戳
+  "days": 1,                         // 统计天数
+  "daily": [                         // 每日明细（按日期分组）
+    {
+      "date": "2026-04-14",          // 日期 YYYY-MM-DD
+      "input": 1200,                 // 输入 Token 数
+      "output": 800,                 // 输出 Token 数
+      "cacheRead": 100,              // 缓存读取 Token 数
+      "cacheWrite": 50,              // 缓存写入 Token 数
+      "totalTokens": 2150,           // 总 Token 数
+      "totalCost": 0.035,            // 总成本（美元）
+      "inputCost": 0.012,            // 输入成本
+      "outputCost": 0.020,           // 输出成本
+      "cacheReadCost": 0.002,        // 缓存读成本
+      "cacheWriteCost": 0.001,       // 缓存写成本
+      "missingCostEntries": 0        // 缺失成本条目的数量
+    }
+  ],
+  "totals": {                        // 总计（整个日期范围的汇总）
+    "input": 1200,
+    "output": 800,
+    "cacheRead": 100,
+    "cacheWrite": 50,
+    "totalTokens": 2150,
+    "totalCost": 0.035,
+    "inputCost": 0.012,
+    "outputCost": 0.020,
+    "cacheReadCost": 0.002,
+    "cacheWriteCost": 0.001,
+    "missingCostEntries": 0
+  }
 }
 ```
 
 **⚠️ 重要说明**：
-1. `sessions.list` 返回的 Token 数据是 **Session 级别的累计值**，不是 Turn 级别的增量
-2. 同一 Session 多次轮询时，`totalTokens` 会持续增长
-3. 需要通过维护快照表计算增量，才能用于时间序列分析
-4. **不包含** Skill 调用信息，Skill 数据只能从 Session Log 解析
+1. `usage.cost` 返回的是 **日期范围内的累计值**，不是 Session 级别的
+2. `daily` 数组提供按天分组的详细数据，适合时间序列分析
+3. `totals` 是整个查询范围的汇总值
+4. **不包含** Skill 调用信息、Channel 分布、User 维度等，这些只能从 Session Log 解析
+5. 支持 `startDate`/`endDate` 参数精确控制日期范围，或 `days` 参数指定最近 N 天
 
 **Gateway WebSocket 客户端设计**：
 - **连接模式**：短连接（Short-lived Connection），每次调用后立即关闭
 - **不使用连接池**：避免长连接占用资源和状态管理复杂度
 - **实现流程**：
   ```java
-  public List<GatewaySessionRow> fetchAllSessions(OpenclawInstance instance) {
+  public CostUsageSummary fetchCostUsage(LocalDate startDate, LocalDate endDate) {
       String wsUrl = convertToWebSocketUrl(instance.getAccessUrl());
       String token = extractTokenFromUrl(instance.getAccessUrl());
       
@@ -331,18 +343,18 @@ OpenClaw 的 Session Compaction 分为两个阶段：
       try {
           // 2. 建立连接并发送请求
           client.connect();
-          SessionsListResult result = client.request("sessions.list", Map.of(
-              "includeGlobal", false,
-              "includeUnknown", false,
-              "limit", 1000  // 限制返回数量
+          CostUsageSummary result = client.request("usage.cost", Map.of(
+              "startDate", startDate.toString(),  // "2026-04-14"
+              "endDate", endDate.toString()        // "2026-04-14"
           ));
           
           // 3. 解析返回数据
-          return parseSessionRows(result.getSessions());
+          return result;
           
       } catch (Exception e) {
-          log.error("Gateway sessions.list 调用失败: instance={}", instance.getInstanceId(), e);
-          throw new GatewayCallException("Failed to fetch sessions", e);
+          log.error("Gateway usage.cost 调用失败: startDate={}, endDate={}", 
+              startDate, endDate, e);
+          throw new GatewayCallException("Failed to fetch cost usage", e);
           
       } finally {
           // 4. 立即关闭连接（短连接模式）
@@ -351,7 +363,7 @@ OpenClaw 的 Session Compaction 分为两个阶段：
   }
   ```
 - **错误处理**：
-  - 连接超时：3 秒后放弃，标记该实例为“Gateway 不可达”
+  - 连接超时：3 秒后放弃，标记该实例为"Gateway 不可达"
   - 请求超时：5 秒后放弃，记录日志
   - 认证失败：检查 token 是否有效，连续失败 3 次告警
   - 网络异常：捕获异常并记录，不影响其他实例的轮询
@@ -573,7 +585,7 @@ CREATE TABLE `dashboard_session_processing_state` (
 **设计目的**：预聚合每日统计数据，支持前端运营大盘接口快速查询。
 
 **数据生成方式**：采用**混合数据源方案**
-- **Token/Cost/Model 统计**：从 Gateway `sessions.list` API 轮询获取（权威数据源）
+- **Token/Cost/Model 统计**：从 Gateway `usage.cost` API 轮询获取（权威数据源，但只提供全局总计）
 - **Skill/Turn 统计**：从 `dashboard_session_turn` 表聚合（Session Log 解析结果）
 
 ```sql
@@ -625,127 +637,60 @@ CREATE TABLE `dashboard_stats_daily` (
 
 **Gateway Token 数据轮询任务（每 5 分钟执行）**：
 
-**设计思路**：维护 Session 级别的 Token 快照，通过对比前后两次轮询的差值计算增量
+**设计思路**：直接调用 `usage.cost` API 获取指定日期范围的 Token 统计数据，无需维护快照表
 
 ```java
-/**
- * Session Token 快照表 - 用于计算增量
- */
-CREATE TABLE dashboard_session_token_snapshot (
-    session_key VARCHAR(256) NOT NULL COMMENT 'Session Key（主键）',
-    instance_id VARCHAR(128) NOT NULL COMMENT '实例 ID',
-    
-    -- 上次轮询时的累计值
-    last_input_tokens BIGINT DEFAULT 0,
-    last_output_tokens BIGINT DEFAULT 0,
-    last_total_tokens BIGINT DEFAULT 0,
-    last_estimated_cost_cents BIGINT DEFAULT 0,
-    
-    -- 元数据
-    last_snapshot_time DATETIME NOT NULL COMMENT '上次快照时间',
-    session_updated_at BIGINT COMMENT 'Session 的 updatedAt 时间戳',
-    
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    
-    PRIMARY KEY (session_key),
-    KEY idx_instance_id (instance_id),
-    KEY idx_last_snapshot_time (last_snapshot_time)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 @Scheduled(cron = "0 */5 * * * ?") // 每 5 分钟执行
 public void pollGatewayTokenStats() {
-    LocalDateTime currentHour = LocalDateTime.now().withMinute(0).withSecond(0);
+    // 1. 计算要查询的日期范围（最近 1 小时的数据）
+    LocalDateTime now = LocalDateTime.now();
+    LocalDate today = now.toLocalDate();
+    
     List<OpenclawInstance> instances = instanceRepository.findByStatus("running");
     
     for (OpenclawInstance instance : instances) {
         try {
-            // 1. 调用 Gateway sessions.list API
-            List<GatewaySessionRow> sessions = gatewayClient.fetchAllSessions(instance);
+            // 2. 调用 Gateway usage.cost API 获取今日数据
+            CostUsageSummary summary = gatewayClient.fetchCostUsage(today, today);
             
-            for (GatewaySessionRow session : sessions) {
-                // 2. 获取上次快照
-                TokenSnapshot lastSnapshot = snapshotRepository.findBySessionKey(session.getKey());
-                
-                // 3. 计算增量
-                long deltaInput = session.getInputTokens() - 
-                    (lastSnapshot != null ? lastSnapshot.getLastInputTokens() : 0);
-                long deltaOutput = session.getOutputTokens() - 
-                    (lastSnapshot != null ? lastSnapshot.getLastOutputTokens() : 0);
-                long deltaTotal = session.getTotalTokens() - 
-                    (lastSnapshot != null ? lastSnapshot.getLastTotalTokens() : 0);
-                long deltaCost = convertToCents(session.getEstimatedCostUsd()) - 
-                    (lastSnapshot != null ? lastSnapshot.getLastEstimatedCostCents() : 0);
-                
-                // 4. 处理边界情况
-                if (deltaTotal < 0) {
-                    // Session 重置（例如用户清空对话历史）
-                    log.warn("检测到 Session Token 计数重置: key={}, old={}, new={}", 
-                        session.getKey(), 
-                        lastSnapshot != null ? lastSnapshot.getLastTotalTokens() : 0,
-                        session.getTotalTokens());
-                    continue; // 跳过本次，等待下次正常增长
-                }
-                
-                if (deltaTotal == 0) {
-                    // 无新增 Token，跳过
-                    continue;
-                }
-                
-                // 5. 提取维度信息
-                String agentId = extractAgentIdFromKey(session.getKey());
-                String channel = extractChannelFromKey(session.getKey());
-                String model = session.getModelProvider() + "/" + session.getModel();
-                
-                // 6. 写入小时统计表（使用 INSERT ... ON DUPLICATE KEY UPDATE）
-                statsRepository.upsertHourlyTokenStats(
-                    currentHour,
-                    "global", "all",
-                    deltaInput, deltaOutput, deltaTotal, deltaCost
-                );
-                
-                statsRepository.upsertHourlyTokenStats(
-                    currentHour,
-                    "user", instance.getUid(),
-                    deltaInput, deltaOutput, deltaTotal, deltaCost
-                );
-                
-                if (channel != null) {
-                    statsRepository.upsertHourlyTokenStats(
-                        currentHour,
-                        "channel", channel,
-                        deltaInput, deltaOutput, deltaTotal, deltaCost
-                    );
-                }
-                
-                if (model != null) {
-                    statsRepository.upsertHourlyTokenStats(
-                        currentHour,
-                        "model", model,
-                        deltaInput, deltaOutput, deltaTotal, deltaCost
-                    );
-                }
-                
-                // 7. 更新快照
-                snapshotRepository.upsert(new TokenSnapshot(
-                    session.getKey(),
-                    instance.getInstanceId(),
-                    session.getInputTokens(),
-                    session.getOutputTokens(),
-                    session.getTotalTokens(),
-                    convertToCents(session.getEstimatedCostUsd()),
-                    LocalDateTime.now(),
-                    session.getUpdatedAt()
-                ));
+            if (summary == null || summary.getTotals() == null) {
+                log.warn("未获取到 Token 数据: instance={}", instance.getInstanceId());
+                continue;
             }
             
-            log.info("Gateway Token 数据同步完成: instance={}, uid={}, sessions={}", 
-                     instance.getInstanceId(), instance.getUid(), sessions.size());
+            // 3. 提取总计数据
+            CostUsageTotals totals = summary.getTotals();
+            
+            // 4. 写入小时统计表（使用 INSERT ... ON DUPLICATE KEY UPDATE）
+            statsRepository.upsertHourlyTokenStats(
+                now.withMinute(0).withSecond(0),  // 当前小时的起始时间
+                "global", "all",
+                totals.getInput(),
+                totals.getOutput(),
+                totals.getTotalTokens(),
+                convertToCents(totals.getTotalCost())
+            );
+            
+            // 5. 按用户维度写入（需要从 daily 数据中拆分，但 usage.cost 不支持 user 维度）
+            // 注意：usage.cost 只提供全局总计，不提供 user/channel/model 维度
+            // 这些维度仍需从 Session Log 解析后聚合
+            
+            log.info("Gateway Token 数据同步完成: instance={}, totalTokens={}, totalCost={}", 
+                     instance.getInstanceId(), 
+                     totals.getTotalTokens(),
+                     totals.getTotalCost());
         } catch (Exception e) {
             log.error("Gateway Token 数据同步失败: instance={}", instance.getInstanceId(), e);
         }
     }
 }
+```
+
+**关键变化**：
+1. ✅ **不再需要 `dashboard_session_token_snapshot` 表** - `usage.cost` 直接返回累计值
+2. ✅ **简化逻辑** - 无需计算增量，直接使用 API 返回的 `totals`
+3. ⚠️ **维度限制** - `usage.cost` 只提供全局总计，不提供 user/channel/model 细分
+4. ✅ **更准确** - 直接从 Gateway 内部统计获取，避免 Session Log 解析误差
 ```
 
 
@@ -773,44 +718,44 @@ public void refreshDailyStatsFromTurns() {
 **数据来源分工**：
 | 统计维度 | 数据来源 | 更新频率 | 说明 |
 |---------|---------|---------|------|
-| Token 消耗 | Gateway sessions.list + 增量快照 | 每 5 分钟 | 权威数据源，通过快照计算增量 |
-| Cost 成本 | Gateway sessions.list + 增量快照 | 每 5 分钟 | 基于 Token 计算 |
-| Model 使用 | Gateway sessions.list + 增量快照 | 每 5 分钟 | 包含 modelProvider + model |
+| Token 消耗 | Gateway usage.cost API | 每 5 分钟 | 权威数据源，直接返回累计值 |
+| Cost 成本 | Gateway usage.cost API | 每 5 分钟 | 基于实际计费模型计算 |
+| Model 使用 | dashboard_session_turn | 每小时 | 从 Session Log 解析（usage.cost 不提供 model 维度） |
 | Skill 调用 | dashboard_session_turn | 每小时 | 从 Session Log 解析 |
 | Turn 数量 | dashboard_session_turn | 每小时 | 从 Session Log 解析 |
-| Channel 分布 | 混合 | 每小时 | Token 来自 Gateway，其他来自 Session Log |
-| User 维度 | 混合 | 每小时 | Token 来自 Gateway，Skill/Turn 来自 Session Log |
+| Channel 分布 | dashboard_session_turn | 每小时 | 从 Session Log 解析（usage.cost 不提供 channel 维度） |
+| User 维度 | dashboard_session_turn | 每小时 | 从 Session Log 解析（usage.cost 不提供 user 维度） |
 
 **Turn 级别 Token 分摊策略（可选优化）**：
 
-当 Session Log 解析失败或消息缺少 usage 字段时，可按比例从 Gateway API 的 Session 级别数据分摊到各个 Turn：
+当 Session Log 解析失败或消息缺少 usage 字段时，可按比例从 `usage.cost` API 的全局数据分摊到各个 Turn：
 
 ```java
 /**
- * 如果 Turn 级别的 Token 数据缺失，从 Gateway API 的 Session 级别数据按比例分摊
+ * 如果 Turn 级别的 Token 数据缺失，从 usage.cost API 的全局数据按比例分摊
  */
-private void distributeSessionTokensToTurns(String sessionKey, List<TurnAggregate> turns) {
-    // 1. 从 Gateway 获取 Session 级别的 Token 总数
-    GatewaySessionRow session = gatewayClient.getSessionByKey(sessionKey);
-    if (session == null || session.getTotalTokens() == null) {
+private void distributeGlobalTokensToTurns(LocalDate date, List<TurnAggregate> turns) {
+    // 1. 从 Gateway 获取全局 Token 总数
+    CostUsageSummary summary = gatewayClient.fetchCostUsage(date, date);
+    if (summary == null || summary.getTotals() == null) {
         return; // 无法分摊，保持为 0
     }
     
-    int sessionTotalTokens = session.getTotalTokens();
+    long globalTotalTokens = summary.getTotals().getTotalTokens();
     
     // 2. 检查是否已有 Turn 级别的 Token 数据
-    int existingTurnTokens = turns.stream()
-        .mapToInt(t -> t.getTotalTokens() != null ? t.getTotalTokens() : 0)
+    long existingTurnTokens = turns.stream()
+        .mapToLong(t -> t.getTotalTokens() != null ? t.getTotalTokens() : 0)
         .sum();
     
-    // 3. 如果已有数据且接近 Session 总数，说明 Log 解析成功，不需要分摊
-    if (existingTurnTokens > 0 && Math.abs(existingTurnTokens - sessionTotalTokens) < 100) {
-        log.debug("Turn 级别 Token 数据完整，无需分摊: sessionKey={}", sessionKey);
+    // 3. 如果已有数据且接近全局总数，说明 Log 解析成功，不需要分摊
+    if (existingTurnTokens > 0 && Math.abs(existingTurnTokens - globalTotalTokens) < 100) {
+        log.debug("Turn 级别 Token 数据完整，无需分摊: date={}", date);
         return;
     }
     
     // 4. 按消息数比例分摊
-    int totalMessages = turns.stream().mapToInt(TurnAggregate::getMessageCount).sum();
+    long totalMessages = turns.stream().mapToInt(TurnAggregate::getMessageCount).sum();
     if (totalMessages == 0) {
         return;
     }
@@ -819,16 +764,17 @@ private void distributeSessionTokensToTurns(String sessionKey, List<TurnAggregat
         if (turn.getTotalTokens() == null || turn.getTotalTokens() == 0) {
             // 按比例分摊
             double ratio = (double) turn.getMessageCount() / totalMessages;
-            turn.setTotalTokens((int) (sessionTotalTokens * ratio));
-            turn.setInputTokens((int) (session.getInputTokens() * ratio));
-            turn.setOutputTokens((int) (session.getOutputTokens() * ratio));
-            turn.setEstimatedCostCents((int) (convertToCents(session.getEstimatedCostUsd()) * ratio));
+            turn.setTotalTokens((int) (globalTotalTokens * ratio));
+            // input/output 也按比例分摊
+            turn.setInputTokens((int) (summary.getTotals().getInput() * ratio));
+            turn.setOutputTokens((int) (summary.getTotals().getOutput() * ratio));
+            turn.setEstimatedCostCents((int) (convertToCents(summary.getTotals().getTotalCost()) * ratio));
         }
     }
     
-    log.info("Token 分摊完成: sessionKey={}, sessionTotal={}, distributed={}", 
-        sessionKey, sessionTotalTokens, 
-        turns.stream().mapToInt(TurnAggregate::getTotalTokens).sum());
+    log.info("Token 分摊完成: date={}, globalTotal={}, distributed={}", 
+        date, globalTotalTokens, 
+        turns.stream().mapToLong(TurnAggregate::getTotalTokens).sum());
 }
 ```
 
@@ -837,7 +783,7 @@ private void distributeSessionTokensToTurns(String sessionKey, List<TurnAggregat
 **设计目的**：预聚合每小时统计数据，支持前端趋势图接口快速查询。
 
 **数据生成方式**：与 `dashboard_stats_daily` 相同，采用**混合数据源方案**
-- **Token/Cost/Model 统计**：从 Gateway `sessions.list` API 轮询获取
+- **Token/Cost/Model 统计**：从 Gateway `usage.cost` API 轮询获取（但只提供全局总计，不包含 user/channel/model 维度）
 - **Skill/Turn 统计**：从 `dashboard_session_turn` 表聚合
 
 ```sql
@@ -867,34 +813,49 @@ CREATE TABLE `dashboard_stats_hourly` (
 
 **策略 A：Gateway Token 数据实时更新**（每 5 分钟执行一次）
 ```java
-// 从 Gateway sessions.list API 获取 Token 统计数据（与 daily 共用同一个定时任务）
+// 从 Gateway usage.cost API 获取 Token 统计数据
 @Scheduled(cron = "0 */5 * * * ?") // 每 5 分钟执行
 public void pollGatewayTokenStats() {
-    LocalDateTime currentHour = LocalDateTime.now().withMinute(0).withSecond(0);
+    LocalDate today = LocalDate.now();
     List<OpenclawInstance> instances = instanceRepository.findByStatus("running");
     
     for (OpenclawInstance instance : instances) {
         try {
-            // 1. 调用 Gateway sessions.list API
-            List<GatewaySessionRow> sessions = gatewayClient.fetchAllSessions(instance);
+            // 1. 调用 Gateway usage.cost API
+            CostUsageSummary summary = gatewayClient.fetchCostUsage(today, today);
             
-            // 2. 按维度聚合 Token/Cost/Model 数据
-            Map<String, TokenAggregation> aggregations = aggregateTokenStats(sessions, currentHour);
-            
-            // 3. 写入 hourly 统计表（使用 INSERT ... ON DUPLICATE KEY UPDATE 实现幂等性）
-            for (Map.Entry<String, TokenAggregation> entry : aggregations.entrySet()) {
-                statsRepository.upsertHourlyTokenStats(entry.getValue());
+            if (summary == null || summary.getTotals() == null) {
+                continue;
             }
             
-            log.info("Gateway Token 数据同步完成: instance={}, hour={}, sessions={}", 
-                     instance.getInstanceId(), currentHour, sessions.size());
+            // 2. 提取总计数据
+            CostUsageTotals totals = summary.getTotals();
+            LocalDateTime currentHour = LocalDateTime.now().withMinute(0).withSecond(0);
+            
+            // 3. 写入 hourly 统计表（使用 INSERT ... ON DUPLICATE KEY UPDATE 实现幂等性）
+            statsRepository.upsertHourlyTokenStats(
+                currentHour,
+                "global", "all",
+                totals.getInput(),
+                totals.getOutput(),
+                totals.getTotalTokens(),
+                convertToCents(totals.getTotalCost())
+            );
+            
+            log.info("Gateway Token 数据同步完成: instance={}, totalTokens={}", 
+                     instance.getInstanceId(), totals.getTotalTokens());
         } catch (Exception e) {
-            log.error("Gateway Token 数据同步失败: instance={}, hour={}", 
-                     instance.getInstanceId(), currentHour, e);
+            log.error("Gateway Token 数据同步失败: instance={}", 
+                     instance.getInstanceId(), e);
         }
     }
 }
 ```
+
+**重要说明**：
+- `usage.cost` API **不支持**按 user/channel/model 维度拆分
+- 这些维度的 Token 统计仍需从 Session Log 解析后聚合
+- `usage.cost` 只提供全局总计，适合宏观监控
 
 **策略 B：Session Turn 数据聚合**（每小时第 30 分钟执行）
 ```java
@@ -1749,7 +1710,8 @@ public class SessionScanTask {
             return;
         }
         
-        // 2. 调用 Gateway sessions.list RPC 一次性获取所有 session 的 Token 数据
+        // 2. 调用 Gateway usage.cost RPC 一次性获取所有 session 的 Token 数据
+        CostUsageSummary summary = gatewayClient.fetchCostUsage(startDate, endDate);
         GatewaySessionsClient client = new GatewaySessionsClient();
         List<GatewaySessionsClient.SessionTokenStats> allSessions = client.fetchAllSessionTokenStats(instance);
         
@@ -2348,7 +2310,7 @@ public ResponseEntity<ApiResponse<PageResponse<UserSummaryItem>>> getUserSummary
 
 #### 5.4.1 RPC 方法
 
-**方法名**: `sessions.list`
+**方法名**: `usage.cost`
 
 **请求参数**:
 ```json
@@ -2484,7 +2446,8 @@ public class GatewaySessionsClient {
     private final ObjectMapper objectMapper = new ObjectMapper();
     
     /**
-     * 通过 sessions.list RPC 一次性获取所有 session 的 Token 统计数据
+     * 通过 usage.cost RPC 一次性获取所有 session 的 Token 统计数据
+     * 返回的是日期范围内的累计值，不是 Session 级别的
      */
     public List<SessionTokenStats> fetchAllSessionTokenStats(OpenclawInstance instance) {
         
@@ -2492,7 +2455,10 @@ public class GatewaySessionsClient {
         try (WebSocketClient client = createWebSocketClient(instance)) {
             
             // 2. 构建 JSON-RPC 请求
-            JsonNode request = buildJsonRpcRequest("sessions.list", Map.of(
+            JsonNode request = buildJsonRpcRequest("usage.cost", Map.of(
+                "startDate", startDate.toString(),  // "2026-04-14"
+                "endDate", endDate.toString()        // "2026-04-14"
+            ));
                 "agentId", "main",
                 "limit", 1000  // 限制返回数量，避免大数据量
             ));
@@ -2593,26 +2559,28 @@ public class GatewaySessionsClient {
 #### 5.4.4 使用场景
 
 1. **Session 扫描任务（实时同步 - 方案B）**: 
-   - 解析完一个 session 文件后，调用 Gateway `sessions.list` 获取该 instance 下**所有 session** 的 Token 统计
-   - **关键优化**：`sessions.list` API 返回的是 session 列表，每个 session 都包含完整的 Token 数据（inputTokens, outputTokens, totalTokens, estimatedCostUsd 等）
+   - 解析完一个 session 文件后，调用 Gateway `usage.cost` 获取该 instance 下**全局**的 Token 统计
+   - **重要说明**：`usage.cost` API 返回的是日期范围内的累计值，不是 Session 级别的
+   - 无法按 user/channel/model 维度拆分，这些维度仍需从 Session Log 解析
    - 批量更新到 `dashboard_session_turn` 表中对应 session 的所有 Turn 记录
    - **优点**：一次 RPC 调用获取所有 session 的 Token 数据，效率高
    - **缺点**：Gateway 不可用时会影响扫描进度
    - **容错处理**：如果 Gateway 调用失败，记录日志并继续处理下一个文件，Token 字段保持为 0
    - **实现方式**：
      ```typescript
-     // Gateway sessions.list 调用示例
+     // Gateway usage.cost 调用示例
      const result = await callGateway({
-       method: "sessions.list",
+       method: "usage.cost",
        params: { 
-         agentId: "main",  // 指定 agent
-         limit: 1000        // 限制返回数量
+         startDate: "2026-04-14",  // 开始日期
+         endDate: "2026-04-14"     // 结束日期
        }
      });
      
-     // result.sessions 是一个数组，每个元素包含：
-     // - sessionId, inputTokens, outputTokens, totalTokens
-     // - estimatedCostUsd, modelProvider, model, contextTokens
+     // result.totals 包含全局总计：
+     // - input, output, totalTokens, totalCost
+     // - inputCost, outputCost, cacheReadCost, cacheWriteCost
+     // 注意：不提供 user/channel/model 维度，这些需从 Session Log 解析
      ```
 
 2. **按需查询**: 
@@ -2764,22 +2732,21 @@ mysql -h oceanbase-host -u admin -p openclaw_monitoring < schema.sql
 ### 7.4 运营统计优化
 
 1. **预聚合策略**: 
-   - **Gateway Token 数据**：每 5 分钟轮询 `sessions.list` API，通过增量快照计算差值，实时更新统计表
+   - **Gateway Token 数据**：每 5 分钟轮询 `usage.cost` API，直接获取累计值，无需维护快照表
    - **Session Turn 数据**：Session 扫描任务完成后，立即触发统计数据聚合
    - 将明细数据（`dashboard_session_turn`）聚合到统计表（`dashboard_stats_daily`, `dashboard_stats_hourly`）
    - 前端接口直接查询预聚合表，避免实时计算
    
 2. **混合数据源优势**：
-   - **准确性**：Token/Cost 使用 Gateway API 权威值，避免 Session Log 解析的边界情况
-   - **完整性**：Skill/Turn 使用 Session Log 解析，保证功能完整性
+   - **准确性**：Token/Cost 使用 Gateway `usage.cost` API 权威值，避免 Session Log 解析的边界情况
+   - **完整性**：Skill/Turn 使用 Session Log 解析，保证功能完整性（包括 user/channel/model 维度）
    - **实时性**：Token 数据 5 分钟延迟，Skill/Turn 数据 1 小时延迟
    - **可校验**：两套数据源可以互相验证，及时发现数据异常
    
-3. **增量快照机制**：
-   - 维护 `dashboard_session_token_snapshot` 表记录每个 Session 上次轮询的 Token 值
-   - 每次轮询时计算差值（delta = current - last），只写入增量部分
-   - 处理边界情况：Session 重置、长时间未更新、负增量等
-   - 使用 `INSERT ... ON DUPLICATE KEY UPDATE` 实现幂等性
+3. **简化设计**：
+   - 直接调用 `usage.cost` API 获取日期范围内的累计值，无需维护快照表
+   - 无需计算增量，直接使用 API 返回的 `totals`
+   - 注意：`usage.cost` 只提供全局总计，不提供 user/channel/model 细分
    
 4. **Turn 级别 Token 分摊**（可选优化）：
    - 当 Session Log 解析失败或消息缺少 usage 字段时，按比例从 Gateway API 数据分摊
