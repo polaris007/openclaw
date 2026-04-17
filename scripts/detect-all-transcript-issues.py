@@ -8,11 +8,33 @@ OpenClaw Transcript 综合问题检测器 (Python 2.7 版本)
 3. 异常停止检测（stopReason异常）
 
 使用方法：
-  python detect-all-transcript-issues.py [transcript_dir]
+  python detect-all-transcript-issues.py [transcript_dir] [--start-time TIME] [--end-time TIME]
 
 参数说明：
   transcript_dir: 可选，指定要扫描的transcript目录路径
                  如果不提供，默认使用 logs/session-transcript/openclaw-logs
+  --start-time, --start: 可选，起始时间，只扫描此时间之后创建的文件
+                        支持格式: YYYY-MM-DD, YYYY-MM-DDTHH:MM:SS, YYYY-MM-DD HH:MM:SS
+                        例如: 2026-04-01 或 2026-04-01T10:30:00
+  --end-time, --end: 可选，结束时间，只扫描此时间之前创建的文件
+                     支持格式: YYYY-MM-DD, YYYY-MM-DDTHH:MM:SS, YYYY-MM-DD HH:MM:SS
+                     例如: 2026-04-15 或 2026-04-15T18:00:00
+
+示例：
+  # 扫描所有文件
+  python detect-all-transcript-issues.py
+  
+  # 扫描指定目录
+  python detect-all-transcript-issues.py logs/session-transcript/openclaw-logs
+  
+  # 只扫描2026-04-01之后的文件
+  python detect-all-transcript-issues.py --start 2026-04-01
+  
+  # 只扫描2026-04-01到2026-04-15之间的文件
+  python detect-all-transcript-issues.py --start 2026-04-01 --end 2026-04-15
+  
+  # 扫描指定目录和时间范围
+  python detect-all-transcript-issues.py logs/session-transcript/openclaw-logs --start 2026-04-10 --end 2026-04-15
 """
 
 from __future__ import unicode_literals, print_function
@@ -796,14 +818,14 @@ def analyze_transcript(file_path, accounts_mapping=None):
 def find_jsonl_files(dir_path):
     """查找所有JSONL文件（匹配包含.jsonl的文件名）"""
     import platform
-    
+
     # Linux/Mac 优先使用 find 命令（速度快 5-10 倍）
-    if platform.system() != 'Windows':
-        try:
-            return _find_jsonl_files_external(dir_path)
-        except Exception as e:
-            safe_print('   ⚠️ find 命令失败，降级到 os.walk: %s' % str(e))
-    
+#    if platform.system() != 'Windows':
+#        try:
+#            return _find_jsonl_files_external(dir_path)
+#        except Exception as e:
+#            safe_print('   ⚠️ find 命令失败，降级到 os.walk: %s' % str(e))
+
     # Windows 或降级使用 os.walk
     return _find_jsonl_files_walk(dir_path)
 
@@ -811,10 +833,10 @@ def find_jsonl_files(dir_path):
 def _find_jsonl_files_external(dir_path):
     """使用系统 find 命令查找文件（Linux/Mac，最快）"""
     import subprocess
-    
+
     dir_path = os.path.normpath(dir_path)
     safe_print('🔍 正在使用 find 命令扫描目录树...')
-    
+
     # 构建 find 命令
     # -type f: 只查找文件
     # -name '*.jsonl*': 匹配包含 .jsonl 的文件名
@@ -824,7 +846,7 @@ def _find_jsonl_files_external(dir_path):
         '(', '-name', '*.jsonl*', ')',
         '!', '-name', '*.swp'
     ]
-    
+
     try:
         result = subprocess.Popen(
             cmd,
@@ -833,9 +855,10 @@ def _find_jsonl_files_external(dir_path):
             shell=False
         )
         stdout, stderr = result.communicate()
-        
+
         if result.returncode == 0:
-            files = [f.strip() for f in stdout.strip().split('\n') if f.strip()]
+            files = [f.strip()
+                     for f in stdout.strip().split('\n') if f.strip()]
             safe_print('   ✅ find 命令扫描完成，找到 %d 个 JSONL 文件\n' % len(files))
             return files
         else:
@@ -849,27 +872,27 @@ def _find_jsonl_files_walk(dir_path):
     results = []
     # 规范化路径，解析 .. 等符号
     dir_path = os.path.normpath(dir_path)
-    
+
     safe_print('🔍 正在扫描目录树...')
     dir_count = 0
     file_count = 0
     last_progress_time = 0
-    
+
     import time
     start_time = time.time()
-    
+
     # 使用 os.walk() 而非递归 os.listdir()，避免深层目录扫描问题
     for root, dirs, files in os.walk(dir_path):
         dir_count += 1
         current_time = time.time()
-        
+
         # 每 0.5 秒或每 100 个目录显示一次进度
         if dir_count % 100 == 0 or (current_time - last_progress_time) >= 0.5:
             elapsed = current_time - start_time
             safe_print('   已扫描 %d 个目录，找到 %d 个文件... (%.1f秒)' % (
                 dir_count, len(results), elapsed))
             last_progress_time = current_time
-        
+
         for filename in files:
             file_count += 1
             # 只处理 .jsonl 相关文件，排除 .swp 等临时文件
@@ -877,11 +900,11 @@ def _find_jsonl_files_walk(dir_path):
                 # 处理所有包含 .jsonl 的文件，包括 .jsonl.reset、.jsonl.deleted 等归档文件
                 full_path = os.path.join(root, filename)
                 results.append(full_path)
-    
+
     elapsed_time = time.time() - start_time
     safe_print('   ✅ 扫描完成：共遍历 %d 个目录，%d 个文件，找到 %d 个 JSONL 文件 (%.1f秒)\n' % (
         dir_count, file_count, len(results), elapsed_time))
-    
+
     return results
 
 
@@ -1012,11 +1035,206 @@ def generate_markdown_report(all_issues, total_conversation_turns, total_problem
     return markdown
 
 
+def parse_time_argument(time_str):
+    """
+    解析时间参数字符串
+    
+    支持的格式：
+    - YYYY-MM-DD (例如: 2026-04-01)
+    - YYYY-MM-DDTHH:MM:SS (例如: 2026-04-01T10:30:00)
+    - YYYY-MM-DD HH:MM:SS (例如: 2026-04-01 10:30:00)
+    
+    Returns:
+        datetime 对象，如果解析失败返回 None
+    """
+    if not time_str:
+        return None
+    
+    formats = [
+        '%Y-%m-%dT%H:%M:%S',
+        '%Y-%m-%d %H:%M:%S',
+        '%Y-%m-%d',
+    ]
+    
+    for fmt in formats:
+        try:
+            return datetime.strptime(time_str, fmt)
+        except ValueError:
+            continue
+    
+    safe_print('⚠️ 无法解析时间格式: %s' % time_str)
+    safe_print('   支持的格式: YYYY-MM-DD, YYYY-MM-DDTHH:MM:SS, YYYY-MM-DD HH:MM:SS')
+    return None
+
+
+def extract_time_from_filename(filename):
+    """
+    从文件名中提取时间戳
+    
+    支持的格式：
+    - .reset.YYYY-MM-DDTHH-MM-SS.mmmZ
+    - .deleted.YYYY-MM-DDTHH-MM-SS.mmmZ
+    - .compacted.YYYY-MM-DDTHH-MM-SS.mmmZ
+    
+    Returns:
+        datetime 对象，如果提取失败返回 None
+    """
+    # 匹配归档文件中的时间戳
+    patterns = [
+        r'\.(?:reset|deleted|compacted)\.(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})',
+    ]
+    
+    import re
+    for pattern in patterns:
+        match = re.search(pattern, filename)
+        if match:
+            # 直接提取各个部分并重组
+            year, month, day, hour, minute, second = match.groups()
+            time_str = '%s-%s-%sT%s:%s:%s' % (year, month, day, hour, minute, second)
+            try:
+                return datetime.strptime(time_str, '%Y-%m-%dT%H:%M:%S')
+            except ValueError:
+                continue
+    
+    return None
+
+
+def get_file_time_safe(file_path):
+    """
+    安全地获取文件时间，处理 Windows 长路径问题
+    
+    Args:
+        file_path: 文件路径
+    
+    Returns:
+        datetime 对象，如果失败返回 None
+    """
+    try:
+        # Windows 长路径处理：添加 UNC 前缀
+        if sys.platform == 'win32':
+            # 总是使用 UNC 前缀来处理长路径
+            abs_path = os.path.abspath(file_path)
+            if not abs_path.startswith('\\\\?\\'):
+                unc_path = '\\\\?\\' + abs_path
+            else:
+                unc_path = abs_path
+            
+            # 获取文件创建时间
+            file_time = datetime.fromtimestamp(os.path.getctime(unc_path))
+        else:
+            # Linux/Mac 使用 st_mtime（最后修改时间）
+            file_time = datetime.fromtimestamp(os.path.getmtime(file_path))
+        
+        return file_time
+    except Exception as e:
+        # 静默失败，返回 None
+        return None
+
+
+def filter_files_by_time(files, start_time=None, end_time=None):
+    """
+    根据文件创建时间过滤文件列表
+    
+    Args:
+        files: 文件路径列表
+        start_time: 起始时间（datetime对象），只保留此时间之后创建的文件
+        end_time: 结束时间（datetime对象），只保留此时间之前创建的文件
+    
+    Returns:
+        过滤后的文件列表
+    """
+    if not start_time and not end_time:
+        return files
+    
+    filtered = []
+    skipped_count = 0
+    from_filename_count = 0
+    
+    for file_path in files:
+        file_time = None
+        
+        # 首先尝试从文件系统获取文件时间
+        # 注意：即使 os.path.exists() 可能因长路径失败，我们也尝试获取时间
+        file_time = get_file_time_safe(file_path)
+        
+        # 如果文件系统获取失败，尝试从文件名提取时间
+        if file_time is None:
+            filename = os.path.basename(file_path)
+            file_time = extract_time_from_filename(filename)
+            if file_time is not None:
+                from_filename_count += 1
+        
+        # 如果仍然无法获取时间，保留文件（不过滤）
+        if file_time is None:
+            filtered.append(file_path)
+            continue
+        
+        # 检查是否在时间范围内
+        if start_time and file_time < start_time:
+            skipped_count += 1
+            continue
+        
+        if end_time and file_time > end_time:
+            skipped_count += 1
+            continue
+        
+        filtered.append(file_path)
+    
+    # 显示统计信息
+    if from_filename_count > 0:
+        safe_print('   ℹ️  从文件名提取时间的文件数: %d' % from_filename_count)
+    if skipped_count > 0:
+        safe_print('   ℹ️  根据时间范围过滤：跳过 %d 个文件，保留 %d 个文件\n' % (
+            skipped_count, len(filtered)))
+    
+    return filtered
+
+
 def main():
     """主函数"""
     args = sys.argv[1:]
-    custom_dir = args[0] if args else None
-
+    
+    # 解析命令行参数
+    custom_dir = None
+    start_time_str = None
+    end_time_str = None
+    
+    i = 0
+    while i < len(args):
+        if args[i] in ['--start-time', '--start']:
+            if i + 1 < len(args):
+                start_time_str = args[i + 1]
+                i += 2
+            else:
+                safe_print('❌ 错误: --start-time 需要指定时间参数')
+                sys.exit(1)
+        elif args[i] in ['--end-time', '--end']:
+            if i + 1 < len(args):
+                end_time_str = args[i + 1]
+                i += 2
+            else:
+                safe_print('❌ 错误: --end-time 需要指定时间参数')
+                sys.exit(1)
+        elif not args[i].startswith('--'):
+            # 第一个非选项参数作为目录路径
+            if custom_dir is None:
+                custom_dir = args[i]
+            i += 1
+        else:
+            safe_print('⚠️ 未知参数: %s' % args[i])
+            i += 1
+    
+    # 解析时间参数
+    start_time = parse_time_argument(start_time_str)
+    end_time = parse_time_argument(end_time_str)
+    
+    if start_time:
+        safe_print('📅 起始时间: %s' % start_time.strftime('%Y-%m-%d %H:%M:%S'))
+    if end_time:
+        safe_print('📅 结束时间: %s' % end_time.strftime('%Y-%m-%d %H:%M:%S'))
+    if start_time or end_time:
+        safe_print('')
+    
     if custom_dir:
         if os.path.isabs(custom_dir):
             transcript_dir = custom_dir
@@ -1035,6 +1253,12 @@ def main():
 
     safe_print('\n🔍 开始扫描transcript文件...')
     jsonl_files = find_jsonl_files(transcript_dir)
+    
+    # 根据时间范围过滤文件
+    if start_time or end_time:
+        safe_print('\n⏰ 正在根据时间范围过滤文件...')
+        jsonl_files = filter_files_by_time(jsonl_files, start_time, end_time)
+        safe_print('✅ 过滤后剩余 %d 个文件\n' % len(jsonl_files))
 
     # 加载账户映射
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -1047,7 +1271,7 @@ def main():
     safe_print('\n🔬 开始分析文件...\n')
     import time
     start_time = time.time()
-    
+
     for i, file_path in enumerate(jsonl_files):
         result = analyze_transcript(file_path, accounts_mapping)
         all_issues.extend(result['issues'])
@@ -1063,9 +1287,10 @@ def main():
                 remaining = estimated_total - elapsed
                 safe_print('   进度: %d/%d (%.1f%%), 发现问题 %d 个, 预计剩余 %.0f 秒...' % (
                     i + 1, len(jsonl_files), progress * 100, len(all_issues), remaining))
-    
+
     elapsed_time = time.time() - start_time
-    safe_print('\n✅ 分析完成！共发现 %d 个问题 (耗时 %.1f 秒)\n' % (len(all_issues), elapsed_time))
+    safe_print('\n✅ 分析完成！共发现 %d 个问题 (耗时 %.1f 秒)\n' %
+               (len(all_issues), elapsed_time))
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     report_path = os.path.join(
@@ -1093,7 +1318,7 @@ def main():
     for issue in all_issues:
         severity = issue.get('severity', 'UNKNOWN')
         severity_stats[severity] = severity_stats.get(severity, 0) + 1
-    
+
     for severity in ['HIGH', 'MEDIUM', 'LOW']:
         if severity in severity_stats:
             safe_print('  - %s: %d' % (severity, severity_stats[severity]))
