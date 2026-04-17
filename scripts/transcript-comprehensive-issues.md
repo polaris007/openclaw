@@ -1,10 +1,10 @@
 # OpenClaw Session Transcript 综合问题检测报告
 
-**生成时间**: 2026-04-17T01:07:34.455Z
+**生成时间**: 2026-04-17T01:12:43.728Z
 
 ## 📊 统计概览
 
-- **总问题数**: 329
+- **总问题数**: 326
 
 ### 问题类型分布
 
@@ -13,8 +13,8 @@
 | abnormal_stop | 168 | 异常停止 |
 | modelErrors | 105 | 模型API错误 |
 | timeoutErrors | 23 | 超时错误 |
-| flow_integrity_no_reply | 16 | 用户提问后无回复 |
 | flow_integrity_missing_tool_result | 15 | 工具调用后无执行结果 |
+| flow_integrity_no_reply | 13 | 用户提问后无回复 |
 | flow_integrity_missing_final_answer | 2 | 工具执行后无最终回复 |
 
 ---
@@ -5149,345 +5149,9 @@ LLM idle timeout (60s): no response from model
 
 ---
 
-## flow_integrity_no_reply - 用户提问后无回复 (16)
-
-### 问题 #297
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "undefined"
-
---- 错误行内容 ---
-Line 26: {"type":"message","id":"c3392c7b","parentId":"870e422e","timestamp":"2026-04-15T05:08:30.526Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 13:08 GMT+8] 需要怎么办"}],"timestamp":1776229710522}}
-
---- 下一行内容 ---
-Line 27: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776229710682,"runId":"req_1776229706650_j0xc69j36","sessionId":"a002ae1e-4ba1-4f81-901c-478c09b1502f","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"This operation was aborted"},"id":"4d0e3df8","parentId":"c3392c7b","timestamp":"2026-04-15T05:08:30.682Z"}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\2839c2f17383d426e0f87c82614743eed21a2aa5a58d39da3b11de6dc56388a31ba9219c47d42da0009bc58633ad7c2f6003d505d1ffb40a96eac87034abf2bf\agents\main\sessions\a002ae1e-4ba1-4f81-901c-478c09b1502f.jsonl.reset.2026-04-15T05-08-30.870Z`
-- **Session ID**: `a002ae1e-4ba1-4f81-901c-478c09b1502f`
-- **行号**: 26
-- **时间戳**: 2026-04-15T05:08:30.526Z
-
----
-
-### 问题 #298
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 7: {"type":"message","id":"34d68000","parentId":"93389adb","timestamp":"2026-04-15T05:47:31.592Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 13:47 GMT+8] 刚刚我把SHU心无忧.docx放到了./2026-04-15目录下。我的需求是： 分析word中的内容，提炼并总结，最终产生一个ppt汇报，使用我刚刚上传的skills"}],"timestamp":1776232051589}}
-
---- 下一行内容 ---
-Line 8: {"type":"message","id":"cc605b68","parentId":"34d68000","timestamp":"2026-04-15T05:47:32.843Z","message":{"role":"toolResult","toolCallId":"call_303b45e7d0af4b4089f3bf8e","toolName":"pptx","content":[{"type":"text","text":"Tool pptx not found"}],"details":{},"isError":true,"timestamp":1776232052840}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
-- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
-- **行号**: 7
-- **时间戳**: 2026-04-15T05:47:31.592Z
-
----
-
-### 问题 #299
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "undefined"
-
---- 错误行内容 ---
-Line 73: {"type":"message","id":"968ec36f","parentId":"8903060c","timestamp":"2026-04-14T06:41:51.306Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Tue 2026-04-14 14:41 GMT+8] 分析的如何？"}],"timestamp":1776148911300}}
-
---- 下一行内容 ---
-Line 74: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776148975899,"runId":"req_1776148910958_kbpe7zfuk","sessionId":"0f678300-9756-4ea9-b283-9cf231eaba5f","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"LLM idle timeout (60s): no response from model"},"id":"4d43191e","parentId":"968ec36f","timestamp":"2026-04-14T06:42:55.899Z"}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\0f678300-9756-4ea9-b283-9cf231eaba5f.jsonl`
-- **Session ID**: `0f678300-9756-4ea9-b283-9cf231eaba5f`
-- **行号**: 73
-- **时间戳**: 2026-04-14T06:41:51.306Z
-
----
-
-### 问题 #300
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"undefined"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "undefined"
-
---- 错误行内容 ---
-Line 51: {"type":"message","id":"17b7226b","parentId":"b650e4c9","timestamp":"2026-04-15T09:22:19.183Z","message":{"role":"user","content":[{"type":"text","text":"[Wed 2026-04-15 17:22 GMT+8] <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\nOpenClaw runtime context (internal):\nThis context is runtime-generated, not user-authored. Keep internal details private.\n\n[Internal task completion event]\nsource: subagent\nsession_key: agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc\nsession_id: f2d7f49d-9571-4cc
-
---- 下一行内容 ---
-Line 52: {"type":"custom","customType":"openclaw:prompt-error","data":{"timestamp":1776245000623,"runId":"announce:v1:agent:main:subagent:04db5757-28f0-45b9-9dfe-b06ea48ba1bc:766d9b83-aada-4e2e-9b95-75c228b3b61d","sessionId":"db704d36-95c4-4926-a7eb-e9799a26cc6a","provider":"my-qwen-provider","model":"AIAPLLM-vision-nothink","api":"openai-completions","error":"LLM idle timeout (60s): no response from model"},"id":"7f3ccaae","parentId":"17b7226b","timestamp":"2026-04-15T09:23:20.623Z"}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\b487297d6f8f74a2f1bced0cfbb32195bbbe3294ebeb0cdfbff67144cf38d843240dd65c30cbd9cab73ae5800a5a6c75aaea3f1e23a6cfee9dbc6cc71c352753\agents\main\sessions\db704d36-95c4-4926-a7eb-e9799a26cc6a.jsonl.reset.2026-04-15T09-56-56.895Z`
-- **Session ID**: `db704d36-95c4-4926-a7eb-e9799a26cc6a`
-- **行号**: 51
-- **时间戳**: 2026-04-15T09:22:19.183Z
-
----
-
-### 问题 #301
-
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"2026-04-09T09:29:14.877Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Thu 2026-04-09 09:28 UTC] 使用技contact-book技能； 我的通讯录电话是多少"}],"timestamp":1775726954865}}
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
-- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
-- **行号**: 72
-- **时间戳**: 2026-04-09T09:29:14.877Z
-
----
-
-### 问题 #302
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 126: {"type":"message","id":"3c4a82a7","parentId":"f36496ed","timestamp":"2026-04-02T08:49:41.849Z","message":{"role":"user","content":[{"type":"text","text":"System: [2026-04-02 08:49:06 UTC] [Post-compaction context refresh]\nSystem: \nSystem: Session was just compacted. The conversation summary above is a hint, NOT a substitute for your startup sequence. Execute your Session Startup sequence now — read the required files before responding to the user.\nSystem: \nSystem: Critical rules from AGENTS.
-
---- 下一行内容 ---
-Line 127: {"type":"message","id":"770661a5","parentId":"3c4a82a7","timestamp":"2026-04-02T08:49:44.185Z","message":{"role":"toolResult","toolCallId":"call_918e18952809411f9caaf68c","toolName":"weather","content":[{"type":"text","text":"Tool weather not found"}],"details":{},"isError":true,"timestamp":1775119784166}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
-- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
-- **行号**: 126
-- **时间戳**: 2026-04-02T08:49:41.849Z
-
----
-
-### 问题 #303
-
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2026-04-02T08:56:03.465Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
-- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
-- **行号**: 148
-- **时间戳**: 2026-04-02T08:56:03.465Z
-
----
-
-### 问题 #304
-
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"2026-04-02T15:05:05.579Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\9fd7e156-e3a7-496e-89e3-84e8611ab65a.jsonl.reset.2026-04-02T15-05-05.957Z`
-- **Session ID**: `9fd7e156-e3a7-496e-89e3-84e8611ab65a`
-- **行号**: 84
-- **时间戳**: 2026-04-02T15:05:05.579Z
-
----
-
-### 问题 #305
-
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"2026-04-02T09:27:00.471Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl.reset.2026-04-02T09-27-03.259Z`
-- **Session ID**: `c5c862a7-da7a-4e74-ad62-5c3afec2c9e2`
-- **行号**: 59
-- **时间戳**: 2026-04-02T09:27:00.471Z
-
----
-
-### 问题 #306
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 11: {"type":"message","id":"7821a954","parentId":"5753a2fe","timestamp":"2026-03-25T08:24:57.664Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Wed 2026-03-25 08:24 UTC] 帮我创建一个skill 功能是读取若干个excel文件 根据excel的构成 和处理 excel的具体需求 生成nodejs代码 执行后处理excel"}],"timestamp":1774427097659}}
-
---- 下一行内容 ---
-Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"2026-03-25T08:24:58.566Z","message":{"role":"toolResult","toolCallId":"call_9e2a906cccd44542bdccc5a0","toolName":"skill-creator","content":[{"type":"text","text":"Tool skill-creator not found"}],"details":{},"isError":true,"timestamp":1774427098557}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\e680e881-9873-444c-bd8b-2f6742248e45.jsonl.reset.2026-03-28T04-14-20.084Z`
-- **Session ID**: `e680e881-9873-444c-bd8b-2f6742248e45`
-- **行号**: 11
-- **时间戳**: 2026-03-25T08:24:57.664Z
-
----
-
-### 问题 #307
-
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"2026-04-03T07:05:13.013Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Fri 2026-04-03 07:05 UTC] 是。"}],"timestamp":1775199913009}}
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\f3456e19-3ffe-4e41-9bad-cc80f8083c91.jsonl.reset.2026-04-03T07-05-16.658Z`
-- **Session ID**: `f3456e19-3ffe-4e41-9bad-cc80f8083c91`
-- **行号**: 29
-- **时间戳**: 2026-04-03T07:05:13.013Z
-
----
-
-### 问题 #308
-
-- **事件类型**: `message`
-- **描述**: 用户提问后没有任何回复（文件在此结束）
-- **错误信息**: ```
-Expected assistant message after user message, but reached end of file
-
---- 错误行内容 ---
-Line 9: {"type":"message","id":"50fa9702","parentId":"e7fa7a8a","timestamp":"2026-04-15T08:37:09.355Z","message":{"role":"user","content":[{"type":"text","text":"Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.\nWhen reading HEARTBEAT.md, use workspace file /home/node/.openclaw/workspace/HEARTBEAT.md (exact case). Do not read docs/heartbeat.md.\nCurrent time: Wednesday, April 15th, 2
-
-```
-- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\52c52422-bc70-4b32-b797-b01f0285619d.jsonl`
-- **Session ID**: `52c52422-bc70-4b32-b797-b01f0285619d`
-- **行号**: 9
-- **时间戳**: 2026-04-15T08:37:09.355Z
-
----
-
-### 问题 #309
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 9: {"type":"message","id":"af72a086","parentId":"d27eec57","timestamp":"2026-04-15T05:15:31.762Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 13:15 GMT+8] k8s-xc-02/xjsyy-cluster-xc-04 分析这个集群的异常pod 本次允许你使用kubectl"}],"timestamp":1776230131758}}
-
---- 下一行内容 ---
-Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"2026-04-15T05:15:33.066Z","message":{"role":"toolResult","toolCallId":"call_9899960148154855a4a2ef11","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776230133062}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
-- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
-- **行号**: 9
-- **时间戳**: 2026-04-15T05:15:31.762Z
-
----
-
-### 问题 #310
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 7: {"type":"message","id":"e25c2201","parentId":"44f0a4fa","timestamp":"2026-04-15T02:00:33.324Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 10:00 GMT+8] 查看下 包含aiap的pod"}],"timestamp":1776218433320}}
-
---- 下一行内容 ---
-Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"2026-04-15T02:00:36.599Z","message":{"role":"toolResult","toolCallId":"call_dfbb1b44df024fb389c9f07d","toolName":"k8s_pilot","content":[{"type":"text","text":"Tool k8s_pilot not found"}],"details":{},"isError":true,"timestamp":1776218436596}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
-- **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
-- **行号**: 7
-- **时间戳**: 2026-04-15T02:00:33.324Z
-
----
-
-### 问题 #311
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 23: {"type":"message","id":"b9a12180","parentId":"6e4ea368","timestamp":"2026-04-15T03:15:17.410Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:15 GMT+8] 重新加载下kube-polot 工具"}],"timestamp":1776222917405}}
-
---- 下一行内容 ---
-Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"2026-04-15T03:15:17.925Z","message":{"role":"toolResult","toolCallId":"call_921848a820714f22af405c82","toolName":"skills-installer","content":[{"type":"text","text":"Tool skills-installer not found"}],"details":{},"isError":true,"timestamp":1776222917921}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
-- **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
-- **行号**: 23
-- **时间戳**: 2026-04-15T03:15:17.410Z
-
----
-
-### 问题 #312
-
-- **事件类型**: `message`
-- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
-- **错误信息**: ```
-Expected "assistant" after "user", but got "toolResult"
-
---- 错误行内容 ---
-Line 7: {"type":"message","id":"848d45fc","parentId":"f16c9f9f","timestamp":"2026-04-15T03:07:48.450Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:07 GMT+8] 帮我统计下所有包含sidecar的pod 中sidecar 的资源占用情况 按照集群汇总给我"}],"timestamp":1776222468443}}
-
---- 下一行内容 ---
-Line 8: {"type":"message","id":"99d39886","parentId":"848d45fc","timestamp":"2026-04-15T03:07:51.348Z","message":{"role":"toolResult","toolCallId":"call_6601b8b04bf34c02acfd3187","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776222471344}}
-
-```
-- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
-- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
-- **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
-- **行号**: 7
-- **时间戳**: 2026-04-15T03:07:48.450Z
-
----
-
 ## flow_integrity_missing_tool_result - 工具调用后无执行结果 (15)
 
-### 问题 #313
+### 问题 #297
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5509,7 +5173,7 @@ Line 51: {"type":"message","id":"9117e9be","parentId":"ec099416","timestamp":"20
 
 ---
 
-### 问题 #314
+### 问题 #298
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5531,7 +5195,7 @@ Line 110: {"type":"message","id":"03d23230","parentId":"961a72d8","timestamp":"2
 
 ---
 
-### 问题 #315
+### 问题 #299
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5553,7 +5217,7 @@ Line 119: {"type":"message","id":"95c64be8","parentId":"4225785c","timestamp":"2
 
 ---
 
-### 问题 #316
+### 问题 #300
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5575,7 +5239,7 @@ Line 105: {"type":"message","id":"cc68268a","parentId":"54641f07","timestamp":"2
 
 ---
 
-### 问题 #317
+### 问题 #301
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5597,7 +5261,7 @@ Line 341: {"type":"message","id":"a061e972","parentId":"50f5cff9","timestamp":"2
 
 ---
 
-### 问题 #318
+### 问题 #302
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5619,7 +5283,7 @@ Line 78: {"type":"message","id":"129fc4eb","parentId":"110b9026","timestamp":"20
 
 ---
 
-### 问题 #319
+### 问题 #303
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5641,7 +5305,7 @@ Line 98: {"type":"message","id":"4be3a10a","parentId":"ed1ac085","timestamp":"20
 
 ---
 
-### 问题 #320
+### 问题 #304
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5663,7 +5327,7 @@ Line 116: {"type":"message","id":"b87f2b58","parentId":"53e58948","timestamp":"2
 
 ---
 
-### 问题 #321
+### 问题 #305
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5685,7 +5349,7 @@ Line 214: {"type":"message","id":"00de27c6","parentId":"b339531e","timestamp":"2
 
 ---
 
-### 问题 #322
+### 问题 #306
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5707,7 +5371,7 @@ Line 235: {"type":"message","id":"63aa604c","parentId":"a6f751e2","timestamp":"2
 
 ---
 
-### 问题 #323
+### 问题 #307
 
 - **事件类型**: `message`
 - **描述**: Assistant调用了工具但没有收到工具执行结果（文件在此结束）
@@ -5726,7 +5390,7 @@ Line 30: {"type":"message","id":"fe5b8dee","parentId":"3bb82aa3","timestamp":"20
 
 ---
 
-### 问题 #324
+### 问题 #308
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5748,7 +5412,7 @@ Line 11: {"type":"message","id":"830452f1","parentId":"b5c527d4","timestamp":"20
 
 ---
 
-### 问题 #325
+### 问题 #309
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5770,7 +5434,7 @@ Line 53: {"type":"message","id":"eea0341f","parentId":"b8d51b9a","timestamp":"20
 
 ---
 
-### 问题 #326
+### 问题 #310
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5792,7 +5456,7 @@ Line 19: {"type":"message","id":"6fbe2c67","parentId":"36bc2a63","timestamp":"20
 
 ---
 
-### 问题 #327
+### 问题 #311
 
 - **事件类型**: `message`
 - **描述**: Assistant调用工具后的下一条消息角色是"assistant"，而非预期的toolResult
@@ -5814,9 +5478,279 @@ Line 29: {"type":"message","id":"50b60623","parentId":"71b273cf","timestamp":"20
 
 ---
 
+## flow_integrity_no_reply - 用户提问后无回复 (13)
+
+### 问题 #312
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 7: {"type":"message","id":"34d68000","parentId":"93389adb","timestamp":"2026-04-15T05:47:31.592Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Wed 2026-04-15 13:47 GMT+8] 刚刚我把SHU心无忧.docx放到了./2026-04-15目录下。我的需求是： 分析word中的内容，提炼并总结，最终产生一个ppt汇报，使用我刚刚上传的skills"}],"timestamp":1776232051589}}
+
+--- 下一行内容 ---
+Line 8: {"type":"message","id":"cc605b68","parentId":"34d68000","timestamp":"2026-04-15T05:47:32.843Z","message":{"role":"toolResult","toolCallId":"call_303b45e7d0af4b4089f3bf8e","toolName":"pptx","content":[{"type":"text","text":"Tool pptx not found"}],"details":{},"isError":true,"timestamp":1776232052840}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\a995c7a073fd97cd533a17b62717f0d48e1c6a2d3597fb0668c16564788bde06a2ca13b88f6f674596a9d3f0ae0194307a36103251a8b8cc2ac7cbcc8717ee82\agents\main\sessions\9a514b1b-786a-406a-914e-658a7feb59eb.jsonl.reset.2026-04-15T05-47-55.160Z`
+- **Session ID**: `9a514b1b-786a-406a-914e-658a7feb59eb`
+- **行号**: 7
+- **时间戳**: 2026-04-15T05:47:31.592Z
+
+---
+
+### 问题 #313
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 72: {"type":"message","id":"2d06c18d","parentId":"05881b15","timestamp":"2026-04-09T09:29:14.877Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"cli\",\n  \"id\": \"cli\"\n}\n```\n\n[Thu 2026-04-09 09:28 UTC] 使用技contact-book技能； 我的通讯录电话是多少"}],"timestamp":1775726954865}}
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\559802e0-3b92-48d6-b014-baad2b06693e.jsonl.reset.2026-04-09T09-29-15.413Z`
+- **Session ID**: `559802e0-3b92-48d6-b014-baad2b06693e`
+- **行号**: 72
+- **时间戳**: 2026-04-09T09:29:14.877Z
+
+---
+
+### 问题 #314
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 126: {"type":"message","id":"3c4a82a7","parentId":"f36496ed","timestamp":"2026-04-02T08:49:41.849Z","message":{"role":"user","content":[{"type":"text","text":"System: [2026-04-02 08:49:06 UTC] [Post-compaction context refresh]\nSystem: \nSystem: Session was just compacted. The conversation summary above is a hint, NOT a substitute for your startup sequence. Execute your Session Startup sequence now — read the required files before responding to the user.\nSystem: \nSystem: Critical rules from AGENTS.
+
+--- 下一行内容 ---
+Line 127: {"type":"message","id":"770661a5","parentId":"3c4a82a7","timestamp":"2026-04-02T08:49:44.185Z","message":{"role":"toolResult","toolCallId":"call_918e18952809411f9caaf68c","toolName":"weather","content":[{"type":"text","text":"Tool weather not found"}],"details":{},"isError":true,"timestamp":1775119784166}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
+- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
+- **行号**: 126
+- **时间戳**: 2026-04-02T08:49:41.849Z
+
+---
+
+### 问题 #315
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 148: {"type":"message","id":"65384fe5","parentId":"d689a640","timestamp":"2026-04-02T08:56:03.465Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\5a020fba-1343-4725-861a-1083e4ce0105.jsonl.reset.2026-04-02T08-56-21.732Z`
+- **Session ID**: `5a020fba-1343-4725-861a-1083e4ce0105`
+- **行号**: 148
+- **时间戳**: 2026-04-02T08:56:03.465Z
+
+---
+
+### 问题 #316
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 84: {"type":"message","id":"7e2830da","parentId":"8d46606f","timestamp":"2026-04-02T15:05:05.579Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\9fd7e156-e3a7-496e-89e3-84e8611ab65a.jsonl.reset.2026-04-02T15-05-05.957Z`
+- **Session ID**: `9fd7e156-e3a7-496e-89e3-84e8611ab65a`
+- **行号**: 84
+- **时间戳**: 2026-04-02T15:05:05.579Z
+
+---
+
+### 问题 #317
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 59: {"type":"message","id":"152d5e4f","parentId":"90e0b714","timestamp":"2026-04-02T09:27:00.471Z","message":{"role":"user","content":[{"type":"text","text":"Pre-compaction memory flush. Store durable memories only in memory/2026-04-02.md (create memory/ if needed). Treat workspace bootstrap/reference files such as MEMORY.md, SOUL.md, TOOLS.md, and AGENTS.md as read-only during this flush; never overwrite, replace, or edit them. If memory/2026-04-02.md already exists, APPEND new content only and do 
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\c5c862a7-da7a-4e74-ad62-5c3afec2c9e2.jsonl.reset.2026-04-02T09-27-03.259Z`
+- **Session ID**: `c5c862a7-da7a-4e74-ad62-5c3afec2c9e2`
+- **行号**: 59
+- **时间戳**: 2026-04-02T09:27:00.471Z
+
+---
+
+### 问题 #318
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 11: {"type":"message","id":"7821a954","parentId":"5753a2fe","timestamp":"2026-03-25T08:24:57.664Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Wed 2026-03-25 08:24 UTC] 帮我创建一个skill 功能是读取若干个excel文件 根据excel的构成 和处理 excel的具体需求 生成nodejs代码 执行后处理excel"}],"timestamp":1774427097659}}
+
+--- 下一行内容 ---
+Line 12: {"type":"message","id":"e5649ed2","parentId":"7821a954","timestamp":"2026-03-25T08:24:58.566Z","message":{"role":"toolResult","toolCallId":"call_9e2a906cccd44542bdccc5a0","toolName":"skill-creator","content":[{"type":"text","text":"Tool skill-creator not found"}],"details":{},"isError":true,"timestamp":1774427098557}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\e680e881-9873-444c-bd8b-2f6742248e45.jsonl.reset.2026-03-28T04-14-20.084Z`
+- **Session ID**: `e680e881-9873-444c-bd8b-2f6742248e45`
+- **行号**: 11
+- **时间戳**: 2026-03-25T08:24:57.664Z
+
+---
+
+### 问题 #319
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 29: {"type":"message","id":"b977fa13","parentId":"e117f159","timestamp":"2026-04-03T07:05:13.013Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"test\",\n  \"id\": \"test\"\n}\n```\n\n[Fri 2026-04-03 07:05 UTC] 是。"}],"timestamp":1775199913009}}
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\e82a63b4e5707d2608b9934c9266f851b29f2330a215009260a56daa48c47e575bedabfcc33ef2700b5c722e5e32f5f4d0060d4b0a8f13a677754aae776ce452\agents\main\sessions\f3456e19-3ffe-4e41-9bad-cc80f8083c91.jsonl.reset.2026-04-03T07-05-16.658Z`
+- **Session ID**: `f3456e19-3ffe-4e41-9bad-cc80f8083c91`
+- **行号**: 29
+- **时间戳**: 2026-04-03T07:05:13.013Z
+
+---
+
+### 问题 #320
+
+- **事件类型**: `message`
+- **描述**: 用户提问后没有任何回复（文件在此结束）
+- **错误信息**: ```
+Expected assistant message after user message, but reached end of file
+
+--- 错误行内容 ---
+Line 9: {"type":"message","id":"50fa9702","parentId":"e7fa7a8a","timestamp":"2026-04-15T08:37:09.355Z","message":{"role":"user","content":[{"type":"text","text":"Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.\nWhen reading HEARTBEAT.md, use workspace file /home/node/.openclaw/workspace/HEARTBEAT.md (exact case). Do not read docs/heartbeat.md.\nCurrent time: Wednesday, April 15th, 2
+
+```
+- **原因分析**: 可能的原因：1) 会话被意外中断；2) 系统崩溃导致回复丢失；3) 网络断开；4) 用户主动终止会话但未记录
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\52c52422-bc70-4b32-b797-b01f0285619d.jsonl`
+- **Session ID**: `52c52422-bc70-4b32-b797-b01f0285619d`
+- **行号**: 9
+- **时间戳**: 2026-04-15T08:37:09.355Z
+
+---
+
+### 问题 #321
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 9: {"type":"message","id":"af72a086","parentId":"d27eec57","timestamp":"2026-04-15T05:15:31.762Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 13:15 GMT+8] k8s-xc-02/xjsyy-cluster-xc-04 分析这个集群的异常pod 本次允许你使用kubectl"}],"timestamp":1776230131758}}
+
+--- 下一行内容 ---
+Line 10: {"type":"message","id":"762f8a85","parentId":"af72a086","timestamp":"2026-04-15T05:15:33.066Z","message":{"role":"toolResult","toolCallId":"call_9899960148154855a4a2ef11","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776230133062}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\793952f6-fe84-42a8-8307-4f0978b2ffec.jsonl.reset.2026-04-15T06-36-41.728Z`
+- **Session ID**: `793952f6-fe84-42a8-8307-4f0978b2ffec`
+- **行号**: 9
+- **时间戳**: 2026-04-15T05:15:31.762Z
+
+---
+
+### 问题 #322
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 7: {"type":"message","id":"e25c2201","parentId":"44f0a4fa","timestamp":"2026-04-15T02:00:33.324Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 10:00 GMT+8] 查看下 包含aiap的pod"}],"timestamp":1776218433320}}
+
+--- 下一行内容 ---
+Line 8: {"type":"message","id":"a9a07cf0","parentId":"e25c2201","timestamp":"2026-04-15T02:00:36.599Z","message":{"role":"toolResult","toolCallId":"call_dfbb1b44df024fb389c9f07d","toolName":"k8s_pilot","content":[{"type":"text","text":"Tool k8s_pilot not found"}],"details":{},"isError":true,"timestamp":1776218436596}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27.jsonl.reset.2026-04-15T03-07-35.976Z`
+- **Session ID**: `ac7a5355-29b0-4fbb-b36c-fdf4e8e79d27`
+- **行号**: 7
+- **时间戳**: 2026-04-15T02:00:33.324Z
+
+---
+
+### 问题 #323
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 23: {"type":"message","id":"b9a12180","parentId":"6e4ea368","timestamp":"2026-04-15T03:15:17.410Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:15 GMT+8] 重新加载下kube-polot 工具"}],"timestamp":1776222917405}}
+
+--- 下一行内容 ---
+Line 24: {"type":"message","id":"4baef71d","parentId":"b9a12180","timestamp":"2026-04-15T03:15:17.925Z","message":{"role":"toolResult","toolCallId":"call_921848a820714f22af405c82","toolName":"skills-installer","content":[{"type":"text","text":"Tool skills-installer not found"}],"details":{},"isError":true,"timestamp":1776222917921}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\bc404938-61ae-407f-920f-e260d9eed4f3.jsonl.reset.2026-04-15T03-15-59.516Z`
+- **Session ID**: `bc404938-61ae-407f-920f-e260d9eed4f3`
+- **行号**: 23
+- **时间戳**: 2026-04-15T03:15:17.410Z
+
+---
+
+### 问题 #324
+
+- **事件类型**: `message`
+- **描述**: 用户提问后的下一条消息角色是"toolResult"，而非预期的assistant
+- **错误信息**: ```
+Expected "assistant" after "user", but got "toolResult"
+
+--- 错误行内容 ---
+Line 7: {"type":"message","id":"848d45fc","parentId":"f16c9f9f","timestamp":"2026-04-15T03:07:48.450Z","message":{"role":"user","content":[{"type":"text","text":"Sender (untrusted metadata):\n```json\n{\n  \"label\": \"openclaw-control-ui\",\n  \"id\": \"openclaw-control-ui\"\n}\n```\n\n[Wed 2026-04-15 11:07 GMT+8] 帮我统计下所有包含sidecar的pod 中sidecar 的资源占用情况 按照集群汇总给我"}],"timestamp":1776222468443}}
+
+--- 下一行内容 ---
+Line 8: {"type":"message","id":"99d39886","parentId":"848d45fc","timestamp":"2026-04-15T03:07:51.348Z","message":{"role":"toolResult","toolCallId":"call_6601b8b04bf34c02acfd3187","toolName":"k8s-pilot","content":[{"type":"text","text":"Tool k8s-pilot not found"}],"details":{},"isError":true,"timestamp":1776222471344}}
+
+```
+- **原因分析**: 可能的原因：1) 系统状态异常导致跳过回复；2) 消息顺序错乱；3) Compaction/Reset操作导致的记录不完整；4) 并发请求导致消息交错
+- **文件位置**: `logs\session-transcript\openclaw-logs\f222336474c3c33b45b015cca3fdcf24fbfc8a597f351d79bc150829f53504e5d7819658cde4a8f7af659e260af6be27b33dcadf21b2b5928bbdc265681b3e6d\agents\main\sessions\d5b5897c-98b0-4936-863a-7c672f75a140.jsonl.reset.2026-04-15T03-11-17.778Z`
+- **Session ID**: `d5b5897c-98b0-4936-863a-7c672f75a140`
+- **行号**: 7
+- **时间戳**: 2026-04-15T03:07:48.450Z
+
+---
+
 ## flow_integrity_missing_final_answer - 工具执行后无最终回复 (2)
 
-### 问题 #328
+### 问题 #325
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）
@@ -5835,7 +5769,7 @@ Line 19: {"type":"message","id":"a23fb7fa","parentId":"cb88f7e1","timestamp":"20
 
 ---
 
-### 问题 #329
+### 问题 #326
 
 - **事件类型**: `message`
 - **描述**: 工具执行完成后没有Assistant的最终回复（文件在此结束）

@@ -213,6 +213,11 @@ function detectFlowIntegrity(messages, filePath, sessionId) {
           severity: 'HIGH',
         });
       } else if (next.event.message?.role !== 'assistant') {
+        // 特殊规则：如果下一条是openclaw:prompt-error等错误事件，说明请求被中止，跳过避免重复统计
+        if (next.event.type === 'custom' && next.event.customType?.includes('prompt-error')) {
+          continue; // 这个错误会在detectKnownErrors中被统计为modelErrors
+        }
+        
         const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
