@@ -60,6 +60,7 @@
 - **错误类型**: `错误类型代码`
 - **事件类型**: `事件类型（message/custom等）`
 - **描述**: 问题的简要描述
+- **用户输入**: `触发该问题的用户输入内容` （仅flow_integrity类型）
 - **错误信息**: ```
   具体的错误信息或上下文
   ```
@@ -77,6 +78,7 @@
 - ✅ 一个问题一条记录
 - ✅ 按问题类型分组，便于批量分析
 - ✅ 包含完整的上下文信息（流程完整性错误会提取错误行和下一行的内容）
+- ✅ **提取用户输入**：对于flow_integrity类型的三个问题（no_reply、missing_tool_result、missing_final_answer），自动提取触发该问题的用户输入内容，便于快速理解问题背景
 - ✅ 便于追踪和定位问题
 
 ---
@@ -156,6 +158,7 @@ bun scripts/detect-all-transcript-issues.ts /path/to/your/transcripts
 - **准确提取Session ID**: 从JSONL文件的第一个`session`事件中提取，而非依赖文件名
 - **去重机制**: 每个事件只匹配一次错误类型，避免重复报告
 - **上下文提取**: 对于流程完整性错误，自动提取错误行和下一行的原始内容，便于快速诊断
+- **用户输入提取**: 对于flow_integrity类型的三个问题（no_reply、missing_tool_result、missing_final_answer），自动从当前或最近的user消息中提取用户输入内容（最长200字符），便于快速理解问题背景和复现步骤
 - **跨平台支持**: 报告生成在脚本所在目录，支持通过命令行参数指定任意扫描路径，方便在其他机器上执行
 - **精确匹配**: HTTP状态码429和403使用单词边界`\b429\b`和`\b403\b`匹配，避免误匹配UUID、时间戳或其他数字序列中的数字
 
@@ -165,22 +168,22 @@ bun scripts/detect-all-transcript-issues.ts /path/to/your/transcripts
 
 根据检测结果，可以考虑以下改进方向：
 
-### 1. 处理flow_integrity问题 (214个)
-- **missing_final_answer (211个)**: 确保工具执行后Always生成文本解释
-- **no_reply (2个)**: 调查会话中断的根本原因
-- **missing_tool_result (1个)**: 检查工具执行的可靠性
+### 1. 处理flow_integrity问题 (30个)
+- **missing_tool_result (15个)**: 检查工具执行的可靠性，确保每个toolCall都有对应的toolResult
+- **no_reply (13个)**: 调查会话中断的根本原因，增强错误恢复机制
+- **missing_final_answer (2个)**: 确保工具执行后Always生成文本解释
 
-### 2. 降低abnormal_stop (78个)
+### 2. 降低abnormal_stop (168个)
 - 分析`aborted`和`error`停止的具体场景
 - 实现更优雅的取消机制
 - 添加失败恢复逻辑
 
-### 3. 解决modelErrors (30个)
+### 3. 解决modelErrors (105个)
 - 优化模型API调用的错误处理
 - 增加重试机制和退避策略
 - 监控模型服务可用性
 
-### 4. 减少timeoutErrors (22个)
+### 4. 减少timeoutErrors (23个)
 - 实现动态超时策略
 - 添加请求排队和退避机制
 - 优化长耗时操作的Checkpoint机制
@@ -230,5 +233,5 @@ A: 可以使用以下方法：
 
 ---
 
-**最后更新**: 2026-04-16  
+**最后更新**: 2026-04-17  
 **维护者**: OpenClaw Team

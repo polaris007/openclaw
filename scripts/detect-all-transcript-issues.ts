@@ -36,6 +36,7 @@ interface Issue {
   runId?: string;
   provider?: string;
   model?: string;
+  userInput?: string; // 用户输入内容
   severity: 'HIGH' | 'MEDIUM' | 'LOW';
 }
 
@@ -239,6 +240,7 @@ function detectFlowIntegrity(
       if (!next) {
         // user是最后一条消息
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_no_reply',
@@ -250,6 +252,7 @@ function detectFlowIntegrity(
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       } else if (next.event.message?.role !== 'assistant') {
@@ -260,6 +263,7 @@ function detectFlowIntegrity(
         
         // user的下一条不是assistant
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_no_reply',
@@ -271,6 +275,7 @@ function detectFlowIntegrity(
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       }
@@ -291,6 +296,7 @@ function detectFlowIntegrity(
       
       if (!next) {
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_tool_result',
@@ -302,10 +308,12 @@ function detectFlowIntegrity(
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       } else if (next.event.message?.role !== 'toolResult') {
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_tool_result',
@@ -317,6 +325,7 @@ function detectFlowIntegrity(
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'HIGH',
         });
       }
@@ -335,6 +344,7 @@ function detectFlowIntegrity(
       if (!next) {
         // toolResult是最后一条消息，没有后续
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_final_answer',
@@ -346,6 +356,7 @@ function detectFlowIntegrity(
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'MEDIUM',
         });
       } else if (next.event.message?.role !== 'assistant' && next.event.message?.role !== 'toolResult') {
@@ -357,6 +368,7 @@ function detectFlowIntegrity(
         
         // toolResult后面既不是assistant也不是另一个toolResult，说明流程异常
         const contextInfo = extractContextInfo(current.lineNum, messages);
+        const userInput = extractUserInput(current.lineNum, current.event.message?.role, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_final_answer',
@@ -368,6 +380,7 @@ function detectFlowIntegrity(
           sessionId,
           lineNumber: current.lineNum,
           timestamp: current.event.timestamp,
+          userInput,
           severity: 'MEDIUM',
         });
       }
@@ -524,6 +537,64 @@ function extractContextInfo(lineNum: number, messages: Array<{ lineNum: number; 
   } catch (e) {
     return '\n[提取上下文失败]';
   }
+}
+
+/**
+ * 提取用户输入（从当前或最近的user消息中）
+ */
+function extractUserInput(
+  currentLineNum: number,
+  currentRole: string | undefined,
+  messages: Array<{ lineNum: number; event: MessageEvent }>
+): string {
+  try {
+    const currentIndex = messages.findIndex(m => m.lineNum === currentLineNum);
+    if (currentIndex === -1) return '[无法定位当前消息]';
+    
+    // 如果当前是user消息，直接从当前消息提取
+    if (currentRole === 'user') {
+      const currentMsg = messages[currentIndex];
+      const userContent = extractTextFromMessage(currentMsg.event.message);
+      return userContent || '[user消息内容为空]';
+    }
+    
+    // 如果不是user消息，向前查找最近的user消息
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      const msg = messages[i];
+      if (msg.event.message?.role === 'user') {
+        const userContent = extractTextFromMessage(msg.event.message);
+        return userContent || '[user消息内容为空]';
+      }
+    }
+    
+    return '[未找到user消息]';
+  } catch (e) {
+    return '[提取用户输入失败]';
+  }
+}
+
+/**
+ * 从message对象中提取文本内容
+ */
+function extractTextFromMessage(message: any): string {
+  if (!message || !message.content) return '';
+  
+  // content可能是字符串或数组
+  if (typeof message.content === 'string') {
+    return message.content;
+  }
+  
+  // content是数组时，提取所有text类型的内容
+  if (Array.isArray(message.content)) {
+    const texts = message.content
+      .filter((item: any) => item.type === 'text')
+      .map((item: any) => item.text)
+      .filter(Boolean);
+    
+    return texts.join('\n');
+  }
+  
+  return '';
 }
 
 /**
@@ -688,6 +759,19 @@ function generateMarkdownReport(allIssues: Issue[]): string {
       globalIssueNumber++;
       markdown += `- **事件类型**: \`${issue.eventType}\`\n`;
       markdown += `- **描述**: ${issue.description}\n`;
+      
+      // 对于flow_integrity类型，添加用户输入
+      if (issue.userInput && (
+        issue.errorType === 'flow_integrity_no_reply' ||
+        issue.errorType === 'flow_integrity_missing_tool_result' ||
+        issue.errorType === 'flow_integrity_missing_final_answer'
+      )) {
+        const truncatedInput = issue.userInput.length > 200 
+          ? issue.userInput.substring(0, 200) + '...' 
+          : issue.userInput;
+        markdown += `- **用户输入**: \`${truncatedInput.replace(/`/g, '\\`')}\`\n`;
+      }
+      
       markdown += `- **错误信息**: \`\`\`\n${issue.errorMessage}\n\`\`\`\n`;
       markdown += `- **原因分析**: ${issue.causeAnalysis}\n`;
       markdown += `- **文件位置**: \`${issue.filePath.replace(process.cwd() + path.sep, '')}\`\n`;
