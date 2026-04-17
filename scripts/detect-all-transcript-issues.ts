@@ -317,6 +317,7 @@ function detectFlowIntegrity(
       }
       
       if (!next) {
+        // toolResult是最后一条消息，没有后续
         const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
@@ -331,15 +332,16 @@ function detectFlowIntegrity(
           timestamp: current.event.timestamp,
           severity: 'MEDIUM',
         });
-      } else if (next.event.message?.role !== 'assistant') {
+      } else if (next.event.message?.role !== 'assistant' && next.event.message?.role !== 'toolResult') {
+        // toolResult后面既不是assistant也不是另一个toolResult，说明流程异常
         const contextInfo = extractContextInfo(current.lineNum, messages);
         issues.push({
           id: generateId(),
           errorType: 'flow_integrity_missing_final_answer',
           eventType: 'message',
-          description: `工具执行完成后的下一条消息角色是"${next.event.message?.role}"，而非预期的assistant最终回复`,
-          errorMessage: `Expected "assistant" after "toolResult", but got "${next.event.message?.role}"\n${contextInfo}`,
-          causeAnalysis: '可能的原因：1) Assistant未能正确处理工具结果；2) 触发了新的用户输入打断流程；3) 消息顺序异常；4) 多轮工具调用中间状态',
+          description: `工具执行完成后的下一条消息角色是"${next.event.message?.role}"，而非预期的assistant最终回复或另一个toolResult`,
+          errorMessage: `Expected "assistant" or "toolResult" after "toolResult", but got "${next.event.message?.role}"\n${contextInfo}`,
+          causeAnalysis: '可能的原因：1) Assistant未能正确处理工具结果；2) 触发了新的用户输入打断流程；3) 消息顺序异常；4) 并发请求导致消息交错',
           filePath,
           sessionId,
           lineNumber: current.lineNum,
@@ -347,6 +349,7 @@ function detectFlowIntegrity(
           severity: 'MEDIUM',
         });
       }
+      // 注意：如果next是toolResult，这是正常的并行工具调用场景，不报错
     }
   }
   

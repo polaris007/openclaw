@@ -27,6 +27,7 @@
 
 **特殊规则**: 
 - `sessions_yield` 工具结果会被跳过检测，因为该工具用于异步任务提交，不需要立即返回最终答案。
+- **并行工具调用**：多个连续的 `toolResult` 后面跟着一个 `assistant` 是正常的（例如同时调用5个read工具），不会被标记为问题。只有当 `toolResult` 后面既不是 `assistant` 也不是另一个 `toolResult` 时才会报错。
 
 ### 2. 已知错误模式检测
 
@@ -160,7 +161,9 @@ bun scripts/detect-all-transcript-issues.ts /path/to/your/transcripts
 ### 关键优化
 
 - **排除误报**: 只对`role: "assistant"`的消息且**仅检查errorMessage字段**进行错误模式匹配，避免将content中的命令行参数、代码注释等文本误判为错误
-- **特殊规则**: 跳过`sessions_yield`工具结果的流程完整性检测（该工具用于异步任务提交，不需要立即返回最终答案）
+- **特殊规则**: 
+  - 跳过`sessions_yield`工具结果的流程完整性检测（该工具用于异步任务提交，不需要立即返回最终答案）
+  - **支持并行工具调用**：多个连续的 `toolResult` 后面跟着一个 `assistant` 是正常的中间状态，不会被标记为问题。只有当 `toolResult` 后面既不是 `assistant` 也不是另一个 `toolResult` 时才会报错
 - **全面扫描**: 检测所有包含`.jsonl`的文件名（包括`.jsonl.reset.*`等Reset归档文件），确保不遗漏任何会话日志
 - **准确提取Session ID**: 从JSONL文件的第一个`session`事件中提取，而非依赖文件名
 - **去重机制**: 每个事件只匹配一次错误类型，避免重复报告
