@@ -703,6 +703,8 @@ function analyzeTranscript(filePath: string): AnalysisResult {
  */
 function findJsonlFiles(dir: string): string[] {
   const results: string[] = [];
+  // 规范化路径，解析 .. 等符号
+  dir = path.normalize(dir);
   
   function scan(currentDir: string) {
     const entries = fs.readdirSync(currentDir, { withFileTypes: true });
@@ -712,7 +714,9 @@ function findJsonlFiles(dir: string): string[] {
       
       if (entry.isDirectory()) {
         scan(fullPath);
-      } else if (entry.isFile() && entry.name.includes('.jsonl')) {
+      } else if (entry.isFile() && entry.name.includes('.jsonl') && !entry.name.endsWith('.swp')) {
+        // 处理所有包含 .jsonl 的文件，包括 .jsonl.reset、.jsonl.deleted 等归档文件
+        // 排除 .swp 等临时文件
         results.push(fullPath);
       }
     }
