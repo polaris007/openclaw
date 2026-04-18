@@ -214,8 +214,8 @@ CREATE TABLE dashboard_conversation_turn (
     id                  BIGINT        NOT NULL AUTO_INCREMENT,
     session_id          VARCHAR(36)   NOT NULL COMMENT 'Session UUID',
     employee_id         VARCHAR(50)   NOT NULL COMMENT '工号',
-    turn_index          INT           NOT NULL COMMENT '该 session 中的第几轮',
-    start_message_id    VARCHAR(36)   COMMENT '起始 user 消息 ID',
+    turn_index          INT           COMMENT '该 session 中的第几轮（按 start_time 排序赋值，可在查询时用 ROW_NUMBER() 动态计算）',
+    start_message_id    VARCHAR(36)   NOT NULL COMMENT '起始 user 消息 ID（轮次的唯一标识）',
     end_message_id      VARCHAR(36)   COMMENT '终止 assistant 消息 ID',
     start_time          DATETIME(3)   COMMENT '轮次开始时间',
     end_time            DATETIME(3)   COMMENT '轮次结束时间',
@@ -241,7 +241,7 @@ CREATE TABLE dashboard_conversation_turn (
     quality_status      TINYINT       NOT NULL DEFAULT 0 COMMENT '质量评价: 0未评价/1正确/2错误/3待优化',
     created_at          DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
-    UNIQUE INDEX uk_session_turn (session_id, turn_index),
+    UNIQUE INDEX uk_session_start_msg (session_id, start_message_id),
     INDEX idx_employee_time (employee_id, start_time),
     INDEX idx_time (start_time),
     INDEX idx_status (status, start_time)
@@ -621,6 +621,8 @@ ScanOrchestrator.run(triggerType)     // triggerType = "scheduled" | "manual"
 │   ├─ 判断轮次完整性（is_complete / status）
 │   ├─ 流程完整性检查 → dashboard_transcript_issue
 │   └─ INSERT INTO dashboard_conversation_turn
+│       ON DUPLICATE KEY UPDATE（以 session_id + start_message_id 去重，
+│       合并取更完整版本）
 │
 └─ 文件结束 → 关闭最后一个轮次
 ```
@@ -629,10 +631,12 @@ ScanOrchestrator.run(triggerType)     // triggerType = "scheduled" | "manual"
 
 一个对话轮次 = 从一条 `role=user` 消息开始，到下一条 `role=user` 消息之前（或文件结束）的所有消息。
 
-**跨文件轮次处理**：同一 session 的消息可能分散在多个文件中（原始文件 + `.bak` 文件）。处理策略：
-1. 每个文件独立组装轮次。使用 `(session_id, turn_index)` 唯一键。
-2. 如果同一 session 的同一 `turn_index` 已存在于数据库中，使用 `INSERT ... ON DUPLICATE KEY UPDATE` 合并数据（取更完整的版本：更多消息、更完整的 chain_summary）。
-3. 在 `.bak` 文件中出现的不完整轮次（文件尾部截断），标记为 `incomplete`。如果后续在主文件中找到相同轮次的完整版本，更新覆盖。
+**跨文件轮次处理**：同一 session 的消息可能分散在多个文件中（原始文件 + `.bak` 文件）。由于 compaction 会将原文件整体备份为 `.bak` 再截断原文件，.bak 与主文件之间必然存在重叠消息。处理策略：
+
+1. 每个文件独立组装轮次。使用 `(session_id, start_message_id)` 作为唯一键进行去重。同一个 user 消息无论出现在 `.bak` 文件还是主文件中，其 `message_id` 相同，因此天然匹配到同一行。
+2. 使用 `INSERT ... ON DUPLICATE KEY UPDATE` 合并数据。合并规则：取更完整的版本（chain_summary 的 steps 数量更多、status 为 `complete` 优先于 `incomplete`、token/cost 取非零值）。
+3. `turn_index` 不参与去重，作为排序辅助字段。在每次扫描结束后（或查询时）按 `start_time` 排序赋值。查询时也可用 `ROW_NUMBER() OVER (PARTITION BY session_id ORDER BY start_time)` 动态计算。
+4. 在 `.bak` 文件中出现的不完整轮次（文件尾部截断），标记为 `incomplete`。如果后续在主文件中找到相同轮次的完整版本，通过 `ON DUPLICATE KEY UPDATE` 覆盖更新。
 
 **轮次状态判定**：
 
