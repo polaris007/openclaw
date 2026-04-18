@@ -27,6 +27,7 @@
 
 | 组件 | 选型 | 说明 |
 |------|------|------|
+| JDK | JDK 17 | 最低要求 JDK 17，使用 Records、Sealed Classes、Text Blocks 等语言特性 |
 | 后端框架 | Java SpringBoot | 只提供 REST API，不含前端 |
 | 数据库 | OceanBase MySQL 模式 | 生产数据库 |
 | NAS 访问 | 本地挂载 | NAS 挂载到统计服务器，作为本地文件系统访问 |
