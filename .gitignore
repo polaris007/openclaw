@@ -223,3 +223,13 @@ extensions/**/.openclaw-runtime-deps-stamp.json
 /.opengrep-out/
 /.crabbox-artifacts
 .comux*
+
+
+.codebuddy
+.github/prompts
+.github/skills
+.lingma
+.opencode
+.qwen
+.trae
+logs
