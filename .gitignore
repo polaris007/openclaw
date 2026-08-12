@@ -233,3 +233,4 @@ extensions/**/.openclaw-runtime-deps-stamp.json
 .qwen
 .trae
 logs
+.omo
