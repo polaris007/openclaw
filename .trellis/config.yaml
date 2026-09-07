@@ -1,0 +1,516 @@
+# Trellis Configuration
+# Project-level settings for the Trellis workflow system
+#
+# All values have sensible defaults. Only override what you need.
+
+#-------------------------------------------------------------------------------
+# Session Recording
+#-------------------------------------------------------------------------------
+
+# Commit message used when auto-committing journal/index changes
+# after running add_session.py
+session_commit_message: "chore: record journal"
+
+# Maximum lines per journal file before rotating to a new one
+max_journal_lines: 2000
+
+#-------------------------------------------------------------------------------
+# Session Auto-Commit
+#-------------------------------------------------------------------------------
+
+# Auto-commit behavior for session journal + task archive operations.
+# - true (default): scripts auto-stage and auto-commit journal / task changes
+#   after add_session.py / task.py archive runs.
+# - false: scripts do not touch git. Files (journal-*.md, task archive moves)
+#   are still written to disk; you decide whether to git add / commit.
+#
+# Use `false` if your project's .gitignore intentionally excludes `.trellis/`
+# and you want session data kept local-only, or if you prefer to review
+# staged changes manually before each commit.
+#
+# Accepts: true / false / yes / no / 1 / 0 / on / off (case-insensitive).
+#
+# session_auto_commit: true
+
+#-------------------------------------------------------------------------------
+# Task Lifecycle Hooks
+#-------------------------------------------------------------------------------
+
+# Shell commands to run after task lifecycle events.
+# Each hook receives TASK_JSON_PATH environment variable pointing to task.json.
+# Hook failures print a warning but do not block the main operation.
+#
+# hooks:
+#   after_create:
+#     - "echo 'Task created'"
+#   after_start:
+#     - "echo 'Task started'"
+#   after_finish:
+#     - "echo 'Task finished'"
+#   after_archive:
+#     - "echo 'Task archived'"
+
+#-------------------------------------------------------------------------------
+# Monorepo / Packages
+#-------------------------------------------------------------------------------
+
+# Declare packages for monorepo projects.
+# Trellis auto-detects workspaces during `trellis init`, but you can also
+# configure them manually here.
+#
+# packages:
+#   frontend:
+#     path: packages/frontend
+#   backend:
+#     path: packages/backend
+#   docs:
+#     path: docs-site
+#     type: submodule
+#   # For polyrepo / meta-repo layouts (independent .git in each subdir),
+#   # mark the package with `git: true`. The runtime treats it as an
+#   # independent repository for things like git-context display.
+#   webapp:
+#     path: ./webapp
+#     git: true
+
+# Default package used when --package is not specified.
+# default_package: frontend
+
+#-------------------------------------------------------------------------------
+# Channel worker OOM guard
+#-------------------------------------------------------------------------------
+# Default safeguards for `trellis channel spawn` workers. The guard runs
+# at spawn time (cleans expired idle workers, then enforces the live-worker
+# budget) and inside each supervisor (self-terminates a worker that stays
+# continuously idle past `idle_timeout`).
+#
+# Precedence: CLI flag > env var (TRELLIS_CHANNEL_WORKER_IDLE_TIMEOUT /
+# TRELLIS_CHANNEL_MAX_LIVE_WORKERS) > this config > built-in default.
+#
+# `idle_timeout: 0` disables idle cleanup (workers can sit idle forever
+# unless explicitly killed or given `--timeout`).
+# `max_live_workers: 0` disables the spawn-time budget check.
+#
+# `trusted_context_dirs` extends the `--file`/`--jsonl`/`--agent` containment
+# check beyond the worker cwd — useful when `.trellis/tasks` or
+# `.trellis/workspace` is a symlink to an external directory. Realpaths under
+# any listed dir are accepted in addition to cwd.
+# `auto_trust_trellis_symlinks: false` disables the narrow auto-trust of
+# `.trellis/tasks` / `.trellis/workspace` when either is itself a top-level
+# symlink (auto-trust is on by default).
+#
+channel:
+  worker_guard:
+    idle_timeout: 5m
+    max_live_workers: 6
+  # trusted_context_dirs:
+  #   - /work/user/trellis_workspace
+  # auto_trust_trellis_symlinks: false
+
+#-------------------------------------------------------------------------------
+# Codex (dispatch behavior)
+#-------------------------------------------------------------------------------
+# Codex-only knob; other platforms ignore it. Default ("auto") dispatches
+# trellis-implement / trellis-check / trellis-research sub-agents. This does
+# not rely on inherited parent transcripts: `fork_turns` remains
+# caller-controlled, while Codex's native SubagentStart hook injects task
+# context when trusted and child-side loading remains the fallback when it is
+# unavailable. Set to "inline" only to keep implementation and checks in the
+# main session. "sub-agent" remains a backwards-compatible alias for "auto".
+# Invalid explicit values safely use inline mode.
+#
+# In "auto" mode, dispatched sub-agents inherit the main session's model
+# unless you pin one. To use a cheaper/faster model for implement/check/
+# research sub-agent work, edit `model` / `model_reasoning_effort` directly
+# on the generated `.codex/agents/trellis-*.toml` files (see the commented
+# hint lines in those files) — there is no config.yaml knob for this,
+# `trellis update` preserves your edits across regeneration.
+#
+# codex:
+#   dispatch_mode: auto  # or "inline"; legacy alias: "sub-agent"
+
+#-------------------------------------------------------------------------------
+# Sub-agent context injection limits
+#-------------------------------------------------------------------------------
+# Caps how much task context (implement.jsonl / check.jsonl referenced files,
+# plus prd.md / design.md / implement.md) gets inlined into a sub-agent's
+# first prompt. Oversized files are truncated with a notice; once the total
+# payload cap is reached, remaining files degrade to index lines (path +
+# reason + size) instead of being inlined.
+#
+# All values are byte counts. `0` disables the corresponding limit.
+#
+# context_injection:
+#   max_file_bytes: 32768        # per implement.jsonl / check.jsonl referenced file
+#   max_artifact_bytes: 65536    # per task artifact (prd.md / design.md / implement.md)
+#   max_total_bytes: 131072      # whole injected payload; overflow degrades to index lines
+
+#-------------------------------------------------------------------------------
+# Per-turn prompt injection
+#-------------------------------------------------------------------------------
+# Escape hatch for the per-turn <workflow-state> breadcrumb. When a user
+# prompt contains the skip keyword as a standalone word (case-insensitive,
+# word-boundary match — "no-trellisfoo" does NOT count), the breadcrumb is
+# skipped for that turn only. Does not affect SessionStart or sub-agent
+# context injection.
+#
+# prompt_injection:
+#   skip_keyword: "no-trellis"   # "" disables the escape hatch entirely
+
+# Auto-detected monorepo packages
+packages:
+  openclaw-control-ui:
+    path: ui
+  acp-core:
+    path: packages/acp-core
+  agent-core:
+    path: packages/agent-core
+  ai:
+    path: packages/ai
+  gateway-client:
+    path: packages/gateway-client
+  gateway-protocol:
+    path: packages/gateway-protocol
+  llm-core:
+    path: packages/llm-core
+  markdown-core:
+    path: packages/markdown-core
+  media-core:
+    path: packages/media-core
+  media-generation-core:
+    path: packages/media-generation-core
+  media-understanding-common:
+    path: packages/media-understanding-common
+  memory-host-sdk:
+    path: packages/memory-host-sdk
+  model-catalog-core:
+    path: packages/model-catalog-core
+  net-policy:
+    path: packages/net-policy
+  normalization-core:
+    path: packages/normalization-core
+  plugin-package-contract:
+    path: packages/plugin-package-contract
+  plugin-sdk:
+    path: packages/plugin-sdk
+  retry:
+    path: packages/retry
+  sdk:
+    path: packages/sdk
+  session-url-contract:
+    path: packages/session-url-contract
+  terminal-core:
+    path: packages/terminal-core
+  tool-call-repair:
+    path: packages/tool-call-repair
+  workboard-contract:
+    path: packages/workboard-contract
+  acpx:
+    path: extensions/acpx
+  active-memory:
+    path: extensions/active-memory
+  admin-http-rpc:
+    path: extensions/admin-http-rpc
+  alibaba-provider:
+    path: extensions/alibaba
+  amazon-bedrock-provider:
+    path: extensions/amazon-bedrock
+  amazon-bedrock-mantle-provider:
+    path: extensions/amazon-bedrock-mantle
+  anthropic-provider:
+    path: extensions/anthropic
+  anthropic-vertex-provider:
+    path: extensions/anthropic-vertex
+  arcee-provider:
+    path: extensions/arcee
+  azure-speech:
+    path: extensions/azure-speech
+  baseten-provider:
+    path: extensions/baseten
+  beam:
+    path: extensions/beam
+  bonjour:
+    path: extensions/bonjour
+  brave-plugin:
+    path: extensions/brave
+  browser-plugin:
+    path: extensions/browser
+  buzz:
+    path: extensions/buzz
+  byteplus-provider:
+    path: extensions/byteplus
+  canvas-plugin:
+    path: extensions/canvas
+  cerebras-provider:
+    path: extensions/cerebras
+  chutes-provider:
+    path: extensions/chutes
+  clawrouter:
+    path: extensions/clawrouter
+  clickclack:
+    path: extensions/clickclack
+  cloudflare-ai-gateway-provider:
+    path: extensions/cloudflare-ai-gateway
+  codex:
+    path: extensions/codex
+  cohere-provider:
+    path: extensions/cohere
+  comfy-provider:
+    path: extensions/comfy
+  copilot:
+    path: extensions/copilot
+  copilot-proxy:
+    path: extensions/copilot-proxy
+  crabbox-provider:
+    path: extensions/crabbox
+  cua-computer:
+    path: extensions/cua-computer
+  deepgram-provider:
+    path: extensions/deepgram
+  deepinfra-provider:
+    path: extensions/deepinfra
+  deepseek-provider:
+    path: extensions/deepseek
+  device-pair:
+    path: extensions/device-pair
+  diagnostics-otel:
+    path: extensions/diagnostics-otel
+  diagnostics-prometheus:
+    path: extensions/diagnostics-prometheus
+  diffs:
+    path: extensions/diffs
+  diffs-language-pack:
+    path: extensions/diffs-language-pack
+  discord:
+    path: extensions/discord
+  document-extract-plugin:
+    path: extensions/document-extract
+  duckduckgo-plugin:
+    path: extensions/duckduckgo
+  elevenlabs-speech:
+    path: extensions/elevenlabs
+  exa-plugin:
+    path: extensions/exa
+  fal-provider:
+    path: extensions/fal
+  featherless-provider:
+    path: extensions/featherless
+  feishu:
+    path: extensions/feishu
+  file-transfer:
+    path: extensions/file-transfer
+  firecrawl-plugin:
+    path: extensions/firecrawl
+  fireworks-provider:
+    path: extensions/fireworks
+  fish-audio-speech:
+    path: extensions/fish-audio-speech
+  github-copilot-provider:
+    path: extensions/github-copilot
+  gmi-provider:
+    path: extensions/gmi
+  google-plugin:
+    path: extensions/google
+  google-meet:
+    path: extensions/google-meet
+  googlechat:
+    path: extensions/googlechat
+  gradium-speech:
+    path: extensions/gradium
+  groq-provider:
+    path: extensions/groq
+  huggingface-provider:
+    path: extensions/huggingface
+  image-generation-core:
+    path: extensions/image-generation-core
+  imessage:
+    path: extensions/imessage
+  inworld-speech:
+    path: extensions/inworld
+  irc:
+    path: extensions/irc
+  kilocode-provider:
+    path: extensions/kilocode
+  kimi-provider:
+    path: extensions/kimi-coding
+  line:
+    path: extensions/line
+  linux-canvas:
+    path: extensions/linux-canvas
+  linux-node:
+    path: extensions/linux-node
+  litellm-provider:
+    path: extensions/litellm
+  llama-cpp-provider:
+    path: extensions/llama-cpp
+  llm-task:
+    path: extensions/llm-task
+  lmstudio-provider:
+    path: extensions/lmstudio
+  lobster:
+    path: extensions/lobster
+  logbook:
+    path: extensions/logbook
+  longcat-provider:
+    path: extensions/longcat
+  matrix:
+    path: extensions/matrix
+  mattermost:
+    path: extensions/mattermost
+  media-understanding-core:
+    path: extensions/media-understanding-core
+  memory-core:
+    path: extensions/memory-core
+  memory-lancedb:
+    path: extensions/memory-lancedb
+  memory-wiki:
+    path: extensions/memory-wiki
+  meta-provider:
+    path: extensions/meta
+  microsoft-speech:
+    path: extensions/microsoft
+  microsoft-foundry:
+    path: extensions/microsoft-foundry
+  migrate-claude:
+    path: extensions/migrate-claude
+  migrate-hermes:
+    path: extensions/migrate-hermes
+  minimax-provider:
+    path: extensions/minimax
+  mistral-provider:
+    path: extensions/mistral
+  moonshot-provider:
+    path: extensions/moonshot
+  msteams:
+    path: extensions/msteams
+  mxc-sandbox:
+    path: extensions/mxc
+  nextcloud-talk:
+    path: extensions/nextcloud-talk
+  nostr:
+    path: extensions/nostr
+  novita-provider:
+    path: extensions/novita
+  nvidia-provider:
+    path: extensions/nvidia
+  oc-path:
+    path: extensions/oc-path
+  ollama-provider:
+    path: extensions/ollama
+  onepassword:
+    path: extensions/onepassword
+  open-prose:
+    path: extensions/open-prose
+  openai-provider:
+    path: extensions/openai
+  opencode-provider:
+    path: extensions/opencode
+  opencode-go-provider:
+    path: extensions/opencode-go
+  openrouter-provider:
+    path: extensions/openrouter
+  openshell-sandbox:
+    path: extensions/openshell
+  parallel-plugin:
+    path: extensions/parallel
+  perplexity-plugin:
+    path: extensions/perplexity
+  pixverse-provider:
+    path: extensions/pixverse
+  policy:
+    path: extensions/policy
+  qa-channel:
+    path: extensions/qa-channel
+  qa-lab:
+    path: extensions/qa-lab
+  qianfan-provider:
+    path: extensions/qianfan
+  qwen-provider:
+    path: extensions/qwen
+  raft:
+    path: extensions/raft
+  reef:
+    path: extensions/reef
+  runway-provider:
+    path: extensions/runway
+  searxng-plugin:
+    path: extensions/searxng
+  senseaudio-provider:
+    path: extensions/senseaudio
+  sglang-provider:
+    path: extensions/sglang
+  signal:
+    path: extensions/signal
+  slack:
+    path: extensions/slack
+  sms:
+    path: extensions/sms
+  stepfun-provider:
+    path: extensions/stepfun
+  synology-chat:
+    path: extensions/synology-chat
+  synthetic-provider:
+    path: extensions/synthetic
+  talk-voice:
+    path: extensions/talk-voice
+  tavily-plugin:
+    path: extensions/tavily
+  teams-meetings:
+    path: extensions/teams-meetings
+  telegram:
+    path: extensions/telegram
+  tencent-provider:
+    path: extensions/tencent
+  test-support:
+    path: extensions/test-support
+  tlon:
+    path: extensions/tlon
+  together-provider:
+    path: extensions/together
+  tokenjuice:
+    path: extensions/tokenjuice
+  tts-local-cli:
+    path: extensions/tts-local-cli
+  twitch:
+    path: extensions/twitch
+  vault:
+    path: extensions/vault
+  venice-provider:
+    path: extensions/venice
+  vercel-ai-gateway-provider:
+    path: extensions/vercel-ai-gateway
+  video-generation-core:
+    path: extensions/video-generation-core
+  vllm-provider:
+    path: extensions/vllm
+  voice-call:
+    path: extensions/voice-call
+  volcengine-provider:
+    path: extensions/volcengine
+  voyage-provider:
+    path: extensions/voyage
+  vydra-provider:
+    path: extensions/vydra
+  web-readability-plugin:
+    path: extensions/web-readability
+  webhooks:
+    path: extensions/webhooks
+  whatsapp:
+    path: extensions/whatsapp
+  workboard:
+    path: extensions/workboard
+  xai-plugin:
+    path: extensions/xai
+  xiaomi-provider:
+    path: extensions/xiaomi
+  zai-provider:
+    path: extensions/zai
+  zalo:
+    path: extensions/zalo
+  zalouser:
+    path: extensions/zalouser
+  zoom-meetings:
+    path: extensions/zoom-meetings
+  example-ai-chat:
+    path: examples/ai-chat
+default_package: openclaw-control-ui

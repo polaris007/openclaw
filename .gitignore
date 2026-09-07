@@ -234,3 +234,6 @@ extensions/**/.openclaw-runtime-deps-stamp.json
 .trae
 logs
 .omo
+
+.codegraph
+
