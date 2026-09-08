@@ -1,6 +1,8 @@
 # OpenClaw 会话转录与归档生命周期详解
 
 > 覆盖版本：`v2026.5.28` 行为对比到当前 `main`（PR #98236 之后的 SQLite 存储）
+>
+> 2026-09-08 校对：基于本机 `openclaw-0528` 源码（v2026.5.28 checkout）逐条核对 `.reset`/`.deleted` 的判定逻辑并更正（见第 7 节）。文中标注"当前 main / PR #98236"的 SQLite 相关表述未在本仓库核对，保留原文待考。
 
 ---
 
@@ -46,9 +48,10 @@ OpenClaw 的会话由两层构成：
 |---|---|---|
 | `daily` | 每日滚动（默认 `atHour: 4` 凌晨 4 点） | `sessionStartedAt < 当日 04:00` |
 | `idle` | 空闲超时滚动 | `now > lastInteractionAt + idleMinutes * 60000` |
-| `none` | 不自动滚动（未配置 reset 时） | — |
 
-**关键设计：惰性评估（lazy evaluation）** — 没有定时器（`src/auto-reply/reply/session.ts:658-668`）。
+> **v2026.5.28 源码更正（openclaw-0528）**：`SessionResetMode` 只有 `"daily" | "idle"`（`reset-policy.ts:4`），**没有 `none` 模式**；未配置 `session.reset` 时 `DEFAULT_RESET_MODE = "daily"`（`reset-policy.ts:21,54`），即**默认每天 4 点滚动是生效行为**。schema 同样不接受 `mode: "none"`（`zod-schema.session.ts:18-24`，union 只有 daily/idle），配置会校验失败。
+
+**关键设计：惰性评估（lazy evaluation）** — 没有定时器（`session.ts:429-473`）。
 
 ```
 每天凌晨 4 点          → 什么都不做
@@ -56,9 +59,9 @@ OpenClaw 的会话由两层构成：
                         → stale → 视为新会话
 ```
 
-**滚动时的行为**（`src/auto-reply/reply/session.ts:726-769`）：
+**滚动时的行为**（`session.ts:470-510,806-849`）：
 
-- `previousSessionEntry` 被捕获，旧转录归档为 `.reset.<时间戳>`（`session-accessor.reset.ts` 里 `SessionEntryLifecycleUpsert`，非 ACP 会话保留同一 `sessionId` 以维持游标连续性）
+- `previousSessionEntry` 被捕获，旧转录归档为 `.reset.<时间戳>`（`session.ts:837-849`，reason `"reset"`）。**v2026.5.28 源码更正**：滚动**一律生成新 `sessionId`**（`session.ts:510` `crypto.randomUUID()`），不存在"非 ACP 会话保留同一 sessionId"的分支（全仓库无 "cursor continuity" 相关注释/实现）
 - Store 条目**不删除**，而是被**覆盖重写**（`updatedAt = now`，运行时字段清零，部分用户选择通过 `resolveReplySessionRolloverState` 保留）
 - 触发 `session_end`（reason=`idle`/`daily`）和 `session_start` 钩子
 
@@ -74,7 +77,7 @@ OpenClaw 的会话由两层构成：
 |---|---|---|---|
 | **pruneAfter 超时** | 30 天 | `session.maintenance.pruneAfter` | `store-maintenance.ts:22,258` |
 | **maxEntries 上限** | 500 条 | `session.maintenance.maxEntries` | `store-maintenance.ts:24,556` |
-| **磁盘预算** | 10 GiB | `session.maintenance.maxDiskBytes` | `store-maintenance.ts:29,95` |
+| **磁盘预算** | 未配置 = 不启用（v2026.5.28 更正） | `session.maintenance.maxDiskBytes` | `store-maintenance.ts:79-90` |
 | **cron reaper**（仅 `cron:*:run:*`） | 24 小时 | `cron.sessionRetention` | `cron/session-reaper.ts:19` |
 | **手动** `/delete` / `sessions.delete` | — | — | `server-methods/sessions.ts` |
 | **CLI** `openclaw sessions cleanup` | 按参数 | — | — |
@@ -119,7 +122,7 @@ OpenClaw 的会话由两层构成：
 |---|---|---|---|
 | `pruneAfter` | **30 天**（`30*24*60*60*1000` ms） | `store-maintenance.ts:22` | 条目 `updatedAt` 超限 → 删条目 → 产生 `.deleted` |
 | `maxEntries` | **500 条** | `store-maintenance.ts:24` | 条目数 ≥ high-water（500 时为 550）→ 按 `updatedAt` 删最旧的 → 产生 `.deleted` |
-| `maxDiskBytes` | **10 GiB** | `store-maintenance.ts:29` | sessions 目录超限 → 按最旧优先清理条目+工件 |
+| `maxDiskBytes` | **未配置 = 不启用**（v2026.5.28：`resolveMaxDiskBytes` 未配置返回 `null`，`store-maintenance.ts:79-90`，仓库内无 10 GiB 缺省常量） | — | 显式配置后 sessions 目录超限 → 按最旧优先清理条目+工件 |
 | `highWaterBytes` | **80% × maxDiskBytes** | `store-maintenance.ts:26` | 磁盘清理目标水位 |
 | `mode` | **`enforce`** | `store-maintenance.ts:25` | `enforce`=执行删除；`warn`=只告警不删（`sqlite-maintenance.ts:115`） |
 
@@ -129,7 +132,7 @@ OpenClaw 的会话由两层构成：
 
 | 参数 | 缺省值 | 说明 |
 |---|---|---|
-| `mode` | `none`（未配置时不自动滚动） | `daily`/`idle`/`none` |
+| `mode` | `daily`（v2026.5.28：未配置时默认生效，每天 4 点滚动；无 `none` 模式） | `daily`/`idle` |
 | `atHour` | `4`（`mode: daily` 时） | `reset-policy.ts:24` |
 | `idleMinutes` | 未配置时不启用；`mode: idle` 未配 `idleMinutes` 时取 `DEFAULT_IDLE_MINUTES` | `reset-policy.ts:66` |
 
@@ -165,6 +168,21 @@ rules: [
   { reason: "reset",   olderThanMs: resetArchiveRetentionMs },
 ]
 ```
+
+**v2026.5.28 源码更正（openclaw-0528）**——调用点只有两处（`cleanupArchivedSessionTranscripts` 全仓库仅此两处调用），且窗口不同：
+
+```ts
+// ① store 保存维护：store.ts:574-585（enforce 分支内）
+cleanupArchivedSessionTranscripts({ reason: "deleted", olderThanMs: pruneAfterMs });      // .deleted 用 pruneAfter
+if (resetArchiveRetentionMs != null)
+  cleanupArchivedSessionTranscripts({ reason: "reset", olderThanMs: resetArchiveRetentionMs }); // .reset 单独开关
+
+// ② cron reaper：session-reaper.ts:123-130（本轮恰好归档过东西时才跑）
+cleanupArchivedSessionTranscripts({ reason: "deleted", olderThanMs: retentionMs });       // 24h 窗口，全目录扫
+//   作用域泄漏：会连带删掉同目录里 prune/手动删除产生的超 24h 的 .deleted 归档
+```
+
+即 5.28 上 `.deleted` 的窗口是 `pruneAfter`（30 天）而非 `resetArchiveRetention`；后者只管 `.reset`（设 `false` 即永久跳过）。`mode: "warn"` 会跳过 ①（整个 enforce 分支），但拦不住 ②。
 
 **触发时机**：写路径 maintenance + cron reaper；扫描 `sessions` 目录中已存在的归档文件。
 
@@ -228,7 +246,7 @@ Day 60   归档文件超限              → rm 删除 .deleted.<Day30>     归�
 { "session": { "reset": { "mode": "idle", "idleMinutes": 43200 } } }
 ```
 
-其余全默认（`pruneAfter: 30d`、`maxEntries: 500`、`maxDiskBytes: 10 GiB`、`resetArchiveRetention` 当前永久保留 / 5.28 时 30 天）。
+其余全默认（`pruneAfter: 30d`、`maxEntries: 500`、`maxDiskBytes` 未配置即不启用、`resetArchiveRetention` 当前永久保留 / 5.28 时 30 天）。
 
 **问题 1：30 天没活动，转录变 `.reset` 还是 `.deleted`？**
 
@@ -263,13 +281,59 @@ Day 60   归档文件超限              → rm 删除 .deleted.<Day30>     归�
 | `session.scope` / `session.mainKey` | 会话键作用域 | 影响 `sessionKey` 划分，进而影响 `reset` 按类型/频道的覆盖 |
 | `session.resetByType` / `resetByChannel` | 按会话类型/频道覆盖 reset 策略 | `reset-policy.ts:39-71`，`resetByType` 优先于顶层 `reset` |
 | `cron.sessionRetention` | `cron.sessionRetention`，缺省 `"24h"` | 仅 `agent:*:cron:*:run:*` run 会话；`false` 禁用（`session-reaper.ts:30`） |
-| `maxDiskBytes` / `highWaterBytes` | `10 GiB` / `80%×maxDiskBytes` | sessions 目录磁盘用量超限时按最旧优先清理条目+工件 |
+| `maxDiskBytes` / `highWaterBytes` | 未配置 = 不启用（v2026.5.28） / 显式配置 maxDiskBytes 后缺省 `80%×maxDiskBytes` | sessions 目录磁盘用量超限时按最旧优先清理条目+工件 |
 
 **存储后端说明**（AGENTS.md 约束）：当前默认 SQLite（`session_nodes` 表），`sessions.json` 为历史文件路径；`SQLite` 维护走 `session-accessor.sqlite-maintenance.ts`，文件存储走 `store-maintenance-operations.ts`，逻辑一致、事务边界不同。
 
 ---
 
-## 7. 配置示例
+## 7. 时间锚点判定逻辑（各路径分别看哪个时间）
+
+> 2026-09-08 基于 v2026.5.28 源码（openclaw-0528）逐条核对。所有判定都发生在"评估那一刻"（消息进来或 store 写入），没有后台定时扫描。
+
+### 7.1 `.deleted`（条目删除：prune / cap / reaper）
+
+- **唯一判定字段：store 条目的 `updatedAt`**（`store-maintenance.ts:192`：`entry.updatedAt < now - pruneAfterMs` 即删）
+- `sessionStartedAt` / `lastInteractionAt` **不参与** prune/cap 判定
+- **不读转录文件**：不看文件 mtime，不看文件内容时间戳
+- 无 `updatedAt` 的条目：prune 保留（无法判断陈旧度）；cap 排序中垫底、最先被淘汰（`store-maintenance.ts:445`）
+- `updatedAt` 写入时机：每次真实 turn 落库时 `Date.now()`（`session.ts:635`）；路由/元数据更新刻意不刷新（`store.ts:1170` 注释）
+- 例外（非时间判定）：`openclaw sessions cleanup --fix-missing` 按转录文件**存在性**删条目，与时间无关
+
+### 7.2 `.reset`（idle / daily 滚动）
+
+`evaluateSessionFreshness`（`reset-policy.ts:73-110`）：
+
+| 模式 | 判定 | 锚点回退链 |
+|---|---|---|
+| `idle` | `now > lastInteractionAt + idleMinutes * 60000` | 条目 `lastInteractionAt` → 缺失用 `sessionStartedAt` → 再缺失用 `updatedAt`（`reset-policy.ts:80-83`） |
+| `daily` | `sessionStartedAt < 当日 atHour` | 条目 `sessionStartedAt` → 缺失用 `updatedAt`（`reset-policy.ts:81,92`） |
+
+- **转录文件的唯一参与点**：条目 `sessionStartedAt` 缺失时，读转录**第一行** session header（`type:"session"` 的 JSON）的 `timestamp` 字段兜底（`lifecycle.ts:93-114`），且 header id 必须与 sessionId 一致才采用；消息内容、文件 mtime 均不参与
+- `lastInteractionAt` 完全来自 store 条目，缺失只走回退链，**不会**去转录里找
+
+### 7.3 时间戳清洗与两个陷阱（`reset-policy.ts:112-120`）
+
+- 非数字 / 负数 → 视为缺失
+- **未来时间（`value > now`）→ 视为缺失**（时钟漂移防护）
+- 陷阱 1：手动重建条目时若写入的时间戳晚于机器当前时间，三个字段**全部作废**，回退成 epoch 0 → `idleExpiresAt = 0 + idleMinutes` → 立即 stale，下次对话即 `.reset`
+- 陷阱 2：`updatedAt` 被作废成 0 后，prune 判定 `0 < cutoff` 恒真 → 条目随时可能被 prune 成 `.deleted`
+
+### 7.4 两个旁路
+
+- **provider-owned 会话**：有 CLI 会话绑定且未显式配置 reset 策略时，跳过隐式过期（`session.ts:438,444-446`）；显式配置了 reset（如 idle 43200）则不豁免
+- **系统事件**：`heartbeat` / `cron-event` / `exec-event` 触发的 turn 不评估 reset（`freshEntry = isSystemEvent && canReuseExistingEntry`，`session.ts:471`），且不刷新 `lastInteractionAt`（`session.ts:639`），但 `updatedAt` 照常刷新 → 系统事件会**推迟 `.deleted` 而不推迟 idle `.reset`**
+
+### 7.5 排障速查（"明明设了时间还是被 reset"）
+
+1. 看 `session_end` 钩子/日志里的 reason：`daily` → 生效策略是 daily（多半是 gateway 未重载新配置，默认 daily@4am 按 `sessionStartedAt` 判定）；`idle` → 时间锚点被作废（查机器时钟）或命中了别的条目
+2. 机器时钟对时：`date +%s%3N` 与条目时间戳比较，确认没有"未来时间"
+3. 确认编辑的条目就是实际命中的 sessionKey（mainKey 别名/key 规范化/conversation binding 重定向都会换 key，`session.ts:250-260,399-410`）
+4. gateway 的 `sessions.reset` 方法（前端主动重置）**不做任何新鲜度评估**，无条件按 `reason:"reset"` 归档（`session-reset-service.ts:877`）——时间戳设什么都拦不住
+
+---
+
+## 8. 配置示例
 
 ```json
 {
@@ -293,9 +357,11 @@ Day 60   归档文件超限              → rm 删除 .deleted.<Day30>     归�
 
 ---
 
-## 8. 常见误区
+## 9. 常见误区
 
 - **`resetArchiveRetention` 缺省继承 `pruneAfter`** — 仅 #98236 之前正确；当前缺省永久保留
 - **`pruneAfter` 把文件变成 `.deleted`** — 不准确。`pruneAfter` 删的是条目，条目删除的副作用才是产生 `.deleted` 归档；归档文件的后续删除在 5.28 上也是 `pruneAfter`，当前已统一到 `resetArchiveRetention`
 - **30 天到就变 `.deleted`** — 不一定。`idle` 30 天与 `pruneAfter` 30 天是两套时钟、两种锚点（`lastInteractionAt` vs `updatedAt` / `reason: deleted` vs `reason: reset`），竞争结果取决于期间是否有其它写路径
 - **Daily/Idle reset 会删条目** — 不会。reset 是覆盖重写，条目一直留在 store 里
+- **未配置 `session.reset` 就没有自动滚动** — v2026.5.28 不成立：默认 `daily@4am` 生效；本版本无 `none` 模式可关（见第 2.1、7 节）
+- **reset 后保留原 sessionId** — v2026.5.28 不成立：滚动一律换新 `sessionId`，旧转录归档 `.reset`（见 2.1）

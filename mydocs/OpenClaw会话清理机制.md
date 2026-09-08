@@ -1,6 +1,7 @@
 # OpenClaw 会话清理机制
 
 > 基准版本：当前 `main`（PR #98236 之后，存储默认 SQLite）。历史版本差异见文末「版本演变」。
+> 2026-09-08 校对：`.reset`/`.deleted` 判定逻辑已对照本机 `openclaw-0528` 源码（v2026.5.28 checkout）更正——特别是默认 reset 模式与"保留原 sessionId"两处（原文描述在 v2026.5.28 源码中不存在）。时间锚点判定详见配套文档第 7 节。
 > 配套文档：`OpenClaw会话转录与归档生命周期详解.md`（两阶段生命周期的完整推演）
 
 ## 核心概念
@@ -124,11 +125,11 @@ function capEntryCount(store, maxEntries, opts) {
 
 ### 2.2 Daily Reset（每日重置）
 
-| 位置 | `auto-reply/reply/session.ts:658-668` |
+| 位置 | `auto-reply/reply/session.ts:429-473`（v2026.5.28） |
 |---|---|
 | 触发时机 | 用户发消息时（惰性评估） |
 | 影响范围 | 普通对话 session |
-| 默认配置 | **未配置 `session.reset` 时无每日重置**（`DEFAULT_RESET_MODE = "none"`，`reset-policy.ts:23`）；显式配置 `mode: "daily"` 后 `atHour` 缺省 4 |
+| 默认配置 | **v2026.5.28 更正：未配置 `session.reset` 时默认就是每日滚动**（`DEFAULT_RESET_MODE = "daily"`，`reset-policy.ts:21,54`；union 无 `"none"`，`reset-policy.ts:4`），`atHour` 缺省 4。原文的 `DEFAULT_RESET_MODE = "none"` 在本仓库源码中不存在 |
 
 **惰性评估机制（核心设计）：**
 
@@ -138,8 +139,8 @@ function capEntryCount(store, maxEntries, opts) {
                                 ↓
                     sessionStartedAt < today's 4am ?
                                 ↓
-                      true → stale → 视为新会话（非 ACP 保留原 sessionId）
-                                      旧 transcript → .reset.
+                      true → stale → 视为新会话（v2026.5.28：一律生成新 sessionId，
+                                      session.ts:510；旧 transcript → .reset.）
 ```
 
 **`resolveDailyResetAtMs` 的实现：**
@@ -169,27 +170,23 @@ const staleDaily = sessionStartedAt < dailyResetAt;
 **reset 后的行为：**
 
 ```ts
-// session.ts:765-769 — 非 ACP 会话保留原 sessionId！
-sessionId = isAcpSessionKey(sessionKey)
-  ? crypto.randomUUID()        // 仅 ACP 会话轮换 ID
-  : (entry?.sessionId ?? crypto.randomUUID());
-// 注释原文：Durable resets retain their transcript identity for cursor continuity
-
-// 旧 transcript 归档（commitReplySessionInitialization 内部，session-accessor.reset.ts）
-// reason: "reset"
+// session.ts:510 — v2026.5.28：滚动一律生成新 sessionId（ACP 与非 ACP 相同）
+sessionId = crypto.randomUUID();
+// 全仓库不存在 "Durable resets retain their transcript identity" 注释/实现
+// 旧 sessionId 的 transcript 归档 reason:"reset"（session.ts:837-849）
 // → abc.jsonl → abc.jsonl.reset.<时间戳>
 
-// 同一 sessionKey 的 entry 被 upsert 覆盖（session-accessor.reset.ts:201-243）
+// 同一 sessionKey 的 entry 被覆盖重写（session.ts:806-827）
 ```
 
 **store entry 不会被删除**，而是被 upsert 覆盖为新会话元数据（`updatedAt = now`、运行时字段清零；model override、label、delivery route 等用户选择通过 `resolveReplySessionRolloverState` 保留）。`sessions.list` 仍然看得到这个条目。
 
 ### 2.3 Idle Reset（空闲重置）
 
-| 位置 | `reset-policy.ts:99-104` |
+| 位置 | `reset-policy.ts:88-93`（v2026.5.28） |
 |---|---|
 | 触发时机 | 用户发消息时（惰性评估） |
-| 默认 | 关闭（未配置 `session.reset` 时；`DEFAULT_IDLE_MINUTES = 0`，`types.ts:932`，仅作 `mode: "idle"` 未配 `idleMinutes` 时的回退，0 = 永不过期） |
+| 默认 | `mode:"idle"` 未配 `idleMinutes` 时回退 `DEFAULT_IDLE_MINUTES = 0`（`types.ts:701`，0 = 永不过期）；但 `mode` 本身未配置时默认是 `daily`（见 2.2 更正） |
 
 ```ts
 const idleExpiresAt = lastInteractionAt + idleMinutes * 60_000;
@@ -233,6 +230,11 @@ for (const key of Object.keys(store)) {
 
 清理后调用 `archiveRemovedSessionTranscripts({ reason: "deleted" })` → transcript 变 `.deleted.`
 
+**reaper 自己的归档彻底删除（v2026.5.28 源码更正，`session-reaper.ts:123-130`）**：归档完成后，若本轮确实产生了新归档（`archivedDirs.size > 0`），reaper 会再调一次 `cleanupArchivedSessionTranscripts({ reason: "deleted", olderThanMs: retentionMs })`，对刚归档的目录做**全目录扫描**，把文件名时间戳超过 **retentionMs（默认 24h）** 的 `.deleted` 文件全部 rm。两个关键点：
+
+- 窗口是 `cron.sessionRetention`（24h），**不是** pruneAfter（30 天）——同目录里由 prune/手动删除产生的、超 24h 的 `.deleted` 归档也会被顺带删掉
+- 这是**作用域泄漏**：cron 的保留策略实际压低了共享目录里所有会话 `.deleted` 归档的保留期。前提是本轮恰好归档过东西，所以低频 cron 场景下表现为偶发性批量清除。规避：给 cron 任务单独 `agentId` 隔离目录，或 `cron.sessionRetention` 设大/`false`
+
 **`resolveRetentionMs` — 可配置：**
 
 ```ts
@@ -242,6 +244,8 @@ function resolveRetentionMs(cronConfig?) {
   // 否则解析配置值或默认 24h
 }
 ```
+
+> 注意：reaper 与 `session.maintenance.mode` **无关**——`mode: "warn"` 拦不住 reaper 的条目删除和归档清理，两者是独立代码路径（reaper 不经过 maintenance 分支）。
 
 ### 2.5 Heartbeat Runner 清理
 
@@ -301,9 +305,9 @@ Cron job 的 session 受**两层**清理机制影响：
 {
   session: {
     reset: {
-      mode: "none",         // "none" | "daily" | "idle"；缺省 "none"（不自动重置）
+      mode: "daily",        // "daily" | "idle"（v2026.5.28 无 "none"）；未配置时默认 daily@4am 自动生效
       atHour: 4,            // 每日重置时间（仅 daily 模式），0-23，缺省 4
-      idleMinutes: 60,      // 空闲超时分钟（仅 idle 模式）；0 = 永不过期
+      idleMinutes: 60,      // 空闲超时分钟（仅 idle 模式）；mode:"idle" 未配时回退 DEFAULT_IDLE_MINUTES = 0（永不过期）
     }
   }
 }
@@ -336,7 +340,7 @@ Cron job 的 session 受**两层**清理机制影响：
       mode: "enforce",            // "enforce"（缺省，执行删除）| "warn"（只告警不删）
       maxEntries: 500,            // store 上限；high-water = 500+max(25, ceil(500×0.1)) = 550 批量触发
       pruneAfter: "30d",          // 无活动超时时间（updatedAt 锚点）
-      maxDiskBytes: "10gb",       // 缺省 10 GiB，sessions 目录磁盘预算，超限最旧优先清理
+      maxDiskBytes: "10gb",       // v2026.5.28：未配置 = 不启用磁盘预算（resolveMaxDiskBytes 返回 null，store-maintenance.ts:79-90）；无 10 GiB 缺省
       highWaterBytes: "8gb",      // 缺省 80% × maxDiskBytes，清理目标水位
     }
   }
@@ -370,19 +374,19 @@ Cron job 的 session 受**两层**清理机制影响：
 }
 ```
 
-### 4.6 `reset.mode: "none"` 可完全禁用自动重置
+### 4.6 v2026.5.28 没有关闭自动重置的开关
 
-`session.reset` 的 zod schema 接受对象（`zod-schema.session.ts:16-22`）：
+`session.reset` 的 zod schema（v2026.5.28，`zod-schema.session.ts:18-24`）：
 
 ```ts
 const SessionResetConfigSchema = z.object({
-  mode: z.union([z.literal("none"), z.literal("daily"), z.literal("idle")]).optional(),
+  mode: z.union([z.literal("daily"), z.literal("idle")]).optional(),
   atHour: z.number().int().min(0).max(23).optional(),
   idleMinutes: z.number().int().positive().optional(),
 }).strict();
 ```
 
-`false`、`null`、字符串均非法；要禁用自动重置请显式配置 `{ mode: "none" }`。
+`false`、`null`、字符串、`"none"` 均非法——schema 直接拒绝 `"none"`，配置 `mode: "none"` 会校验失败。未配置 `session.reset` 时默认 `daily@4am` 生效；只能通过 `resetByType`/`resetByChannel`/`atHour` 调整滚动行为，无法完全禁用。
 
 ---
 
@@ -392,7 +396,7 @@ const SessionResetConfigSchema = z.object({
 |---|---|---|---|---|---|---|
 | **pruneStaleEntries** | 写路径 maintenance（有 stale 候选时） | 所有 session（受保护 key 除外） | ✅ 删 entry | ✅ → `.deleted.` | 30 天无活动 | `session.maintenance.pruneAfter` |
 | **capEntryCount** | 写路径 maintenance（entryCount ≥ high-water 550 时） | 所有 session（受保护 key 除外） | ✅ 删最老 entry | ✅ → `.deleted.` | high-water = 500+50 | `session.maintenance.maxEntries` |
-| **Daily Reset** | 用户发消息时（惰性） | 普通对话 session | ❌ upsert 覆盖 | ✅ → `.reset.` | 需显式配置；`atHour` 缺省 4 | `session.reset.mode` / `atHour` |
+| **Daily Reset** | 用户发消息时（惰性） | 普通对话 session | ❌ upsert 覆盖 | ✅ → `.reset.` | **v2026.5.28 默认即启用**（每天 4 点）；`atHour` 缺省 4 | `session.reset.mode` / `atHour` |
 | **Idle Reset** | 用户发消息时（惰性） | 普通对话 session | ❌ upsert 覆盖 | ✅ → `.reset.` | 需显式配置 | `session.reset.idleMinutes` |
 | **Cron Reaper** | 每 5+ 分钟定时 | cron run session | ✅ 删 entry | ✅ → `.deleted.` | 24 小时 | `cron.sessionRetention` |
 | **Cron Daily Reset** | cron 运行时（惰性） | cron base session | ❌ 仅覆盖 entry | ❌ 无归档 | 同普通会话 | `session.reset.*` |
@@ -406,9 +410,10 @@ const SessionResetConfigSchema = z.object({
 ## 6. 总结
 
 - **惰性评估**（lazy evaluation）是智能设计核心——不在凌晨 4 点设定时器，而是用户发消息时才检查是否需要 reset
-- **两种归档后缀**用途不同：`.reset.` 表示对话轮换（entry 被 upsert 覆盖、非 ACP 保留原 sessionId）、`.deleted.` 表示 entry 已从 store 删除
-- **归档文件默认永久保留**（PR #98236 之后）——只受磁盘预算（`maxDiskBytes`，缺省 10 GiB）最旧优先逐出；显式设 `resetArchiveRetention` 为时长才开启按时间删除
+- **两种归档后缀**用途不同：`.reset.` 表示对话轮换（entry 被 upsert 覆盖；v2026.5.28 滚动一律换新 sessionId）、`.deleted.` 表示 entry 已从 store 删除
+- **归档文件默认永久保留**（PR #98236 之后）——只受磁盘预算最旧优先逐出；显式设 `resetArchiveRetention` 为时长才开启按时间删除。v2026.5.28 上归档默认跟 `pruneAfter`（30 天），`.deleted.`/`.reset.` 分别清理
 - **cron reaper 单独管理** cron 运行级的 session，不受全局 `session.reset` 影响；其归档清理走 `resetArchiveRetention`
+- **时间锚点判定**：`.deleted` 只看条目 `updatedAt`；`.reset` idle 看 `lastInteractionAt`（回退 sessionStartedAt→updatedAt）、daily 看 `sessionStartedAt`；未来时间戳会被防时钟漂移守卫作废——详见配套文档第 7 节
 
 ---
 
