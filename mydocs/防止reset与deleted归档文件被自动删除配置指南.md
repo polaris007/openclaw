@@ -35,6 +35,26 @@
 
 改完后**必须重启 gateway**（配置是启动快照，热加载不可靠）。
 
+### openclaw.json 示例配置
+
+```json
+{
+  "session": {
+    "maintenance": {
+      "resetArchiveRetention": false,
+      "pruneAfter": "365d",
+      "maxEntries": 500
+    }
+  },
+  "cron": {
+    "sessionRetention": false
+  },
+  // ...其余按原有 openclaw.json 内容保留
+}
+```
+
+> 注意：示例中 `pruneAfter: "365d"`、`maxEntries: 500` 为按需调整值。若目标是 `.deleted` 归档近乎永不清理（v2026.5.28 语义），`pruneAfter` 需设为极大值（如 `"36500d"`），见第 3、5 节。
+
 ---
 
 ## 2. OpenClaw 删除这两类文件的完整逻辑
