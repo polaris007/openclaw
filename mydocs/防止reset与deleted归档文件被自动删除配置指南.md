@@ -1,7 +1,7 @@
 # 防止 .reset 与 .deleted 归档文件被自动删除——配置指南
 
 > 基准源码：本机 `openclaw-0528` checkout（**v2026.5.28**，文件存储，`sessions.json`）。
-> 当前 main（PR #98236 之后）的差异在文末单独说明。
+> 本文主体面向 **v2026.5.28**；当前 main（≥ PR #98236 合并提交 `0a8e3604ba`，2026-07-11 之后）的差异在第 4 节单独说明。
 > 2026-09-09 编写，所有结论均逐条核对源码并附 `文件:行号`。
 
 ---
@@ -145,12 +145,19 @@ cleanupArchivedSessionTranscripts({
 
 | 版本 | `.deleted` 清理窗口 | 保住 `.deleted` 的办法 |
 |---|---|---|
-| v2026.5.28（含 PR #98236 之前的版本） | `pruneAfter`（默认 30 天），无独立开关 | 必须调大 `pruneAfter`（如 `"36500d"`） |
-| 当前 main（PR #98236，2026-07-11 之后） | `resetArchiveRetention` 统一管理两种归档，缺省 keep（no age cutoff），duration 才启用删除 | `resetArchiveRetention: false` 一项即可，`pruneAfter` 已与归档清理无关 |
+| **v2026.5.28**（PR #98236 合并前，含更早版本） | `pruneAfter`（默认 30 天），无独立开关；`maxDiskBytes` 缺省关闭（`null`） | ① `resetArchiveRetention: false` + ② 调大 `pruneAfter`（如 `"36500d"`）+ ④ `cron.sessionRetention: false`，并确保 ③ 不配 `maxDiskBytes`，**四项缺一不可** |
+| **当前 main**（PR #98236 合并提交 `0a8e3604ba`，2026-07-11 之后） | `resetArchiveRetention` 统一管理 `.reset`/`.deleted`，缺省 keep（no age cutoff），duration 才启用删除 | **两项缺一不可**：`resetArchiveRetention: false` + `maxDiskBytes: false`。`pruneAfter` 已与归档清理无关 |
 
-依据：main 上 `resolveResetArchiveRetentionMs` 签名从 `(maintenance, pruneAfterMs)` 改为 `(maintenance)`；官方文档 `docs/reference/session-management-compaction.md`："age cutoff for `*.reset.*`/`*.deleted.*` transcript archives; a duration opts into deletion"。
+**版本定位说明**：PR #98236 的**描述**是"flip sessions and transcripts to sqlite storage"（存储层翻转），通篇没有提 `resetArchiveRetention`/`pruneAfter`；归档保留语义的变化来自该 PR 合并提交（`0a8e3604ba`）内单独的一条 commit bullet——"keep archived transcripts by default with zstd cold storage"：`resetArchiveRetention` 改为统一管理两种归档且缺省 keep，cron reaper 跟随同一 knob。以下以 commit 为准，不把语义变化归到 PR 标题/描述。
 
-两个版本通用的部分：④ `cron.sessionRetention: false`（reaper 独立路径）与 ③ 不配 `maxDiskBytes`（磁盘预算）。
+**关键差异**：main 上 `maxDiskBytes` 缺省**不再是关闭**，而是 **10gb**（#98236 引入缺省 2gb → #110221 提为 10gb，`src/config/sessions/store-maintenance.ts:29,102`）。磁盘预算默认激活，超水位时"最旧优先删除保留的 reset/delete 归档"（`docs/reference/session-management-compaction.md:62`），不经过 `resetArchiveRetention` 的年龄窗口。因此 main 上只设 `resetArchiveRetention: false` 挡不住容量逐出，**必须叠加 `maxDiskBytes: false`**（或 `0`/`"0"`）。
+
+依据：main 上 `resolveResetArchiveRetentionMs` 签名从 `(maintenance, pruneAfterMs)` 改为 `(maintenance)`（`src/config/sessions/store-maintenance.ts:73-93,168`），`store-maintenance-operations.ts:173-189` 两种 reason 共用同一个 `resetArchiveRetentionMs`；reaper 改读 `resolveMaintenanceConfig().resetArchiveRetentionMs`，`null`（= keep）时不传入清理规则（`src/cron/session-reaper.ts:168`）。官方文档 `docs/reference/session-management-compaction.md`："age cutoff for `*.reset.*`/`*.deleted.*` transcript archives; a duration opts into deletion"，且 "`maxDiskBytes` … `false`, `0`, or `"0"` disables"。
+
+**不再存在"两个版本通用"的配置**：
+
+- ③（不配 `maxDiskBytes`）只在 v2026.5.28 成立；main 上其缺省值已激活预算，需要的是**显式 `maxDiskBytes: false`**。
+- ④（`cron.sessionRetention: false`）只在 v2026.5.28 成立；main 上 reaper 已跟随 `resetArchiveRetentionMs`（keep 即不删归档），`cron.sessionRetention` 只控制 cron run 条目行的清理，与归档文件无关。
 
 ---
 
@@ -185,7 +192,7 @@ cleanupArchivedSessionTranscripts({
 
 ## 7. 常见误区
 
-- **"设了 `resetArchiveRetention: false` 就全保住了"** —— 仅当前 main 成立；v2026.5.28 上它只管 `.reset`，`.deleted` 走 `pruneAfter` 窗口。
+- **"设了 `resetArchiveRetention: false` 就全保住了"** —— 两个版本都不成立：v2026.5.28 上它只管 `.reset`，`.deleted` 走 `pruneAfter` 窗口（需②）；当前 main 上它只管年龄窗口，**挡不住缺省激活（10gb）的磁盘预算**，必须再设 `maxDiskBytes: false`。
 - **"`mode: "warn"` 就什么都不会删"** —— 它只停出口 A；reaper（出口 B）和显式 `--enforce` 命令不受影响；磁盘预算评估照跑（warnOnly 不删，但别配 `maxDiskBytes` 才是彻底关闭）。
 - **"文件没被删是因为没到期"** —— 清理是惰性的：到期的文件要等下一次"符合条件的 store 保存"才被扫到；反过来，文件还活着也不代表永远不会被删。
 - **"mtime 新就不会被删"** —— 出口 A/B 的年龄锚点是**文件名内嵌时间戳**；只有磁盘预算不看年龄（按容量+最旧优先）。
