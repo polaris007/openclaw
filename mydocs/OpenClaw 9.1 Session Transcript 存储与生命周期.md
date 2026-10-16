@@ -160,27 +160,53 @@ session_windows  (session_id，1 行 = 一代)   ◄── 删这一行 = 删掉
 - 定时任务会话超 `cron.sessionRetention`（默认 24h）
 - `sessions cleanup --fix-missing` 清理记录损坏的条目
 - 删除整个 agent
-- 磁盘超预算（`maxDiskBytes`，默认 10GB）时按最旧淘汰历史会话
+- 磁盘超预算时按最旧淘汰历史会话 —— 见下方"磁盘预算淘汰"
 
 **动作顺序**：
 
-1. `A` `session_transcript_archives`：这一代的对话压缩后写入（与删除同一事务）
+1. `A` `session_transcript_archives`：这一代的对话**压缩后写进数据库**（`archive_blob`，与删除同一事务）
 2. `D` `session_windows` → 数据库自动连带删除 `transcript_events`、`transcript_event_identities`、派生表、watermark、`session_pending_inputs`、轨迹等
 3. 事务提交后，再导出磁盘文件 `sessions/<id>.jsonl.deleted.<时间戳>[.zst]`
 4. `session_nodes` 通常**保留**（`current_session_id` 换成别的）；这个 key 一个 id 都不剩时才删
 
 隐身会话例外：不留归档，直接删。
 
+> **第 1 步和第 3 步是同一份内容的两份压缩副本**（库内 `archive_blob` + 磁盘文件）。所以"先备份、再删行"在磁盘占用上是**先升后降**，不是一步到位。库内那份是权威副本，磁盘那份是给人读的派生物。
+
+#### 磁盘预算淘汰
+
+`maxDiskBytes` 缺省 **10GiB，且默认生效**（只有显式配 `false` / `0` / `"0"` 才关闭；不写任何配置就是 10GiB 生效）。
+
+它是**每个 agent 各自**的物理占用上限，计量范围 = 该 agent 的 SQLite 主文件 + `-wal` + 该 agent `sessions/` 目录下的全部文件（含 `.deleted`/`.reset` 归档、prompt blob）。`-shm` 不计入。
+
+**判断的是"已用量超过 10GiB"，完全不看磁盘剩余空间**——剩余空间只被 worker 调度、备份校验、doctor 引用，与本机制无关。
+
+目标水位 `highWaterBytes` 缺省为 `maxDiskBytes` 的 80%（即 8GiB）。检查时机：每次会话条目写入后检查一次（30 分钟节流）；delete/reset 提交后再强制检查一次（绕过节流，因为删除本身会因新归档而抬高占用）；以及 `openclaw sessions cleanup`。
+
+执行顺序：
+
+1. checkpoint + incremental vacuum，先回收可回收的页（**普通 delete 路径不做这件事**，所以删掉的行留下的空洞会一直占着文件体积，要等预算清理才被压回去）
+2. 仍超水位 → 走 ⑧ 剪最旧归档
+3. 仍超水位 → 按 `session_windows.updated_at` 最旧优先淘汰历史会话，每淘汰一个就重新计量一次字节，达标即停
+4. 候选耗尽仍未达标 → 最后再剪一次归档
+
+**淘汰多少没有固定条数**：淘汰量 = 把占用从 >10GiB 拉回 ≤8GiB 所需的最少条数，1 条或几百条都可能；每轮没有上限。候选是所有未被 live entry 引用、未被 route 指向、无在途 admission、且不在 `preserveRecentMs` 窗口内的 `session_windows` 行（`preserveRecentMs` 缺省 `null`，即不生效）。注意此路径**不**套用 ⑦ 其他触发里的 archived / pinned / main / group / thread 保护——极端压力下那些会话的**旧世代**仍可被淘汰。
+
 ### ⑧ 归档被清掉（不可逆）
 
 **触发**（任一）：
 
-- `session.maintenance.resetArchiveRetention` 设了时长且到期（默认 `null` = 永不清）
-- 磁盘超预算时，先删最旧的归档文件，再删对应的归档记录行
+- `session.maintenance.resetArchiveRetention` 设了时长且到期（默认 `null` = 永不清；一旦设了时长，则同时管 `.reset.*` 和 `.deleted.*` 两类）
+- 磁盘超预算时按最旧优先剪归档 —— 见 ⑦"磁盘预算淘汰"，**排在淘汰会话之前**
 
 **动作**：`D` 磁盘归档文件 + `D` `session_transcript_archives` 行。
 
 删除顺序固定为**先删文件、确认文件没了、再删记录行**——记录行里的压缩数据是"文件丢了还能重建"的副本；反过来先删行，磁盘上会留下数据库已不认识、且再也没人能清理的孤儿文件。
+
+**两个反直觉但有意的行为**：
+
+- **同一轮里可以删掉自己刚生成的 `.deleted` 文件。** 淘汰会话、发布归档之后若仍超水位，会立刻按 mtime 最旧优先再剪一次归档，刚写出的那个完全可能被选中。这是明确取舍：宁可丢一份已提取的副本，也不愿再多毁掉一份仍可搜索的历史——"每个会话的数据最多被毁一次"优先于"保住一份副本"。可压缩的 JSONL 文本（zstd 约 10:1）通常能活下来；不可压缩内容（base64、图片）则很可能被立即回收。
+- **未发布的归档永不删除。** `published_at IS NULL` 表示文件尚未导出成功，此时库内 `archive_blob` 是崩溃后唯一的恢复副本，任何压力下都不作为剪除对象。
 
 **到这一步内容才真正消失**，没有回收站。要可追溯只能靠事先的快照备份。
 
@@ -202,3 +228,34 @@ session_windows  (session_id，1 行 = 一代)   ◄── 删这一行 = 删掉
 | 6 | **WAL 模式** | 最新数据可能还在 `-wal`；读取需能访问 `-wal`/`-shm`，只拷主文件会漏 |
 | 7 | **派生表是缓存** | 读 `transcript_events` 永远最稳；读派生表可能遇到"待重建/稍后重试" |
 | 8 | **归档文件也是数据来源** | 走读历史的链路在库里查不到时会回退去读 `.deleted.zst` 归档文件 |
+| 9 | **磁盘预算的牺牲顺序是"先归档、后会话"** | 超预算时优先牺牲已提取的副本，而不是多毁一份仍可搜索的历史 |
+| 10 | **删除会让磁盘占用瞬时翻倍** | 同一份对话先落库（`archive_blob`）再导出文件，两份压缩副本并存；不可压缩内容下 ⑧ 可能当轮就回收掉刚生成的那个 |
+| 11 | **只有磁盘预算路径会回收 SQLite 空洞** | 普通 delete 释放的页留在文件里不压缩，删会话不会让文件体积下降 |
+
+---
+
+## 5. ⑦⑧ 磁盘预算的源码依据（2026.9.1）
+
+| 结论 | 位置 |
+|---|---|
+| 10GiB 缺省、缺省即生效 | `0901:src/config/sessions/store-maintenance.ts:30,136` |
+| `highWaterBytes` 缺省 80% | `0901:src/config/sessions/store-maintenance.ts:27,160-163` |
+| 关闭方式 `false` / `0` / `"0"` | `0901:src/config/sessions/store-maintenance.ts:129-151` |
+| 计量 = sqlite 主文件 + `-wal` + `sessions/` 目录（不含 `-shm`） | `0901:src/config/sessions/disk-budget.ts:275-306` |
+| 判定用 `>`，不看剩余空间 | `0901:src/config/sessions/session-history-eviction.ts:559` |
+| 预算执行主体 | `0901:src/config/sessions/session-history-eviction.ts:551-738` |
+| 最旧优先、无条数上限、每轮重算字节 | `0901:src/config/sessions/session-history-eviction.ts:594-709` |
+| 候选与保护范围（entry / route / admission / preserveRecent） | `0901:src/config/sessions/session-history-eviction.ts:266-287` |
+| "可剪掉本轮刚生成的归档"的取舍注释 | `0901:src/config/sessions/session-history-eviction.ts:692-708`；`0901:src/config/sessions/disk-budget.ts:319-321` |
+| 归档剪除：先删文件、再删记录行 | `0901:src/config/sessions/session-history-eviction.ts:362-419` |
+| 未发布归档永不剪除 | `0901:src/config/sessions/session-history-eviction.ts:379,438` |
+| 空洞回收只在预算路径 | `0901:src/config/sessions/session-history-eviction.ts:289-303,575,664` |
+| 归档名格式 `<id>.jsonl.<reason>.<时间戳>[.zst]` | `0901:src/config/sessions/session-accessor.sqlite-archive.ts:115` |
+| 库内 `archive_blob`（权威副本） | `0901:src/state/openclaw-agent-schema.sql:400-416` |
+| 触发点：写入后 30min 节流 | `0901:src/config/sessions/session-accessor.sqlite-entry.ts:574`；`0901:src/config/sessions/session-history-eviction.ts:450` |
+| 触发点：delete/reset 提交后强制 | `0901:src/config/sessions/session-accessor.sqlite-lifecycle.ts:95` |
+| 触发点：`openclaw sessions cleanup` | `0901:src/config/sessions/cleanup-service.ts:615` |
+| `resetArchiveRetention` 同管两类归档 | `0901:src/config/sessions/store-maintenance-operations.ts:184-198` |
+| 行为回归测试 | `0901:src/config/sessions/session-history-eviction.test.ts:196,252,291,318,375` |
+
+官方口径同源：`0901:docs/reference/session-management-compaction.md:53-62`。
