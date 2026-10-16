@@ -181,16 +181,49 @@ session_windows  (session_id，1 行 = 一代)   ◄── 删这一行 = 删掉
 
 **判断的是"已用量超过 10GiB"，完全不看磁盘剩余空间**——剩余空间只被 worker 调度、备份校验、doctor 引用，与本机制无关。
 
-目标水位 `highWaterBytes` 缺省为 `maxDiskBytes` 的 80%（即 8GiB）。检查时机：每次会话条目写入后检查一次（30 分钟节流）；delete/reset 提交后再强制检查一次（绕过节流，因为删除本身会因新归档而抬高占用）；以及 `openclaw sessions cleanup`。
+目标水位 `highWaterBytes` 缺省为 `maxDiskBytes` 的 80%（即 8GiB）。检查时机：每次会话条目写入后检查一次（30 分钟节流）；delete/reset 提交后再强制检查一次（绕过节流，因为删除本身会因新归档而抬高占用）；以及 `openclaw sessions cleanup`。同一 store 同时最多跑一轮（单槽队列），防止两轮拿过期的计量值互相驱逐。
 
-执行顺序：
+**全程一次只处理一个，不批量。** 单轮骨架：
 
-1. checkpoint + incremental vacuum，先回收可回收的页（**普通 delete 路径不做这件事**，所以删掉的行留下的空洞会一直占着文件体积，要等预算清理才被压回去）
-2. 仍超水位 → 走 ⑧ 剪最旧归档
-3. 仍超水位 → 按 `session_windows.updated_at` 最旧优先淘汰历史会话，每淘汰一个就重新计量一次字节，达标即停
-4. 候选耗尽仍未达标 → 最后再剪一次归档
+```
+【进入】计量 → 若 ≤ 10GiB 直接返回，什么都不做
+
+【预处理】checkpoint + incremental vacuum，重新计量
+   └ 仍 > 8GiB ? → 剪归档（while 循环，逐个删到 ≤ 8GiB）
+
+【主循环】candidates = 一次性查出全部候选（只是一条 SELECT，不动数据）
+   │
+   ├─ 若已 ≤ 8GiB → 跳出
+   ├─ 淘汰【1 个】会话：
+   │     归档（transcript → zstd → archive_blob，与删行同一事务）
+   │     删行（session_windows + 级联）→ 回收空洞
+   │     导出【1 个】.deleted 文件
+   ├─ 重新计量（每个受害者都量一次）
+   ├─ 仍 > 8GiB ? → 剪归档（while 循环，逐个）
+   └─ 回到循环头，下一个会话
+
+【收尾】候选耗尽仍未达标 → 最后再剪一次归档
+```
+
+两个粒度都是逐个处理：
+
+- **归档侧（会话维度）**：主循环一次一个。每个会话单独包在一段生命周期独占区里，拿独占 → 放掉 SQLite writer 去写归档 → 重新拿锁提交删除 → 释放。不是偷懒：归档 I/O 必须放开写锁，否则长会话的压缩写入会长时间占住 writer。
+- **剪归档侧（文件维度）**：`while` 循环每次只取**一条**（`orderBy created_at asc LIMIT 1`），删完（先删文件、再删记录行）立刻重新计量，再决定要不要删下一条。
+
+**归档与永久删除是交替发生的，不是两个前后阶段。** 归档不是独立的前置步骤，而是每次淘汰动作的内嵌步骤；永久删除也不是归档的必然后续，而是"重新计量后仍超水位"时才进的应急出口。所以实际形态是**锯齿**：
+
+```
+evict #1 → +归档A → 重新计量 → 仍超水位 → 剪归档（可能把 A 剪了）
+evict #2 → +归档B → 重新计量 → 仍超水位 → 剪归档（可能把 B 剪了）→ …
+```
+
+每淘汰一个就重新判断一次：压到 8GiB 以下就停，刚生成的 `.deleted` 也会留下来；压不下去就立刻回头剪归档（此时刚生成的那个往往正是最旧的，会被剪掉）。兜底取舍是"每个会话的数据最多被毁一次"——宁可牺牲一份已提取的副本，也不愿再多毁一份仍可搜索的历史（见 ⑧）。
 
 **淘汰多少没有固定条数**：淘汰量 = 把占用从 >10GiB 拉回 ≤8GiB 所需的最少条数，1 条或几百条都可能；每轮没有上限。候选是所有未被 live entry 引用、未被 route 指向、无在途 admission、且不在 `preserveRecentMs` 窗口内的 `session_windows` 行（`preserveRecentMs` 缺省 `null`，即不生效）。注意此路径**不**套用 ⑦ 其他触发里的 archived / pinned / main / group / thread 保护——极端压力下那些会话的**旧世代**仍可被淘汰。
+
+候选耗尽而仍高于水位时，这一轮**静默结束**（无日志、无事件），等下一次 kick 最多 30 分钟后重试。典型场景是候选全被 route/admission 保护住、或历史内容不可压缩导致压缩回收失效。
+
+> **为什么删会话能让文件变小**：agent 库是以 `auto_vacuum = INCREMENTAL` 打开的，所以 `reclaimSqliteFreePages()` 里的 `PRAGMA incremental_vacuum(freelist_count)` 会真的把页还给文件系统（默认 `auto_vacuum = NONE` 则完全空转）。叠加 zstd 归档，"归档一个"这一步本身就是净回收——可压缩文本约回收 90%+。真正无净收益的是不可压缩内容（base64、图片），此时归档剪除会连文件带记录行一起删，净值归零。
 
 ### ⑧ 归档被清掉（不可逆）
 
@@ -231,6 +264,8 @@ session_windows  (session_id，1 行 = 一代)   ◄── 删这一行 = 删掉
 | 9 | **磁盘预算的牺牲顺序是"先归档、后会话"** | 超预算时优先牺牲已提取的副本，而不是多毁一份仍可搜索的历史 |
 | 10 | **删除会让磁盘占用瞬时翻倍** | 同一份对话先落库（`archive_blob`）再导出文件，两份压缩副本并存；不可压缩内容下 ⑧ 可能当轮就回收掉刚生成的那个 |
 | 11 | **只有磁盘预算路径会回收 SQLite 空洞** | 普通 delete 释放的页留在文件里不压缩，删会话不会让文件体积下降 |
+| 12 | **淘汰与剪归档交替发生，全程逐个处理** | 表现为锯齿；每个受害者都单独重新计量一次，占用降到水位以下立刻停 |
+| 13 | **淘汰达不到水位时静默放弃** | 无日志无事件，最快也要等下一次 30 分钟节流才重试，磁盘持续超限却没有任何信号 |
 
 ---
 
@@ -245,11 +280,17 @@ session_windows  (session_id，1 行 = 一代)   ◄── 删这一行 = 删掉
 | 判定用 `>`，不看剩余空间 | `0901:src/config/sessions/session-history-eviction.ts:559` |
 | 预算执行主体 | `0901:src/config/sessions/session-history-eviction.ts:551-738` |
 | 最旧优先、无条数上限、每轮重算字节 | `0901:src/config/sessions/session-history-eviction.ts:594-709` |
+| 主循环一次一个会话、每个受害者重新计量 | `0901:src/config/sessions/session-history-eviction.ts:600,691` |
+| 每会话一段生命周期独占（写归档时放开 writer） | `0901:src/config/sessions/session-history-eviction.ts:604-607,629-630` |
+| 剪归档 while 循环每轮只取一条 + 重计量 | `0901:src/config/sessions/session-history-eviction.ts:370-417` |
+| 同 store 单槽，避免两轮互相驱逐 | `0901:src/config/sessions/session-history-eviction.ts:533-544` |
+| 达不到水位则静默结束（对照 legacy 路径有 warn） | `0901:src/config/sessions/session-history-eviction.ts:711-724`；对照 `0901:src/config/sessions/disk-budget.ts:932-941` |
 | 候选与保护范围（entry / route / admission / preserveRecent） | `0901:src/config/sessions/session-history-eviction.ts:266-287` |
 | "可剪掉本轮刚生成的归档"的取舍注释 | `0901:src/config/sessions/session-history-eviction.ts:692-708`；`0901:src/config/sessions/disk-budget.ts:319-321` |
 | 归档剪除：先删文件、再删记录行 | `0901:src/config/sessions/session-history-eviction.ts:362-419` |
 | 未发布归档永不剪除 | `0901:src/config/sessions/session-history-eviction.ts:379,438` |
 | 空洞回收只在预算路径 | `0901:src/config/sessions/session-history-eviction.ts:289-303,575,664` |
+| agent 库以 `auto_vacuum = INCREMENTAL` 打开（否则回收空转） | `0901:src/infra/sqlite-wal.ts:95-100`；断言 `0901:src/state/openclaw-agent-db.test.ts:3495` |
 | 归档名格式 `<id>.jsonl.<reason>.<时间戳>[.zst]` | `0901:src/config/sessions/session-accessor.sqlite-archive.ts:115` |
 | 库内 `archive_blob`（权威副本） | `0901:src/state/openclaw-agent-schema.sql:400-416` |
 | 触发点：写入后 30min 节流 | `0901:src/config/sessions/session-accessor.sqlite-entry.ts:574`；`0901:src/config/sessions/session-history-eviction.ts:450` |
